@@ -87,14 +87,14 @@
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
             
-            if (id && parseInt(id) >= 1 && parseInt(id) <= 18) {
+            if (id && parseInt(id) >= 1 && parseInt(id) <= 20) {
                 try {
-                    const response = await fetch(`qa_master_ch${id}.html`);
+                    // Added versioning to bypass browser cache and show the latest changes
+                    const response = await fetch(`qa_master_ch${id}.html?v=${new Date().getTime()}`);
                     if (!response.ok) throw new Error('File not found');
                     
                     const html = await response.text();
                     
-                    // Extract only the content inside #contentToCopy
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
                     const content = doc.getElementById('contentToCopy');
