@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>नोट्स - प्रीमियम HTML व्यू</title>
+    <title>Q&A - प्रीमियम HTML व्यू</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .page-container {
@@ -33,16 +33,16 @@
     <div class="bg-animation"></div>
     <div class="container" style="position: relative;">
         <!-- Floating Home Button -->
-        <a href="index.html" class="floating-home-btn" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background: #1e293b; color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 2px solid #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🏠</a>
+        <a href="index.html" class="floating-home-btn" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background: #1e293b; color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 2px solid #059669; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🏠</a>
         
         <div class="page-container">
             <!-- Copy Button Fixed at the Top (Always visible/stable) -->
-            <button id="floatingCopyBtn" class="premium-copy-btn" onclick="copyEntireContent()" style="width: 100%; margin-bottom: 30px; background: #3b82f6; color: white; padding: 20px; border: none; border-radius: 12px; font-size: 2rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #1e40af;">
+            <button id="floatingCopyBtn" class="premium-copy-btn" onclick="copyEntireContent()" style="width: 100%; margin-bottom: 30px; background: #059669; color: white; padding: 20px; border: none; border-radius: 12px; font-size: 2rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #047857;">
                 📋
             </button>
 
             <div id="notes-content">
-                <div class="loading">नोट्स लोड हो रहे हैं... (50 पन्ने)</div>
+                <div class="loading">Q&A लोड हो रहे हैं... (20+ प्रश्न)</div>
             </div>
         </div>
     </div>
@@ -72,11 +72,11 @@
                 await navigator.clipboard.write([item]);
                 
                 btn.innerText = '✅';
-                btn.style.background = '#059669';
+                btn.style.background = '#047857';
                 
                 setTimeout(() => {
                     btn.innerText = '📋';
-                    btn.style.background = 'var(--accent-color)';
+                    btn.style.background = '#059669';
                 }, 3000);
             } catch (err) {
                 alert('Copy failed: ' + err);
@@ -88,9 +88,8 @@
             const id = urlParams.get('id');
             
             if (id && parseInt(id) >= 1 && parseInt(id) <= 18) {
-                // Fetch the specialized 50-page Copy Master content for the selected chapter
                 try {
-                    const response = await fetch(`copy_master_ch${id}.html`);
+                    const response = await fetch(`qa_master_ch${id}.html`);
                     if (!response.ok) throw new Error('File not found');
                     
                     const html = await response.text();
@@ -102,15 +101,15 @@
                     
                     if (content) {
                         document.getElementById('notes-content').innerHTML = content.innerHTML;
-                        document.title = "नोट्स - चैप्टर " + id;
+                        document.title = "Q&A - चैप्टर " + id;
                     } else {
-                        document.getElementById('notes-content').innerHTML = "<p>त्रुटि: नोट्स प्राप्त नहीं हो सके।</p>";
+                        document.getElementById('notes-content').innerHTML = "<p>त्रुटि: Q&A प्राप्त नहीं हो सके।</p>";
                     }
                 } catch (err) {
-                    document.getElementById('notes-content').innerHTML = `<p>त्रुटि: चैप्टर ${id} के नोट्स अभी उपलब्ध नहीं हैं।</p>`;
+                    document.getElementById('notes-content').innerHTML = `<p>त्रुटि: चैप्टर ${id} के Q&A अभी उपलब्ध नहीं हैं।</p>`;
                 }
             } else {
-                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए प्रीमियम HTML व्यू जल्द ही आ रहा है!</h3><p>कृपया अभी के लिए अन्य चैप्टर्स को आज़माएँ।</p>";
+                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए Q&A व्यू जल्द ही आ रहा है!</h3><p>कृपया अभी के लिए अन्य चैप्टर्स को आज़माएँ।</p>";
             }
         });
     </script>
