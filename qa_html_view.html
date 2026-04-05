@@ -97,8 +97,15 @@
                     
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    const content = doc.getElementById('contentToCopy');
                     
+                    // 1. Extract and inject styles from the fetched chapter
+                    const styles = doc.querySelectorAll('style');
+                    styles.forEach(style => {
+                        document.head.appendChild(style.cloneNode(true));
+                    });
+
+                    // 2. Extract and inject the content
+                    const content = doc.getElementById('contentToCopy');
                     if (content) {
                         document.getElementById('notes-content').innerHTML = content.innerHTML;
                         document.title = "Q&A - चैप्टर " + id;
