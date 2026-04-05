@@ -152,42 +152,6 @@
             }
         });
     </script>
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-            
-            if (id && parseInt(id) >= 1 && parseInt(id) <= 20) {
-                try {
-                    const response = await fetch(`qa_master_ch${id}.html?v=${new Date().getTime()}`);
-                    if (!response.ok) throw new Error('File not found');
-                    
-                    const html = await response.text();
-                    
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    // 1. Extract and inject styles from the fetched chapter
-                    const styles = doc.querySelectorAll('style');
-                    styles.forEach(style => {
-                        document.head.appendChild(style.cloneNode(true));
-                    });
-
-                    // 2. Extract and inject the content
-                    const content = doc.getElementById('contentToCopy');
-                    if (content) {
-                        document.getElementById('notes-content').innerHTML = content.innerHTML;
-                        document.title = "Q&A - चैप्टर " + id;
-                    } else {
-                        document.getElementById('notes-content').innerHTML = "<p>त्रुटि: Q&A प्राप्त नहीं हो सके।</p>";
-                    }
-                } catch (err) {
-                    document.getElementById('notes-content').innerHTML = `<p>त्रुटि: चैप्टर ${id} के Q&A अभी उपलब्ध नहीं हैं।</p>`;
-                }
-            } else {
-                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए Q&A व्यू जल्द ही आ रहा है!</h3><p>कृपया अभी के लिए अन्य चैप्टर्स को आज़माएँ।</p>";
-            }
-        });
     </script>
 </body>
 </html>
