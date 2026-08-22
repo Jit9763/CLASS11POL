@@ -18,7 +18,7 @@
         }
         .page-container {
             width: var(--container-width, 1400px) !important;
-            max-width: none !important;
+            max-width: 95%;
             margin: 0 auto;
             padding: 20px;
             background: transparent;
@@ -26,12 +26,6 @@
         #notes-content > div {
             width: 100% !important;
             max-width: 100% !important;
-        }
-        @media (max-width: 1400px) {
-            .page-container {
-                width: 95% !important;
-                max-width: 100% !important;
-            }
         }
         .nav-back {
             margin-bottom: 20px;
@@ -140,6 +134,7 @@
             if (containerWidth > 6000) containerWidth = 6000;
             const container = document.querySelector('.page-container');
             if (container) {
+                container.style.maxWidth = 'none';
                 container.style.setProperty('--container-width', containerWidth + 'px');
             }
         }
