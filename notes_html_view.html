@@ -6,19 +6,37 @@
     <title>नोट्स - प्रीमियम HTML व्यू</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        body {
+            overflow-x: auto !important;
+        }
+        .container {
+            max-width: none !important;
+            width: fit-content !important;
+            min-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 20px 40px !important;
+        }
         .page-container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            color: #1a202c;
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background: transparent;
+        }
+        #notes-content > div {
+            width: var(--container-width, 1400px) !important;
+            max-width: none !important;
+        }
+        @media (max-width: 1400px) {
+            #notes-content > div {
+                width: 95% !important;
+                max-width: 100% !important;
+            }
         }
         .nav-back {
             margin-bottom: 20px;
             display: inline-block;
-            color: var(--accent-color);
+            color: #3b82f6;
             text-decoration: none;
             font-weight: bold;
         }
@@ -26,159 +44,243 @@
             text-align: center;
             padding: 100px;
             font-size: 1.5rem;
+            color: #1e293b;
         }
 
-        /* Action Bar for Copy/Print - Changed to absolute to scroll with content */
+        #notes-content .adjustable-text {
+            font-size: max(2px, calc(var(--orig-size) + var(--size-offset, 0px))) !important;
+            font-weight: calc(var(--orig-weight) + var(--weight-offset, 0)) !important;
+            -webkit-text-stroke-width: max(0px, calc(var(--orig-stroke, 0px) + var(--stroke-offset, 0px))) !important;
+            -webkit-text-stroke-color: #000000 !important;
+        }
+
+        /* Action Bar styling matching political-science */
         .action-bar {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             display: flex;
             gap: 10px;
-            z-index: 1100;
-        }
-
-        .action-btn {
-            width: 50px;
-            height: 50px;
+            z-index: 2000;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
             border-radius: 12px;
-            border: 2px solid #3b82f6;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .action-btn {
             background: #1e293b;
-            color: white;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 1.5px solid #3b82f6;
+            color: #3b82f6;
+            padding: 6px 12px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
             transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
         .action-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             background: #3b82f6;
+            color: white;
         }
 
-        .btn-copy.success {
-            background: #059669;
-            border-color: #10b981;
+        /* Print Styles to ensure PDF is PERFECT on A4 */
+        @page {
+            margin: 10mm;
+            size: A4;
         }
-
         @media print {
-            .bg-animation, 
-            .floating-home-btn, 
-            .action-bar {
-                display: none !important;
-            }
-            body { 
-                background: white !important; 
-                margin: 0; 
-                padding: 0;
-            }
-            .container {
-                padding: 0;
-                margin: 0;
-            }
-            .page-container {
-                width: 100% !important;
-                max-width: none !important;
-                box-shadow: none !important;
-                margin: 0 !important;
-                padding: 20px !important;
-                border-radius: 0 !important;
-                background: white !important;
-            }
-        }
-        /* Prevent images and containers from overflowing */
-        * {
-            box-sizing: border-box;
-        }
-        #notes-content img {
-            max-width: 100%;
-            height: auto;
+            .bg-animation, .action-bar, .floating-home-btn, .nav-back { display: none !important; }
+            body { background: white !important; padding: 0 !important; }
+            .page-container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+            .master-container { width: 100% !important; margin: 0 !important; padding: 10mm !important; border: none !important; box-shadow: none !important; background-color: white !important; }
+            .section-divider { page-break-after: avoid; }
+            #notes-content > div { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 10mm !important; }
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
-    <div class="container" style="position: relative;">
-        <!-- Floating Home Button -->
-        <a href="index.html" class="floating-home-btn" style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; background: #1e293b; color: white; width: 45px; height: 45px; border-radius: 50%; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease;">🏠</a>
+    <div class="container" style="position: relative; width: 100%;">
+        <!-- Action Bar at TOP RIGHT -->
+        <div class="action-bar">
+            <button class="action-btn" onclick="adjustWidth(40)" title="Increase Page Width">W+</button>
+            <button class="action-btn" onclick="adjustWidth(-40)" title="Decrease Page Width">W-</button>
+            <button class="action-btn" onclick="adjustFontSize(2)" title="Increase Font Size">A+</button>
+            <button class="action-btn" onclick="adjustFontSize(-2)" title="Decrease Font Size">A-</button>
+            <button class="action-btn" onclick="adjustFontWeight(100)" title="Increase Text Boldness">B+</button>
+            <button class="action-btn" onclick="adjustFontWeight(-100)" title="Decrease Text Boldness">B-</button>
+            <button id="copyBtn" class="action-btn" onclick="copyEntireContent()" title="Copy Formatting">📋</button>
+            <button id="pdfBtn" class="action-btn" onclick="generatePDF()" title="Download PDF or Print">📥</button>
+        </div>
         
-        <div class="page-container" style="position: relative;">
-            <div class="action-bar">
-                <button id="floatingCopyBtn" class="action-btn btn-copy" onclick="copyEntireContent()" title="Copy for Google Docs">📋</button>
-                <button class="action-btn" onclick="window.print()" title="Print / Save as PDF">🖨️</button>
-            </div>
-
+        <!-- Floating Home Button -->
+        <a href="index.html" class="floating-home-btn" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background: #1e293b; color: white; padding: 15px; border-radius: 50%; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 2px solid #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; width: 65px; height: 65px;">🏠</a>
+        
+        <div class="page-container">
             <div id="notes-content">
-                <div class="loading">नोट्स लोड हो रहे हैं... (50 पन्ने)</div>
+                <div class="loading">नोट्स लोड हो रहे हैं... (शामिल हैं 50 पन्ने)</div>
             </div>
         </div>
     </div>
 
     <script>
+        let containerWidth = 1400; // default width in pixels
+        let sizeOffset = 0;
+        let weightOffset = 0;
+        let strokeOffset = 0;
+
+        function adjustWidth(amount) {
+            containerWidth += amount;
+            if (containerWidth < 500) containerWidth = 500;
+            if (containerWidth > 6000) containerWidth = 6000;
+            const targetContent = document.getElementById('notes-content');
+            if (targetContent) {
+                targetContent.style.setProperty('--container-width', containerWidth + 'px');
+            }
+        }
+
+        function adjustFontSize(amount) {
+            sizeOffset += amount;
+            if (sizeOffset < -50) sizeOffset = -50;
+            if (sizeOffset > 60) sizeOffset = 60;
+            const container = document.getElementById('notes-content');
+            if (container) {
+                container.style.setProperty('--size-offset', sizeOffset + 'px');
+            }
+        }
+
+        function adjustFontWeight(amount) {
+            weightOffset += amount;
+            if (weightOffset < -600) weightOffset = -600;
+            if (weightOffset > 800) weightOffset = 800;
+            
+            strokeOffset += (amount / 100) * 0.4;
+            if (strokeOffset < -3.0) strokeOffset = -3.0;
+            if (strokeOffset > 5.0) strokeOffset = 5.0;
+            
+            const container = document.getElementById('notes-content');
+            if (container) {
+                container.style.setProperty('--weight-offset', weightOffset);
+                container.style.setProperty('--stroke-offset', strokeOffset + 'px');
+            }
+        }
+
+        function initTextFormatting(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const elements = container.querySelectorAll('*');
+            elements.forEach(el => {
+                const tagName = el.tagName.toLowerCase();
+                if (['script', 'style', 'img', 'br', 'hr'].includes(tagName)) return;
+                
+                const style = window.getComputedStyle(el);
+                const fontSize = style.fontSize;
+                const fontWeight = style.fontWeight;
+                const strokeWidth = style.webkitTextStrokeWidth;
+                
+                if (fontSize) {
+                    el.style.setProperty('--orig-size', fontSize);
+                }
+                if (fontWeight) {
+                    let weightVal = fontWeight;
+                    if (fontWeight === 'normal') weightVal = '400';
+                    else if (fontWeight === 'bold') weightVal = '700';
+                    el.style.setProperty('--orig-weight', weightVal);
+                }
+                if (strokeWidth && strokeWidth !== '0px' && strokeWidth !== '') {
+                    el.style.setProperty('--orig-stroke', strokeWidth);
+                }
+                el.classList.add('adjustable-text');
+            });
+        }
+
         async function copyEntireContent() {
-            const btn = document.getElementById('floatingCopyBtn');
+            const btn = document.getElementById('copyBtn');
             const target = document.getElementById('notes-content');
-            
-            // Clone the content to modify it for copying
+            if (!target) return;
+
+            // Clone target to clean up style-offset variables before copying
             const clone = target.cloneNode(true);
-            
-            // CRITICAL: Convert all relative image paths to Absolute URLs
-            // This ensures Google Docs can find the images on your public GitHub Pages
-            const images = clone.querySelectorAll('img');
-            images.forEach(img => {
-                // img.src in JS automatically returns the full absolute URL
-                img.setAttribute('src', img.src);
+            const adjustableElements = clone.querySelectorAll('.adjustable-text');
+            adjustableElements.forEach(el => {
+                // Remove dynamic scaling class
+                el.classList.remove('adjustable-text');
+                
+                // Read inline styles if any, clean up CSS variables
+                const styleAttr = el.getAttribute('style') || '';
+                let cleanedStyle = styleAttr
+                    .replace(/--orig-size:[^;]+;?/g, '')
+                    .replace(/--orig-weight:[^;]+;?/g, '')
+                    .replace(/--orig-stroke:[^;]+;?/g, '')
+                    .replace(/--size-offset:[^;]+;?/g, '')
+                    .replace(/--weight-offset:[^;]+;?/g, '')
+                    .replace(/--stroke-offset:[^;]+;?/g, '')
+                    .trim();
+                
+                if (cleanedStyle === '') {
+                    el.removeAttribute('style');
+                } else {
+                    el.setAttribute('style', cleanedStyle);
+                }
             });
 
-            const content = clone.innerHTML;
-            
+            // Get styles to bundle
+            const styles = Array.from(document.querySelectorAll('style'))
+                .map(s => s.innerHTML)
+                .join('\n');
+
+            const richHTML = `<!DOCTYPE html><html><head><style>${styles}</style></head>
+            <body><div class="master-container" style="padding: 20px;">${clone.innerHTML}</div></body></html>`;
+
             try {
-                // Ensure images use absolute URLs for docs sync
-                const blob = new Blob([content], { type: 'text/html' });
+                const blob = new Blob([richHTML], { type: 'text/html' });
                 const item = new ClipboardItem({ 'text/html': blob });
                 await navigator.clipboard.write([item]);
                 
                 btn.innerText = '✅';
-                btn.classList.add('success');
-                
-                setTimeout(() => {
-                    btn.innerText = '📋';
-                    btn.classList.remove('success');
-                }, 3000);
+                setTimeout(() => btn.innerText = '📋', 2000);
             } catch (err) {
                 alert('Copy failed: ' + err);
             }
+        }
+
+        function generatePDF() {
+            window.print();
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
             
-            if (id && parseInt(id) >= 1 && parseInt(id) <= 15) {
-                // Fetch the specialized 50-page Copy Master content for the selected chapter
+            if (id && parseInt(id) >= 1 && parseInt(id) <= 18) {
                 try {
-                    const response = await fetch(`copy_master_ch${id}.html`);
+                    const response = await fetch(`copy_master_ch${id}.html?v=${new Date().getTime()}`);
                     if (!response.ok) throw new Error('File not found');
                     
                     const html = await response.text();
                     
-                    // Extract only the content inside #contentToCopy
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    const content = doc.getElementById('contentToCopy');
                     
+                    // Extract styles
+                    const styles = doc.querySelectorAll('style');
+                    styles.forEach(style => {
+                        document.head.appendChild(style.cloneNode(true));
+                    });
+
+                    // Extract content
+                    const content = doc.getElementById('contentToCopy');
                     if (content) {
-                        // Append style tags from the fetched copy master to document.head
-                        const styleTags = doc.querySelectorAll('style');
-                        styleTags.forEach(style => {
-                            document.head.appendChild(style.cloneNode(true));
-                        });
-                        
                         document.getElementById('notes-content').innerHTML = content.innerHTML;
                         document.title = "नोट्स - चैप्टर " + id;
+                        
+                        // Initialize font scaling controls on contents
+                        initTextFormatting('notes-content');
                     } else {
                         document.getElementById('notes-content').innerHTML = "<p>त्रुटि: नोट्स प्राप्त नहीं हो सके।</p>";
                     }
@@ -186,26 +288,8 @@
                     document.getElementById('notes-content').innerHTML = `<p>त्रुटि: चैप्टर ${id} के नोट्स अभी उपलब्ध नहीं हैं।</p>`;
                 }
             } else {
-                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए प्रीमियम HTML व्यू जल्द ही आ रहा है!</h3><p>कृपया अभी के लिए अन्य चैप्टर्स को आज़माएँ।</p>";
+                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए नोट्स जल्द ही आ रहे हैं!</h3>";
             }
-
-            // Floating Home Button Auto-Hide Logic
-            let lastScrollY = window.scrollY;
-            const homeBtn = document.querySelector('.floating-home-btn');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50 && window.scrollY > lastScrollY) {
-                    // Scrolling down -> Hide
-                    homeBtn.style.opacity = '0';
-                    homeBtn.style.transform = 'scale(0.8) translateY(50px)';
-                    homeBtn.style.pointerEvents = 'none';
-                } else {
-                    // Scrolling up -> Show
-                    homeBtn.style.opacity = '1';
-                    homeBtn.style.transform = 'scale(1) translateY(0)';
-                    homeBtn.style.pointerEvents = 'auto';
-                }
-                lastScrollY = window.scrollY;
-            });
         });
     </script>
 </body>

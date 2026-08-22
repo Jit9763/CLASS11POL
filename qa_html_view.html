@@ -6,6 +6,16 @@
     <title>Q&A - प्रीमियम HTML व्यू</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        body {
+            overflow-x: auto !important;
+        }
+        .container {
+            max-width: none !important;
+            width: fit-content !important;
+            min-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 20px 40px !important;
+        }
         .page-container {
             width: 100%;
             max-width: 100%;
@@ -13,10 +23,20 @@
             padding: 20px;
             background: transparent;
         }
+        #notes-content > div {
+            width: var(--container-width, 1400px) !important;
+            max-width: none !important;
+        }
+        @media (max-width: 1400px) {
+            #notes-content > div {
+                width: 95% !important;
+                max-width: 100% !important;
+            }
+        }
         .nav-back {
             margin-bottom: 20px;
             display: inline-block;
-            color: var(--accent-color);
+            color: #3b82f6;
             text-decoration: none;
             font-weight: bold;
         }
@@ -27,34 +47,46 @@
             color: white;
         }
 
-        /* Floating Sidebar for Actions - NOW SCROLLABLE (Absolute) */
-        .sidebar-actions {
-            position: absolute;
-            right: 20px;
+        #notes-content .adjustable-text {
+            font-size: max(2px, calc(var(--orig-size) + var(--size-offset, 0px))) !important;
+            font-weight: calc(var(--orig-weight) + var(--weight-offset, 0)) !important;
+            -webkit-text-stroke-width: max(0px, calc(var(--orig-stroke, 0px) + var(--stroke-offset, 0px))) !important;
+            -webkit-text-stroke-color: #000000 !important;
+        }
+
+        /* Action Bar styling matching political-science (Green Accent for QA) */
+        .action-bar {
+            position: fixed;
             top: 20px;
+            right: 20px;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             z-index: 2000;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
-        .tool-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-            color: white;
-            font-size: 1.5rem;
+        .action-btn {
+            background: #1e293b;
+            border: 1.5px solid #059669;
+            color: #10b981;
+            padding: 6px 12px;
+            border-radius: 8px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .tool-btn:hover { transform: scale(1.1); filter: brightness(1.1); }
-        
-        .copy-tool { background: #059669; }
-        .pdf-tool { background: #be123c; }
+        .action-btn:hover {
+            transform: scale(1.05);
+            background: #059669;
+            color: white;
+        }
 
         /* Print Styles to ensure PDF is PERFECT on A4 */
         @page {
@@ -62,26 +94,33 @@
             size: A4;
         }
         @media print {
-            .bg-animation, .sidebar-actions, .floating-home-btn, .nav-back { display: none !important; }
+            .bg-animation, .action-bar, .floating-home-btn, .nav-back { display: none !important; }
             body { background: white !important; padding: 0 !important; }
             .page-container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
             .master-container { width: 100% !important; margin: 0 !important; padding: 10mm !important; border: none !important; box-shadow: none !important; background-color: white !important; }
             .qa-block { page-break-inside: avoid; border: 1px solid #eee !important; margin-bottom: 20px !important; }
+            #notes-content > div { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 10mm !important; }
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
     <div class="container" style="position: relative; width: 100%;">
-        <!-- Sidebar Tools at TOP RIGHT -->
-        <div class="sidebar-actions">
-            <button id="copyBtn" class="tool-btn copy-tool" onclick="copyEntireContent()" title="Copy Formatting">📋</button>
-            <button id="pdfBtn" class="tool-btn pdf-tool" onclick="generatePDF()" title="Download PDF or Print">📥</button>
+        <!-- Action Bar at TOP RIGHT -->
+        <div class="action-bar">
+            <button class="action-btn" onclick="adjustWidth(40)" title="Increase Page Width">W+</button>
+            <button class="action-btn" onclick="adjustWidth(-40)" title="Decrease Page Width">W-</button>
+            <button class="action-btn" onclick="adjustFontSize(2)" title="Increase Font Size">A+</button>
+            <button class="action-btn" onclick="adjustFontSize(-2)" title="Decrease Font Size">A-</button>
+            <button class="action-btn" onclick="adjustFontWeight(100)" title="Increase Text Boldness">B+</button>
+            <button class="action-btn" onclick="adjustFontWeight(-100)" title="Decrease Text Boldness">B-</button>
+            <button id="copyBtn" class="action-btn" onclick="copyEntireContent()" title="Copy Formatting">📋</button>
+            <button id="pdfBtn" class="action-btn" onclick="generatePDF()" title="Download PDF or Print">📥</button>
         </div>
         
-        <!-- Floating Home Button at BOTTOM LEFT -->
+        <!-- Floating Home Button -->
         <a href="index.html" class="floating-home-btn" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background: #1e293b; color: white; padding: 15px; border-radius: 50%; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 2px solid #059669; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; width: 65px; height: 65px;">🏠</a>
-
+        
         <div class="page-container">
             <div id="notes-content">
                 <div class="loading">Q&A लोड हो रहे हैं... (शामिल हैं 30 प्रश्न)</div>
@@ -90,17 +129,113 @@
     </div>
 
     <script>
+        let containerWidth = 1400; // default width in pixels
+        let sizeOffset = 0;
+        let weightOffset = 0;
+        let strokeOffset = 0;
+
+        function adjustWidth(amount) {
+            containerWidth += amount;
+            if (containerWidth < 500) containerWidth = 500;
+            if (containerWidth > 6000) containerWidth = 6000;
+            const targetContent = document.getElementById('notes-content');
+            if (targetContent) {
+                targetContent.style.setProperty('--container-width', containerWidth + 'px');
+            }
+        }
+
+        function adjustFontSize(amount) {
+            sizeOffset += amount;
+            if (sizeOffset < -50) sizeOffset = -50;
+            if (sizeOffset > 60) sizeOffset = 60;
+            const container = document.getElementById('notes-content');
+            if (container) {
+                container.style.setProperty('--size-offset', sizeOffset + 'px');
+            }
+        }
+
+        function adjustFontWeight(amount) {
+            weightOffset += amount;
+            if (weightOffset < -600) weightOffset = -600;
+            if (weightOffset > 800) weightOffset = 800;
+            
+            strokeOffset += (amount / 100) * 0.4;
+            if (strokeOffset < -3.0) strokeOffset = -3.0;
+            if (strokeOffset > 5.0) strokeOffset = 5.0;
+            
+            const container = document.getElementById('notes-content');
+            if (container) {
+                container.style.setProperty('--weight-offset', weightOffset);
+                container.style.setProperty('--stroke-offset', strokeOffset + 'px');
+            }
+        }
+
+        function initTextFormatting(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const elements = container.querySelectorAll('*');
+            elements.forEach(el => {
+                const tagName = el.tagName.toLowerCase();
+                if (['script', 'style', 'img', 'br', 'hr'].includes(tagName)) return;
+                
+                const style = window.getComputedStyle(el);
+                const fontSize = style.fontSize;
+                const fontWeight = style.fontWeight;
+                const strokeWidth = style.webkitTextStrokeWidth;
+                
+                if (fontSize) {
+                    el.style.setProperty('--orig-size', fontSize);
+                }
+                if (fontWeight) {
+                    let weightVal = fontWeight;
+                    if (fontWeight === 'normal') weightVal = '400';
+                    else if (fontWeight === 'bold') weightVal = '700';
+                    el.style.setProperty('--orig-weight', weightVal);
+                }
+                if (strokeWidth && strokeWidth !== '0px' && strokeWidth !== '') {
+                    el.style.setProperty('--orig-stroke', strokeWidth);
+                }
+                el.classList.add('adjustable-text');
+            });
+        }
+
         async function copyEntireContent() {
             const btn = document.getElementById('copyBtn');
             const target = document.getElementById('notes-content');
-            
-            // Get all styles to preserve formatting
+            if (!target) return;
+
+            // Clone target to clean up style-offset variables before copying
+            const clone = target.cloneNode(true);
+            const adjustableElements = clone.querySelectorAll('.adjustable-text');
+            adjustableElements.forEach(el => {
+                // Remove dynamic scaling class
+                el.classList.remove('adjustable-text');
+                
+                // Read inline styles if any, clean up CSS variables
+                const styleAttr = el.getAttribute('style') || '';
+                let cleanedStyle = styleAttr
+                    .replace(/--orig-size:[^;]+;?/g, '')
+                    .replace(/--orig-weight:[^;]+;?/g, '')
+                    .replace(/--orig-stroke:[^;]+;?/g, '')
+                    .replace(/--size-offset:[^;]+;?/g, '')
+                    .replace(/--weight-offset:[^;]+;?/g, '')
+                    .replace(/--stroke-offset:[^;]+;?/g, '')
+                    .trim();
+                
+                if (cleanedStyle === '') {
+                    el.removeAttribute('style');
+                } else {
+                    el.setAttribute('style', cleanedStyle);
+                }
+            });
+
+            // Get styles to bundle
             const styles = Array.from(document.querySelectorAll('style'))
                 .map(s => s.innerHTML)
                 .join('\n');
 
             const richHTML = `<!DOCTYPE html><html><head><style>${styles}</style></head>
-            <body><div class="master-container" style="padding: 20px;">${target.innerHTML}</div></body></html>`;
+            <body><div class="master-container" style="padding: 20px;">${clone.innerHTML}</div></body></html>`;
 
             try {
                 const blob = new Blob([richHTML], { type: 'text/html' });
@@ -115,7 +250,6 @@
         }
 
         function generatePDF() {
-            // Using browser native print for 100% fidelity
             window.print();
         }
 
@@ -123,7 +257,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
             
-            if (id && parseInt(id) >= 1 && parseInt(id) <= 20) {
+            if (id && parseInt(id) >= 1 && parseInt(id) <= 18) {
                 try {
                     const response = await fetch(`qa_master_ch${id}.html?v=${new Date().getTime()}`);
                     if (!response.ok) throw new Error('File not found');
@@ -133,7 +267,7 @@
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
                     
-                    // Extract styles from fetched chapter
+                    // Extract styles
                     const styles = doc.querySelectorAll('style');
                     styles.forEach(style => {
                         document.head.appendChild(style.cloneNode(true));
@@ -144,6 +278,9 @@
                     if (content) {
                         document.getElementById('notes-content').innerHTML = content.innerHTML;
                         document.title = "Q&A - चैप्टर " + id;
+                        
+                        // Initialize font scaling controls on contents
+                        initTextFormatting('notes-content');
                     } else {
                         document.getElementById('notes-content').innerHTML = "<p>त्रुटि: Q&A प्राप्त नहीं हो सके।</p>";
                     }
@@ -151,10 +288,9 @@
                     document.getElementById('notes-content').innerHTML = `<p>त्रुटि: चैप्टर ${id} के Q&A अभी उपलब्ध नहीं हैं।</p>`;
                 }
             } else {
-                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए Q&A व्यू जल्द ही आ रहा है!</h3><p>कृपया अभी के लिए अन्य चैप्टर्स को आज़माएँ।</p>";
+                document.getElementById('notes-content').innerHTML = "<h3>चैप्टर " + (id || "") + " के लिए Q&A जल्द ही आ रहे हैं!</h3>";
             }
         });
-    </script>
     </script>
 </body>
 </html>
