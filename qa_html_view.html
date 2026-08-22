@@ -17,18 +17,14 @@
             padding: 0 20px 40px !important;
         }
         .page-container {
-            width: 100%;
-            max-width: 100%;
+            width: var(--container-width, 1400px) !important;
+            max-width: none !important;
             margin: 0 auto;
             padding: 20px;
             background: transparent;
         }
-        #notes-content > div {
-            width: var(--container-width, 1400px) !important;
-            max-width: none !important;
-        }
         @media (max-width: 1400px) {
-            #notes-content > div {
+            .page-container {
                 width: 95% !important;
                 max-width: 100% !important;
             }
@@ -56,7 +52,7 @@
 
         /* Action Bar styling matching political-science (Green Accent for QA) */
         .action-bar {
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 20px;
             display: flex;
@@ -138,9 +134,9 @@
             containerWidth += amount;
             if (containerWidth < 500) containerWidth = 500;
             if (containerWidth > 6000) containerWidth = 6000;
-            const targetContent = document.getElementById('notes-content');
-            if (targetContent) {
-                targetContent.style.setProperty('--container-width', containerWidth + 'px');
+            const container = document.querySelector('.page-container');
+            if (container) {
+                container.style.setProperty('--container-width', containerWidth + 'px');
             }
         }
 
