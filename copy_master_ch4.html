@@ -8,6 +8,27 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
 <style>
+        /* Completely remove outer double-line blue box wrapper around hero title */
+        div[style*="double"], 
+        div[style*="1e3a8a"],
+        div[style*="eff6ff"] {
+            border: none !important;
+            background-color: transparent !important;
+            background: transparent !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 30px !important;
+        }
+        .hero-title {
+            margin-top: 0 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+
         p, li, h1, h2, h3, h4, b, strong, td, th {
             font-weight: 900 !important;
             -webkit-text-stroke: 1.1px #000000;
@@ -150,7 +171,36 @@
             background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
             border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
         }
-    </style>
+    
+
+        /* Ensure no element bursts outside the white page card */
+        * {
+            box-sizing: border-box !important;
+            max-width: 100% !important;
+        }
+        #notes-content, #contentToCopy, .preview {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+        }
+        .hero-title-wrapper, div[style*="double"] {
+            border: none !important;
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 0 30px 0 !important;
+            box-shadow: none !important;
+        }
+        .hero-title {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+</style>
 <script>
         function copyToGoogleDoc() {
             var content = document.getElementById('contentToCopy').innerHTML;
@@ -183,7 +233,7 @@
 <div id="contentToCopy">
 <div style="font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;  line-height: 2.2; color: #000000; max-width: 1400px; margin: auto; padding: 0px !important;">
 <!-- Title Section (Projector Friendly) -->
-<div style="text-align: center; margin-bottom: 80px; padding: 75px; border: 15px double #1e3a8a; background-color: #eff6ff; border-radius: 30px;">
+<div style="text-align: center; margin-bottom: 80px; padding: 0px !important;  background-color: transparent !important; border-radius: 30px;">
 <h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; -webkit-text-stroke: 1.5px #1e3a8a;">
                     अध्याय 4: कार्यपालिका<br/>
 <span style=" color:#475569; font-weight: 900;">(EXECUTIVE)</span>
@@ -314,7 +364,7 @@
 </ul>
 </div>
 <!-- PART 9 -->
-<div class="part-container" style="border-top-color: #1e3a8a;">
+<div class="part-container" style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
 <h2 class="topic-header" style="background- border-left: 10px solid #1e3a8a; padding: 20px 25px; border-radius: 10px;  font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e40af;">9. भारत का उपराष्ट्रपति: भूमिका एवं कार्य</h2>
 <p style=" text-align: justify;">भारतीय संविधान का अनुच्छेद 63 भारत के उपराष्ट्रपति (Vice-President) पद का प्रावधान करता है, जो देश का दूसरा सर्वोच्च संवैधानिक अधिकारी होता है।</p>
 <h3 class="subtopic-header" style="">9.1 उपराष्ट्रपति के प्रमुख कार्य और चुनाव:</h3>
