@@ -1,0 +1,122 @@
+[
+  {
+    "index": 1,
+    "filename": "images/ch16/part1_meaning_of_citizenship.webp",
+    "name": "ch16_part1_citizenship_meaning",
+    "prompt": "Vibrant editorial political cartoon in rich warm colors. A large golden Indian national identity seal and constitution providing an umbrella of legal protection and equal rights to diverse citizens (teacher, farmer, student, doctor, factory worker). Text 'नागरिकता: पूर्ण व समान सदस्यता' in bold clean Devanagari Hindi font. High detail, educational poster style."
+  },
+  {
+    "index": 2,
+    "filename": "images/ch16/part2_citizen_vs_alien.webp",
+    "name": "ch16_part2_citizen_vs_alien",
+    "prompt": "Educational political cartoon showing a comparison between a citizen and a foreign tourist/alien. The citizen holds a ballot paper and fundamental rights shield with text 'मतदान और संवैधानिक अधिकार', while the foreign tourist receives hospitality and basic legal protection. Clear boundary and legal balance. High quality."
+  },
+  {
+    "index": 3,
+    "filename": "images/ch16/part3_th_marshall_theory.webp",
+    "name": "ch16_part3_marshall_theory",
+    "prompt": "Thoughtful editorial cartoon illustrating T.H. Marshall's 3-step historical stairs of citizenship: 18th century civil liberty, 19th century political voting ballot, and 20th century social-economic welfare rights (schools, hospital, pension). Clear Hindi labels on stairs. Educational illustration."
+  },
+  {
+    "index": 4,
+    "filename": "images/ch16/part4_migrant_workers_rights.webp",
+    "name": "ch16_part4_migrant_workers",
+    "prompt": "Heartwarming political cartoon showing Indian migrant workers traveling freely across states with bags, welcomed in metro cities with ration cards, construction jobs, and dignity. Text 'अबाध संचरण व आजीविका का अधिकार' in Hindi. Bright, dignified atmosphere."
+  },
+  {
+    "index": 5,
+    "filename": "images/ch16/part5_insider_vs_outsider.webp",
+    "name": "ch16_part5_single_citizenship_unity",
+    "prompt": "Powerful editorial cartoon where a glowing Indian Constitution breaks the narrow brick walls of regionalism and 'insider vs outsider' disputes, uniting youth from north, south, east, and west into one proud Indian identity. Text 'एकल नागरिकता: हम सब एक हैं'."
+  },
+  {
+    "index": 6,
+    "filename": "images/ch16/part6_slum_dwellers_rights.webp",
+    "name": "ch16_part6_slum_street_vendors",
+    "prompt": "Sympathetic editorial cartoon of an Indian street vendor and slum family receiving a municipal vending identity card, clean tap water, and pucca housing rehabilitation. Text 'आजीविका और गरिमा का अधिकार'. High quality, positive theme."
+  },
+  {
+    "index": 7,
+    "filename": "images/ch16/part7_equal_rights_diversity.webp",
+    "name": "ch16_part7_diversity_equal_rights",
+    "prompt": "Vibrant cartoon depicting a colorful floral bouquet representing cultural diversity in India—traditional attires from Punjab, Tamil Nadu, Bengal, Rajasthan, Northeast standing united under equal rights banner. Text 'समान अधिकार और सांस्कृतिक विविधता'."
+  },
+  {
+    "index": 8,
+    "filename": "images/ch16/part8_women_tribal_citizenship.webp",
+    "name": "ch16_part8_women_tribal_empowerment",
+    "prompt": "Inspiring cartoon showing an empowered Indian woman voting and leading a panchayat, alongside indigenous tribal leaders protecting forests with forest rights titles. Text 'समावेशी नागरिकता: महिला व वन अधिकार'."
+  },
+  {
+    "index": 9,
+    "filename": "images/ch16/part9_secular_inclusive_nation.webp",
+    "name": "ch16_part9_secular_inclusive_india",
+    "prompt": "Majestic political cartoon showing a secular, democratic India where people of all faiths (Hindu, Muslim, Sikh, Christian, Buddhist, Jain) stand together holding the national flag and constitution. Text 'धर्मनिरपेक्ष व समावेशी भारत'."
+  },
+  {
+    "index": 10,
+    "filename": "images/ch16/part10_constitution_articles_5_to_11.webp",
+    "name": "ch16_part10_constitution_part2",
+    "prompt": "Educational cartoon illustration showing the Parliament of India and the Constitution Book open to Part II with pillars inscribed with Articles 5 to 11 protecting citizenship rights. Text 'संविधान: अनुच्छेद 5 से 11'."
+  },
+  {
+    "index": 11,
+    "filename": "images/ch16/part11_5_ways_to_acquire_citizenship.webp",
+    "name": "ch16_part11_acquire_citizenship_5_ways",
+    "prompt": "Educational chart style cartoon showing 5 golden doorways to Indian citizenship: 1. By Birth, 2. By Descent, 3. By Registration, 4. By Naturalisation, 5. By Territory. Clear Hindi labels 'जन्म, वंश, पंजीकरण, देशीयकरण, समामेलन'. Colorful and crisp."
+  },
+  {
+    "index": 12,
+    "filename": "images/ch16/part12_loss_of_citizenship.webp",
+    "name": "ch16_part12_loss_of_citizenship",
+    "prompt": "Educational cartoon illustrating the 3 legal methods of losing citizenship: voluntary renunciation, automatic termination upon taking foreign citizenship, and government deprivation due to fraud. Serious legal balance, clear Hindi text 'त्याग, पर्यावसान, निष्कासन'."
+  },
+  {
+    "index": 13,
+    "filename": "images/ch16/part13_single_vs_dual_citizenship.webp",
+    "name": "ch16_part13_single_vs_dual",
+    "prompt": "Comparative cartoon showing India's Single Citizenship (one national tricolor passport connecting Kashmir to Kanyakumari) versus Dual Citizenship (two separate state and federal cards). Clear Hindi text 'भारत: एकल नागरिकता'."
+  },
+  {
+    "index": 14,
+    "filename": "images/ch16/part14_refugees_stateless_crisis.webp",
+    "name": "ch16_part14_refugee_crisis_unhcr",
+    "prompt": "Compassionate editorial cartoon showing refugee families receiving humanitarian aid, medical care, and children going to temporary schools under UNHCR protection banner. Text 'शरणार्थी संकट और मानवीय करुणा'."
+  },
+  {
+    "index": 15,
+    "filename": "images/ch16/part15_global_citizenship_concept.webp",
+    "name": "ch16_part15_vasudhaiva_kutumbakam",
+    "prompt": "Beautiful symbolic cartoon of planet Earth held together by people of diverse nationalities holding hands in friendship and peace. Text 'विश्व नागरिकता: वसुधैव कुटुम्बकम्' in elegant golden font."
+  },
+  {
+    "index": 16,
+    "filename": "images/ch16/part16_global_challenges_cooperation.webp",
+    "name": "ch16_part16_global_challenges",
+    "prompt": "Dynamic editorial cartoon showing world leaders and scientists uniting to tackle climate change, protect rainforests, and fight global pandemics together. Text 'साझा वैश्विक चुनौतियाँ और सहयोग'."
+  },
+  {
+    "index": 17,
+    "filename": "images/ch16/part17_fundamental_duties_article51a.webp",
+    "name": "ch16_part17_duties_article_51a",
+    "prompt": "Inspiring cartoon showing Indian citizens fulfilling fundamental duties (Article 51A): saluting the national flag, planting trees, cleaning public parks, and sending children to school. Text 'मौलिक कर्तव्य: अनुच्छेद 51A'."
+  },
+  {
+    "index": 18,
+    "filename": "images/ch16/part18_digital_citizenship_egov.webp",
+    "name": "ch16_part18_digital_citizenship",
+    "prompt": "Modern educational cartoon showing an Indian villager and student easily accessing government certificates and education via digital mobile e-governance and DigiLocker. Text 'डिजिटल नागरिकता और ई-सेवाएं'."
+  },
+  {
+    "index": 19,
+    "filename": "images/ch16/part19_active_citizenship_participation.webp",
+    "name": "ch16_part19_active_citizenship",
+    "prompt": "Empowering political cartoon of active citizens participating in local Gram Sabha meetings, raising questions with RTI documents, and leading community service. Text 'सक्रिय नागरिकता: सशक्त लोकतंत्र'."
+  },
+  {
+    "index": 20,
+    "filename": "images/ch16/part20_conclusion_ek_bharat_shreshtha_bharat.webp",
+    "name": "ch16_part20_ek_bharat_shreshtha_bharat",
+    "prompt": "Grand patriotic conclusion cartoon. Diverse citizens of India (teachers, soldiers, doctors, students, farmers, youth) standing united around the Ashoka Lion Capital and Indian Constitution. Banner with text 'एक भारत, श्रेष्ठ भारत' and 'सत्यमेव जयते'."
+  }
+]
