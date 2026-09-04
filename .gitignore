@@ -1,1 +1,9 @@
+# Local development, backup & prompt files (Not tracked for GitHub website)
 class11_backup/
+*.json
+*.zip
+*.log
+*.md
+temp_*
+copy_master_theory_ch*.html
+test_master_ch*.html

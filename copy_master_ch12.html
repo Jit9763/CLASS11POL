@@ -1,6 +1,175 @@
 <!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<title>अध्याय 12: स्वतंत्रता (Freedom) - COMPLETE MASTER EDITION</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Completely remove outer double-line blue box wrapper around hero title */
+        div[style*="double"], 
+        div[style*="1e3a8a"],
+        div[style*="eff6ff"] {
+            border: none !important;
+            background-color: transparent !important;
+            background: transparent !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 30px !important;
+        }
+        .hero-title {
+            margin-top: 0 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
 
-<html la
+        p, li, h1, h2, h3, h4, b, strong, td, th {
+            font-weight: 900 !important;
+            -webkit-text-stroke: 1.1px #000000;
+            text-shadow: 0 0 1px #000;
+        }
+        body, p, li, td, th, div, span {
+            font-size: 28pt !important;
+            line-height: 1.8 !important;
+        }
+        body {
+            margin-top: 80px;
+            background-color: #f8fafc;
+            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
+        }
+        .part-container {
+            border-top: 10px solid #2563eb;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .part-container h2, .part-header {
+            color: #1e3a8a !important;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 10px solid #2563eb !important;
+            padding: 20px 28px !important;
+            border-radius: 12px !important;
+            font-size: 32pt !important;
+            font-weight: 900 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 20px;
+            line-height: 1.8 !important;
+        }
+
+        /* Realistic Cartoon Card Styles */
+        .cartoon-card {
+            margin: 45px 0;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 20px;
+            border: 4px solid #e2e8f0;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .cartoon-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .cartoon-caption {
+            margin-top: 22px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            padding: 22px 28px;
+            border-radius: 14px;
+            border-left: 10px solid #0284c7;
+            text-align: left;
+        }
+        .cartoon-caption-title {
+            font-size: 22pt;
+            font-weight: 950 !important;
+            color: #0369a1 !important;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cartoon-caption-desc {
+            font-size: 18pt;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        #control-header {
+            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+        }
+        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        #mainCopyBtn {
+            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
+            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        }
+        #mainCopyBtn:hover { background-color: #1d4ed8; }
+        #status {
+            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+        }
+</style>
+<script>
+    function copyToGoogleDoc() {
+        var content = document.getElementById('contentToCopy').innerHTML;
+        var blob = new Blob([content], { type: 'text/html' });
+        var data = [new ClipboardItem({ 'text/html': blob })];
+        
+        navigator.clipboard.write(data).then(function() {
+            var status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 5000);
+        }).catch(function(err) {
+            alert('Copy failed: ' + err);
+        });
+    }
+</script>
+</head>
+<body>
+    <!-- Persistent Control Header -->
+    <div id="control-header">
+        <h1>अध्याय 12: स्वतंत्रता (Freedom) - कक्षा 11 राजनीति विज्ञान</h1>
+        <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
+            📋 COPY EVERYTHING FOR GOOGLE DOCS
+        </button>
+    </div>
+    
+    <div id="status">
+        ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
+    </div>
+
+<div id="contentToCopy">
+<div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
+
+<!-- Master Title Header -->
+<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
+<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; color: #1e3a8a;">अध्याय 12: स्वतंत्रता (Freedom)</h1>
+<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
+</div>
+
   <div class="part-container">
     <h2>स्वतंत्रता का आदर्श और प्रेरणादायी संघर्ष</h2>
     <p>मानव इतिहास में स्वतंत्रता के लिए अनगिनत बलिदान और संघर्ष दिए गए हैं। स्वतंत्रता का अर्थ केवल अपनी मर्जी से काम करना नहीं, बल्कि गरिमापूर्ण जीवन और स्वाभिमान की तलाश है।</p>
@@ -131,6 +300,7 @@
 <li><b>नागरिकों की भूमिका:</b> जब भी सरकार या कोई समूह किसी नागरिक की स्वतंत्रता छीनने का प्रयास करे, तो समाज को उसके खिलाफ सतर्क और मुखर होना चाहिए।</li>
 </ul>
   </div>
+</div>
 </div>
 </body>
 </html>
