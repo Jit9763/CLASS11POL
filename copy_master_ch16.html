@@ -1,89 +1,77 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <title>अध्याय 16: नागरिकता (Citizenship) - कक्षा 11 राजनीति विज्ञान</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+<meta charset="utf-8"/>
+<title>अध्याय 16: नागरिकता (Citizenship) - कक्षा 11 राजनीति विज्ञान - COMPLETE MASTER EDITION</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Completely remove outer double-line blue box wrapper around hero title */
+        div[style*="double"], 
+        div[style*="1e3a8a"],
+        div[style*="eff6ff"] {
+            border: none !important;
+            background-color: transparent !important;
+            background: transparent !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 30px !important;
         }
-        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
-        #mainCopyBtn {
-            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
-            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        .hero-title {
+            margin-top: 0 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
         }
-        #mainCopyBtn:hover { background-color: #1d4ed8; }
-        #status {
-            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
-            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+
+        p, li, h1, h2, h3, h4, b, strong, td, th {
+            font-weight: 900 !important;
+            -webkit-text-stroke: 1.1px #000000;
+            text-shadow: 0 0 1px #000;
+        }
+        body, p, li, td, th, div, span {
+            font-size: 28pt !important;
+            line-height: 1.8 !important;
         }
         body {
             margin-top: 80px;
             background-color: #f8fafc;
             font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
         }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
+        .part-container {
+            border-top: 10px solid #2563eb;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        b, strong {
+        .part-container h2, .part-header {
+            color: #1e3a8a !important;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 10px solid #2563eb !important;
+            padding: 20px 28px !important;
+            border-radius: 12px !important;
+            font-size: 32pt !important;
             font-weight: 900 !important;
-            color: #000000 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
         }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
         li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .-unit-header {
-            margin: 60px 0 35px 0;
-            background: linear-gradient(135deg, #065f46 0%, #0f172a 100%);
-            color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(6,95,70,0.2);
-            text-align: center;
-        }
-        .-unit-header h2 {
-            margin: 0;
-            color: #ffffff !important;
-            font-size: 34pt;
-            font-weight: 950 !important;
-            -webkit-text-stroke: 0.8px #ffffff;
-        }
-        .-unit-subtitle {
-            margin-top: 10px;
-            font-size: 19pt;
-            color: #a7f3d0 !important;
-            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.8 !important;
         }
 
-        .part-container {
-            margin-bottom: 70px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 20px; box-shadow: 0 15px 30px -5px rgba(0,0,0,0.07);
-            border-top: 12px solid #059669;
-        }
-        
         /* Realistic Cartoon Card Styles */
         .cartoon-card {
             margin: 45px 0;
@@ -104,16 +92,16 @@
         }
         .cartoon-caption {
             margin-top: 22px;
-            background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
             padding: 22px 28px;
             border-radius: 14px;
-            border-left: 10px solid #059669;
+            border-left: 10px solid #0284c7;
             text-align: left;
         }
         .cartoon-caption-title {
             font-size: 22pt;
             font-weight: 950 !important;
-            color: #065f46 !important;
+            color: #0369a1 !important;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -121,79 +109,49 @@
         }
         .cartoon-caption-desc {
             font-size: 18pt;
-            font-weight: 800 !important;
-            color: #1e293b !important;
-            line-height: 1.95;
+            color: #334155;
+            line-height: 1.6;
         }
+
+        #control-header {
+            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+        }
+        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        #mainCopyBtn {
+            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
+            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        }
+        #mainCopyBtn:hover { background-color: #1d4ed8; }
+        #status {
+            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+        }
+</style>
+<script>
+    function copyToGoogleDoc() {
+        var content = document.getElementById('contentToCopy').innerHTML;
+        var blob = new Blob([content], { type: 'text/html' });
+        var data = [new ClipboardItem({ 'text/html': blob })];
         
-        .badge-tag {
-            display: inline-block;
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 6px 18px;
-            border-radius: 24px;
-            font-size: 17pt;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .point-badge {
-            display: inline-block;
-            background-color: #fef3c7 !important;
-            color: #92400e !important;
-            padding: 3px 12px !important;
-            border-radius: 8px !important;
-            border: 1.5px solid #f59e0b !important;
-            font-weight: 950 !important;
-            margin-right: 6px !important;
-            -webkit-text-stroke: 0.3px #92400e !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-        }
-
-        .-example-box {
-            background-color: #f0fdf4;
-            border-left: 8px solid #16a34a;
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin: 25px 0;
-            font-size: 18pt;
-            color: #14532d;
-        }
-
-        .-quote {
-            background-color: #f8fafc;
-            border-left: 8px solid #059669;
-            padding: 20px 30px;
-            border-radius: 12px;
-            font-style: italic;
-            margin: 25px 0;
-            font-size: 18.5pt;
-            color: #1e293b;
-        }
-    </style>
-    <script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
+        navigator.clipboard.write(data).then(function() {
+            var status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 5000);
+        }).catch(function(err) {
+            alert('Copy failed: ' + err);
+        });
+    }
+</script>
 </head>
 <body>
-
     <!-- Persistent Control Header -->
     <div id="control-header">
-        <h1>अध्याय 16: नागरिकता (Citizenship) - कक्षा 11 राजनीति विज्ञान</h1>
+        <h1>अध्याय 16: नागरिकता (Citizenship) - कक्षा 11 राजनीति विज्ञान - कक्षा 11 राजनीति विज्ञान</h1>
         <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
             📋 COPY EVERYTHING FOR GOOGLE DOCS
         </button>
@@ -203,29 +161,16 @@
         ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
     </div>
 
-    <div id="contentToCopy">
-        <div style="font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif; font-size: 20pt; line-height: 2.2; color: #000000; max-width: 1400px; margin: auto; padding: 20px;">
+<div id="contentToCopy">
+<div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
 
-            <!-- Title Section -->
-            <div style="text-align: center; margin-bottom: 60px; padding: 65px; border: 15px double #059669; background-color: #f0fdf4; border-radius: 30px;">
-                <span class="badge-tag">कक्षा 11 राजनीति विज्ञान (राजनीतिक सिद्धांत)</span>
-                <h1 style="color: #065f46 !important; font-size: 54pt; font-weight: 950 !important; margin-bottom: 20px; -webkit-text-stroke: 1.5px #065f46;">
-                    अध्याय 16: नागरिकता<br/>
-                    <span style="font-size: 30pt; color:#475569; font-weight: 900;">(CITIZENSHIP)</span>
-                </h1>
-            </div>
+<!-- Master Title Header -->
+<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
+<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; color: #1e3a8a;">अध्याय 16: नागरिकता (Citizenship) - कक्षा 11 राजनीति विज्ञान</h1>
+<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
+</div>
 
-
-            <!-- ==========================================
-                 TOPIC 1: नागरिकता क्या है?
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>नागरिकता क्या है? (What is Citizenship?)</h2>
-                <div class="-unit-subtitle">राजनीतिक समुदाय की पूर्ण व समान सदस्यता, नागरिक बनाम विदेशी एवं टी.एच. मार्शल का सिद्धांत</div>
-            </div>
-            
-            <!-- TOPIC 1 -->
-            <div class="part-container" style="border-top-color: #059669;">
+<div class="part-container" style="border-top-color: #059669;">
                 <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #059669; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">नागरिकता की परिभाषा, पूर्ण व समान सदस्यता का अर्थ एवं नागरिक बनाम विदेशी</h2>
                 <p style="font-size: 18pt; text-align: justify;">नागरिकता किसी व्यक्ति और उसके राज्य के बीच का वह कानूनी और राजनीतिक संबंध है, जिसके तहत व्यक्ति को उस राजनीतिक समुदाय की <b>पूर्ण और समान सदस्यता (Full and Equal Membership)</b> प्राप्त होती है। नागरिकता व्यक्ति को पहचान, सुरक्षा और अधिकार प्रदान करती है।</p>
 
@@ -279,8 +224,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 2 -->
-            <div class="part-container" style="border-top-color: #d97706;">
+<div class="part-container" style="border-top-color: #d97706;">
                 <h2 style="color: #92400e !important; background-color: #fff7ed; border-left: 10px solid #d97706; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #92400e;">टी.एच. मार्शल का नागरिकता का त्रिविध सिद्धांत (T.H. Marshall)</h2>
                 <p style="font-size: 18pt; text-align: justify;">प्रसिद्ध ब्रिटिश समाजशास्त्री टी.एच. मार्शल ने 1950 में अपनी पुस्तक <i>'Citizenship and Social Class'</i> में नागरिकता के ऐतिहासिक विकास को तीन चरणों में समझाया:</p>
 
@@ -305,17 +249,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 2: पूर्ण और समान सदस्यता
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>पूर्ण और समान सदस्यता (Full and Equal Membership)</h2>
-                <div class="-unit-subtitle">प्रवासी मजदूरों के अधिकार, बाहरी बनाम भीतरी विवाद एवं शहरी फेरीवालों की आजीविका</div>
-            </div>
-
-            <!-- TOPIC 3 -->
-            <div class="part-container" style="border-top-color: #7c3aed;">
+<div class="part-container" style="border-top-color: #7c3aed;">
                 <h2 style="color: #5b21b6 !important; background-color: #f5f3ff; border-left: 10px solid #7c3aed; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #5b21b6;">प्रवासी मजदूरों के अधिकार और देश में स्वतंत्र आवागमन</h2>
                 <p style="font-size: 18pt; text-align: justify;">भारतीय संविधान के अनुच्छेद 19(1)(d) और 19(1)(e) के अनुसार प्रत्येक नागरिक को देश के किसी भी राज्य में जाने, रहने और काम करने का पूर्ण अधिकार है।</p>
 
@@ -344,8 +278,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 4 -->
-            <div class="part-container" style="border-top-color: #be185d;">
+<div class="part-container" style="border-top-color: #be185d;">
                 <h2 style="color: #be185d !important; background-color: #fdf2f8; border-left: 10px solid #be185d; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #be185d;">बाहरी बनाम भीतरी (Insider vs Outsider) विवाद और राष्ट्रीय एकता</h2>
                 <p style="font-size: 18pt; text-align: justify;">कई बार स्थानीय लोग रोजगार और संसाधनों पर केवल स्थानीय लोगों (धरतीपुत्रों / Sons of the Soil) का हक होने का दावा करते हैं, जो साझा राष्ट्रीय नागरिकता की भावना के विपरीत है।</p>
 
@@ -370,8 +303,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 5 -->
-            <div class="part-container" style="border-top-color: #be123c;">
+<div class="part-container" style="border-top-color: #be123c;">
                 <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #be123c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">झुग्गी-झोपड़ी वासियों और फेरीवालों के अधिकार</h2>
                 <p style="font-size: 18pt; text-align: justify;">शहरों में रहने वाले लाखों झुग्गी-झोपड़ी निवासी, रेहड़ी-पटरी वाले और फेरीवाले अनौपचारिक अर्थव्यवस्था को चलाते हैं, लेकिन अक्सर उन्हें बुनियादी नागरिक सुविधाओं से वंचित रखा जाता है।</p>
 
@@ -400,17 +332,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 3: समान अधिकार (Equal Rights)
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>समान अधिकार (Equal Rights)</h2>
-                <div class="-unit-subtitle">समानता का वास्तविक अर्थ, विविधता का सम्मान एवं कमजोर वर्गों की नागरिकता</div>
-            </div>
-
-            <!-- TOPIC 6 -->
-            <div class="part-container" style="border-top-color: #0891b2;">
+<div class="part-container" style="border-top-color: #0891b2;">
                 <h2 style="color: #0e7490 !important; background-color: #ecfeff; border-left: 10px solid #0891b2; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0e7490;">समान अधिकार और सांस्कृतिक विविधता</h2>
                 <p style="font-size: 18pt; text-align: justify;">समान नागरिकता का अर्थ यह नहीं है कि सभी पर एक जैसी संस्कृति थोप दी जाए। वास्तविक समान नागरिकता वही है जहाँ प्रत्येक समुदाय को अपनी विशिष्ट पहचान बनाए रखने का अधिकार हो।</p>
 
@@ -434,8 +356,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 7 -->
-            <div class="part-container" style="border-top-color: #ca8a04;">
+<div class="part-container" style="border-top-color: #ca8a04;">
                 <h2 style="color: #a16207 !important; background-color: #fefce8; border-left: 10px solid #ca8a04; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #a16207;">महिलाओं और जनजातियों की समान नागरिकता</h2>
                 <p style="font-size: 18pt; text-align: justify;">ऐतिहासिक रूप से उपेक्षित महिलाओं और वनवासी जनजातियों को मुख्यधारा में लाकर ही सच्ची लोकतांत्रिक नागरिकता स्थापित हो सकती है।</p>
 
@@ -459,17 +380,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 4: नागरिक और राष्ट्र (Citizen and Nation)
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>नागरिक और राष्ट्र (Citizen and Nation)</h2>
-                <div class="-unit-subtitle">भारतीय संविधान में नागरिकता के प्रावधान (अनुच्छेद 5 से 11), प्राप्ति व समाप्ति के नियम</div>
-            </div>
-
-            <!-- TOPIC 8 -->
-            <div class="part-container" style="border-top-color: #4f46e5;">
+<div class="part-container" style="border-top-color: #4f46e5;">
                 <h2 style="color: #4338ca !important; background-color: #eef2ff; border-left: 10px solid #4f46e5; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #4338ca;">लोकतांत्रिक राष्ट्र-राज्य और भारतीय नागरिकता की धर्मनिरपेक्ष पहचान</h2>
                 <p style="font-size: 18pt; text-align: justify;">कई देशों ने नागरिकता को किसी एक धर्म या नस्ल से जोड़ा, लेकिन भारत के स्वतंत्रता सेनानियों और संविधान निर्माताओं ने एक <b>धर्मनिरपेक्ष, समावेशी और बहुलवादी नागरिकता</b> का विकल्प चुना।</p>
 
@@ -494,8 +405,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 9 -->
-            <div class="part-container" style="border-top-color: #1e3a8a;">
+<div class="part-container" style="border-top-color: #1e3a8a;">
                 <h2 style="color: #1e40af !important; background-color: #eff6ff; border-left: 10px solid #1e3a8a; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e40af;">भारतीय संविधान में नागरिकता संबंधी प्रावधान (अनुच्छेद 5 से 11)</h2>
                 <p style="font-size: 18pt; text-align: justify;">भारतीय संविधान के <b>भाग II में अनुच्छेद 5 से 11</b> तक नागरिकता के बुनियादी सिद्धांतों का उल्लेख किया गया है:</p>
 
@@ -524,8 +434,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 10 -->
-            <div class="part-container" style="border-top-color: #059669;">
+<div class="part-container" style="border-top-color: #059669;">
                 <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #059669; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">भारतीय नागरिकता की प्राप्ति और समाप्ति के नियम (नागरिकता अधिनियम 1955)</h2>
                 <p style="font-size: 18pt; text-align: justify;">नागरिकता अधिनियम 1955 के तहत कोई भी व्यक्ति 5 वैधानिक तरीकों से भारतीय नागरिकता प्राप्त कर सकता है, तथा 3 मुख्य आधारों पर नागरिकता समाप्त हो सकती है:</p>
 
@@ -572,8 +481,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 11 -->
-            <div class="part-container" style="border-top-color: #0284c7;">
+<div class="part-container" style="border-top-color: #0284c7;">
                 <h2 style="color: #0369a1 !important; background-color: #f0f9ff; border-left: 10px solid #0284c7; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0369a1;">एकल नागरिकता बनाम दोहरी नागरिकता (भारत vs अमेरिका)</h2>
                 <p style="font-size: 18pt; text-align: justify;">अमेरिका और स्विट्जरलैंड जैसे देशों में 'दोहरी नागरिकता' (Dual Citizenship) होती है, जहाँ नागरिक देश के साथ-साथ अपने राज्य (जैसे कैलिफोर्निया या न्यूयॉर्क) का भी अलग नागरिक होता है।</p>
 
@@ -597,17 +505,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 5: सार्वभौमिक नागरिकता
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>सार्वभौमिक नागरिकता (Universal Citizenship)</h2>
-                <div class="-unit-subtitle">शरणार्थी, विस्थापित और राज्यविहीन लोगों का संकट एवं मानवीय अधिकार</div>
-            </div>
-
-            <!-- TOPIC 12 -->
-            <div class="part-container" style="border-top-color: #e11d48;">
+<div class="part-container" style="border-top-color: #e11d48;">
                 <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #e11d48; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">सार्वभौमिक नागरिकता: शरणार्थी और राज्यविहीन लोगों का संकट</h2>
                 <p style="font-size: 18pt; text-align: justify;">युद्ध, अकाल, गृहयुद्ध या धार्मिक उत्पीड़न के कारण जब लोग अपने देश से भागने को मजबूर होते हैं, तो वे शरणार्थी (Refugees) बन जाते हैं। राज्यविहीन (Stateless) लोगों के पास किसी भी देश की कानूनी नागरिकता नहीं होती।</p>
 
@@ -631,17 +529,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 6: विश्व नागरिकता
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>विश्व नागरिकता (Global Citizenship)</h2>
-                <div class="-unit-subtitle">वैश्वीकरण, 'वसुधैव कुटुम्बकम्', साझा वैश्विक चुनौतियाँ एवं सक्रिय नागरिकता</div>
-            </div>
-
-            <!-- TOPIC 13 -->
-            <div class="part-container" style="border-top-color: #0d9488;">
+<div class="part-container" style="border-top-color: #0d9488;">
                 <h2 style="color: #0f766e !important; background-color: #f0fdf4; border-left: 10px solid #0d9488; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0f766e;">विश्व नागरिकता की अवधारणा और साझा वैश्विक चुनौतियाँ</h2>
                 <p style="font-size: 18pt; text-align: justify;">आज इंटरनेट, वायुमार्ग और संचार क्रांति ने दुनिया को एक 'ग्लोबल विलेज' (Global Village) बना दिया है। विश्व नागरिकता का विचार यह मानता है कि हम केवल अपने देश के ही नहीं, बल्कि इस पूरी पृथ्वी के नागरिक हैं।</p>
 
@@ -689,8 +577,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 14 -->
-            <div class="part-container" style="border-top-color: #7c3aed;">
+<div class="part-container" style="border-top-color: #7c3aed;">
                 <h2 style="color: #5b21b6 !important; background-color: #f5f3ff; border-left: 10px solid #7c3aed; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #5b21b6;">नागरिकों के मौलिक कर्तव्य, डिजिटल नागरिकता एवं सक्रिय नागरिकता</h2>
                 <p style="font-size: 18pt; text-align: justify;">42वें संविधान संशोधन (1976) द्वारा संविधान में स्वर्ण सिंह समिति की सिफारिश पर अनुच्छेद 51A के तहत 11 मौलिक कर्तव्य जोड़े गए। 21वीं सदी में डिजिटल तकनीक और सक्रिय नागरिक भागीदारी से लोकतांत्रिक नागरिकता और सशक्त हुई है।</p>
 
@@ -755,8 +642,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 15 -->
-            <div class="part-container" style="border-top-color: #065f46;">
+<div class="part-container" style="border-top-color: #065f46;">
                 <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #065f46; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">अध्याय निष्कर्ष: "एक भारत, श्रेष्ठ भारत"—सशक्त नागरिकता ही राष्ट्र की आत्मा</h2>
                 <p style="font-size: 18pt; text-align: justify;">नागरिकता वह धागा है जो भारत के 140 करोड़ लोगों को विभिन्न जातियों, भाषाओं और धर्मों के बावजूद एक सशक्त और अखंड राष्ट्र में पिरोता है।</p>
 
@@ -781,7 +667,7 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+</div>
+</div>
 </body>
 </html>

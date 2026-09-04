@@ -1,89 +1,77 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <title>अध्याय 18: धर्मनिरपेक्षता (Secularism) - कक्षा 11 राजनीति विज्ञान</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+<meta charset="utf-8"/>
+<title>अध्याय 18: धर्मनिरपेक्षता (Secularism) - कक्षा 11 राजनीति विज्ञान - COMPLETE MASTER EDITION</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Completely remove outer double-line blue box wrapper around hero title */
+        div[style*="double"], 
+        div[style*="1e3a8a"],
+        div[style*="eff6ff"] {
+            border: none !important;
+            background-color: transparent !important;
+            background: transparent !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 30px !important;
         }
-        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
-        #mainCopyBtn {
-            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
-            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        .hero-title {
+            margin-top: 0 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
         }
-        #mainCopyBtn:hover { background-color: #1d4ed8; }
-        #status {
-            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
-            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+
+        p, li, h1, h2, h3, h4, b, strong, td, th {
+            font-weight: 900 !important;
+            -webkit-text-stroke: 1.1px #000000;
+            text-shadow: 0 0 1px #000;
+        }
+        body, p, li, td, th, div, span {
+            font-size: 28pt !important;
+            line-height: 1.8 !important;
         }
         body {
             margin-top: 80px;
             background-color: #f8fafc;
             font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
         }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
+        .part-container {
+            border-top: 10px solid #2563eb;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        b, strong {
+        .part-container h2, .part-header {
+            color: #1e3a8a !important;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 10px solid #2563eb !important;
+            padding: 20px 28px !important;
+            border-radius: 12px !important;
+            font-size: 32pt !important;
             font-weight: 900 !important;
-            color: #000000 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
         }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
         li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .-unit-header {
-            margin: 60px 0 35px 0;
-            background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%);
-            color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(2,132,199,0.2);
-            text-align: center;
-        }
-        .-unit-header h2 {
-            margin: 0;
-            color: #ffffff !important;
-            font-size: 34pt;
-            font-weight: 950 !important;
-            -webkit-text-stroke: 0.8px #ffffff;
-        }
-        .-unit-subtitle {
-            margin-top: 10px;
-            font-size: 19pt;
-            color: #bae6fd !important;
-            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.8 !important;
         }
 
-        .part-container {
-            margin-bottom: 70px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 20px; box-shadow: 0 15px 30px -5px rgba(0,0,0,0.07);
-            border-top: 12px solid #0284c7;
-        }
-        
         /* Realistic Cartoon Card Styles */
         .cartoon-card {
             margin: 45px 0;
@@ -121,79 +109,49 @@
         }
         .cartoon-caption-desc {
             font-size: 18pt;
-            font-weight: 800 !important;
-            color: #1e293b !important;
-            line-height: 1.95;
+            color: #334155;
+            line-height: 1.6;
         }
+
+        #control-header {
+            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+        }
+        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        #mainCopyBtn {
+            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
+            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        }
+        #mainCopyBtn:hover { background-color: #1d4ed8; }
+        #status {
+            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+        }
+</style>
+<script>
+    function copyToGoogleDoc() {
+        var content = document.getElementById('contentToCopy').innerHTML;
+        var blob = new Blob([content], { type: 'text/html' });
+        var data = [new ClipboardItem({ 'text/html': blob })];
         
-        .badge-tag {
-            display: inline-block;
-            background-color: #e0f2fe;
-            color: #0369a1;
-            padding: 6px 18px;
-            border-radius: 24px;
-            font-size: 17pt;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .point-badge {
-            display: inline-block;
-            background-color: #fef3c7 !important;
-            color: #92400e !important;
-            padding: 3px 12px !important;
-            border-radius: 8px !important;
-            border: 1.5px solid #f59e0b !important;
-            font-weight: 950 !important;
-            margin-right: 6px !important;
-            -webkit-text-stroke: 0.3px #92400e !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-        }
-
-        .-example-box {
-            background-color: #f0fdf4;
-            border-left: 8px solid #16a34a;
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin: 25px 0;
-            font-size: 18pt;
-            color: #14532d;
-        }
-
-        .-quote {
-            background-color: #f8fafc;
-            border-left: 8px solid #0284c7;
-            padding: 20px 30px;
-            border-radius: 12px;
-            font-style: italic;
-            margin: 25px 0;
-            font-size: 18.5pt;
-            color: #1e293b;
-        }
-    </style>
-    <script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
+        navigator.clipboard.write(data).then(function() {
+            var status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 5000);
+        }).catch(function(err) {
+            alert('Copy failed: ' + err);
+        });
+    }
+</script>
 </head>
 <body>
-
     <!-- Persistent Control Header -->
     <div id="control-header">
-        <h1>अध्याय 18: धर्मनिरपेक्षता (Secularism) - कक्षा 11 राजनीति विज्ञान</h1>
+        <h1>अध्याय 18: धर्मनिरपेक्षता (Secularism) - कक्षा 11 राजनीति विज्ञान - कक्षा 11 राजनीति विज्ञान</h1>
         <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
             📋 COPY EVERYTHING FOR GOOGLE DOCS
         </button>
@@ -203,29 +161,16 @@
         ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
     </div>
 
-    <div id="contentToCopy">
-        <div style="font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif; font-size: 20pt; line-height: 2.2; color: #000000; max-width: 1400px; margin: auto; padding: 20px;">
+<div id="contentToCopy">
+<div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
 
-            <!-- Title Section -->
-            <div style="text-align: center; margin-bottom: 60px; padding: 65px; border: 15px double #0284c7; background-color: #f0f9ff; border-radius: 30px;">
-                <span class="badge-tag">कक्षा 11 राजनीति विज्ञान (राजनीतिक सिद्धांत)</span>
-                <h1 style="color: #0369a1 !important; font-size: 54pt; font-weight: 950 !important; margin-bottom: 20px; -webkit-text-stroke: 1.5px #0369a1;">
-                    अध्याय 18: धर्मनिरपेक्षता<br/>
-                    <span style="font-size: 30pt; color:#475569; font-weight: 900;">(SECULARISM)</span>
-                </h1>
-            </div>
+<!-- Master Title Header -->
+<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
+<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; color: #1e3a8a;">अध्याय 18: धर्मनिरपेक्षता (Secularism) - कक्षा 11 राजनीति विज्ञान</h1>
+<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
+</div>
 
-
-            <!-- ==========================================
-                 TOPIC 1: धर्मनिरपेक्षता क्या है?
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>धर्मनिरपेक्षता क्या है? (What is Secularism?)</h2>
-                <div class="-unit-subtitle">धार्मिक वर्चस्व की रोकथाम, अंतर-धार्मिक व अंतः-धार्मिक वर्चस्व एवं धर्मतांत्रिक राज्य</div>
-            </div>
-            
-            <!-- TOPIC 1 -->
-            <div class="part-container" style="border-top-color: #0284c7;">
+<div class="part-container" style="border-top-color: #0284c7;">
                 <h2 style="color: #0369a1 !important; background-color: #f0f9ff; border-left: 10px solid #0284c7; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0369a1;">धर्मनिरपेक्षता का अर्थ, परिभाषा एवं धार्मिक वर्चस्व के रूप (अंतर-धार्मिक व अंतः-धार्मिक)</h2>
                 <p style="font-size: 18pt; text-align: justify;">धर्मनिरपेक्षता वह राजनीतिक व नैतिक सिद्धांत है जिसके अंतर्गत राज्य का अपना कोई आधिकारिक धर्म नहीं होता, राज्य सभी धर्मों के नागरिकों को समान अधिकार देता है और किसी भी धर्म के आधार पर भेदभाव नहीं करता।</p>
 
@@ -276,8 +221,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 2 -->
-            <div class="part-container" style="border-top-color: #dc2626;">
+<div class="part-container" style="border-top-color: #dc2626;">
                 <h2 style="color: #991b1b !important; background-color: #fef2f2; border-left: 10px solid #dc2626; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #991b1b;">धर्मतांत्रिक राज्य (Theocratic State) बनाम धर्मनिरपेक्ष लोकतांत्रिक राज्य</h2>
                 <p style="font-size: 18pt; text-align: justify;">दुनिया के देशों को उनके धर्म और राज्य के संबंध के आधार पर दो मुख्य श्रेणियों में बांटा जा सकता है:</p>
 
@@ -301,17 +245,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 2: धर्मनिरपेक्षता का पश्चिमी मॉडल
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>धर्मनिरपेक्षता का पश्चिमी मॉडल (Western Model of Secularism)</h2>
-                <div class="-unit-subtitle">धर्म और राज्य का पूर्ण अलगाव (Wall of Separation) एवं इसकी गंभीर सीमाएं</div>
-            </div>
-
-            <!-- TOPIC 3 -->
-            <div class="part-container" style="border-top-color: #7c3aed;">
+<div class="part-container" style="border-top-color: #7c3aed;">
                 <h2 style="color: #5b21b6 !important; background-color: #f5f3ff; border-left: 10px solid #7c3aed; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #5b21b6;">धर्मनिरपेक्षता का पश्चिमी मॉडल: धर्म और राज्य का पूर्ण अलगाव (Wall of Separation)</h2>
                 <p style="font-size: 18pt; text-align: justify;">अमेरिकी और यूरोपीय देशों में धर्मनिरपेक्षता का अर्थ <b>धर्म और राज्य का सख्त पारस्परिक अलगाव (Strict Mutual Exclusion)</b> है। थॉमस जेफरसन ने इसे 'चर्च और राज्य के बीच की दीवार' (Wall of Separation) कहा था।</p>
 
@@ -336,8 +270,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 4 -->
-            <div class="part-container" style="border-top-color: #be185d;">
+<div class="part-container" style="border-top-color: #be185d;">
                 <h2 style="color: #be185d !important; background-color: #fdf2f8; border-left: 10px solid #be185d; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #be185d;">पश्चिमी मॉडल की सीमाएं: सामाजिक कुरीतियों में सुधार की असमर्थता</h2>
                 <p style="font-size: 18pt; text-align: justify;">पश्चिमी धर्मनिरपेक्षता की सबसे बड़ी कमजोरी यह है कि सख्त अहस्तक्षेप के कारण राज्य धर्म के नाम पर चलने वाली अमानवीय सामाजिक बुराइयों (कुरीतियों) को कानून बनाकर रोक नहीं सकता।</p>
 
@@ -365,17 +298,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 3: धर्मनिरपेक्षता का भारतीय मॉडल
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>धर्मनिरपेक्षता का भारतीय मॉडल (Indian Model of Secularism)</h2>
-                <div class="-unit-subtitle">सैद्धांतिक दूरी (Principled Distance), सर्वधर्म समभाव एवं संवैधानिक प्रावधान (अनुच्छेद 25-30)</div>
-            </div>
-
-            <!-- TOPIC 5 -->
-            <div class="part-container" style="border-top-color: #059669;">
+<div class="part-container" style="border-top-color: #059669;">
                 <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #059669; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">धर्मनिरपेक्षता का भारतीय मॉडल: सैद्धांतिक दूरी (Principled Distance - प्रो. राजीव भार्गव)</h2>
                 <p style="font-size: 18pt; text-align: justify;">प्रसिद्ध भारतीय राजनीतिक विचारक <b>प्रो. राजीव भार्गव</b> के अनुसार, भारतीय धर्मनिरपेक्षता का मूल आधार <b>'सैद्धांतिक दूरी' (Principled Distance)</b> है।</p>
 
@@ -403,8 +326,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 6 -->
-            <div class="part-container" style="border-top-color: #0284c7;">
+<div class="part-container" style="border-top-color: #0284c7;">
                 <h2 style="color: #0369a1 !important; background-color: #f0f9ff; border-left: 10px solid #0284c7; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0369a1;">पश्चिमी बनाम भारतीय मॉडल का तुलनात्मक विश्लेषण</h2>
                 <p style="font-size: 18pt; text-align: justify;">पश्चिमी और भारतीय धर्मनिरपेक्षता के बीच का तुलनात्मक अंतर आधुनिक राजनीति विज्ञान का सबसे महत्वपूर्ण प्रश्न है:</p>
 
@@ -429,8 +351,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 7 -->
-            <div class="part-container" style="border-top-color: #ea580c;">
+<div class="part-container" style="border-top-color: #ea580c;">
                 <h2 style="color: #c2410c !important; background-color: #fff7ed; border-left: 10px solid #ea580c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #c2410c;">धार्मिक स्वतंत्रता का मौलिक अधिकार: अनुच्छेद 25 से 28</h2>
                 <p style="font-size: 18pt; text-align: justify;">भारतीय संविधान के भाग III में धार्मिक स्वतंत्रता को मौलिक अधिकार बनाया गया है:</p>
 
@@ -456,8 +377,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 8 -->
-            <div class="part-container" style="border-top-color: #0d9488;">
+<div class="part-container" style="border-top-color: #0d9488;">
                 <h2 style="color: #0f766e !important; background-color: #f0fdf4; border-left: 10px solid #0d9488; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0f766e;">अल्पसंख्यकों के अधिकार (अनुच्छेद 29-30) एवं 42वें संविधान संशोधन का प्रभाव</h2>
                 <p style="font-size: 18pt; text-align: justify;">भारतीय धर्मनिरपेक्षता की विशिष्टता यह है कि यह अल्पसंख्यकों की भाषा, लिपि और संस्कृति को बहुसंख्यकों के दबाव से सुरक्षित रखने के लिए विशेष अधिकार देती है:</p>
 
@@ -502,17 +422,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 4: भारतीय धर्मनिरपेक्षता पर 6 प्रमुख आलोचनाएं
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>भारतीय धर्मनिरपेक्षता पर आलोचनाएं और उनके उत्तर (Criticisms and Responses)</h2>
-                <div class="-unit-subtitle">द्वारा विश्लेषित 6 प्रमुख आपत्तियां एवं उनका तार्किक संवैधानिक खंडन</div>
-            </div>
-
-            <!-- TOPIC 9 -->
-            <div class="part-container" style="border-top-color: #4f46e5;">
+<div class="part-container" style="border-top-color: #4f46e5;">
                 <h2 style="color: #4338ca !important; background-color: #eef2ff; border-left: 10px solid #4f46e5; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #4338ca;">आलोचना 1: 'धर्म-विरोधी' (Anti-Religious) होने का आरोप और उत्तर</h2>
                 <p style="font-size: 18pt; text-align: justify;"><b>आलोचना:</b> आलोचक कहते हैं कि धर्मनिरपेक्षता धर्म के विरुद्ध है और लोगों की धार्मिक आस्था को कमजोर करती है।</p>
                 <div class="-example-box">
@@ -532,8 +442,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 10 -->
-            <div class="part-container" style="border-top-color: #1e3a8a;">
+<div class="part-container" style="border-top-color: #1e3a8a;">
                 <h2 style="color: #1e40af !important; background-color: #eff6ff; border-left: 10px solid #1e3a8a; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e40af;">आलोचना 2: 'पश्चिमी आयात' (Western Import) का आरोप और उत्तर</h2>
                 <p style="font-size: 18pt; text-align: justify;"><b>आलोचना:</b> आलोचकों का तर्क है कि धर्मनिरपेक्षता ईसाई/पश्चिमी जगत का विचार है, जो भारत की संस्कृति के अनुकूल नहीं है।</p>
                 <div class="-example-box">
@@ -553,8 +462,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 11 -->
-            <div class="part-container" style="border-top-color: #b91c1c;">
+<div class="part-container" style="border-top-color: #b91c1c;">
                 <h2 style="color: #7f1d1d !important; background-color: #fee2e2; border-left: 10px solid #b91c1c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #7f1d1d;">'अल्पसंख्यकवाद/तुष्टीकरण' तथा 'अति-हस्तक्षेपकारी' होने के आरोपों का खंडन</h2>
                 <p style="font-size: 18pt; text-align: justify;"><b>आलोचना:</b> आलोचकों का आरोप है कि धर्मनिरपेक्षता के नाम पर अल्पसंख्यकों को विशेष सुविधाएं देकर बहुसंख्यकों के साथ अन्याय किया जाता है।</p>
                 <div class="-example-box">
@@ -592,8 +500,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 12 -->
-            <div class="part-container" style="border-top-color: #be123c;">
+<div class="part-container" style="border-top-color: #be123c;">
                 <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #be123c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">'वोट बैंक राजनीति' तथा 'असंभव परियोजना' की आलोचनाओं का विश्लेषणात्मक उत्तर</h2>
                 <p style="font-size: 18pt; text-align: justify;"><b>आलोचना:</b> राजनीतिक दल चुनाव जीतने के लिए धर्मनिरपेक्षता का दुरुपयोग करते हैं और धार्मिक समूहों को वोट बैंक बनाते हैं।</p>
                 <div class="-example-box">
@@ -631,17 +538,7 @@
                 </div>
             </div>
 
-
-            <!-- ==========================================
-                 TOPIC 5: समकालीन चुनौतियाँ और सकारात्मक उपाय
-                 ========================================== -->
-            <div class="-unit-header">
-                <h2>समकालीन चुनौतियाँ और सकारात्मक उपाय (Contemporary Challenges)</h2>
-                <div class="-unit-subtitle">लैंगिक न्याय, अंतर-धार्मिक संवाद एवं "सर्वधर्म समभाव" का अमर संदेश</div>
-            </div>
-
-            <!-- TOPIC 13 -->
-            <div class="part-container" style="border-top-color: #e11d48;">
+<div class="part-container" style="border-top-color: #e11d48;">
                 <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #e11d48; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">पंथनिरपेक्षता में पंथ सुधार: तीन तलाक रोक, सबरीमाला व लैंगिक न्याय</h2>
                 <p style="font-size: 18pt; text-align: justify;">21वीं सदी में भारतीय न्यायपालिका ने धार्मिक स्वतंत्रता को संविधान के अनुच्छेद 14 (समानता) और अनुच्छेद 21 (गरिमापूर्ण जीवन) के अधीन मानते हुए महिलाओं के अधिकारों को प्राथमिकता दी है।</p>
 
@@ -665,8 +562,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 14 -->
-            <div class="part-container" style="border-top-color: #0d9488;">
+<div class="part-container" style="border-top-color: #0d9488;">
                 <h2 style="color: #0f766e !important; background-color: #f0fdf4; border-left: 10px solid #0d9488; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0f766e;">अंतर-धार्मिक संवाद एवं डिजिटल युग में भ्रामक अफवाहों पर रोक</h2>
                 <p style="font-size: 18pt; text-align: justify;">धर्मनिरपेक्षता केवल अदालतों और कानूनों से नहीं चलती; इसके लिए समाज में विभिन्न धर्मों के लोगों के बीच आपसी संवाद, समझ और भाईचारे की आवश्यकता होती है।</p>
 
@@ -712,8 +608,7 @@
                 </div>
             </div>
 
-            <!-- TOPIC 15 -->
-            <div class="part-container" style="border-top-color: #065f46;">
+<div class="part-container" style="border-top-color: #065f46;">
                 <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #065f46; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">अध्याय निष्कर्ष: "सर्वधर्म समभाव" और "सत्यमेव जयते"—सद्भाव ही राष्ट्र की शक्ति</h2>
                 <p style="font-size: 18pt; text-align: justify;">धर्मनिरपेक्षता भारत की कमजोरी नहीं, बल्कि इस प्राचीन और महान राष्ट्र की सबसे बड़ी शक्ति है। "मजहब नहीं सिखाता आपस में बैर रखना" ही भारत का शाश्वत संदेश है।</p>
 
@@ -738,7 +633,7 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+</div>
+</div>
 </body>
 </html>

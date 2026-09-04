@@ -36,6 +36,11 @@
             font-size: 28pt !important;
             line-height: 1.8 !important;
         }
+        body {
+            margin-top: 80px;
+            background-color: #f8fafc;
+            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
+        }
         .part-container {
             border-top: 10px solid #2563eb;
             background: #ffffff;
@@ -44,21 +49,27 @@
             margin-bottom: 40px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        .part-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: #ffffff !important;
-            padding: 25px 35px;
-            border-radius: 10px;
-            font-weight: 900 !important;
-            margin-top: 0;
+        .part-container h2, .part-header {
+            color: #1e3a8a !important;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 10px solid #2563eb !important;
+            padding: 20px 28px !important;
+            border-radius: 12px !important;
             font-size: 32pt !important;
+            font-weight: 900 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
         }
         ul {
             list-style-type: square;
             padding-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 20px;
         }
         li {
             margin-bottom: 20px;
+            line-height: 1.8 !important;
         }
 
         /* Realistic Cartoon Card Styles */
@@ -102,9 +113,54 @@
             line-height: 1.6;
         }
 
+        #control-header {
+            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+        }
+        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        #mainCopyBtn {
+            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
+            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        }
+        #mainCopyBtn:hover { background-color: #1d4ed8; }
+        #status {
+            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
+        }
 </style>
+<script>
+    function copyToGoogleDoc() {
+        var content = document.getElementById('contentToCopy').innerHTML;
+        var blob = new Blob([content], { type: 'text/html' });
+        var data = [new ClipboardItem({ 'text/html': blob })];
+        
+        navigator.clipboard.write(data).then(function() {
+            var status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 5000);
+        }).catch(function(err) {
+            alert('Copy failed: ' + err);
+        });
+    }
+</script>
 </head>
 <body>
+    <!-- Persistent Control Header -->
+    <div id="control-header">
+        <h1>अध्याय 11: राजनीतिक सिद्धांत : एक परिचय - कक्षा 11 राजनीति विज्ञान</h1>
+        <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
+            📋 COPY EVERYTHING FOR GOOGLE DOCS
+        </button>
+    </div>
+    
+    <div id="status">
+        ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
+    </div>
+
 <div id="contentToCopy">
 <div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
 
@@ -114,7 +170,6 @@
 <div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
 </div>
 
-<!-- TOPIC 1 -->
 <div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजनीति क्या है? (अवधारणा और विभिन्न दृष्टिकोण)</h2>
 <p>सामान्यतः लोग राजनीति (Politics) के बारे में भिन्न-भिन्न विचार रखते हैं। कुछ लोग इसे जनसेवा मानते हैं, तो कुछ इसे दलबदल, जोड़-तोड़ और स्वार्थ साधने का जरिया मानते हैं।</p>
@@ -141,11 +196,7 @@
 
 
 </div>
-</div>
 
-</div>
-
-<!-- TOPIC 2 -->
 <div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सरकार और नागरिक समाज का संबंध</h2>
 <p>राजनीति केवल सरकार के कामकाजों तक सीमित नहीं है, बल्कि इसमें नागरिकों की सक्रिय भागीदारी और नागरिक समाज (Civil Society) की भूमिका शामिल है।</p>
@@ -172,11 +223,7 @@
 
 
 </div>
-</div>
 
-</div>
-
-<!-- TOPIC 3 -->
 <div class="part-container" style="border-top-color: #10b981;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजनीतिक सिद्धांत में हम क्या पढ़ते हैं?</h2>
 <p><b>राजनीतिक सिद्धांत (Political Theory):</b> उन विचारों, मूल्यों और सिद्धांतों का क्रमबद्ध अध्ययन करता है जिन्होंने हमारे सामाजिक और राजनीतिक जीवन को आकार दिया है।</p>
@@ -203,7 +250,6 @@
 
 </div>
 
-<!-- TOPIC 4 -->
 <div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">प्राचीन राजनीतिक चिंतक: सुकरात, प्लेटो, अरस्तू और कौटिल्य</h2>
 <p>राजनीतिक चिंतन की जड़ें प्राचीन यूनान (ग्रीस) और भारत में फैली हुई हैं, जिन्होंने आधुनिक राजनीतिक सिद्धांतों की नींव रखी:</p>
@@ -235,10 +281,6 @@
 </div>
 </div>
 
-</div>
-</div>
-
-<!-- TOPIC 5 -->
 <div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">आधुनिक राजनीतिक चिंतक: रूसो, मार्क्स, गांधी और अंबेडकर</h2>
 <p>आधुनिक काल में अनेक विचारकों ने क्रांतिकारी राजनीतिक विचारों को जन्म दिया जिन्होंने विश्व के संविधानों और क्रांतियों को प्रेरित किया:</p>
@@ -270,10 +312,6 @@
 </div>
 </div>
 
-</div>
-</div>
-
-<!-- TOPIC 6 -->
 <div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजनीतिक सिद्धांतों की प्रासंगिकता और निरंतरता</h2>
 <p>सवाल उठ सकता है कि यदि भारत में स्वतंत्रता, समानता और लोकतंत्र पहले से स्थापित हैं, तो राजनीतिक सिद्धांतों के अध्ययन की क्या आवश्यकता है?</p>
@@ -305,7 +343,6 @@
 </ul>
 </div>
 
-<!-- TOPIC 7 -->
 <div class="part-container" style="border-top-color: #6366f1;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजनीतिक सिद्धांत को व्यवहार में लाना</h2>
 <p>राजनीतिक सिद्धांत केवल किताबी ज्ञान या विद्वानों की बहसों तक सीमित नहीं है, बल्कि यह हमारे रोजमर्रा के व्यवहार और निर्णयों का मार्गदर्शन करता है।</p>
@@ -331,7 +368,6 @@
 
 </div>
 
-<!-- TOPIC 8 -->
 <div class="part-container" style="border-top-color: #14b8a6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अवधारणाओं के विभिन्न अर्थ और संदर्भ</h2>
 <p>राजनीतिक सिद्धांतों में 'समानता' या 'स्वतंत्रता' का एक ही निश्चित अर्थ नहीं होता, बल्कि संदर्भ के अनुसार इसके अर्थ बदलते हैं।</p>
@@ -362,7 +398,6 @@
 </ul>
 </div>
 
-<!-- TOPIC 9 -->
 <div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">दैनिक जीवन में स्वतंत्रता और उसके दायरा</h2>
 <p>दैनिक जीवन में स्वतंत्रता का अर्थ केवल अपनी मर्जी करना नहीं है, बल्कि दूसरों की आजादी का सम्मान करना भी है।</p>
@@ -388,7 +423,6 @@
 
 </div>
 
-<!-- TOPIC 10 -->
 <div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">एक जागरूक और उत्तरदायी नागरिक बनना</h2>
 <p>लोकतंत्र की सफलता इस बात पर निर्भर करती है कि उसके नागरिक कितने जागरूक और जिम्मेदार हैं।</p>
@@ -414,11 +448,7 @@
 
 
 </div>
-</div>
 
-</div>
-
-<!-- TOPIC 11 -->
 <div class="part-container" style="border-top-color: #10b981;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">तर्कसंगत निर्णय क्षमता और पूर्वाग्रहों से मुक्ति</h2>
 <p>राजनीतिक सिद्धांत हमें अंधविश्वासों, रूढ़ियों और सामाजिक पूर्वाग्रहों (Prejudices) से मुक्त होना सिखाता है।</p>
@@ -444,7 +474,6 @@
 
 </div>
 
-<!-- TOPIC 12 -->
 <div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान और राजनीतिक सिद्धांतों का अंतर्संबंध</h2>
 <p>किसी भी देश का संविधान अचानक शून्य में निर्मित नहीं होता, बल्कि वह दीर्घकालिक राजनीतिक सिद्धांतों पर आधारित होता है।</p>
@@ -470,7 +499,6 @@
 
 </div>
 
-<!-- TOPIC 13 -->
 <div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अधिकार और कर्तव्यों का सामंजस्य</h2>
 <p>राजनीतिक सिद्धांत यह स्पष्ट करता है कि अधिकार (Rights) और कर्तव्य (Duties) एक ही सिक्के के दो पहलू हैं।</p>
@@ -496,7 +524,6 @@
 
 </div>
 
-<!-- TOPIC 14 -->
 <div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">वैश्वीकरण के दौर में राजनीतिक सिद्धांत</h2>
 <p>वैश्वीकरण (Globalization) ने राष्ट्रीय सीमाओं को धुंधला कर दिया है, जिससे राजनीतिक सिद्धांत के सामने नए वैश्विक प्रश्न उठे हैं:</p>
@@ -522,7 +549,6 @@
 
 </div>
 
-<!-- TOPIC 15 -->
 <div class="part-container" style="border-top-color: #6366f1;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">निष्कर्ष: हमें राजनीतिक सिद्धांत क्यों पढ़ना चाहिए?</h2>
 <p>संक्षेप में, राजनीतिक सिद्धांत का अध्ययन केवल राजनीतिक विज्ञान के छात्रों के लिए ही नहीं, बल्कि सभी नागरिकों के लिए अनिवार्य है।</p>
