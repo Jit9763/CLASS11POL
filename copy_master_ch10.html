@@ -1,364 +1,128 @@
 <!DOCTYPE html>
 
-<html lang="hi">
-<head>
-<meta charset="utf-8"/>
-<title>अध्याय 10: संविधान का राजनीतिक दर्शन - 100-PAGE MASTER EDITION</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Completely remove outer double-line blue box wrapper around hero title */
-        div[style*="double"], 
-        div[style*="1e3a8a"],
-        div[style*="eff6ff"] {
-            border: none !important;
-            background-color: transparent !important;
-            background: transparent !important;
-            padding: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 30px !important;
-        }
-        .hero-title {
-            margin-top: 0 !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-
-        p, li, h1, h2, h3, h4, b, strong, td, th {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 1.1px #000000;
-            text-shadow: 0 0 1px #000;
-        }
-        body, p, li, td, th, div, span {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-        }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
-        }
-        .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
-            font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
-        }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
-        }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
-        li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-</style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
-</head>
-<body>
-<div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
-<!-- Master Title Header -->
-<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 10: संविधान का राजनीतिक दर्शन</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
-</div>
-
-<!-- TOPIC 1 -->
-<div class="part-container">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान के दर्शन का अर्थ: केवल कानून नहीं, बल्कि एक नैतिक विज़न</h2>
+<html la
+  <div class="part-container">
+    <h2>संविधान के दर्शन का क्या अर्थ है?</h2>
+    <p>संविधान केवल कानूनों, अनुच्छेदों और ढांचों की किताब नहीं है। इसके पीछे कुछ बुनियादी <b>राजनीतिक दर्शन, नैतिक मूल्य और आदर्श</b> निहित होते हैं।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कानूनी दस्तावेज़ से परे:</b> संविधान केवल वकीलों का खेल या नियमों की किताब नहीं है; यह उस समाज का नैतिक विज़न (Moral Vision) है जिसे हम बनाना चाहते हैं।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">दार्शनिक आधार:</b> स्वतंत्रता, समानता, न्याय, पंथनिरपेक्षता और बंधुता हमारे संविधान की नैतिक रीढ़ हैं।</li>
+<li><b>मूल्यों का समुच्चय:</b> संविधान का दर्शन उन नैतिक सिद्धांतों को उजागर करता है जिन पर संपूर्ण शासन व्यवस्था आधारित है (जैसे- स्वतंत्रता, समानता, न्याय, धर्मनिरपेक्षता)।</li>
+<li><b>संविधान की आत्मा:</b> यह संविधान निर्माताओं की सोच और उनके दूरदर्शी दृष्टिकोण (Vision) को व्यक्त करता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">हमें संवैधानिक दर्शन की आवश्यकता क्यों है?</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान के दर्शन की आवश्यकता क्यों है?</h2>
+    <p>संविधान के राजनीतिक दर्शन को समझना तीन मुख्य कारणों से आवश्यक है:</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">व्याख्या की कुंजी:</b> जब भी किसी कानून या अनुच्छेद पर विवाद होता है, तो संविधान का दर्शन ही अदालतों को सही दिशा दिखाता है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लोकतांत्रिक मूल्य:</b> यह नागरिकों को उनके अधिकारों और सरकार की सीमाओं के प्रति सचेत करता है।</li>
+<li><b>संवैधानिक व्याख्या:</b> जब संविधान के किसी अनुच्छेद के अर्थ को लेकर अस्पष्टता होती है, तो न्यायालय संविधान के दर्शन और आत्मा के प्रकाश में निर्णय देता है।</li>
+<li><b>कानूनों का मूल्यांकन:</b> यह जांचने का मानदंड कि सरकार द्वारा बनाया गया कोई नया कानून हमारे संवैधानिक आदर्शों के अनुकूल है या नहीं।</li>
+<li><b>नागरिकों में लोकतांत्रिक चेतना:</b> नागरिकों को उनके अधिकारों और कर्तव्यों के प्रति जागरूक करना।</li>
 </ul>
-</div>
-
-<!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">प्रस्तावना (Preamble): संविधान का सार, आत्मा और सर्वोच्च मूल्य</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान एक नैतिक दस्तावेज के रूप में</h2>
+    <p>भारतीय संविधान केवल सत्ता के आवंटन का दस्तावेज नहीं है, बल्कि यह एक <b>नैतिक दस्तावेज (Moral Document)</b> है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">"हम भारत के लोग":</b> संप्रभुता जनता में निहित है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पाँच मुख्य शब्द:</b> सम्पूर्ण प्रभुत्व-संपन्न, समाजवादी, पंथनिरपेक्ष, लोकतंत्रात्मक गणराज्य।</li>
+<li><b>शांतिपूर्ण और न्यायपूर्ण समाज का निर्माण:</b> यह राज्य की शक्ति पर नैतिक अंकुश लगाता है और यह सुनिश्चित करता है कि सरकार जनता के कल्याण के लिए काम करे।</li>
+<li><b>सामाजिक बदलाव का साधन:</b> इसने सदियों पुरानी सामाजिक बुराइयों (जैसे अस्पृश्यता, जातिगत भेदभाव) को कानूनी रूप से समाप्त कर एक समतामूलक समाज की नींव रखी।</li>
 </ul>
-</div>
-
-<!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">पंडित जवाहरलाल नेहरू का उद्देश्य प्रस्ताव (1946): संवैधानिक दर्शन की नींव</h2>
+  </div>
+  <div class="part-container">
+    <h2>उद्देश्य प्रस्ताव (Objectives Resolution 1946)</h2>
+    <p>13 दिसंबर 1946 को पंडित जवाहरलाल नेहरू द्वारा संविधान सभा में पेश किया गया <b>'उद्देश्य प्रस्ताव'</b> भारतीय संविधान के राजनीतिक दर्शन का मूलाधार बना।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">13 दिसंबर 1946:</b> नेहरूजी ने संविधान सभा में 'उद्देश्य प्रस्ताव' (Objectives Resolution) पेश किया, जिसने संविधान के मुख्य लक्ष्यों (स्वतंत्रता, समानता, न्याय) को रेखांकित किया।</li>
+<li><b>मूल आदर्श:</b> इसमें भारत को एक स्वतंत्र, संप्रभु, गणराज्य घोषित किया गया तथा सभी नागरिकों के लिए न्याय, समानता और स्वतंत्रता की गारंटी दी गई।</li>
+<li><b>प्रस्तावना का आधार:</b> यही उद्देश्य प्रस्ताव बाद में संविधान की <b>'प्रस्तावना' (Preamble)</b> का रूप बना, जिसे संविधान की कुंजी कहा जाता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">व्यक्तिगत स्वतंत्रता और नागरिक की केंद्रीयता</h2>
+  </div>
+  <div class="part-container">
+    <h2>व्यक्तिगत स्वतंत्रता की प्रतिबद्धता</h2>
+    <p>भारतीय संविधान के दर्शन का मुख्य स्तंभ <b>व्यक्तिगत स्वतंत्रता (Individual Freedom)</b> है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">व्यक्ति की गरिमा:</b> भारतीय संविधान व्यक्ति को केवल राज्य की प्रजा नहीं मानता, बल्कि उसे सर्वोच्च गरिमा और मौलिक अधिकारों से संपन्न नागरिक मानता है।</li>
+<li><b>अभिव्यक्ति और आचरण की आजादी:</b> अनुच्छेद 19 और 21 के तहत प्रत्येक नागरिक को विचार, अभिव्यक्ति, विश्वास और जीवन जीने की स्वतंत्रता दी गई है।</li>
+<li><b>राममोहन राय और राजा राममोहन राय की परंपरा:</b> भारतीय राष्ट्रीय आंदोलन (राजा राममोहन राय से लेकर बाल गंगाधर तिलक तक) से ही प्रेस की स्वतंत्रता और व्यक्तिगत आजादी की मांग संवैधानिक दर्शन का हिस्सा बनी।</li>
 </ul>
-</div>
-
-<!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सामाजिक न्याय: पिछड़ों, वंचितों और अल्पसंख्यकों का सशक्तीकरण</h2>
+  </div>
+  <div class="part-container">
+    <h2>सामाजिक न्याय और समानता की दृष्टि</h2>
+    <p>भारतीय संविधान केवल औपचारिक समानता (Formal Equality) नहीं, बल्कि <b>सामाजिक न्याय (Social Justice)</b> और वास्तविक समानता पर जोर देता है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सकारात्मक न्याय:</b> केवल औपचारिक समानता नहीं, बल्कि सदियों से शोषित दलितों, आदिवासियों और महिलाओं को विशेष अवसर (आरक्षण) देकर मुख्यधारा में लाना।</li>
+<li><b>सकारात्मक कार्रवाई (Affirmative Action):</b> ऐतिहासिक रूप से वंचित वर्गों (अनुसूचित जाति, अनुसूचित जनजाति और पिछडे वर्गों) के उत्थान के लिए आरक्षण और विशेष संवैधानिक प्रावधान।</li>
+<li><b>जातिगत भेदभाव का अंत:</b> अनुच्छेद 17 द्वारा अस्पृश्यता (Untouchability) का पूर्ण उन्मूलन और उपाधियों का अंत (अनुच्छेद 18)।</li>
+<li><b>डॉ. बी.आर. अंबेडकर का योगदान:</b> उन्होंने रेखांकित किया कि राजनीतिक लोकतंत्र तब तक अधूरा है जब तक कि सामाजिक और आर्थिक लोकतंत्र स्थापित न हो।</li>
 </ul>
-</div>
-
-<!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">प्रतिष्ठा और अवसर की समानता</h2>
+  </div>
+  <div class="part-container">
+    <h2>भारतीय धर्मनिरपेक्षता का अनूठा मॉडल</h2>
+    <p>भारतीय संविधान का धर्मनिरपेक्षता का दर्शन पश्चिमी मॉडल से मौलिक रूप से भिन्न और अधिक समावेशी है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समान अवसर:</b> जन्म, जाति या लिंग के आधार पर किसी भी नागरिक के साथ भेदभाव न होना।</li>
+<li><b>सर्वधर्म समभाव:</b> भारत में धर्मनिरपेक्षता का अर्थ केवल राज्य और धर्म का पूर्ण अलगाव नहीं है, बल्कि राज्य द्वारा सभी धर्मों के प्रति समान आदर और तटस्थता है।</li>
+<li><b>धार्मिक स्वतंत्रता का अधिकार:</b> अनुच्छेद 25 से 28 के तहत प्रत्येक व्यक्ति को अपने धर्म का पालन करने, प्रचार करने और प्रबंध करने की पूर्ण आजादी है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">पंथनिरपेक्षता (Secularism): भारतीय बनाम पश्चिमी मॉडल</h2>
+  </div>
+  <div class="part-container">
+    <h2>सैद्धांतिक दूरी (Principled Distance) की अवधारणा</h2>
+    <p>प्रसिद्ध राजनीतिक दार्शनिक <b>राजीव भार्गव</b> के अनुसार, भारतीय धर्मनिरपेक्षता <b>'सैद्धांतिक दूरी' (Principled Distance)</b> के सिद्धांत पर काम करती है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पश्चिमी मॉडल:</b> धर्म और राज्य का पूर्ण पृथक्करण (Strict Separation)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">भारतीय मॉडल (Principled Distance):</b> राज्य सभी धर्मों से समान दूरी बनाए रखेगा, किंतु सामाजिक सुधारों (जैसे अस्पृश्यता या कुरीतियों को हटाने) के लिए धर्म में तार्किक हस्तक्षेप कर सकता है।</li>
+<li><b>आवश्यकतानुसार हस्तक्षेप:</b> राज्य धार्मिक मामलों से दूरी बनाए रखता है, लेकिन सामाजिक सुधारों (जैसे सती प्रथा, बाल विवाह, अस्पृश्यता या ट्रिपल तलाक का अंत) के लिए धर्म में हस्तक्षेप भी कर सकता है।</li>
+<li><b>समान मदद और सुधार:</b> राज्य सभी धार्मिक समुदायों को अपनी शिक्षण संस्थाएं चलाने का अधिकार देता है (अनुच्छेद 30)।</li>
 </ul>
-</div>
-
-<!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">विविधता का सम्मान और अल्पसंख्यकों के सांस्कृतिक व शैक्षिक अधिकार</h2>
+  </div>
+  <div class="part-container">
+    <h2>विविधता और अल्पसंख्यक अधिकारों का सम्मान</h2>
+    <p>भारत की विशाल सांस्कृतिक, भाषाई और धार्मिक विविधता को स्वीकार करना हमारे संवैधानिक दर्शन की सबसे बड़ी ताकत है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अल्पसंख्यकों की सुरक्षा:</b> भारत में धार्मिक और भाषाई अल्पसंख्यकों को अपनी संस्कृति, भाषा और शिक्षण संस्थान सुरक्षित रखने का विशेष अधिकार दिया गया।</li>
+<li><b>अल्पसंख्यक सुरक्षा:</b> संविधान बहुसंख्यकवाद (Majoritarianism) को खारिज करता है और अनुच्छेद 29-30 के तहत अल्पसंख्यकों की भाषा, लिपि और संस्कृति के संरक्षण की गारंटी देता है।</li>
+<li><b>सांस्कृतिक अधिकार:</b> समुदायों को अपनी पहचान बनाए रखने का पूर्ण अधिकार है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सार्वभौमिक वयस्क मताधिकार: राजनैतिक समानता की महान क्रांति</h2>
+  </div>
+  <div class="part-container">
+    <h2>सार्वभौमिक नागरिकता और राष्ट्रीय पहचान</h2>
+    <p>भारतीय संविधान ने जाति, धर्म, लिंग या क्षेत्र के आधार पर खंडित नागरिकता के बजाय <b>एकल और सार्वभौमिक नागरिकता (Universal Citizenship)</b> को अपनाया।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">साहसिक कदम:</b> 1950 में जब अधिकांश पश्चिमी देशों में भी महिलाओं या गरीबों को देर से वोट का अधिकार मिला, भारत ने पहले दिन से ही हर नागरिक को बिना संपत्ति/शिक्षा की शर्त के वोट का अधिकार दिया।</li>
+<li><b>सार्वभौमिक वयस्क मताधिकार:</b> स्वतंत्रता के साथ ही 21 वर्ष (अब 18 वर्ष) के सभी नागरिकों को बिना किसी भेदभाव के वोट देने का अधिकार दिया गया—जो उस समय के विकसित पश्चिमी देशों में भी एक क्रांतिकारी कदम था।</li>
+<li><b>साझा राष्ट्रीय पहचान:</b> विभिन्न क्षेत्रीय और भाषाई पहचानों को बनाए रखते हुए एक मजबूत भारतीय राष्ट्रीय पहचान का निर्माण किया गया।</li>
 </ul>
-</div>
-
-<!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारतीय संघवाद: विविधता और एकता को साधने वाला दार्शनिक चुनाव</h2>
+  </div>
+  <div class="part-container">
+    <h2>संघवाद और क्षेत्रीय स्वायत्तता का सम्मान</h2>
+    <p>संवैधानिक दर्शन में एक मजबूत राष्ट्र के निर्माण के साथ-साथ राज्यों की क्षेत्रीय पहचान और स्वायत्तता का सम्मान शामिल है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विशिष्ट पहचान:</b> भारत का संघवाद केवल प्रशासनिक सुविधा नहीं है, बल्कि यह विविधता और राष्ट्रीय एकता का दार्शनिक सामंजस्य है।</li>
+<li><b>असममित संघवाद (Asymmetric Federalism):</b> संविधान में कुछ राज्यों (जैसे पूर्वोत्तर के राज्य, पहाड़ी राज्य) की विशेष जरूरतों के लिए अनुच्छेद 371 के तहत अलग व्यवस्थाएं की गई हैं।</li>
+<li><b>एकता और विविधता का संतुलन:</b> केंद्रीयकरण और विकेंद्रीकरण के बीच सामंजस्य।</li>
 </ul>
-</div>
-
-<!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रवाद बनाम संवैधानिक देशभक्ति (Constitutional Patriotism)</h2>
+  </div>
+  <div class="part-container">
+    <h2>प्रक्रियात्मक उपलब्धि और आम सहमति</h2>
+    <p>संविधान सभा की कार्यप्रणाली स्वयं संवैधानिक दर्शन की एक महान उपलब्धि थी।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक देशभक्ति:</b> भारत में नागरिकता किसी एक धर्म या भाषा पर आधारित नहीं है, बल्कि यह संविधान के मूल्यों और स्वतंत्रता संग्राम की साझी विरासत पर आधारित है।</li>
+<li><b>आम सहमति (Consensus):</b> निर्णयों को केवल बहुमत के बल पर नहीं थोपा गया, बल्कि विचार-विमर्श और सर्वसम्मति बनाने का प्रयास किया गया।</li>
+<li><b>वाद-विवाद और खुलापन:</b> हर अनुच्छेद और शब्द पर गहन और खुली बहस हुई।</li>
 </ul>
-</div>
-
-<!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">प्रक्रियात्मक उपलब्धियां: तर्कसंगत संवाद, बहस और सहमति की संस्कृति</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान सभा में तर्कसंगतता और बहस का महत्व</h2>
+    <p>संविधान सभा के सदस्य केवल अपने संकीर्ण हितों का प्रतिनिधित्व नहीं कर रहे थे, बल्कि उन्होंने <b>तर्कसंगत बहस (Reasoned Debate)</b> के माध्यम से पूरे देश के हित को सर्वोपरि रखा।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संविधान सभा की बहसें:</b> लगभग 3 वर्षों तक हर मुद्दे पर खुली और तर्कपूर्ण बहस हुई, जिसमें बिना मतदान के अधिकांश फैसले 'सहमति' (Consensus) से लिए गए।</li>
+<li><b>दस्तावेजी प्रमाण:</b> 'संविधान सभा के वाद-विवाद' (Constituent Assembly Debates) के 12 खंड आज भी भारतीय लोकतंत्र के महानतम बौद्धिक और नैतिक खजाने हैं।</li>
 </ul>
-</div>
-
-<!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान की प्रमुख आलोचनाएँ: क्या यह 'अभारतीय' या 'उधार का थैला' है?</h2>
+  </div>
+  <div class="part-container">
+    <h2>भारतीय संविधान की प्रमुख आलोचनाएं</h2>
+    <p>भारतीय संविधान के दर्शन पर कुछ आलोचकों द्वारा निम्नलिखित प्रश्न उठाए जाते हैं:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आलोचना:</b> पश्चिमी संविधानों से नकल करने का आरोप।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">खंडन:</b> डॉ. आंबेडकर ने कहा था कि दुनिया के सर्वश्रेष्ठ संवैधानिक प्रावधानों को भारत की परिस्थितियों के अनुकूल ढालना गर्व की बात है, नकल नहीं।</li>
+<li><b>1. अस्तव्यस्त और विशाल (Unwieldy):</b> संविधान अत्यधिक विस्तृत और जटिल कानूनी भाषा में लिखा गया है।</li>
+<li><b>2. प्रतिनिधिमूलक नहीं:</b> संविधान सभा के सदस्य सार्वभौमिक मताधिकार से नहीं, बल्कि सीमित मताधिकार वाली प्रांतीय सभाओं द्वारा चुने गए थे।</li>
+<li><b>3. पश्चिमी अनुकरण (Borrowed Document):</b> यह दावा कि यह संविधान 1935 के भारत सरकार अधिनियम और पश्चिमी देशों का अंधानुकरण है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान की सीमाएँ और निष्कर्ष: एक स्थायी और महान विरासत एवं मास्टर सिनोप्सिस</h2>
+  </div>
+  <div class="part-container">
+    <h2>आलोचनाओं का उत्तर और संविधान का मूल्यांकन</h2>
+    <p>उपरोक्त आलोचनाओं के बावजूद भारतीय संविधान की मौलिकता और प्रासंगिकता असंदिग्ध है:</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सच्ची विरासत:</b> भारतीय संविधान का राजनीतिक दर्शन केवल अतीत की बात नहीं है, यह आज भी हमारे लोकतंत्र का मार्गदर्शन करता है।</li>
+<li><b>भारतीय परिस्थितियों के अनुकूल:</b> विदेशी विचारों को भारत की अनूठी सामाजिक जरूरतों (जैसे आरक्षण, धर्मनिरपेक्षता का मॉडल) के अनुसार ढाला गया।</li>
+<li><b>सफल लोकतांत्रिक अनुभव:</b> 75 वर्षों का जीवंत इतिहास यह साबित करता है कि यह संविधान देश की जन-आकांक्षाओं पर पूरी तरह खरा उतरा है।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 10: मास्टर सिनोप्सिस (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-भारतीय संविधान का दर्शन मानव गरिमा, सामाजिक न्याय और पंथनिरपेक्षता के महान सिद्धांतों पर आधारित है। यह विविधताओं से भरे भारत को एकता और विकास की डगर पर आगे बढ़ाने वाली एक अमूल्य संवैधानिक धरोहर है।
-</span>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </body>
 </html>

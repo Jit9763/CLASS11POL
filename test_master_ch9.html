@@ -1,365 +1,134 @@
 <!DOCTYPE html>
 
-<html lang="hi">
-<head>
-<meta charset="utf-8"/>
-<title>अध्याय 9: संविधान: एक जीवंत दस्तावेज - 100-PAGE MASTER EDITION</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Completely remove outer double-line blue box wrapper around hero title */
-        div[style*="double"], 
-        div[style*="1e3a8a"],
-        div[style*="eff6ff"] {
-            border: none !important;
-            background-color: transparent !important;
-            background: transparent !important;
-            padding: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 30px !important;
-        }
-        .hero-title {
-            margin-top: 0 !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-
-        p, li, h1, h2, h3, h4, b, strong, td, th {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 1.1px #000000;
-            text-shadow: 0 0 1px #000;
-        }
-        body, p, li, td, th, div, span {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-        }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
-        }
-        .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
-            font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
-        }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
-        }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
-        li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-</style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
-</head>
-<body>
-<div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
-<!-- Master Title Header -->
-<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 9: संविधान: एक जीवंत दस्तावेज</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
-</div>
-
-<!-- TOPIC 1 -->
-<div class="part-container">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">क्या संविधान जड़ है या गतिशील? 'जीवंत दस्तावेज़' का दर्शन</h2>
+<html la
+  <div class="part-container">
+    <h2>क्या संविधान स्थिर होते हैं?</h2>
+    <p>संविधान कोई अंतिम, अनम्य (Rigid) या पत्थर की लकीर नहीं है। समाज परिवर्तनशील है, और समय के साथ नई परिस्थितियां, चुनौतियां और जनआकांक्षाएं जन्म लेती हैं।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जीवंत दस्तावेज (Living Document):</b> संविधान कोई अनम्य या मृत पुस्तक नहीं है, बल्कि यह एक जीवित संस्था की तरह समाज की बदलती जरूरतों के साथ विकसित होता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समय की कसौटी:</b> पिछले 75 से अधिक वर्षों में भारतीय संविधान ने कई राजनीतिक और सामाजिक संकटों का सफलतापूर्वक सामना किया है।</li>
+<li><b>लचीलेपन और कठोरता का संतुलन:</b> एक आदर्श संविधान में इतना लचीलापन होना चाहिए कि वह समय के बदलाव को अपना सके, परंतु इतना कमजोर भी नहीं होना चाहिए कि सत्ताधारी दल अपनी मर्जी से उसे नष्ट कर सके।</li>
+<li><b>जीवंतता का प्रमाण:</b> भारतीय संविधान 1950 से आज तक देश की लोकतांत्रिक यात्रा का सफल मार्गदर्शन कर रहा है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान में संशोधन की प्रक्रिया (अनुच्छेद 368) और इसकी आवश्यकता</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान एक जीवंत दस्तावेज के रूप में</h2>
+    <p>भारतीय संविधान को <b>'जीवंत दस्तावेज' (Living Document)</b> माना जाता है क्योंकि यह एक जीवित प्राणी की तरह समय और परिस्थितियों के अनुसार ढलता है और विकसित होता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुच्छेद 368:</b> भारतीय संविधान का भाग XX संसद को संविधान में संशोधन करने की शक्ति प्रदान करता है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">बदलती परिस्थितियाँ:</b> नए अधिकार (जैसे प्राइवेसी, शिक्षा, GST) और तकनीकी बदलावों को शामिल करने के लिए संशोधन आवश्यक हैं।</li>
+<li><b>परिवर्तनशीलता:</b> यह बदलती परिस्थितियों का उत्तर देने में सक्षम है।</li>
+<li><b>अनुभव से सीखना:</b> व्यवहार में संविधान का प्रयोग करते हुए न्यायपालिका, संसद और जनता ने इसकी नई-नई व्याख्याएं विकसित की हैं।</li>
+<li><b>संविधान की सर्वोच्चता:</b> बार-बार संशोधनों के बावजूद इसका मूल संवैधानिक ढांचा और लोकतांत्रिक मूल्य अक्षुण्ण रहे हैं।</li>
 </ul>
-</div>
-
-<!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">कठोरता बनाम लचीलेपन का संतुलन: भारत का बीच का रास्ता</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान में संशोधन की प्रक्रिया (अनुच्छेद 368)</h2>
+    <p>भारतीय संविधान के भाग 20 में <b>अनुच्छेद 368</b> संसद को संविधान में संशोधन करने की शक्ति प्रदान करता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अत्यधिक लचीलापन खतरनाक:</b> यदि संविधान बहुत लचीला हो तो सत्तारूढ़ दल उसे अपनी मर्जी से बदल सकता है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अत्यधिक कठोरता हानिकारक:</b> यदि बहुत कठोर हो तो क्रांति का खतरा रहता है (जैसे अमेरिका में केवल 27 संशोधन हुए)।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संतुलन:</b> भारत का संविधान न तो अत्यधिक कठोर है और न अत्यधिक लचीला।</li>
+<li><b>संसद की शक्ति:</b> संविधान संशोधन का विधेयक केवल संसद के किसी भी सदन (लोकसभा या राज्यसभा) में ही पेश किया जा सकता है, राज्य विधानसभाओं में नहीं।</li>
+<li><b>राष्ट्रपति की अनुमति:</b> 24वें संविधान संशोधन (1971) द्वारा यह अनिवार्य कर दिया गया कि संसद द्वारा पारित संविधान संशोधन विधेयक पर राष्ट्रपति को अपनी सहमति देनी ही होगी; वे इसे पुनर्विचार के लिए नहीं लौटा सकते।</li>
+<li><b>संयुक्त बैठक का अभाव:</b> संविधान संशोधन विधेयक पर दोनों सदनों में मतभेद होने पर संयुक्त बैठक (Joint Sitting) का कोई प्रावधान नहीं है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संशोधन की तीन विधियाँ: साधारण बहुमत, विशेष बहुमत, और राज्यों का अनुसमर्थन</h2>
+  </div>
+  <div class="part-container">
+    <h2>संशोधन की तीन पद्धतियां</h2>
+    <p>भारतीय संविधान की संशोधन प्रक्रिया को तीन श्रेणियों में विभाजित किया गया है, जो इसके लचीलेपन और कठोरता के मिश्रण को दर्शाती हैं:</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. साधारण बहुमत (Art. 368 से बाहर):</b> नए राज्यों का गठन, नागरिकता, आधिकारिक भाषा (उपस्थित व मतदान करने वालों का 50%+1)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. विशेष बहुमत (Art. 368):</b> मौलिक अधिकार व DPSP। कुल सदस्यता का बहुमत + उपस्थित व मतदान का 2/3 बहुमत।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. विशेष बहुमत + कम से कम 50% राज्यों का अनुसमर्थन:</b> राष्ट्रपति का चुनाव, केंद्र-राज्य संबंध, GST काउंसिल आदि।</li>
+<li><b>1. साधारण बहुमत द्वारा (Simple Majority):</b> सामान्य कानून की तरह संसद के साधारण बहुमत से।</li>
+<li><b>2. विशेष बहुमत द्वारा (Special Majority):</b> संसद के दोनों सदनों में पृथक-पृथक विशेष बहुमत द्वारा (अनुच्छेद 368)।</li>
+<li><b>3. विशेष बहुमत + आधा राज्यों का अनुसमर्थन:</b> संसद के विशेष बहुमत के साथ-साथ कम से कम 50% राज्यों की विधानसभाओं के साधारण बहुमत से स्वीकृति।</li>
 </ul>
-</div>
-
-<!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">तकनीकी और प्रशासनिक संशोधन: संवैधानिक स्पष्टता</h2>
+  </div>
+  <div class="part-container">
+    <h2>पद्धति 1: साधारण बहुमत द्वारा संशोधन</h2>
+    <p>संविधान के कई प्रावधानों को संसद अपने <b>साधारण बहुमत (उपस्थित और मतदान करने वालों का >50%)</b> से बदल सकती है। इन्हें अनुच्छेद 368 के तहत 'संविधान संशोधन' नहीं माना जाता।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रशासनिक सुधार:</b> कई संशोधन केवल तकनीकी प्रावधानों (जैसे उच्च न्यायालय के जजों की सेवानिवृत्ति की आयु 60 से 62 करना) को स्पष्ट करने के लिए किए गए।</li>
+<li><b>प्रमुख विषय:</b> नए राज्यों का गठन या सीमाओं में परिवर्तन (अनुच्छेद 3-4), राज्यों में विधान परिषद का निर्माण या समाप्ति (अनुच्छेद 169)।</li>
+<li><b>अन्य विषय:</b> नागरिकता से जुड़े नियम, संसद में गणपूर्ति (Quorum), और आधिकारिक भाषा का प्रयोग।</li>
 </ul>
-</div>
-
-<!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजनीतिक सहमति से हुए संशोधन: दलबदल और आरक्षण संबंधी संशोधन</h2>
+  </div>
+  <div class="part-container">
+    <h2>पद्धति 2: विशेष बहुमत द्वारा संशोधन</h2>
+    <p>संविधान के अधिकांश हिस्सों में संशोधन केवल <b>विशेष बहुमत (Special Majority)</b> द्वारा ही किया जा सकता है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राजनीतिक सहमति:</b> दलबदल विरोधी कानून (52वाँ संशोधन), SC/ST आरक्षण की समय सीमा बढ़ाना और 61वाँ संशोधन (मताधिकार आयु 18 वर्ष करना) सर्वसम्मति से पारित हुए।</li>
+<li><b>विशेष बहुमत का अर्थ:</b> (क) सदन की 'कुल सदस्य संख्या' का बहुमत (50%+1), और (ख) मतदान में भाग लेने वाले सदस्यों का <b>दो-तिहाई (2/3) बहुमत</b>।</li>
+<li><b>उद्देश्य:</b> यह सुनिश्चित करना कि कोई भी सत्ताधारी दल केवल अपने कम बहुमत के दम पर संविधान में संशोधन न कर सके; इसके लिए व्यापक राजनीतिक सहमति की आवश्यकता होती है।</li>
+<li><b>प्रमुख विषय:</b> मौलिक अधिकार (Part III), नीति निर्देशक तत्व (Part IV), और वे सभी विषय जो पहली और तीसरी श्रेणी में नहीं आते।</li>
 </ul>
-</div>
-
-<!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">विवादास्पद संशोधन: 42वाँ संशोधन (1976) — 'मिनी संविधान' का दौर</h2>
+  </div>
+  <div class="part-container">
+    <h2>पद्धति 3: राज्यों के अनुसमर्थन से संशोधन</h2>
+    <p>संविधान के <b>संघीय ढांचे (Federal Structure)</b> से जुड़े प्रावधानों को बदलने के लिए संसद के विशेष बहुमत के साथ-साथ कम से कम <b>आधे (50%) राज्यों की विधायिकाओं का अनुसमर्थन</b> अनिवार्य है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आपातकाल का दौर:</b> 1976 में इंदिरा गांधी सरकार ने 42वाँ संविधान संशोधन पास किया जिसने न्यायपालिका की शक्ति को सीमित किया और संसद को असीमित शक्ति दी। प्रस्तावना में 'समाजवादी', 'पंथनिरपेक्ष' और 'अखंडता' शब्द जोड़े गए।</li>
+<li><b>राज्य की सहमति आवश्यक:</b> केंद्र अकेले राज्यों के अधिकारों में कटौती नहीं कर सकता।</li>
+<li><b>प्रमुख विषय:</b> राष्ट्रपति के निर्वाचन की प्रक्रिया, केंद्र और राज्यों के बीच शक्तियों का विभाजन (7वीं अनुसूची), संसद में राज्यों का प्रतिनिधित्व, और अनुच्छेद 368 स्वयं।</li>
+<li><b>उदाहरण:</b> 101वां संविधान संशोधन (GST लागू करना)।</li>
 </ul>
-</div>
-
-<!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सुधारात्मक कदम: 43वाँ और 44वाँ संविधान संशोधन (1977-78)</h2>
+  </div>
+  <div class="part-container">
+    <h2>संशोधनों का विश्लेषण: प्रकार और प्रवृत्तियां</h2>
+    <p>1950 से अब तक संविधान में 100 से अधिक संशोधन हो चुके हैं। इन संशोधनों को तीन प्रमुख श्रेणियों में बांटा जा सकता है:</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">44वाँ संशोधन (1978):</b> जनता पार्टी सरकार ने 42वें संशोधन की दमनकारी विकृतियों को हटाया। आंतरिक अशांति के स्थान पर 'सशस्त्र विद्रोह' शब्द लाया गया और संपत्ति के अधिकार को मौलिक अधिकारों से हटाया गया।</li>
+<li><b>तकनीकी/प्रशासनिक संशोधन:</b> आयु सीमा बढ़ाना, वेतन-भत्ते तय करना आदि।</li>
+<li><b>व्याख्यात्मक संशोधन:</b> संविधान के अनुच्छेदों की न्यायपालिका द्वारा की गई व्याख्या को स्पष्ट या संशोधित करने हेतु।</li>
+<li><b>राजनीतिक आम सहमति वाले संशोधन:</b> राजनीतिक दलों के बीच व्यापक सहमति पर आधारित संशोधन।</li>
 </ul>
-</div>
-
-<!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संविधान के विकास में न्यायपालिका की भूमिका और व्याख्या</h2>
+  </div>
+  <div class="part-container">
+    <h2>प्रशासनिक और तकनीकी संशोधन</h2>
+    <p>ऐसे संशोधन जिनका उद्देश्य संविधान की व्यावहारिक भाषा को स्पष्ट करना या प्रशासनिक व्यवस्था में सुधार करना था।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">न्यायिक व्याख्या (Judicial Interpretation):</b> बिना औपचारिक संशोधन के भी सुप्रीम कोर्ट ने कई नई व्याख्याओं द्वारा संविधान को समृद्ध किया है (जैसे अनुच्छेद 21 में प्राइवेसी और शिक्षा का अधिकार)।</li>
+<li><b>15वां संशोधन:</b> उच्च न्यायालय के न्यायाधीशों की सेवामुक्त आयु 60 वर्ष से बढ़ाकर 62 वर्ष की गई।</li>
+<li><b>55वां संशोधन:</b> सर्वोच्च न्यायालय और उच्च न्यायालय के न्यायाधीशों के वेतन में वृद्धि।</li>
+<li><b>61वां संशोधन (1989):</b> मतदान की न्यूनतम आयु 21 वर्ष से घटाकर 18 वर्ष की गई।</li>
 </ul>
-</div>
-
-<!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">केशवानंद भारती केस और 'मूल ढांचे' (Basic Structure) का सिद्धांत</h2>
+  </div>
+  <div class="part-container">
+    <h2>व्याख्यात्मक और राजनीतिक आम सहमति के संशोधन</h2>
+    <p>जब न्यायपालिका और संसद के बीच किसी प्रावधान के अर्थ पर मतभेद हुआ या जब देश में व्यापक राजनीतिक सहमति बनी:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1973 का ऐतिहासिक फैसला:</b> न्यायपालिका ने तय किया कि संसद संविधान के किसी भी हिस्से में संशोधन कर सकती है, लेकिन वह उसके 'मूल ढांचे' को बदल नहीं सकती।</li>
+<li><b>दलबदल विरोधी कानून (52वां संशोधन 1985):</b> दलबदल की राजनीति पर अंकुश लगाने हेतु 10वीं अनुसूची जोड़ी गई।</li>
+<li><b>स्थानीय निकाय (73वां और 74वां संशोधन 1992):</b> पंचायती राज और नगर निकायों को संवैधानिक दर्जा देने के लिए सर्वसम्मति से पारित।</li>
+<li><b>निःशुल्क शिक्षा का अधिकार (86वां संशोधन 2002):</b> अनुच्छेद 21A जोड़कर 6 से 14 वर्ष के बच्चों के लिए शिक्षा को मौलिक अधिकार बनाया गया।</li>
 </ul>
-</div>
-
-<!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">लोकतंत्र की रक्षा में 'मूल ढांचे' के सिद्धांत का महत्व</h2>
+  </div>
+  <div class="part-container">
+    <h2>विवादास्पद संशोधन: 42वां और 44वां संशोधन</h2>
+    <p><b>42वां संविधान संशोधन (1976):</b> आपातकाल के दौरान पारित। इसे <b>'मिनी कॉन्स्टिट्यूशन' (Mini-Constitution)</b> कहा जाता है। इसमें प्रस्तावना में 'समाजवादी', 'धर्मनिरपेक्ष' और 'अखंडता' शब्द जोड़े गए, मौलिक कर्तव्य (Part IV-A) शामिल किए गए और संसद को अत्यधिक शक्ति दी गई।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">तानाशाही पर रोक:</b> यह सिद्धांत यह सुनिश्चित करता है कि कोई भी बहुमत वाली सरकार संविधान के बुनियादी दर्शन (लोकतंत्र, पंथनिरपेक्षता, अधिकारों की सुरक्षा) को समाप्त न कर सके।</li>
+<li><b>44वां संविधान संशोधन (1978):</b> जनता पार्टी सरकार द्वारा 42वें संशोधन की अतिशयोक्तियों को निरस्त करने हेतु लाया गया।</li>
+<li><b>सुधार:</b> संपत्ति के अधिकार को मौलिक अधिकारों से हटाकर कानूनी अधिकार बनाया गया; 'आंतरिक अशांति' शब्द को बदलकर 'सशस्त्र विद्रोह' किया गया; और राष्ट्रपति को मंत्रिपरिषद की सलाह को एक बार पुनर्विचार के लिए वापस भेजने का अधिकार दिया गया।</li>
 </ul>
-</div>
-
-<!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संसद और न्यायपालिका के बीच शक्ति संतुलन और संवैधानिक वर्चस्व</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायपालिका और संविधान संशोधन (संसद बनाम न्यायालय)</h2>
+    <p>संविधान संशोधन की शक्ति को लेकर संसद और न्यायपालिका के बीच दीर्घकालिक विवाद रहा है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक संतुलन:</b> न संसद सर्वोपरि है और न न्यायपालिका; सर्वोपरि केवल भारत का संविधान है।</li>
+<li><b>गोलकनाथ केस (1967):</b> सर्वोच्च न्यायालय ने फैसला दिया कि संसद संविधान संशोधन के जरिए भी मौलिक अधिकारों को नहीं छीन सकती।</li>
+<li><b>24वां संशोधन (1971):</b> संसद ने संविधान में संशोधन कर स्पष्ट किया कि अनुच्छेद 368 के तहत वह मौलिक अधिकारों सहित किसी भी भाग को संशोधित कर सकती है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">जनमत, सामाजिक बदलाव और संवैधानिक परिवर्तन</h2>
+  </div>
+  <div class="part-container">
+    <h2>केशवानंद भारती केस और मूल ढांचे का सिद्धांत (1973)</h2>
+    <p><b>केशवानंद भारती बनाम केरल राज्य (1973):</b> भारतीय संवैधानिक इतिहास का सबसे महत्वपूर्ण निर्णय जिसने संसद की संशोधन शक्ति की सीमा तय की।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जनता की आकांक्षाएं:</b> जैसे-जैसे समाज बदलता है, जनमत के दबाव में संवैधानिक संशोधन स्वतः आकार लेते हैं।</li>
+<li><b>मूल ढांचे की अवधारणा (Basic Structure Doctrine):</b> न्यायपालिका ने फैसला दिया कि संसद को संविधान के किसी भी भाग में संशोधन की शक्ति है, परंतु वह संविधान की <b>'मूल संरचना' या 'मूल ढांचे'</b> को नष्ट नहीं कर सकती।</li>
+<li><b>मूल ढांचे के घटक:</b> संविधान की सर्वोच्चता, लोकतांत्रिक व गणराज्य स्वरूप, धर्मनिरपेक्षता, शक्तियों का पृथक्करण, और न्यायिक समीक्षा।</li>
 </ul>
-</div>
-
-<!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">एक कार्यशील दस्तावेज़ के रूप में संविधान की ऐतिहासिक सफलता</h2>
+  </div>
+  <div class="part-container">
+    <h2>संविधान की गतिशीलता और न्यायिक व्याख्या</h2>
+    <p>भारतीय संविधान केवल औपचारिक संशोधनों से ही नहीं बदला, बल्कि न्यायपालिका की <b>जीवंत व्याख्याओं (Dynamic Judicial Interpretations)</b> से भी विकसित हुआ है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सफलता की कुंजी:</b> हमारे संविधान निर्माताओं की दूरदर्शिता और इसकी नम्यता (Flexibility) ने इसे दुनिया का सबसे सफल संविधान बनाया।</li>
+<li><b>अनुच्छेद 21 का विस्तार:</b> न्यायपालिका ने 'जीवन के अधिकार' की व्याख्या करते हुए इसमें स्वच्छ जल, पर्यावरण, निजता का अधिकार (Puttaswamy Case 2017) और सम्मानजनक जीवन जीने का अधिकार शामिल किया।</li>
+<li><b>संविधान का अनौपचारिक विकास:</b> बिना एक भी शब्द बदले संविधान समय की आधुनिक आवश्यकताओं के अनुरूप ढल गया है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">स्थायित्व और परिवर्तन में संतुलन और निष्कर्ष: राष्ट्र की धड़कन एवं मास्टर सिनोप्सिस</h2>
+  </div>
+  <div class="part-container">
+    <h2>भारतीय संविधान की सफलता और परिपक्वता</h2>
+    <p>भारतीय संविधान की सफलता का मुख्य कारण इसका संतुलन, जीवंतता और जन-आकांक्षाओं के प्रति संवेदनशीलता है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">स्थायित्व व गतिशीलता:</b> संविधान में मूल आदर्शों का स्थायित्व और बदलती परिस्थितियों के साथ ढलने की गतिशीलता दोनों मौजूद हैं।</li>
+<li><b>लोकतांत्रिक स्थिरता:</b> जहां दुनिया के कई विकासशील देशों के संविधान बार-बार ध्वस्त हुए, वहीं भारत का संविधान 75 से अधिक वर्षों से अटूट बना हुआ है।</li>
+<li><b>संविधान की परिपक्वता:</b> इसने विभिन्न राजनीतिक विचारधाराओं, सामाजिक परिवर्तनों और संकटों का सफलतापूर्वक सामना किया है और भारत को एक सशक्त लोकतंत्र के रूप में स्थापित किया है।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 9: मास्टर सिनोप्सिस (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-भारतीय संविधान एक पत्थर की लकीर नहीं, बल्कि जीवन की बहती धारा है। यह 'मूल ढांचे' के जरिए अपने आधारभूत मूल्यों की रक्षा करता है और 'संशोधन प्रक्रिया' के जरिए भावी पीढ़ियों के सपनों को साकार करने का मार्ग प्रशस्त करता है।
-</span>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </body>
 </html>

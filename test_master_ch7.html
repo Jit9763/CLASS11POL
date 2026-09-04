@@ -1,371 +1,141 @@
 <!DOCTYPE html>
 
-<html lang="hi">
-<head>
-<meta charset="utf-8"/>
-<title>अध्याय 7: संघवाद - 100-PAGE MASTER EDITION</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Completely remove outer double-line blue box wrapper around hero title */
-        div[style*="double"], 
-        div[style*="1e3a8a"],
-        div[style*="eff6ff"] {
-            border: none !important;
-            background-color: transparent !important;
-            background: transparent !important;
-            padding: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 30px !important;
-        }
-        .hero-title {
-            margin-top: 0 !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-
-        p, li, h1, h2, h3, h4, b, strong, td, th {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 1.1px #000000;
-            text-shadow: 0 0 1px #000;
-        }
-        body, p, li, td, th, div, span {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-        }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
-        }
-        .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
-            font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
-        }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
-        }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
-        li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-</style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
-</head>
-<body>
-<div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
-<!-- Master Title Header -->
-<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 7: संघवाद</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
-</div>
-
-<!-- TOPIC 1 -->
-<div class="part-container">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संघवाद क्या है? (बुनियादी अवधारणा और भारतीय संदर्भ)</h2>
+<html la
+  <div class="part-container">
+    <h2>संघवाद का अर्थ और मौलिक अवधारणा</h2>
+    <p><b>संघवाद (Federalism):</b> एक ऐसी राजनीतिक व्यवस्था है जिसमें शक्ति का विभाजन दो स्तरों—एक केन्द्रीय (राष्ट्रीय) सरकार और दूसरी क्षेत्रीय/प्रांतीय (राज्य) सरकारों—के बीच होता है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">दोहरी सरकार:</b> संघवाद शासन की वह व्यवस्था है जिसमें दो स्तरों की सरकारें (केंद्र सरकार और राज्य सरकारें) एक ही क्षेत्र और जनता पर शासन करती हैं।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संविधान द्वारा शक्ति विभाजन:</b> दोनों स्तर की सरकारों को अपनी शक्तियाँ सीधे संविधान से प्राप्त होती हैं, न कि एक-दूसरे से।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुच्छेद 1:</b> "भारत, अर्थात् इंडिया, राज्यों का संघ (Union of States) होगा।"</li>
+<li><b>द्विस्तरीय शासन:</b> संघवाद में प्रत्येक नागरिक दोहरी पहचान और दोहरी निष्ठा (राष्ट्रीय और प्रांतीय) रखता है।</li>
+<li><b>लिखित एवं कठोर संविधान:</b> शक्तियों का विभाजन एक लिखित संविधान द्वारा होता है, जिसकी सर्वोच्चता को अदालतें सुनिश्चित करती हैं।</li>
+<li><b>विभिन्नता में एकता:</b> संघवाद विविधता (भाषा, संस्कृति, धर्म) का सम्मान करते हुए एक साझा राष्ट्रीय जीवन का निर्माण करता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">शक्तियों का संवैधानिक विभाजन: संघ सूची, राज्य सूची और समवर्ती सूची</h2>
+  </div>
+  <div class="part-container">
+    <h2>भारतीय संविधान में संघवाद का स्वरूप</h2>
+    <p>भारतीय संविधान के <b>अनुच्छेद 1</b> में कहा गया है: <i>"भारत, अर्थात इंडिया, राज्यों का एक संघ (Union of States) होगा।"</i></p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">7वीं अनुसूची:</b> (1) संघ सूची (97-100 विषय: रक्षा, विदेश नीति, मुद्रा), (2) राज्य सूची (61 विषय: पुलिस, कृषि, जेल), (3) समवर्ती सूची (52 विषय: शिक्षा, वन, शादी/तलाक)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समवर्ती सूची में केंद्र की प्राथमिकता:</b> यदि समवर्ती सूची के विषय पर केंद्र और राज्य के कानून में टकराव होता है, तो केंद्र का कानून मान्य होगा।</li>
+<li><b>'Federation' शब्द का अभाव:</b> संविधान में 'Federation' शब्द के स्थान पर 'Union' शब्द का प्रयोग किया गया है, जिसका अर्थ है कि भारतीय संघ राज्यों के बीच किसी समझौते का परिणाम नहीं है और किसी राज्य को संघ से अलग होने का अधिकार नहीं है।</li>
+<li><b>के.सी. व्हेयर का विचार:</b> प्रसिद्ध संविधानविद के.सी. व्हेयर (K.C. Wheare) ने भारतीय व्यवस्था को <b>'अर्द्ध-संघीय' (Quasi-Federal)</b> कहा है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अवशिष्ट शक्तियाँ (Residuary Powers) और एकात्मक लक्षण</h2>
+  </div>
+  <div class="part-container">
+    <h2>शक्तियों का विभाजन: सातवीं अनुसूची और सूचियां</h2>
+    <p>संविधान की <b>सातवीं अनुसूची (Seventh Schedule)</b> के तहत केंद्र और राज्यों के बीच शक्तियों का स्पष्ट विभाजन तीन सूचियों के माध्यम से किया गया है:</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अवशिष्ट शक्तियां (Art. 248):</b> वे विषय जो तीनों सूचियों में शामिल नहीं हैं (जैसे साइबर कानून, स्पेस रिसर्च) उन पर कानून बनाने का अधिकार केंद्र सरकार को है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एकात्मक लक्षण:</b> एकल संविधान, एकल नागरिकता, एकीकृत न्यायपालिका और आपातकाल में एकात्मक रूप।</li>
+<li><b>संघ सूची (Union List):</b> राष्ट्रीय महत्व के विषय जैसे रक्षा, विदेश मामले, बैंकिंग, मुद्रा, संचार (मूलतः 97, वर्तमान में 100 विषय)। इन पर केवल संसद कानून बना सकती है।</li>
+<li><b>राज्य सूची (State List):</b> स्थानीय महत्व के विषय जैसे पुलिस, जेल, कृषि, सिंचाई, लोक स्वास्थ्य (मूलतः 66, वर्तमान में 61 विषय)। इन पर राज्य विधायिका कानून बनाती है।</li>
+<li><b>समवर्ती सूची (Concurrent List):</b> साझा महत्व के विषय जैसे शिक्षा, वन, विवाह, दत्तक ग्रहण (मूलतः 47, वर्तमान में 52 विषय)। केंद्र और राज्य दोनों कानून बना सकते हैं; टकराव की स्थिति में केंद्रीय कानून मान्य होता है।</li>
+<li><b>अवशिष्ट शक्तियां (Residuary Powers):</b> अनुच्छेद 248 के तहत जो विषय तीनों सूचियों में शामिल नहीं हैं (जैसे साइबर कानून), उन पर कानून बनाने की शक्ति केवल केंद्र सरकार (संसद) के पास है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत में एकात्मक रुझान वाले संघवाद (मज़बूत केंद्र) की आवश्यकता</h2>
+  </div>
+  <div class="part-container">
+    <h2>सशक्त केंद्र वाला भारतीय संघवाद</h2>
+    <p>भारत के संविधान निर्माताओं ने देश की एकता, अखंडता और विविधता को ध्यान में रखते हुए एक <b>शक्तिशाली केंद्रीय सरकार (Strong Centre)</b> की स्थापना की।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1947 का विभाजन और सांप्रदायिकता:</b> स्वतंत्रता के समय देश के विखंडन के डर से संविधान निर्माताओं ने राष्ट्र की अखंडता बनाए रखने के लिए केंद्र को मजबूत बनाया।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सामाजिक व आर्थिक विकास:</b> गरीबी और असमानता को दूर करने के लिए देशव्यापी एकीकृत आर्थिक नीतियों की जरूरत थी।</li>
+<li><b>ऐतिहासिक पृष्ठभूमि:</b> स्वतंत्रता के समय विभाजन की त्रासदी, साम्प्रदायिक हिंसा और 500 से अधिक देशी रियासतों के एकीकरण की चुनौती के कारण मजबूत केंद्र की आवश्यकता महसूस की गई।</li>
+<li><b>आर्थिक नियोजन:</b> देश के सर्वांगीण विकास और सामाजिक-आर्थिक असमानता को दूर करने के लिए केंद्रीय नियंत्रण आवश्यक था।</li>
 </ul>
-</div>
-
-<!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राज्यपाल की दोहरी भूमिका: केंद्र का एजेंट या असंवैधानिक हस्तक्षेप?</h2>
+  </div>
+  <div class="part-container">
+    <h2>सशक्त केंद्र के संवैधानिक प्रावधान</h2>
+    <p>संविधान में कई ऐसे प्रावधान हैं जो केंद्र सरकार को राज्यों की तुलना में अत्यधिक शक्तिशाली बनाते हैं:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">दोहरी भूमिका:</b> राज्यपाल राज्य का संवैधानिक प्रमुख होने के साथ-साथ केंद्र सरकार का प्रतिनिधि भी होता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विवाद का कारण:</b> राज्यपाल की नियुक्ति केंद्र द्वारा होती है, इसलिए विपक्षी शासित राज्यों में राज्यपाल की भूमिका पर अक्सर केंद्र के पक्षपात का आरोप लगता है।</li>
+<li><b>राज्य की सीमाओं में परिवर्तन:</b> अनुच्छेद 3 के तहत संसद बिना राज्य की सहमति के भी राज्य का नाम, सीमा या क्षेत्रफल बदल सकती है या नया राज्य बना सकती है।</li>
+<li><b>आपातकालीन शक्तियां:</b> राष्ट्रीय आपातकाल (अनुच्छेद 352), राष्ट्रपति शासन (अनुच्छेद 356) और वित्तीय आपातकाल (अनुच्छेद 360) के दौरान भारत का ढांचा पूरी तरह एकात्मक (Unitary) हो जाता है।</li>
+<li><b>एकीकृत न्यायपालिका और अखिल भारतीय सेवाएं:</b> IAS और IPS अधिकारियों की नियुक्ति केंद्र करता है, जो राज्यों में कार्यरत होते हैं।</li>
+<li><b>राज्यपाल की नियुक्ति:</b> राज्य का संवैधानिक प्रमुख (राज्यपाल) राष्ट्रपति (केंद्र) द्वारा नियुक्त किया जाता है और राष्ट्रपति के प्रसादपर्यंत पद पर रहता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अनुच्छेद 356 (राष्ट्रपति शासन) का उपयोग और दुरुपयोग</h2>
+  </div>
+  <div class="part-container">
+    <h2>केंद्र-राज्य संबंध और तनाव के प्रमुख मुद्दे</h2>
+    <p>समय-समय पर केंद्र और राज्यों के बीच स्वायत्तता और शक्तियों के प्रयोग को लेकर तनाव पैदा होता रहा है। तनाव के मुख्य कारण निम्नलिखित हैं:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक तंत्र की विफलता:</b> अनुच्छेद 356 के तहत यदि राज्य में संवैधानिक तंत्र विफल हो जाए, तो राष्ट्रपति शासन लगाया जा सकता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एस.आर. बोम्मई मामला (1994):</b> सुप्रीम कोर्ट ने राष्ट्रपति शासन की न्यायिक समीक्षा को अनिवार्य बनाकर इसके राजनीतिक दुरुपयोग पर लगाम लगाई।</li>
+<li><b>स्वायत्तता की मांग:</b> गैर-शासित राज्यों द्वारा केंद्र के अत्यधिक नियंत्रण का विरोध।</li>
+<li><b>राज्यपाल की भूमिका:</b> केंद्र के एजेंट के रूप में राज्यपाल का प्रयोग और राज्य सरकारों को बर्खास्त करना।</li>
+<li><b>वित्तीय संसाधन:</b> करों का असमान बंटवारा और राज्यों की केंद्र पर वित्तीय निर्भरता।</li>
+<li><b>राजभाषा विवाद:</b> हिंदी भाषा को थोपने के प्रयासों का गैर-हिंदी राज्यों द्वारा विरोध।</li>
 </ul>
-</div>
-
-<!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राज्यों की स्वायत्तता (Autonomy) की मांग और वित्तीय संबंध</h2>
+  </div>
+  <div class="part-container">
+    <h2>राज्यपाल की भूमिका और अनुच्छेद 356 (राष्ट्रपति शासन)</h2>
+    <p><b>अनुच्छेद 356:</b> यदि राज्यपाल रिपोर्ट दे कि राज्य का शासन संविधान के प्रावधानों के अनुसार नहीं चलाया जा सकता, तो राष्ट्रपति राज्य सरकार को बर्खास्त कर <b>राष्ट्रपति शासन (President's Rule)</b> लागू कर सकते हैं।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">स्वायत्तता के आयाम:</b> (1) वित्तीय स्वायत्तता (अधिक राजस्व), (2) प्रशासनिक स्वायत्तता, (3) सांस्कृतिक व भाषाई स्वायत्तता (जैसे तमिलनाडु या उत्तर-पूर्व के राज्य)।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आनंदपुर साहिब प्रस्ताव & पश्चिम बंगाल ज्ञापन:</b> 1970 के दशक में राज्यों ने केंद्र-राज्य संबंधों को पुनर्गठित करने की मांग की।</li>
+<li><b>दुरुपयोग का इतिहास:</b> 1950 से अब तक 100 से अधिक बार अनुच्छेद 356 का प्रयोग राजनीतिक कारणों से विपक्षी दलों की राज्य सरकारों को गिराने के लिए किया गया।</li>
+<li><b>संवैधानिक मर्यादा:</b> राज्यपाल की निष्पक्षता पर सवाल उठते रहे हैं क्योंकि वे केंद्र के प्रतिनिधि के रूप में कार्य करते हैं।</li>
 </ul>
-</div>
-
-<!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राजकोषीय संघवाद: वित्त आयोग, संसाधन आबंटन और GST</h2>
+  </div>
+  <div class="part-container">
+    <h2>एस. आर. बोम्मई केस (1994) और अनुच्छेद 356 पर अंकुश</h2>
+    <p><b>एस. आर. बोम्मई बनाम भारत संघ (1994):</b> सर्वोच्च न्यायालय का यह ऐतिहासिक निर्णय अनुच्छेद 356 के मनमाने प्रयोग को रोकने में मील का पत्थर साबित हुआ।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वित्त आयोग (Art. 280):</b> राष्ट्रपति द्वारा हर 5 साल में गठित। केंद्र और राज्यों के बीच करों की शुद्ध आय का बंटवारा तय करता है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वस्तु एवं सेवा कर (GST Council):</b> 101वें संशोधन द्वारा 'एक देश, एक कर' और सहयोगात्मक वित्तीय संघवाद का उदाहरण।</li>
+<li><b>न्यायिक समीक्षा:</b> न्यायालय ने फैसला दिया कि अनुच्छेद 356 के तहत राष्ट्रपति शासन लागू करने के निर्णय की न्यायिक समीक्षा (Judicial Review) की जा सकती है।</li>
+<li><b>विधानसभा में बहुमत परीक्षण:</b> राज्य सरकार का बहुमत साबित करने का एकमात्र स्थान 'विधानसभा का पटल' है, न कि राजभवन।</li>
+<li><b>असंवैधानिक बर्खास्तगी पर बहाली:</b> यदि राष्ट्रपति शासन असंवैधानिक पाया गया, तो न्यायालय बर्खास्त सरकार को पुनः बहाल कर सकता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अंतर-राज्यीय विवाद: जल बंटवारा (नदी जल विवाद) और सीमा मुद्दे</h2>
+  </div>
+  <div class="part-container">
+    <h2>स्वायत्तता की मांग और आनंदपुर साहिब प्रस्ताव</h2>
+    <p>राज्यों ने केंद्र से अधिक वित्तीय और प्रशासनिक स्वायत्तता (Autonomy) की मांग की है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नदी जल विवाद (Art. 262):</b> कावेरी (तमिलनाडु व कर्नाटक), कृष्णा, और सतलुज-यमुना लिंक नहर को लेकर राज्यों के बीच तीखे विवाद।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सीमा विवाद:</b> बेलगाम को लेकर महाराष्ट्र और कर्नाटक के बीच विवाद।</li>
+<li><b>वित्तीय स्वायत्तता:</b> राज्यों की मांग है कि उन्हें राजस्व जुटाने के अधिक अधिकार मिलें और केंद्रीय अनुदान में पारदर्शिता हो।</li>
+<li><b>प्रशासनिक स्वायत्तता:</b> अखिल भारतीय सेवाओं (IAS/IPS) पर राज्यों का अधिक नियंत्रण हो।</li>
+<li><b>आनंदपुर साहिब प्रस्ताव (1973):</b> अकाली दल द्वारा पारित प्रस्ताव में केंद्र को केवल रक्षा, विदेश, संचार और मुद्रा तक सीमित रखने और शेष शक्तियां राज्यों को देने की मांग की गई थी।</li>
+<li><b>पश्चिम बंगाल ज्ञापन (1977):</b> माकपा सरकार द्वारा केंद्र-राज्य संबंधों को पुनर्गठित करने की मांग।</li>
 </ul>
-</div>
-
-<!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राज्यों के लिए विशेष प्रावधान: अनुच्छेद 371 से 371J</h2>
+  </div>
+  <div class="part-container">
+    <h2>अंतर्राज्यीय विवाद: नदी जल विवाद</h2>
+    <p>राज्यों के बीच संसाधनों के बंटवारे को लेकर कई गंभीर जल विवाद मौजूद हैं।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">असम्मत संघवाद (Asymmetric Federalism):</b> भारत का संघवाद सभी राज्यों को बिल्कुल एक जैसा नहीं मानता। पूर्वोत्तर के राज्यों (नागालैंड, मिजोरम, असम) और पहाड़ी राज्यों को उनकी संस्कृति और जनसांख्यिकी की रक्षा के लिए अनुच्छेद 371 के तहत विशेष स्वायत्तता दी गई है।</li>
+<li><b>कावेरी जल विवाद:</b> तमिलनाडु, कर्नाटक, केरल और पुडुचेरी के बीच कावेरी नदी के पानी के बंटवारे का विवाद।</li>
+<li><b>कृष्णा जल विवाद:</b> महाराष्ट्र, कर्नाटक और आंध्र प्रदेश के मध्य जल बंटवारा।</li>
+<li><b>नर्मदा जल विवाद:</b> गुजरात, मध्य प्रदेश और महाराष्ट्र के बीच।</li>
+<li><b>संवैधानिक समाधान:</b> अनुच्छेद 262 के तहत संसद ने 'अंतर्राज्यीय नदी जल विवाद अधिनियम, 1956' बनाया, जिसके तहत जल विवाद न्यायाधिकरण (Water Disputes Tribunal) गठित किए जाते हैं।</li>
 </ul>
-</div>
-
-<!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">जम्मू और कश्मीर का ऐतिहासिक संदर्भ और अनुच्छेद 370 का परिवर्तन</h2>
+  </div>
+  <div class="part-container">
+    <h2>अंतर्राज्यीय सीमा विवाद</h2>
+    <p>भाषाई आधार पर राज्यों के पुनर्गठन के बाद कई राज्यों के बीच सीमा संबंधी विवाद पैदा हुए।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुच्छेद 370 की ऐतिहासिक पृष्ठभूमि:</b> 1947 में विलय पत्र (Instrument of Accession) के तहत जम्मू-कश्मीर को विशेष राज्य का दर्जा दिया गया था।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2019 का परिवर्तन:</b> अगस्त 2019 में संसद ने अनुच्छेद 370 के प्रभाव को समाप्त कर राज्य को दो केंद्र शासित प्रदेशों (जम्मू-कश्मीर व लद्दाख) में विभाजित किया।</li>
+<li><b>बेलगाम विवाद:</b> महाराष्ट्र और कर्नाटक के बीच बेलगाम (बेलगावी) शहर पर दावा।</li>
+<li><b>चंडीगढ़ विवाद:</b> पंजाब और हरियाणा दोनों राज्यों द्वारा चंडीगढ़ को अपनी राजधानी बनाने का दावा।</li>
+<li><b>पूर्वोत्तर सीमा विवाद:</b> असम और नागालैंड, असम और मिजोरम के बीच सीमा पर झड़पें।</li>
 </ul>
-</div>
-
-<!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">केंद्रवाद बनाम क्षेत्रवाद: क्षेत्रीय दलों का उदय और प्रभाव</h2>
+  </div>
+  <div class="part-container">
+    <h2>विशेष प्रावधान: अनुच्छेद 370 और जम्मू-कश्मीर का इतिहास</h2>
+    <p>भारत के कई राज्यों को उनकी ऐतिहासिक और सांस्कृतिक परिस्थितियों के कारण विशेष दर्जा दिया गया था।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">गठबंधन राजनीति का दौर (1989-2014):</b> क्षेत्रीय दलों के मजबूत होने से केंद्र-राज्य संबंधों में ज्यादा सौदेबाजी और राज्यों की आवाज को बुलंदी मिली।</li>
+<li><b>अनुच्छेद 370:</b> जम्मू-कश्मीर को अपना अलग संविधान, ध्वज और स्वायत्तता दी गई थी। केंद्र केवल रक्षा, विदेश और संचार मामलों में हस्तक्षेप कर सकता था।</li>
+<li><b>2019 का ऐतिहासिक संशोधन:</b> अगस्त 2019 में संसद ने अनुच्छेद 370 के मुख्य प्रावधानों को निरस्त कर जम्मू-कश्मीर और लद्दाख को दो पृथक केंद्र शासित प्रदेशों में विभाजित कर दिया।</li>
 </ul>
-</div>
-
-<!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सहयोगात्मक संघवाद (Cooperative Federalism) और नीति आयोग (NITI Aayog)</h2>
+  </div>
+  <div class="part-container">
+    <h2>पूर्वोत्तर राज्यों के लिए विशेष प्रावधान: अनुच्छेद 371A से 371J</h2>
+    <p>पूर्वोत्तर के राज्यों और अन्य पिछड़े क्षेत्रों के लिए संविधान के भाग 21 में <b>अनुच्छेद 371 (A से J)</b> के तहत विशेष व्यवस्थाएं की गई हैं।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">टीम इंडिया की भावना:</b> केंद्र और राज्यों को मिलकर राष्ट्रीय विकास के लिए कार्य करना चाहिए।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नीति आयोग:</b> योजना आयोग के स्थान पर 2015 में स्थापित; 'नीचे से ऊपर' (Bottom-up Approach) मॉडल पर आधारित।</li>
+<li><b>अनुच्छेद 371A (नागालैंड):</b> नागा धार्मिक और सामाजिक प्रथाओं, रूढ़िवादी कानून और भूमि स्वामित्व पर संसद का कानून नागालैंड विधानसभा की सहमति के बिना लागू नहीं होता।</li>
+<li><b>अनुच्छेद 371B से 371H:</b> असम, मणिपुर, आंध्र प्रदेश, सिक्किम, मिजोरम, अरुणाचल प्रदेश और गोवा के लिए विशेष प्रशासनिक और विकास बोर्ड संबंधी प्रावधान।</li>
+<li><b>अनुच्छेद 371J:</b> कर्नाटक के हैदराबाद-कर्नाटक क्षेत्र के विकास के लिए विशेष प्रावधान।</li>
 </ul>
-</div>
-
-<!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संघवाद के सामने 21वीं सदी की चुनौतियाँ और विवाद सुलझाने में न्यायपालिका की भूमिका</h2>
+  </div>
+  <div class="part-container">
+    <h2>सरकारीया और पुंछी आयोग की सिफारिशें</h2>
+    <p>केंद्र-राज्य संबंधों की समीक्षा और सुधार के लिए भारत सरकार द्वारा महत्वपूर्ण आयोग गठित किए गए:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">न्यायिक मध्यस्थता:</b> जब भी केंद्र और राज्यों में कानूनी या संवैधानिक टकराव होता है, सुप्रीम कोर्ट (Art. 131) अंतिम मध्यस्थ के रूप में फैसला सुनाता है।</li>
+<li><b>सरकारीया आयोग (1983):</b> न्यायमूर्ति रंजीत सिंह सरकारीया की अध्यक्षता में गठित। सिफारिश की कि अनुच्छेद 356 का प्रयोग अंतिम विकल्प (Last Resort) के रूप में होना चाहिए और राज्यपाल की नियुक्ति में राज्य के मुख्यमंत्री से सलाह ली जानी चाहिए।</li>
+<li><b>पुंछी आयोग (2007):</b> न्यायमूर्ति मदन मोहन पुंछी की अध्यक्षता में गठित आयोग जिसने राज्यपाल के निश्चित 5 वर्ष के कार्यकाल और अंतर्राज्यीय परिषद को मजबूत करने की सिफारिश की।</li>
 </ul>
-</div>
-
-<!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">विविधता के प्रबंधन के रूप में संघवाद और निष्कर्ष: भारतीय लोकतंत्र की आत्मा एवं मास्टर सिनोप्सिस</h2>
+  </div>
+  <div class="part-container">
+    <h2>सहकारी एवं प्रतियोगी संघवाद और नीति आयोग</h2>
+    <p>21वीं सदी में भारतीय संघवाद 'सहकारी संघवाद' (Cooperative Federalism) और 'प्रतियोगी संघवाद' (Competitive Federalism) की दिशा में बढ़ा है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विविधता में एकता:</b> संघवाद वह साधन है जिसके माध्यम से भारत अपनी अपार भाषाई, सांस्कृतिक और क्षेत्रीय विविधताओं को एक अखंड राष्ट्रीय सूत्र में पिरोकर रखता है।</li>
+<li><b>अंतर्राज्यीय परिषद (Inter-State Council - Article 263):</b> राष्ट्रपति द्वारा गठित परिषद जो केंद्र और राज्यों के बीच समन्वय स्थापित करती है।</li>
+<li><b>नीति आयोग (NITI Aayog):</b> 2015 में स्थापित नीति आयोग 'टीम इंडिया' के विचार पर काम करता है, जिसमें सभी राज्यों के मुख्यमंत्री शासी परिषद (Governing Council) के सदस्य हैं।</li>
+<li><b>GST परिषद:</b> वस्तु एवं सेवा कर (GST) परिषद केंद्र और राज्यों के संयुक्त वित्तीय निर्णय लेने का अनूठा उदाहरण है।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 7: मास्टर सिनोप्सिस (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-भारतीय संघवाद की सुंदरता 'एकात्मकता और स्वायत्तता' के अनूठे संतुलन में है। यह न केवल केंद्र की मजबूती सुनिश्चित करता है बल्कि राज्यों की विविधता का भी पूर्ण सम्मान करता है।
-</span>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </body>
 </html>

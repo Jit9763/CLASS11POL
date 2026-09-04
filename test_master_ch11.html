@@ -1,435 +1,132 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <title>अध्याय 11: राजनीतिक सिद्धांत: एक परिचय - कक्षा 11 राजनीति विज्ञान</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
-        #mainCopyBtn {
-            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
-            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
-        }
-        #mainCopyBtn:hover { background-color: #1d4ed8; }
-        #status {
-            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
-            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
-        }
-        body {
-            margin-top: 80px;
-            background-color: #f8fafc;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
-        li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .ncert-unit-header {
-            margin: 60px 0 35px 0;
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-            color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(30,58,138,0.2);
-            text-align: center;
-        }
-        .ncert-unit-header h2 {
-            margin: 0;
-            color: #ffffff !important;
-            font-size: 34pt;
-            font-weight: 950 !important;
-            -webkit-text-stroke: 0.8px #ffffff;
-        }
-        .ncert-unit-subtitle {
-            margin-top: 10px;
-            font-size: 19pt;
-            color: #93c5fd !important;
-            font-weight: 800;
-        }
-
-        .part-container {
-            margin-bottom: 70px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 20px; box-shadow: 0 15px 30px -5px rgba(0,0,0,0.07);
-            border-top: 12px solid #2563eb;
-        }
-        
-        .badge-tag {
-            display: inline-block;
-            background-color: #dbeafe;
-            color: #1e40af;
-            padding: 6px 18px;
-            border-radius: 24px;
-            font-size: 17pt;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .point-badge {
-            display: inline-block;
-            background-color: #fef3c7 !important;
-            color: #92400e !important;
-            padding: 3px 12px !important;
-            border-radius: 8px !important;
-            border: 1.5px solid #f59e0b !important;
-            font-weight: 950 !important;
-            margin-right: 6px !important;
-            -webkit-text-stroke: 0.3px #92400e !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-        }
-
-        .ncert-example-box {
-            background-color: #eff6ff;
-            border-left: 8px solid #2563eb;
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin: 25px 0;
-            font-size: 18pt;
-            color: #1e3a8a;
-        }
-
-        .ncert-quote {
-            background-color: #f8fafc;
-            border-left: 8px solid #0284c7;
-            padding: 20px 30px;
-            border-radius: 12px;
-            font-style: italic;
-            margin: 25px 0;
-            font-size: 18.5pt;
-            color: #1e293b;
-        }
-    </style>
-    <script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
-</head>
-<body>
-
-    <!-- Persistent Control Header -->
-    <div id="control-header">
-        <h1>अध्याय 11: राजनीतिक सिद्धांत: एक परिचय - कक्षा 11 राजनीति विज्ञान</h1>
-        <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
-            📋 COPY EVERYTHING FOR GOOGLE DOCS
-        </button>
-    </div>
-    
-    <div id="status">
-        ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
-    </div>
-
-    <div id="contentToCopy">
-        <div style="font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif; font-size: 20pt; line-height: 2.2; color: #000000; max-width: 1400px; margin: auto; padding: 20px;">
-
-            <!-- Title Section -->
-            <div style="text-align: center; margin-bottom: 60px; padding: 65px; border: 15px double #2563eb; background-color: #eff6ff; border-radius: 30px;">
-                <span class="badge-tag">कक्षा 11 राजनीति विज्ञान (राजनीतिक सिद्धांत)</span>
-                <h1 style="color: #1e3a8a !important; font-size: 54pt; font-weight: 950 !important; margin-bottom: 20px; -webkit-text-stroke: 1.5px #1e3a8a;">
-                    अध्याय 11: राजनीतिक सिद्धांत: एक परिचय<br/>
-                    <span style="font-size: 30pt; color:#475569; font-weight: 900;">(POLITICAL THEORY: AN INTRODUCTION)</span>
-                </h1>
-            </div>
-
-
-            <!-- ==========================================
-                 NCERT TOPIC 1: राजनीति क्या है?
-                 ========================================== -->
-            <div class="ncert-unit-header">
-                <h2>1. राजनीति क्या है? (What is Politics?)</h2>
-                <div class="ncert-unit-subtitle">राजनीति की परिभाषा, सुशासन का विज्ञान, सामाजिक संलिप्तता एवं 'सांप की कुंडली' की अवधारणा</div>
-            </div>
-            
-            <!-- TOPIC 1 -->
-            <div class="part-container" style="border-top-color: #0284c7;">
-                <h2 style="color: #0369a1 !important; background-color: #f0f9ff; border-left: 10px solid #0284c7; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0369a1;">राजनीति की परिभाषा, सभ्यतागत आधार एवं सुशासन का विज्ञान</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीति (Politics) मानव समाज का वह बुनियादी और रचनात्मक हिस्सा है जो सामूहिक निर्णयों, नीति-निर्माण और सत्ता के तार्किक संचालन को नियंत्रित करता है। यह केवल चुनाव लड़ना या नारेबाजी नहीं है; यह एक अत्यंत जटिल और वैज्ञानिक अनुशासन है जिसका अंतिम लक्ष्य 'सुशासन' (Good Governance) स्थापित करना है।</p>
-
-                <h3 style="color: #0369a1; font-size: 24pt;">1.1 राजनीति की परिभाषा और सभ्यतागत महत्व:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">सामूहिक निर्णयों का माध्यम:</span> समाज में विभिन्न विचारों और हितों के लोगों को एक साथ रहने और निर्णय लेने के लिए नियम बनाने की कला।</li>
-                    <li><span class="point-badge">सत्ता और शक्ति का संतुलन:</span> विभिन्न वर्गों के बीच शक्ति के बँटवारे, अधिकारों के संरक्षण और संघर्षों के शांतिपूर्ण निपटारे का वैज्ञानिक मार्ग।</li>
-                    <li><span class="point-badge">संसाधनों का न्यायपूर्ण वितरण:</span> देश के भौतिक और वित्तीय संसाधनों को किस प्रकार जन-कल्याण के लिए उपयोग किया जाए, यह तय करना।</li>
-                    <li><span class="point-badge">सभ्यता की रीढ़:</span> राजनीति के बिना कोई भी सभ्य मानव समाज अराजकता और जंगलराज का शिकार होने से नहीं बच सकता।</li>
-                </ul>
-
-                <h3 style="color: #0369a1; font-size: 24pt; margin-top: 40px;">1.2 सुशासन (Good Governance) के प्रमुख स्तंभ:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">पारदर्शिता और जवाबदेही:</span> सरकार के हर फैसले में पारदर्शिता और जनता के प्रति पूर्ण उत्तरदायित्व होना आवश्यक है।</li>
-                    <li><span class="point-badge">विधि का शासन (Rule of Law):</span> शासन की सभी नीतियाँ संविधान और कानून के अनुसार चलें, न कि किसी शासक की व्यक्तिगत मर्जी से।</li>
-                    <li><span class="point-badge">कल्याणकारी प्रशासनिक नीतियां:</span> शिक्षा, स्वास्थ्य और बुनियादी ढांचे का विकास करके नागरिकों के जीवन स्तर को ऊंचा उठाना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 2 -->
-            <div class="part-container" style="border-top-color: #059669;">
-                <h2 style="color: #065f46 !important; background-color: #f0fdf4; border-left: 10px solid #059669; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #065f46;">राजनीति: समाज का अविभाज्य अंग एवं सांप की कुंडली (The Snake Coils) की अवधारणा</h2>
-                <p style="font-size: 18pt; text-align: justify;">कोई भी व्यक्ति या समाज राजनीति से पूरी तरह अछूता नहीं रह सकता। यह हमारी हर दैनिक सांस, शिक्षा, रोजगार और अधिकारों में गहराई से रची-बसी है।</p>
-
-                <div class="ncert-quote">
-                    <b>महात्मा गांधी का अमर विचार:</b> <i>"राजनीति ने हमें सांप की कुंडली (Snake's Coils) की तरह जकड़ रखा है और इससे जूझने के अलावा कोई दूसरा रास्ता नहीं है।"</i>
-                </div>
-
-                <h3 style="color: #065f46; font-size: 24pt;">2.1 सांप की कुंडली की अवधारणा और सामाजिक संबंध:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">अनिवार्य जकड़न:</span> हम राजनीति से चाहे कितना भी दूर भागने का प्रयास करें, यह हमारे जीवन की प्रत्येक नीति को नियंत्रित करती है।</li>
-                    <li><span class="point-badge">दैनिक जीवन पर प्रभाव:</span> स्कूल की फीस, सड़क की सुरक्षा, खाद्य सुरक्षा और अस्पतालों में इलाज—ये सभी राजनीतिक निर्णयों के परिणाम हैं।</li>
-                    <li><span class="point-badge">पलायनवाद का अंत:</span> राजनीति से घृणा करके दूर भागना कोई समाधान नहीं है; इसमें सक्रिय भाग लेकर सुधार करना ही एकमात्र रास्ता है।</li>
-                    <li><span class="point-badge">उदासीनता का खतरा:</span> यदि अच्छे और बुद्धिजीवी नागरिक राजनीति से दूर रहेंगे, तो अयोग्य और भ्रष्ट लोग समाज पर शासन करने लगेंगे।</li>
-                </ul>
-            </div>
-
-
-            <!-- ==========================================
-                 NCERT TOPIC 2: राजनीतिक सिद्धांत क्या है?
-                 ========================================== -->
-            <div class="ncert-unit-header">
-                <h2>2. राजनीतिक सिद्धांत क्या है? (What is Political Theory?)</h2>
-                <div class="ncert-unit-subtitle">सिद्धांत का अर्थ, वैज्ञानिक जाँच, दार्शनिक आधार एवं विषय-वस्तु का दायरा</div>
-            </div>
-
-            <!-- TOPIC 3 -->
-            <div class="part-container" style="border-top-color: #d97706;">
-                <h2 style="color: #92400e !important; background-color: #fff7ed; border-left: 10px solid #d97706; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #92400e;">राजनीतिक सिद्धांत का अर्थ, उदय एवं दार्शनिक महत्व</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीतिक सिद्धांत (Political Theory) वह दार्शनिक और बौद्धिक अनुशासन है जो हमारे राजनीतिक जीवन के बुनियादी मूल्यों, विचारों और संस्थाओं का व्यवस्थित व तार्किक अध्ययन करता है।</p>
-
-                <h3 style="color: #92400e; font-size: 24pt;">3.1 राजनीतिक सिद्धांत के मुख्य आयाम:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">मूलभूत प्रश्नों की खोज:</span> सरकार का सही रूप क्या होना चाहिए? न्याय की वास्तविक परिभाषा क्या है? स्वतंत्रता की सीमाएं क्या हैं?</li>
-                    <li><span class="point-badge">मूल्यों का स्पष्टीकरण:</span> समाज में स्वतंत्रता, समानता और न्याय जैसी अमूर्त अवधारणाओं को स्पष्ट और तर्कपूर्ण रूप देना।</li>
-                    <li><span class="point-badge">संवैधानिक आदर्शों की नींव:</span> हमारे देश के संविधान की प्रस्तावना में लिखे महान दर्शन को बौद्धिक आधार प्रदान करना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 4 -->
-            <div class="part-container" style="border-top-color: #7c3aed;">
-                <h2 style="color: #5b21b6 !important; background-color: #f5f3ff; border-left: 10px solid #7c3aed; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #5b21b6;">राजनीतिक सिद्धांत: वैज्ञानिक जाँच, दार्शनिक आधार एवं तथ्य-मूल्य समन्वय</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीतिक सिद्धांत दो परस्पर जुड़े हुए मजबूत स्तंभों पर खड़ा है—एक उसका वैज्ञानिक/तथ्यात्मक जाँच का पहलू और दूसरा उसका दार्शनिक/नैतिक मूल्यों का आधार।</p>
-
-                <h3 style="color: #5b21b6; font-size: 24pt;">4.1 वैज्ञानिक और दार्शनिक आधार:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">वैज्ञानिक जाँच (Empirical Enquiry):</span> राजनीतिक घटनाओं, मतदान के रुझानों और नीतियों का डेटा-आधारित वस्तुनिष्ठ अध्ययन।</li>
-                    <li><span class="point-badge">दार्शनिक आधार (Normative Basis):</span> क्या सही है और क्या गलत, इसका नैतिक मूल्यांकन करना (जैसे समानता की दार्शनिक वकालत)।</li>
-                    <li><span class="point-badge">तथ्य और मूल्यों का समन्वय:</span> तथ्यों के बिना दर्शन अंधा है, और दर्शन के बिना तथ्य निरर्थक हैं; दोनों मिलकर सिद्धांत को पूर्ण बनाते हैं।</li>
-                    <li><span class="point-badge">पूर्वाग्रहों से मुक्ति:</span> राजनीतिक बहसों को व्यक्तिगत नफरत से मुक्त करके तार्किक और बौद्धिक धरातल पर लाना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 5 -->
-            <div class="part-container" style="border-top-color: #4c1d95;">
-                <h2 style="color: #4c1d95 !important; background-color: #f3e8ff; border-left: 10px solid #4c1d95; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #4c1d95;">हम राजनीतिक सिद्धांत में क्या पढ़ते हैं?—संस्थान एवं मानकीकरण</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीतिक सिद्धांत में हम केवल राजनेताओं के भाषणों का अध्ययन नहीं करते, बल्कि उन अमूर्त राजनीतिक मूल्यों, आदर्शों और संवैधानिक संस्थाओं का गहराई से विश्लेषण करते हैं।</p>
-
-                <h3 style="color: #4c1d95; font-size: 24pt;">5.1 राजनीतिक सिद्धांत की अध्ययन सामग्री:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">संवैधानिक संस्थाएं:</span> कार्यपालिका, न्यायपालिका और विधायिका जैसी संस्थाओं की शक्तियों, सीमाओं और भूमिकाओं का अध्ययन।</li>
-                    <li><span class="point-badge">बुनियादी मूल्य:</span> स्वतंत्रता, समानता, न्याय, धर्मनिरपेक्षता और लोकतंत्र की दार्शनिक समझ।</li>
-                    <li><span class="point-badge">राजनीतिक विचारधाराएं:</span> उदारवाद, समाजवाद, राष्ट्रवाद, मार्क्सवाद, गांधीवाद और नारीवाद के प्रभाव का विश्लेषण।</li>
-                    <li><span class="point-badge">व्यावहारिक मानकीकरण:</span> अमूर्त आदर्शों को लागू करने के नियमों (जैसे समानता के लिए आरक्षण) का तार्किक औचित्य सिद्ध करना।</li>
-                </ul>
-            </div>
-
-
-            <!-- ==========================================
-                 NCERT TOPIC 3: राजनीतिक सिद्धांतों के मूल मूल्य एवं व्यावहारिक अनुप्रयोग
-                 ========================================== -->
-            <div class="ncert-unit-header">
-                <h2>3. राजनीतिक सिद्धांतों के मूल मूल्य एवं व्यावहारिक अनुप्रयोग</h2>
-                <div class="ncert-unit-subtitle">स्वतंत्रता, समानता, न्याय एवं विविधतापूर्ण समाज में क्रियान्वयन की चुनौतियाँ</div>
-            </div>
-
-            <!-- TOPIC 6 -->
-            <div class="part-container" style="border-top-color: #be123c;">
-                <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #be123c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">स्वतंत्रता, समानता और न्याय: सभ्यता और लोकतंत्र के तीन स्तंभ</h2>
-                <p style="font-size: 18pt; text-align: justify;">स्वतंत्रता (Liberty), समानता (Equality) और न्याय (Justice) वे तीन बुनियादी दार्शनिक स्तंभ हैं जिन पर किसी भी सभ्य लोकतांत्रिक समाज का अस्तित्व निर्भर करता है।</p>
-
-                <h3 style="color: #9f1239; font-size: 24pt;">6.1 तीनों स्तंभों का सार:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">1. स्वतंत्रता (Liberty):</span> विचार और अभिव्यक्ति की आजादी, बिना किसी अवैध प्रतिबंध के अपने जीवन का विकास करना।</li>
-                    <li><span class="point-badge">2. समानता (Equality):</span> जन्म, धर्म या लिंग के आधार पर विशेषाधिकारों का अंत तथा सभी को विकास का समान अवसर।</li>
-                    <li><span class="point-badge">3. न्याय (Justice):</span> प्रत्येक व्यक्ति को उसका उचित हक दिलाना तथा समाज के संसाधनों का न्यायपूर्ण वितरण।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 7 -->
-            <div class="part-container" style="border-top-color: #1e3a8a;">
-                <h2 style="color: #1e40af !important; background-color: #eff6ff; border-left: 10px solid #1e3a8a; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e40af;">सिद्धांतों को व्यवहार में उतारना एवं विविधतापूर्ण समाज की चुनौतियाँ</h2>
-                <p style="font-size: 18pt; text-align: justify;">सिद्धांतों को किताबों में लिखना सरल है, लेकिन भारत जैसे विशाल और विविधतापूर्ण समाज के व्यावहारिक जीवन में उन्हें लागू करना अत्यंत चुनौतीपूर्ण कार्य है।</p>
-
-                <h3 style="color: #1e40af; font-size: 24pt;">7.1 व्यावहारिक अनुप्रयोग की चुनौतियाँ:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">समय के साथ नया अर्थ:</span> समानता का अर्थ पहले केवल कानूनी बराबरी था; आज इसमें आर्थिक सुरक्षा और सामाजिक गरिमा भी शामिल है।</li>
-                    <li><span class="point-badge">डिजिटल युग और निजता:</span> इंटरनेट के दौर में गोपनीयता (Privacy) और सूचना की स्वतंत्रता की नई परिभाषाएं तय करना।</li>
-                    <li><span class="point-badge">आपसी हितों का टकराव:</span> एक समूह की स्वतंत्रता (जैसे जुलूस निकालना) दूसरे की स्वतंत्रता (शांतिपूर्ण आवागमन) को बाधित कर सकती है।</li>
-                </ul>
-            </div>
-
-
-            <!-- ==========================================
-                 NCERT TOPIC 4: हम राजनीतिक सिद्धांत क्यों पढ़ते हैं?
-                 ========================================== -->
-            <div class="ncert-unit-header">
-                <h2>4. हम राजनीतिक सिद्धांत क्यों पढ़ते हैं? (Why Study Political Theory?)</h2>
-                <div class="ncert-unit-subtitle">नागरिक अधिकार, तार्किक सोच, लोकतांत्रिक मूल्य एवं विद्वानों के अमर विचार</div>
-            </div>
-
-            <!-- TOPIC 8 -->
-            <div class="part-container" style="border-top-color: #be185d;">
-                <h2 style="color: #be185d !important; background-color: #fdf2f8; border-left: 10px solid #be185d; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #be185d;">भविष्य की समस्याओं, तकनीकी बदलावों एवं राजनैतिक रुझानों की समझ</h2>
-                <p style="font-size: 18pt; text-align: justify;">भविष्य की चुनौतियों का पूर्वानुमान लगाने और उनके समाधान के लिए मजबूत नीतियां बनाने हेतु राजनीतिक सिद्धांतों का गहरा ज्ञान होना अनिवार्य है।</p>
-
-                <h3 style="color: #be185d; font-size: 24pt;">8.1 भविष्य की चुनौतियों की समझ:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">तकनीकी बदलाव:</span> कृत्रिम बुद्धिमत्ता (AI), रोबोटिक्स और डेटा प्राइवेसी से उठने वाले नैतिक-राजनैतिक मुद्दों का हल खोजना।</li>
-                    <li><span class="point-badge">पर्यावरणीय संकट:</span> जलवायु परिवर्तन और संसाधनों की कमी से उत्पन्न होने वाले वैश्विक संघर्षों को रोकना।</li>
-                    <li><span class="point-badge">सतत विकास:</span> आने वाली पीढ़ियों के अधिकारों (Intergenerational Justice) को ध्यान में रखकर नीतियां बनाना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 9 -->
-            <div class="part-container" style="border-top-color: #f59e0b;">
-                <h2 style="color: #b45309 !important; background-color: #fffbeb; border-left: 10px solid #f59e0b; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #b45309;">अधिकारों और कर्तव्यों की गहरी राजनैतिक समझ तथा नैतिक नागरिकता</h2>
-                <p style="font-size: 18pt; text-align: justify;">बिना सिद्धांतों के ज्ञान के, नागरिकों को अपने वास्तविक अधिकारों और देश के प्रति उनके कर्तव्यों की सही और तार्किक समझ प्राप्त नहीं हो सकती।</p>
-
-                <h3 style="color: #b45309; font-size: 24pt;">9.1 अधिकारों और कर्तव्यों का संतुलन:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">अधिकारों का वास्तविक अर्थ:</span> अधिकार केवल मांगें नहीं हैं; ये वे परिस्थितियाँ हैं जो मानवीय गरिमा के लिए अनिवार्य हैं।</li>
-                    <li><span class="point-badge">अधिकार और कर्तव्य का संबंध:</span> मेरी स्वतंत्रता वहीं तक है जहाँ से दूसरे का अधिकार शुरू होता है; दोनों एक-दूसरे के पूरक हैं।</li>
-                    <li><span class="point-badge">नैतिक नागरिकता:</span> केवल अपने स्वार्थ की चिंता न करके, समाज के कमजोर वर्गों के अधिकारों के लिए खड़े होना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 10 -->
-            <div class="part-container" style="border-top-color: #1d4ed8;">
-                <h2 style="color: #1e40af !important; background-color: #eff6ff; border-left: 10px solid #1d4ed8; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e40af;">जागरूक और आलोचनात्मक नागरिकता का विकास तथा विवेकपूर्ण मतदान</h2>
-                <p style="font-size: 18pt; text-align: justify;">एक मजबूत लोकतंत्र के लिए केवल शिक्षित नहीं, बल्कि 'आलोचनात्मक' (Critical) सोच रखने वाले जागरूक नागरिकों का होना सबसे बड़ी आवश्यकता है।</p>
-
-                <h3 style="color: #1e40af; font-size: 24pt;">10.1 आलोचनात्मक नागरिकता के लाभ:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">झूठे वादों से मुक्ति:</span> राजनेताओं की सस्ती नारेबाजी, सांप्रदायिक भाषणों और अफवाहों (Fake News) से दूर रहना।</li>
-                    <li><span class="point-badge">रचनात्मक असहमति:</span> गलत सरकारी नीतियों का बिना किसी हिंसा के तार्किक और संवैधानिक रूप से विरोध करना।</li>
-                    <li><span class="point-badge">विवेकपूर्ण मतदान:</span> जाति, धर्म या धन के प्रलोभन से ऊपर उठकर उम्मीदवार की योग्यता के आधार पर वोट देना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 11 -->
-            <div class="part-container" style="border-top-color: #047857;">
-                <h2 style="color: #064e3b !important; background-color: #f0fdf4; border-left: 10px solid #047857; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #064e3b;">विविधतापूर्ण समाज में सद्भाव (Harmony) एवं लोकतांत्रिक मूल्यों की मजबूती</h2>
-                <p style="font-size: 18pt; text-align: justify;">भारत जैसे बहु-धार्मिक और बहु-सांस्कृतिक देश में आपसी सद्भाव बनाए रखने के लिए सहिष्णुता (Tolerance) और लोकतांत्रिक संस्थाओं का सम्मान जरूरी है।</p>
-
-                <h3 style="color: #064e3b; font-size: 24pt;">11.1 सामाजिक समरसता और संस्थागत सुरक्षा:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">सांप्रदायिकता का खंडन:</span> नफरत फैलाने वाली विचारधाराओं का बौद्धिक स्तर पर विरोध करना और भाईचारा बढ़ाना।</li>
-                    <li><span class="point-badge">संस्थागत स्वायत्तता:</span> सुप्रीम कोर्ट, चुनाव आयोग और मीडिया को राजनीतिक दबावों से मुक्त रखने का संकल्प।</li>
-                    <li><span class="point-badge">संविधान की सर्वोच्चता:</span> यह मानना कि कोई भी नेता या सरकार देश के संविधान से ऊपर नहीं हो सकती।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 12 -->
-            <div class="part-container" style="border-top-color: #be123c;">
-                <h2 style="color: #9f1239 !important; background-color: #fff1f2; border-left: 10px solid #be123c; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9f1239;">महान विद्वानों के विचार: यूनानी (सुकरात, प्लेटो, अरस्तू), यूरोपीय (रूसो, मार्क्स) एवं भारतीय (गांधी, आंबेडकर)</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीतिक सिद्धांत हमें मानव इतिहास के उन महान दार्शनिकों के विचारों से जोड़ता है जिन्होंने अपनी बौद्धिकता से दुनिया की क्रांतियों को जन्म दिया।</p>
-
-                <h3 style="color: #9f1239; font-size: 24pt;">12.1 महान विचारकों की प्रमुख देन:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">यूनानी चिंतन (सुकरात, प्लेटो, अरस्तू):</span> सुकरात की प्रश्नोत्तर शैली, प्लेटो का न्याय सिद्धांत और अरस्तू द्वारा राजनीति को 'सर्वोच्च विज्ञान' मानना।</li>
-                    <li><span class="point-badge">यूरोपीय चिंतन (रूसो, मार्क्स, जे.एस. मिल):</span> रूसो का स्वतंत्रता का नारा, कार्ल मार्क्स का वर्ग संघर्ष और मिल की अभिव्यक्ति की स्वतंत्रता।</li>
-                    <li><span class="point-badge">भारतीय चिंतन (गांधी, आंबेडकर, कौटिल्य):</span> गांधीजी का अहिंसक सत्याग्रह व स्वराज, डॉ. आंबेडकर का सामाजिक न्याय और कौटिल्य का अर्थशास्त्र।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 13 -->
-            <div class="part-container" style="border-top-color: #334155;">
-                <h2 style="color: #1e293b !important; background-color: #f8fafc; border-left: 10px solid #334155; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #1e293b;">न्याय-विधान, धर्मनिरपेक्षता का संरक्षण एवं सिद्धांतों की सार्वभौमिक प्रकृति</h2>
-                <p style="font-size: 18pt; text-align: justify;">धर्मनिरपेक्षता और न्याय-विधान का संरक्षण भारत की सबसे बड़ी दार्शनिक गारंटी है। जैसे भौतिकी में नियम होते हैं, वैसे ही राजनीति में 'स्वतंत्रता' और 'न्याय' के सार्वभौमिक नियम हैं।</p>
-
-                <h3 style="color: #1e293b; font-size: 24pt;">13.1 सार्वभौमिक सिद्धांत और संवैधानिक संरक्षण:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">अल्पसंख्यकों का संरक्षण:</span> बहुसंख्यक दबाव से अल्पसंख्यकों के धार्मिक व सांस्कृतिक अधिकारों की सुरक्षा।</li>
-                    <li><span class="point-badge">कारण और प्रभाव का संबंध:</span> यह समझना कि तानाशाही नीतियां किस प्रकार जन-असंतोष और क्रांति को जन्म देती हैं।</li>
-                    <li><span class="point-badge">संवैधानिक देशभक्ति:</span> संकीर्ण पहचान से ऊपर उठकर संविधान के धर्मनिरपेक्ष आदर्शों के प्रति निष्ठा रखना।</li>
-                </ul>
-            </div>
-
-            <!-- TOPIC 14 -->
-            <div class="part-container" style="border-top-color: #db2777;">
-                <h2 style="color: #9d174d !important; background-color: #fdf2f8; border-left: 10px solid #db2777; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #9d174d;">तार्किक सोच, बौद्धिक प्रखरता एवं राष्ट्र निर्माण में योगदान</h2>
-                <p style="font-size: 18pt; text-align: justify;">राजनीतिक सिद्धांत का अध्ययन हमारी तार्किक सोच (Rationality) को मजबूत करता है और युवाओं में सकारात्मक सोच का संचार करता है, जो राष्ट्र निर्माण के लिए अनिवार्य है।</p>
-
-                <h3 style="color: #9d174d; font-size: 24pt;">14.1 तार्किकता और राष्ट्र निर्माण:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">भीड़-आवेगों से मुक्ति:</span> किसी नेता के पीछे अंधभक्त बनने के बजाय उसकी नीतियों की आलोचनात्मक जांच करना।</li>
-                    <li><span class="point-badge">लोकतांत्रिक देशभक्ति:</span> संवैधानिक मूल्यों पर आधारित देशभक्ति, न कि किसी नफरत या उन्माद पर आधारित।</li>
-                    <li><span class="point-badge">युवा नेतृत्व का निर्माण:</span> भावी पीढ़ियों में नैतिकता, कर्तव्यपरायणता और जन-सेवा का भाव जगाना।</li>
-                </ul>
-            </div>
-
-
-            <!-- ==========================================
-                 NCERT TOPIC 5: निष्कर्ष एवं मास्टर सारांश
-                 ========================================== -->
-            <div class="ncert-unit-header">
-                <h2>5. निष्कर्ष एवं मास्टर सारांश (Conclusion & Master Summary)</h2>
-                <div class="ncert-unit-subtitle">राजनीतिक सिद्धांत का भविष्य, मूल संदेश एवं तार्किक नागरिकता की नींव</div>
-            </div>
-
-            <!-- TOPIC 15 -->
-            <div class="part-container" style="border-top-color: #0f172a;">
-                <h2 style="color: #0f172a !important; background-color: #f1f5f9; border-left: 10px solid #0f172a; padding: 20px 25px; border-radius: 10px; font-size: 30pt; font-weight: 900 !important; margin-top: 0; -webkit-text-stroke: 1px #0f172a;">अध्याय निष्कर्ष: राजनीतिक सिद्धांत का भविष्य और मास्टर सारांश</h2>
-                <p style="font-size: 18pt; text-align: justify;">अध्याय 11 (राजनीतिक सिद्धांत: एक परिचय) का यह अध्ययन हमें इस मूल सत्य तक ले जाता है कि राजनीतिक सिद्धांत कोई निर्जीव विषय नहीं, बल्कि हमारे सभ्य समाज का नैतिक प्राणतत्व है।</p>
-
-                <h3 style="color: #0f172a; font-size: 24pt;">15.1 अध्याय के सर्वोच्च निष्कर्ष बिंदु:</h3>
-                <ul style="font-size: 18pt; line-height: 1.8; color: #000000; list-style-type: square;">
-                    <li><span class="point-badge">बौद्धिक जागृति:</span> सिद्धांतों का अध्ययन हमारी सोचने की क्षमता को बढ़ाता है और जिम्मेदार नागरिक बनाता है।</li>
-                    <li><span class="point-badge">मूल्यों की अमरता:</span> स्वतंत्रता, समानता और न्याय जैसे मूल्य कभी पुराने नहीं होते; हर युग में इनकी नई व्याख्या जरूरी है।</li>
-                    <li><span class="point-badge">तार्किकता का मार्ग:</span> 'सांप की कुंडली' जैसे राजनीतिक दलदलों से निकलने के लिए तर्क और नैतिक बौद्धिकता ही मार्ग है।</li>
-                    <li><span class="point-badge">सर्वोच्च संदेश:</span> "तार्किक नागरिक ही मजबूत लोकतंत्र की नींव हैं" और "सिद्धांतों के बिना राजनीति विनाशकारी है"!</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
+<html lan
+  <div class="part-container">
+    <h2>राजनीति क्या है? (अवधारणा और विभिन्न दृष्टिकोण)</h2>
+    <p>सामान्यतः लोग राजनीति के बारे में भिन्न-भिन्न विचार रखते हैं। कुछ लोग इसे जनसेवा मानते हैं, तो कुछ इसे दलबदल, जोड़-तोड़ और स्वार्थ साधने का जरिया मानते हैं।</p>
+<ul>
+<li><b>सकारात्मक दृष्टिकोण:</b> राजनीति समाज के सामूहिक विकास, विवादों के शांतिपूर्ण समाधान और बेहतर समाज के निर्माण की एक आवश्यक प्रक्रिया है।</li>
+<li><b>अरस्तू का कथन:</b> अरस्तू ने कहा था कि <i>"मनुष्य एक राजनीतिक प्राणी (Political Animal) है।"</i></li>
+<li><b>शासन और निर्णय प्रक्रिया:</b> सरकारें कैसे बनती हैं, वे क्या नीतियां बनाती हैं और वे हमारे दैनिक जीवन को कैसे प्रभावित करती हैं—यह सब राजनीति का हिस्सा है।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>सरकार और नागरिक समाज का संबंध</h2>
+    <p>राजनीति केवल सरकार के कामकाजों तक सीमित नहीं है, बल्कि इसमें नागरिकों की भागीदारी भी शामिल है।</p>
+<ul>
+<li><b>नीतियों का प्रभाव:</b> सरकार की नीतियां (शिक्षा, स्वास्थ्य, रोजगार, विदेश नीति) नागरिकों के जीवन को प्रत्यक्ष रूप से प्रभावित करती हैं।</li>
+<li><b>नागरिकों की प्रतिक्रिया:</b> जब लोग सरकार की नीतियों से असहमत होते हैं, तो वे विरोध प्रदर्शन करते हैं, ज्ञापन देते हैं और चुनावों के माध्यम से बदलाव लाते हैं।</li>
+<li><b>सामूहिक संगठन:</b> नागरिक आपस में मिलकर दबाव समूह, एनजीओ और संगठन बनाते हैं जो राजनीति को दिशा देते हैं।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>राजनीतिक सिद्धांत में हम क्या पढ़ते हैं?</h2>
+    <p><b>राजनीतिक सिद्धांत (Political Theory):</b> उन विचारों और सिद्धांतों का अध्ययन करता है जिन्होंने हमारे सामाजिक और राजनीतिक जीवन को आकार दिया है।</p>
+<ul>
+<li><b>मूल अवधारणाएं:</b> स्वतंत्रता (Freedom), समानता (Equality), न्याय (Justice), लोकतंत्र (Democracy), और धर्मनिरपेक्षता (Secularism)।</li>
+<li><b>संस्थाओं का अध्ययन:</b> यह जांचता है कि राज्य, सरकार, न्यायपालिका और कानून की प्रणालियां कितनी न्यायपूर्ण और प्रभावी हैं।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>प्राचीन राजनीतिक चिंतक: सुकरात, प्लेटो और अरस्तू</h2>
+    <p>राजनीतिक चिंतन की जड़ें प्राचीन यूनान (ग्रीस) और भारत में फैली हुई हैं।</p>
+<ul>
+<li><b>सुकरात (Socrates):</b> उन्होंने एथेंस के नागरिकों को स्थापित मान्यताओं और कानूनों पर सवाल उठाने के लिए प्रेरित किया।</li>
+<li><b>प्लेटो (Plato):</b> अपनी पुस्तक <i>'द रिपब्लिक' (The Republic)</i> में न्याय की अवधारणा और एक आदर्श राज्य (Ideal State) का ढांचा प्रस्तुत किया।</li>
+<li><b>अरस्तू (Aristotle):</b> राजनीति विज्ञान के जनक, जिन्होंने संविधानों का वर्गीकरण किया और कानून के शासन पर बल दिया।</li>
+<li><b>कौटिल्य (चाणक्य):</b> अपनी कृति <i>'अर्थशास्त्र'</i> में राज्यव्यवस्था, कूटनीति और शासन कला के सिद्धांत दिए।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>आधुनिक राजनीतिक चिंतक: रूसो, मार्क्स, गांधी और अंबेडकर</h2>
+    <p>आधुनिक काल में अनेक विचारकों ने क्रांतिकारी राजनीतिक सिद्धांतों को जन्म दिया:</p>
+<ul>
+<li><b>जीन-जैक्स रूसो (Rousseau):</b> <i>'सामाजिक अनुबंध' (Social Contract)</i> के जरिए 'प्रत्यक्ष लोकतंत्र' और 'जनता की संप्रभुता' का समर्थन किया।</li>
+<li><b>कार्ल मार्क्स (Karl Marx):</b> वर्ग संघर्ष (Class Struggle) और आर्थिक समानता का सिद्धांत दिया; तर्क दिया कि सामाजिक असमानता की जड़ पूंजीवाद है।</li>
+<li><b>महात्मा गांधी:</b> अपनी पुस्तक <i>'हिंद स्वराज'</i> में 'स्वराज', 'अहिंसा' और 'सत्याग्रह' की नई राजनीतिक दृष्टि पेश की।</li>
+<li><b>डॉ. बी.आर. अंबेडकर:</b> सामाजिक न्याय, अस्पृश्यता उन्मूलन और वंचित वर्गों के लिए विशेष संवैधानिक सुरक्षा की पुरजोर वकालत की।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>राजनीतिक सिद्धांतों की प्रासंगिकता और निरंतरता</h2>
+    <p>सवाल उठ सकता है कि यदि भारत में स्वतंत्रता, समानता और लोकतंत्र पहले से स्थापित हैं, तो राजनीतिक सिद्धांतों के अध्ययन की क्या आवश्यकता है?</p>
+<ul>
+<li><b>निरंतर गतिशील अवधारणाएं:</b> स्वतंत्रता और समानता जैसी अवधारणाएं स्थिर नहीं हैं। जैसे-जैसे समाज बदलता है, इनके नए आयाम सामने आते हैं।</li>
+<li><b>डिजिटल युग की नई चुनौतियां:</b> आज इंटरनेट और सोशल मीडिया के युग में 'सूचना की स्वतंत्रता', 'ग्लोबल प्राइवेसी' और 'डिजिटल न्याय' जैसे नए सवाल खड़े हो गए हैं।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>राजनीतिक सिद्धांत को व्यवहार में लाना</h2>
+    <p>राजनीतिक सिद्धांत केवल किताबी ज्ञान नहीं है, बल्कि यह हमारे रोजमर्रा के व्यवहार और निर्णयों का मार्गदर्शन करता है।</p>
+<ul>
+<li><b>अवधारणाओं का व्यावहारिक अर्थ:</b> जब हम किसी दुकान पर कतार में खड़े होते हैं या बस में सफर करते हैं, तो हम समानता के सिद्धांत का पालन कर रहे होते हैं।</li>
+<li><b>सहानुभूति और संवेदनशीलता:</b> यह हमें समाज के कमजोर वर्गों की समस्याओं को समझने और न्यायपूर्ण व्यवहार करने की सीख देता है।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>अवधारणाओं के विभिन्न अर्थ और संदर्भ</h2>
+    <p>राजनीतिक सिद्धांतों में 'समानता' या 'स्वतंत्रता' का एक ही निश्चित अर्थ नहीं होता, बल्कि संदर्भ के अनुसार इसके अर्थ बदलते हैं।</p>
+<ul>
+<li><b>समानता के रूप:</b> अवसर की समानता, आर्थिक समानता, और प्रक्रियात्मक समानता।</li>
+<li><b>उदाहरण:</b> खेलों में सभी खिलाड़ियों को एक समान नियम (समानता) दिए जाते हैं, लेकिन विकलांग खिलाड़ियों को विशेष सुविधाएं (सकारात्मक भेदभाव) दी जाती हैं ताकि होड़ न्यायपूर्ण बने।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>दैनिक जीवन में स्वतंत्रता और उसके दायरा</h2>
+    <p>दैनिक जीवन में स्वतंत्रता का अर्थ केवल अपनी मर्जी करना नहीं है, बल्कि दूसरों की आजादी का सम्मान करना भी है।</p>
+<ul>
+<li><b>सीमाएं:</b> मेरी हाथ घुमाने की आजादी वहां खत्म होती है जहां से दूसरे व्यक्ति की नाक शुरू होती है।</li>
+<li><b>सहनशीलता:</b> राजनीतिक सिद्धांत हमें सिखाता है कि विभिन्न विचारों, धर्मों और जीवनशैलियों के प्रति सहिष्णुता (Tolerance) कैसे विकसित की जाए।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>एक जागरूक और उत्तरदायी नागरिक बनना</h2>
+    <p>लोकतंत्र की सफलता इस बात पर निर्भर करती है कि उसके नागरिक कितने जागरूक और जिम्मेदार हैं।</p>
+<ul>
+<li><b>सक्रिय भागीदारी:</b> राजनीतिक सिद्धांत का ज्ञान नागरिकों को केवल मतदाता नहीं, बल्कि शासन की प्रक्रिया में सक्रिय भागीदार बनाता है।</li>
+<li><b>समीक्षात्मक सोच:</b> यह नागरिकों को सरकारी नीतियों और वादों का वस्तुनिष्ठ (Objective) मूल्यांकन करने में सक्षम बनाता है।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>तर्कसंगत निर्णय क्षमता और पूर्वाग्रहों से मुक्ति</h2>
+    <p>राजनीतिक सिद्धांत हमें अंधविश्वासों, रूढ़ियों और सामाजिक पूर्वाग्रहों (Prejudices) से मुक्त होना सिखाता है।</p>
+<ul>
+<li><b>तर्क और संवाद:</b> यह हमें सिखाता है कि हिंसा या चिल्लाने के बजाय तर्कसंगत बहसों और संवाद से समस्याओं का समाधान कैसे खोजा जाए।</li>
+<li><b>विचारधाराओं की समझ:</b> उदारवाद, समाजवाद, फासीवाद और नारीवाद जैसी विचारधाराओं को समझकर अपना स्वतंत्र दृष्टिकोण विकसित करना।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>संविधान और राजनीतिक सिद्धांतों का अंतर्संबंध</h2>
+    <p>किसी भी देश का संविधान अचानक शून्य में निर्मित नहीं होता, बल्कि वह दीर्घकालिक राजनीतिक सिद्धांतों पर आधारित होता है।</p>
+<ul>
+<li><b>मूल्य ढांचा:</b> भारतीय संविधान की प्रस्तावना में लिखे शब्द—'न्याय', 'स्वतंत्रता', 'समानता' और 'बंधुता'—राजनीतिक सिद्धांतों के ही व्यावहारिक रूप हैं।</li>
+<li><b>संशोधन और विकास:</b> संविधान की व्याख्या और उसमें संशोधन राजनीतिक सिद्धांतों की नई समझ के आधार पर होते हैं।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>अधिकार और कर्तव्यों का सामंजस्य</h2>
+    <p>राजनीतिक सिद्धांत यह स्पष्ट करता है कि अधिकार (Rights) और कर्तव्य (Duties) एक ही सिक्के के दो पहलू हैं।</p>
+<ul>
+<li><b>दावे और जिम्मेदारी:</b> बिना कर्तव्यों के अधिकारों की मांग करना अराजकता को जन्म देता है।</li>
+<li><b>सार्वजनिक हित:</b> व्यक्तिगत अधिकारों का आनंद लेते हुए समाज और राष्ट्र के प्रति अपने दायित्वों का निर्वहन करना आवश्यक है।</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>वैश्वीकरण के दौर में राजनीतिक सिद्धांत</h2>
+    <p>वैश्वीकरण (Globalization) ने राष्ट्रीय सीमाओं को धुंधला कर दिया है, जिससे राजनीतिक सिद्धांत के सामने नए वैश्विक प्रश्न उठे हैं।</p>
+<ul>
+<li><b>वैश्विक न्याय (Global Justice):</b> क्या अमीर देशों को गरीब देशों की गरीबी दूर करने में मदद करनी चाहिए?</li>
+<li><b>पर्यावरण और भावी पीढ़ियां:</b> जलवायु परिवर्तन के युग में पर्यावरण संरक्षण और आने वाली पीढ़ियों के प्रति हमारी क्या जिम्मेदारी है?</li>
+</ul>
+  </div>
+  <div class="part-container">
+    <h2>निष्कर्ष: हमें राजनीतिक सिद्धांत क्यों पढ़ना चाहिए?</h2>
+    <p>संक्षेप में, राजनीतिक सिद्धांत का अध्ययन निम्नलिखित कारणों से प्रत्येक छात्र और नागरिक के लिए अनिवार्य है:</p>
+<ul>
+<li>1. राजनीति की जटिल दुनिया को समझने के लिए स्पष्ट वैचारिक दृष्टिकोण मिलता है।</li>
+<li>2. यह हमारी तार्किक और विश्लेषणात्मक क्षमताओं (Analytical Skills) को निखारता है।</li>
+<li>3. यह हमें एक बेहतर, संवेदनशील और न्यायप्रिय इंसान और जिम्मेदार नागरिक बनाता है।</li>
+</ul>
+  </div>
+</div>
 </body>
 </html>

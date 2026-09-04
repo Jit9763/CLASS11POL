@@ -1,376 +1,137 @@
 <!DOCTYPE html>
 
-<html lang="hi">
-<head>
-<meta charset="utf-8"/>
-<title>अध्याय 6: न्यायपालिका - 100-PAGE MASTER EDITION</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Completely remove outer double-line blue box wrapper around hero title */
-        div[style*="double"], 
-        div[style*="1e3a8a"],
-        div[style*="eff6ff"] {
-            border: none !important;
-            background-color: transparent !important;
-            background: transparent !important;
-            padding: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 30px !important;
-        }
-        .hero-title {
-            margin-top: 0 !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-
-        p, li, h1, h2, h3, h4, b, strong, td, th {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 1.1px #000000;
-            text-shadow: 0 0 1px #000;
-        }
-        body, p, li, td, th, div, span {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-        }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
-        }
-        .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
-            font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
-        }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
-        }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
-        li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-</style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
-</head>
-<body>
-<div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
-<!-- Master Title Header -->
-<div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 6: न्यायपालिका</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
-</div>
-
-<!-- TOPIC 1 -->
-<div class="part-container">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">हमें स्वतंत्र न्यायपालिका की आवश्यकता क्यों है?</h2>
+<html la
+  <div class="part-container">
+    <h2>न्यायपालिका की आवश्यकता और स्वतंत्रता</h2>
+    <p>लोकतंत्र में न्यायपालिका कानून के शासन (Rule of Law) की रक्षा करती है और नागरिकों के अधिकारों की सुरक्षा सुनिश्चित करती है। स्वतंत्र न्यायपालिका का अर्थ है कि सरकार के अन्य अंग (विधायिका और कार्यपालिका) न्यायपालिका के कार्यों में बाधा न डालें, न्यायाधीश बिना भय या पक्षपात के निर्णय ले सकें।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">निष्पक्ष न्याय:</b> स्वतंत्र न्यायपालिका यह सुनिश्चित करती है कि राजनीतिक या आर्थिक दबाव के बिना सभी नागरिकों को निष्पक्ष न्याय मिले।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक सुरक्षा:</b> न्यायपालिका संविधान की व्याख्याकार और रक्षक है। यह विधायिका और कार्यपालिका के असंवैधानिक निर्णयों को रद्द कर सकती है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">व्यक्तिगत स्वतंत्रता:</b> यह नागरिकों के मौलिक अधिकारों का संरक्षण करती है और शक्तिशाली लोगों से कमजोरों की रक्षा करती है।</li>
+<li><b>कानून का शासन:</b> सभी नागरिक, चाहे वे अमीर हों या गरीब, शक्तिशाली हों या सामान्य, एक ही कानून के अधीन हैं।</li>
+<li><b>स्वतंत्रता की संवैधानिक व्यवस्थाएं:</b> नियुक्ति प्रक्रिया में राजनीतिक हस्तक्षेप से बचाव, निश्चित कार्यकाल, संचित निधि से वेतन (संसद के मत से परे), और न्यायाधीशों के आचरण पर संसद में चर्चा पर प्रतिबंध (अनुच्छेद 121)।</li>
+<li><b>पद की सुरक्षा:</b> न्यायाधीशों को केवल महाभियोग (Impeachment) की कठिन प्रक्रिया द्वारा ही हटाया जा सकता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत में न्यायपालिका की संरचना: एक एकीकृत पिरामिड ढांचा</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायाधीशों की नियुक्ति और कॉलेजियम प्रणाली</h2>
+    <p>सर्वोच्च न्यायालय और उच्च न्यायालयों के न्यायाधीशों की नियुक्ति राष्ट्रपति द्वारा मुख्य न्यायाधीश (CJI) तथा वरिष्ठ न्यायाधीशों की सलाह से की जाती है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एकीकृत न्यायपालिका (Integrated Judiciary):</b> अमेरिका के विपरीत जहाँ केंद्र और राज्य की अलग-अलग अदालतें हैं, भारत में संपूर्ण देश के लिए एकल और एकीकृत न्यायिक प्रणाली है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पिरामिड संरचना:</b> शीर्ष पर सर्वोच्च न्यायालय (Supreme Court), उसके नीचे राज्यों में उच्च न्यायालय (High Courts), और सबसे नीचे जिला एवं अधीनस्थ अदालतें (Subordinate Courts)।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">बाध्यकारी फैसले:</b> सर्वोच्च न्यायालय के निर्णय देश की सभी निचली अदालतों पर अनिवार्य रूप से बाध्यकारी होते हैं।</li>
+<li><b>कॉलेजियम प्रणाली (Collegium System):</b> मुख्य न्यायाधीश और सर्वोच्च न्यायालय के 4 वरिष्ठतम न्यायाधीशों की समिति न्यायाधीशों के नामों की सिफारिश करती है।</li>
+<li><b>वरिष्ठता का सिद्धांत:</b> 1973 में ए.एन. रे और 1977 में एम.यू. बेग की नियुक्ति में वरिष्ठता का उल्लंघन हुआ, जिसके बाद 1993 के 'द्वितीय न्यायाधीश मामले' में वरिष्ठतम न्यायाधीश को ही CJI बनाने का नियम तय हुआ।</li>
+<li><b>राष्ट्रीय न्यायिक नियुक्ति आयोग (NJAC):</b> 99वें संविधान संशोधन द्वारा लाया गया NJAC आयोग 2015 में सर्वोच्च न्यायालय द्वारा असंवैधानिक घोषित कर रद्द कर दिया गया।</li>
 </ul>
-</div>
-
-<!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सर्वोच्च न्यायालय (Supreme Court) के प्रमुख अधिकार क्षेत्र</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायाधीशों को पद से हटाना (महाभियोग प्रक्रिया)</h2>
+    <p>अनुच्छेद 124(4) के तहत सर्वोच्च न्यायालय और उच्च न्यायालय के न्यायाधीशों को केवल <b>'साबित कदाचार' (Proven Misbehaviour)</b> या <b>'अक्षमता' (Incapacity)</b> के आधार पर ही हटाया जा सकता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. प्रारंभिक क्षेत्राधिकार (Original Jurisdiction):</b> केंद्र और राज्यों के बीच या दो राज्यों के बीच विवादों का सीधा निपटारा।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. अपीलीय क्षेत्राधिकार (Appellate Jurisdiction):</b> उच्च न्यायालयों के सिविल, आपराधिक और संवैधानिक मामलों के फैसलों के खिलाफ अंतिम अपील सुनना।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. सलाहकारी क्षेत्राधिकार (Advisory Jurisdiction - Art. 143):</b> राष्ट्रपति द्वारा जनहित के कानूनी प्रश्नों पर सुप्रीम कोर्ट से राय मांगना।</li>
+<li><b>संसदीय प्रक्रिया:</b> लोकसभा के 100 या राज्यसभा के 50 सदस्यों द्वारा प्रस्ताव पेश किया जाता है।</li>
+<li><b>विशेष बहुमत:</b> सदन की कुल सदस्य संख्या का बहुमत और उपस्थित एवं मतदान करने वाले सदस्यों का 2/3 बहुमत आवश्यक है।</li>
+<li><b>ऐतिहासिक उदाहरण:</b> 1991 में न्यायमूर्ति वी. रामास्वामी के खिलाफ महाभियोग प्रस्ताव लाया गया था, लेकिन कांग्रेस के मतदान से अलग रहने के कारण यह पारित नहीं हो सका।</li>
 </ul>
-</div>
-
-<!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">संवैधानिक रिट क्षेत्राधिकार (Writs) और नागरिकों के अधिकारों का संरक्षण</h2>
+  </div>
+  <div class="part-container">
+    <h2>भारतीय न्यायपालिका का ढांचा और संरचना</h2>
+    <p>भारत में एकीकृत और पिरामिडनुमा न्यायिक प्रणाली (Integrated Judicial System) लागू है, जिसमें शीर्ष पर सर्वोच्च न्यायालय स्थित है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुच्छेद 32 और 226:</b> सुप्रीम कोर्ट (Art. 32) और हाई कोर्ट (Art. 226) मौलिक अधिकारों की रक्षा के लिए 5 प्रकार की रिट जारी कर सकते हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">5 रिट:</b> (1) बंदी प्रत्यक्षीकरण, (2) परमादेश, (3) प्रतिषेध, (4) उत्प्रेषण, और (5) अधिकार पृच्छा।</li>
+<li><b>सर्वोच्च न्यायालय (Supreme Court):</b> देश की शीर्ष अदालत, जिसके फैसले सभी निचली आदालतों पर बाध्यकारी होते हैं।</li>
+<li><b>उच्च न्यायालय (High Court):</b> राज्य स्तर की शीर्ष अदालत, जो राज्य के न्यायिक प्रशासन का निरीक्षण करती है।</li>
+<li><b>जिला अदालतें (District Courts):</b> जिले में दायर मामलों की सुनवाई करती है और दीवानी व आपराधिक मामलों का निपटारा करती है।</li>
+<li><b>अधीनस्थ अदालतें (Subordinate Courts):</b> दीवानी (Civil) और फौजदारी (Criminal) किस्म के मुकदमों की सुनवाई करने वाले निचले न्यायालय।</li>
 </ul>
-</div>
-
-<!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायिक सक्रियता (Judicial Activism) और जनहित याचिका (PIL) का उदय</h2>
+  </div>
+  <div class="part-container">
+    <h2>सर्वोच्च न्यायालय का क्षेत्राधिकार: प्रारंभिक क्षेत्राधिकार</h2>
+    <p><b>प्रारंभिक (मूल) क्षेत्राधिकार (Original Jurisdiction):</b> इसका अर्थ है कि कुछ मुकदमों की सुनवाई सीधे सर्वोच्च न्यायालय ही कर सकता है, किसी अन्य अदालत में नहीं।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">PIL की शुरुआत (1979-80):</b> न्यायमूर्ति पी.एन. भगवती और वी.आर. कृष्ण अय्यर के प्रयासों से जनहित याचिका (Public Interest Litigation) का जन्म हुआ।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लोकस स्टैंडाई (Locus Standi) में छूट:</b> अब पीड़ित के अलावा कोई भी तीसरा व्यक्ति या सामाजिक संगठन गरीबों/वंचितों के अधिकारों के लिए याचिका दायर कर सकता है (पत्र या पोस्टकार्ड को भी PIL माना गया)।</li>
+<li><b>संघीय विवाद:</b> केंद्र और एक या अधिक राज्यों के बीच विवाद।</li>
+<li><b>राज्य बनाम राज्य:</b> दो या दो से अधिक राज्यों के मध्य आपसी कानूनी विवाद।</li>
+<li><b>अनुच्छेद 131:</b> इसके तहत सर्वोच्च न्यायालय संघीय व्यवस्था में मध्यस्थ की भूमिका निभाता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायिक सक्रियता का प्रभाव: अधिकार बनाम न्यायिक अतिक्रमण (Judicial Overreach)</h2>
+  </div>
+  <div class="part-container">
+    <h2>सर्वोच्च न्यायालय का क्षेत्राधिकार: रिट क्षेत्राधिकार</h2>
+    <p><b>रिट क्षेत्राधिकार (Writ Jurisdiction):</b> अनुच्छेद 32 के तहत नागरिकों के मौलिक अधिकारों के उल्लंघन पर सर्वोच्च न्यायालय विशेष आदेश (रिट) जारी कर सकता है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सकारात्मक प्रभाव:</b> पर्यावरण प्रदूषण, बंधुआ मजदूरी, तिहाड़ जेल सुधार और महिलाओं के उत्पीड़न जैसे मामलों में गरीबों को सीधा न्याय मिला।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अतिक्रमण की चिंता:</b> आलोचकों का मानना है कि अदालतें नीतिगत मामलों (जैसे सड़क सुरक्षा, बजटीय नीतियां) में दखल देकर कार्यपालिका और विधायिका के अधिकारों का हनन करती हैं।</li>
+<li><b>मौलिक अधिकार रक्षक:</b> बंदी प्रत्यक्षीकरण (Habeas Corpus), परमादेश (Mandamus), प्रतिषेध (Prohibition), अधिकार-पृच्छा (Quo-Warranto), और उत्प्रेषण (Certiorari)।</li>
+<li><b>उच्च न्यायालय की शक्ति:</b> अनुच्छेद 226 के तहत उच्च न्यायालय भी मौलिक और अन्य अधिकारों के लिए रिट जारी कर सकते हैं।</li>
 </ul>
-</div>
-
-<!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायिक पुनरावलोकन (Judicial Review) की शक्ति और संवैधानिक औचित्य</h2>
+  </div>
+  <div class="part-container">
+    <h2>सर्वोच्च न्यायालय का क्षेत्राधिकार: अपीलीय क्षेत्राधिकार</h2>
+    <p><b>अपीलीय क्षेत्राधिकार (Appellate Jurisdiction):</b> सर्वोच्च न्यायालय देश की सर्वोच्च अपील अदालत है। कोई भी व्यक्ति उच्च न्यायालय के फैसले के खिलाफ सर्वोच्च न्यायालय में अपील कर सकता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक समीक्षा:</b> सर्वोच्च न्यायालय को यह जाँचने का अधिकार है कि विधायिका द्वारा पारित कानून या कार्यपालिका का आदेश संविधान के प्रावधानों के अनुकूल है या नहीं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अवैध घोषित करना:</b> यदि कोई कानून संविधान का उल्लंघन करता पाया जाता है, तो न्यायपालिका उसे असंवैधानिक और शून्य (Null & Void) घोषित कर देती है।</li>
+<li><b>संवैधानिक मामले:</b> यदि उच्च न्यायालय प्रमाणित करे कि मामले में संविधान की व्याख्या का गंभीर प्रश्न निहित है।</li>
+<li><b>दीवानी व आपराधिक मामले:</b> यदि उच्च न्यायालय ने मृत्युदंड की सजा दी हो या गंभीर कानूनी व्याख्या शामिल हो।</li>
+<li><b>विशेष अनुमति याचिका (SLP - Article 136):</b> सर्वोच्च न्यायालय भारत के किसी भी न्यायालय (सैन्य अदालत छोड़कर) के फैसले के खिलाफ अपील की विशेष अनुमति दे सकता है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">केशवानंद भारती मामला (1973) और संविधान की 'मूल संरचना' का सिद्धांत</h2>
+  </div>
+  <div class="part-container">
+    <h2>सर्वोच्च न्यायालय का क्षेत्राधिकार: सलाहकारी क्षेत्राधिकार</h2>
+    <p><b>सलाहकारी क्षेत्राधिकार (Advisory Jurisdiction):</b> अनुच्छेद 143 के अनुसार, भारत का राष्ट्रपति जनहित या कानून के किसी प्रश्न पर सर्वोच्च न्यायालय से परामर्श मांग सकता है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">ऐतिहासिक फैसला (1973):</b> 13 न्यायाधीशों की सबसे बड़ी बेंच ने 7-6 के बहुमत से 'मूल संरचना' (Basic Structure Doctrine) का ऐतिहासिक सिद्धांत दिया।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संशोधन की सीमा:</b> संसद अनुच्छेद 368 के तहत संविधान में संशोधन कर सकती है, किंतु वह संविधान के 'मूल ढांचे' (जैसे पंथनिरपेक्षता, लोकतंत्र, न्यायपालिका की स्वतंत्रता, मौलिक अधिकार) को नष्ट नहीं कर सकती।</li>
+<li><b>बाध्यकारी नहीं:</b> सर्वोच्च न्यायालय सलाह देने के लिए बाध्य नहीं है, और राष्ट्रपति न्यायालय की सलाह मानने के लिए बाध्य नहीं हैं।</li>
+<li><b>उपयोगिता:</b> इससे सरकार को कानूनी विवादों से बचने और संभावित न्यायिक अड़चनों को पहले से समझने में मदद मिलती है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायपालिका और संसद के बीच शक्ति संघर्ष</h2>
+  </div>
+  <div class="part-container">
+    <h2>अभिलेख न्यायालय और न्यायालय की अवमानना</h2>
+    <p><b>अभिलेख न्यायालय (Court of Record - Article 129):</b> सर्वोच्च न्यायालय की सभी कार्यवाहियों और फैसले को साक्ष्य के रूप में लिखित रूप से सुरक्षित रखा जाता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">ऐतिहासिक टकराव:</b> संपत्ति के अधिकार, मौलिक अधिकारों में संशोधन और संसद की संप्रभुता बनाम न्यायपालिका की सर्वोच्चता को लेकर 1950 से 1970 के दशक तक भारी टकराव रहा।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक संतुलन:</b> संविधान ने तीनों अंगों के बीच संतुलन बनाया है—संसद कानून बनाती है, न्यायपालिका उसकी वैधता जाँचती है।</li>
+<li><b>नजीर/पूर्वधारणा:</b> निचली अदालतें इन फैसले का हवाला कानूनी मिसाल (Precedent) के रूप में देती हैं।</li>
+<li><b>न्यायालय की अवमानना (Contempt of Court):</b> न्यायालय के आदेशों की अवहेलना करने या न्यायपालिका की गरिमा को ठेस पहुंचाने वाले व्यक्ति को दंडित करने की पूर्ण शक्ति सर्वोच्च न्यायालय के पास है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायाधीशों की नियुक्ति प्रक्रिया: कॉलेजियम प्रणाली बनाम NJAC</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायिक सक्रियता और जनहित याचिका (PIL)</h2>
+    <p><b>न्यायिक सक्रियता (Judicial Activism):</b> जब न्यायपालिका कार्यपालिका और विधायिका को उनके संवैधानिक कर्तव्यों का पालन करने के लिए बाध्य करती है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कॉलेजियम प्रणाली (Collegium System):</b> CJI और 4 वरिष्ठतम न्यायाधीशों का समूह जो जज की नियुक्ति और तबादले की सिफारिश सरकार को भेजता है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">NJAC विवाद (2015):</b> संसद ने 99वें संशोधन द्वारा राष्ट्रीय न्यायिक नियुक्ति आयोग (NJAC) बनाया था, जिसे सुप्रीम कोर्ट ने न्यायपालिका की स्वतंत्रता का हनन मानकर निरस्त कर दिया।</li>
+<li><b>जनहित याचिका (Public Interest Litigation - PIL):</b> 1979-1980 के दशक में न्यायमूर्ति पी.एन. भगवती और न्यायमूर्ति वी.आर. कृष्ण अय्यर द्वारा शुरू की गई व्यवस्था।</li>
+<li><b>लोकस स्टैंडाई (Locus Standi) में छूट:</b> अब पीड़ित व्यक्ति के अलावा कोई भी नागरिक, एनजीओ या सामाजिक कार्यकर्ता जनहित में अदालत का दरवाजा खटखटा सकता है (जैसे पोस्टकार्ड भेजकर)।</li>
+<li><b>महत्वपूर्ण केस:</b> हुसैनआरा खातून बनाम बिहार राज्य (अंडरट्रायल कैदियों की रिहाई) और सुनील बत्रा बनाम दिल्ली प्रशासन (जेल सुधार)।</li>
 </ul>
-</div>
-
-<!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">न्यायाधीशों की स्वतंत्रता और महाभियोग (Impeachment) की प्रक्रिया</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायिक पुनरावलोकन (Judicial Review)</h2>
+    <p><b>न्यायिक पुनरावलोकन (Judicial Review):</b> न्यायपालिका की वह शक्ति जिसके द्वारा वह संसद या राज्य विधायिकाओं द्वारा बनाए गए कानूनों और कार्यपालिका के आदेशों की संवैधानिक वैधता की जांच करती है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सुरक्षा की गारंटी:</b> न्यायाधीशों का वेतन संचित निधि पर भारित होता है, उस पर संसद में मतदान नहीं होता। उनके आचरण पर संसद में चर्चा नहीं की जा सकती।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कठिन पदच्युति प्रक्रिया:</b> सिद्ध दुर्व्यवहार या अक्षमता के आधार पर संसद के दोनों सदनों में 2/3 विशेष बहुमत से ही न्यायाधीश को हटाया जा सकता है।</li>
+<li><b>संवैधानिक प्रावधान:</b> अनुच्छेद 13, 32 और 226 के तहत यदि कोई कानून संविधान के मूल प्रावधानों या मौलिक अधिकारों का उल्लंघन करता है, तो न्यायालय उसे असंवैधानिक और शून्य घोषित कर सकता है।</li>
+<li><b>संसदीय संप्रभुता पर संतुलन:</b> भारत में अमेरिका जैसी न्यायिक सर्वोच्चता और ब्रिटेन जैसी संसदीय सर्वोच्चता का सुंदर समन्वय है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">उच्च न्यायालय (High Courts) एवं अधीनस्थ न्यायालयों का ढांचा</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायपालिका और अधिकार (मौलिक अधिकारों का संरक्षण)</h2>
+    <p>न्यायपालिका नागरिकों के मौलिक अधिकारों की रक्षक और अभिभावक (Guardian of Rights) के रूप में कार्य करती है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">उच्च न्यायालय:</b> राज्य स्तर पर सर्वोच्च न्यायिक निकाय। भारत में वर्तमान में 25 उच्च न्यायालय हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जिला व सत्र अदालतें:</b> जिला स्तर पर दीवानी (Civil) और आपराधिक (Criminal) मामलों का फैसला करती हैं।</li>
+<li><b>संवैधानिक उपचार:</b> अनुच्छेद 32 के तहत रिट जारी कर मौलिक अधिकारों को बहाल करना।</li>
+<li><b>कानूनों को रद्द करना:</b> यदि विधायिका का कोई कानून मौलिक अधिकारों का हनन करता है, तो उसे अवैध ठहराना।</li>
+<li><b>जीवन का अधिकार (अनुच्छेद 21) का विस्तार:</b> न्यायपालिका ने स्वच्छ पर्यावरण, शिक्षा, निजता (Privacy) और आजीविका के अधिकार को अनुच्छेद 21 के तहत शामिल किया है।</li>
 </ul>
-</div>
-
-<!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">त्वरित न्याय के उपाय: लोक अदालतें, ग्राम न्यायालय और ADR</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायपालिका और संसद के बीच विवाद</h2>
+    <p>भारतीय संविधान में शक्तियों के पृथक्करण के बावजूद संसद और न्यायपालिका के बीच कई संवैधानिक मुद्दों पर टकराव रहा है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लोक अदालतें:</b> आपसी सहमति और समझौते के आधार पर बिना अदालती शुल्क के मुकदमों का त्वरित निपटारा करने का अनूठा मंच।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वैकल्पिक विवाद समाधान (ADR):</b> मध्यस्थता (Arbitration) और सुलह द्वारा समय और पैसे की बचत करना।</li>
+<li><b>संपत्ति का अधिकार:</b> 1950-1970 के दशक में भूमि सुधार और संपत्ति के अधिकार को लेकर विवाद।</li>
+<li><b>संविधान संशोधन की सीमा:</b> क्या संसद मौलिक अधिकारों को छीन या सीमित कर सकती है? (गोलकनाथ केस 1967)।</li>
+<li><b>न्यायाधीशों की नियुक्ति:</b> कार्यपालिका का वर्चस्व बनाम कॉलेजियम प्रणाली (NJAC विवाद)।</li>
 </ul>
-</div>
-
-<!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारतीय न्यायपालिका की चुनौतियाँ: मुकदमों का अंबार और न्यायिक विलंब</h2>
+  </div>
+  <div class="part-container">
+    <h2>केशवानंद भारती केस और मूल ढांचे का सिद्धांत</h2>
+    <p><b>केशवानंद भारती मामला (1973):</b> 13 न्यायाधीशों की सबसे बड़ी संवैधानिक पीठ द्वारा दिया गया ऐतिहासिक निर्णय।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">करोड़ों लंबित मामले:</b> अदालतों में 4.5 करोड़ से अधिक मुकदमे पेंडिंग हैं ("तारीख पर तारीख")।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">न्यायाधीशों की कमी:</b> भारत में प्रति 10 लाख आबादी पर जजों का अनुपात विकसित देशों की तुलना में बहुत कम है।</li>
+<li><b>मूल ढांचा (Basic Structure Doctrine):</b> न्यायालय ने तय किया कि संसद संविधान के किसी भी हिस्से में संशोधन कर सकती है, लेकिन वह संविधान के 'मूल ढांचे' (जैसे- लोकतंत्र, धर्मनिरपेक्षता, न्यायपालिका की स्वतंत्रता, संघीय ढांचा) को नष्ट नहीं कर सकती।</li>
+<li><b>दूरगामी प्रभाव:</b> इसने संसद की असीमित संशोधन शक्तियों पर अंकुश लगाया और संविधान की सर्वोच्चता बनाए रखी।</li>
 </ul>
-</div>
-
-<!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत के मुख्य न्यायाधीश (CJI) की भूमिका और न्यायपालिका: लोकतंत्र का प्रहरी एवं मास्टर सिनोप्सिस</h2>
+  </div>
+  <div class="part-container">
+    <h2>न्यायिक सक्रियता के लाभ, सीमाएं और चुनौतियां</h2>
+    <p>जनहित याचिकाओं और न्यायिक सक्रियता ने लोकतंत्र को अधिक समावेशी और जन-उन्मुख बनाया है, परंतु इसकी कुछ सीमाएं भी हैं।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मास्टर ऑफ रोस्टर (Master of Roster):</b> CJI न्यायपालिका का प्रशासनिक प्रमुख होता है जो बेंचों का गठन और मुकदमों का आबंटन करता है।</li>
+<li><b>सकारात्मक प्रभाव:</b> गरीबों, शोषितों और हाशिये पर मौजूद वर्गों को न्याय सुलभ हुआ; भ्रष्टाचार और पर्यावरण प्रदूषण पर लगाम लगी।</li>
+<li><b>अति-सक्रियता की चुनौती (Judicial Overreach):</b> जब न्यायपालिका कार्यपालिका और विधायिका के नीतिगत मामलों (जैसे बजट, नीतियां) में दखल देने लगती है, तो शक्तियों के संतुलन का उल्लंघन होता है।</li>
+<li><b>बकाया मामलों का बोझ:</b> अदालतों में करोड़ों लंबित मामले (Pending Cases) और न्यायाधीशों के खाली पद न्याय मिलने में देरी का मुख्य कारण हैं।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 6: मास्टर सिनोप्सिस (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-स्वतंत्र और निष्पक्ष न्यायपालिका भारतीय संविधान की आत्मा है। PIL और न्यायिक समीक्षा के ज़रिए न्यायपालिका ने कमजोर वर्गों के अधिकारों की रक्षा की है और 'विधि के शासन' की स्थापना की है।
-</span>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </body>
 </html>
