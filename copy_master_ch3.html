@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="hi">
 <head>
 <meta charset="utf-8"/>
@@ -7,6 +6,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
         /* Completely remove outer double-line blue box wrapper around hero title */
         div[style*="double"], 
@@ -28,7 +29,6 @@
             box-sizing: border-box !important;
         }
 
-
         p, li, h1, h2, h3, h4, b, strong, td, th {
             font-weight: 900 !important;
             -webkit-text-stroke: 1.1px #000000;
@@ -38,371 +38,249 @@
             font-size: 28pt !important;
             line-height: 1.8 !important;
         }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
+        .part-container {
+            border-top: 10px solid #2563eb;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
         .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff !important;
+            padding: 25px 35px;
+            border-radius: 10px;
             font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
+            margin-top: 0;
             font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
         }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
         }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
         li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
+            margin-bottom: 20px;
         }
 </style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
 </head>
 <body>
 <div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
+<div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
+
 <!-- Master Title Header -->
 <div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 3: चुनाव और प्रतिनिधित्व</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
+<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; color: #1e3a8a;">अध्याय 3: चुनाव और प्रतिनिधित्व</h1>
+<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
 </div>
 
 <!-- TOPIC 1 -->
-<div class="part-container">
+<div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">चुनाव और लोकतंत्र: प्रत्यक्ष बनाम अप्रत्यक्ष लोकतंत्र की अवधारणा</h2>
+<p>लोकतंत्र का अर्थ है जनता का शासन। विशाल जनसंख्या वाले आधुनिक देशों में सभी नागरिक हर फैसले में सीधे भाग नहीं ले सकते, इसलिए प्रतिनिधियों का चुनाव किया जाता है।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रत्यक्ष लोकतंत्र (Direct Democracy):</b> इसमें नागरिक सीधे नीतिगत निर्णयों और कानूनों के निर्माण में भाग लेते हैं (जैसे प्राचीन यूनानी नगर-राज्य या स्विट्जरलैंड के जनमत संग्रह/Referendum)।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अप्रत्यक्ष/प्रतिनिधिक लोकतंत्र (Indirect Democracy):</b> आधुनिक विशाल आबादी और बड़े क्षेत्रफल वाले देशों में नागरिक अपने प्रतिनिधियों (Representatives) को चुनते हैं, जो शासन और कानून निर्माण का कार्य संभालते हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनाव की अनिवार्यता:</b> प्रतिनिधिक लोकतंत्र में स्वतंत्र और निष्पक्ष चुनाव वह माध्यम हैं जिनके बिना लोकतंत्र का अस्तित्व संभव नहीं है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रत्यक्ष लोकतंत्र (Direct Democracy):</b> जहां नागरिक बिना किसी प्रतिनिधि के सीधे नीतिगत फैसलों और कानूनों पर मतदान करते हैं (जैसे प्राचीन यूनानी नगर-राज्य और आधुनिक स्विट्जरलैंड के कुछ कैंटन)। इसमें जनमत संग्रह (Referendum) का प्रयोग होता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अप्रत्यक्ष लोकतंत्र (Indirect/Representative Democracy):</b> जहां नागरिक अपने प्रतिनिधियों को चुनते हैं, और वे प्रतिनिधि संसद या विधायिका में बैठकर जनता की ओर से कानून और नीतियां बनाते हैं (जैसे भारत, अमेरिका, ब्रिटेन)।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनाव की भूमिका:</b> चुनाव अप्रत्यक्ष लोकतंत्र को वास्तविक और जवाबदेह बनाने का एकमात्र माध्यम हैं।</li>
 </ul>
 </div>
 
 <!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
+<div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">लोकतंत्र में चुनाव की आवश्यकता और भारतीय चुनाव प्रणाली का ढांचा</h2>
+<p>संविधान केवल चुनाव की घोषणा नहीं करता, बल्कि यह विस्तृत नियम तय करता है कि चुनाव कौन लड़ेगा, कौन वोट देगा और मतों की गिनती कैसे होगी।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">शासकों की संवैधानिक जवाबदेही:</b> चुनाव यह सुनिश्चित करते हैं कि सरकार निश्चित अवधि के बाद जनता से समर्थन हासिल करे, अन्यथा उसे पद से हटाया जा सके।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नीतियों पर जनमत:</b> चुनाव जनता को सरकार की नीतियों (जैसे कराधान, शिक्षा, विकास) पर अपनी सहमति या असहमति दर्ज कराने का मंच देते हैं।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">भारतीय बहुदलीय ढांचा:</b> विश्व के सबसे विशाल लोकतंत्र भारत में बहुदलीय प्रणाली (Multi-Party System) के अंतर्गत लोकसभा, विधानसभा और स्थानीय निकायों के चुनाव होते हैं।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनाव की आवश्यकता:</b> प्रतिनिधियों का चयन करने, शासन की नीतियों को नियंत्रित करने और अकुशल या अलोकप्रिय सरकार को शांतिपूर्ण ढंग से बदलने के लिए।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक प्रावधान:</b> संविधान का भाग 15 (अनुच्छेद 324-329) स्वतंत्र और निष्पक्ष चुनाव कराने के लिए चुनाव आयोग और नियम तय करता है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनावों के प्रकार:</b> आम चुनाव (General Elections), मध्यावधि चुनाव (Mid-term Elections), और उपचुनाव (By-elections)।</li>
 </ul>
 </div>
 
 <!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">'जो सबसे आगे वही जीते' (FPTP) प्रणाली और 1984 का NCERT केस स्टडी</h2>
+<div class="part-container" style="border-top-color: #10b981;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">'जो सबसे आगे वही जीते' (FPTP) प्रणाली और 1984 का केस स्टडी</h2>
+<p>भारत में लोकसभा और राज्य विधानसभा चुनावों के लिए <b>'फर्स्ट पास्ट द पोस्ट' (First Past the Post - FPTP)</b> प्रणाली अपनाई गई है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">FPTP प्रणाली (First-Past-The-Post):</b> इसमें पूरे देश को एकल-सदस्यीय निर्वाचन क्षेत्रों में बाँटा जाता है। अपने क्षेत्र में सर्वाधिक मत पाने वाला प्रत्याशी विजयी घोषित होता है, चाहे उसे कुल पड़े वोटों का 50% बहुमत मिला हो या न मिला हो।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1984 लोकसभा चुनाव केस स्टडी (NCERT Case Study):</b> 1984 के लोकसभा चुनाव में कांग्रेस पार्टी को कुल पड़े वोटों का केवल 48% वोट मिला था, किंतु FPTP प्रणाली के कारण उसने संसद की 80% से अधिक सीटें (543 में से 415 सीटें) जीतीं। वहीं विपक्षी दलों को 50% से ज्यादा वोट मिलने पर भी बहुत कम सीटें मिलीं। यह FPTP प्रणाली का मुख्य लक्षण है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">FPTP का अर्थ:</b> पूरा देश छोटे-छोटे एक-सदस्यीय निर्वाचन क्षेत्रों (Constituencies) में बांटा जाता है। प्रत्येक क्षेत्र से जिस प्रत्याशी को सबसे अधिक मत मिलते हैं, वह विजयी घोषित होता है। प्रत्याशी को कुल मतों का 50% या बहुमत पाना जरूरी नहीं, बस विरोधियों से एक वोट ज्यादा पाना काफी है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1984 का ऐतिहासिक केस स्टडी (NCERT):</b> 1984 के 8वें लोकसभा चुनाव में कांग्रेस पार्टी को <b>48% वोट</b> मिले, लेकिन FPTP प्रणाली के कारण उसने कुल 543 लोकसभा सीटों में से <b>415 सीटें (80% से अधिक सीटें)</b> जीतीं। दूसरी ओर, मुख्य विपक्षी दलों को कुल वोटों का 50% से अधिक पाने के बावजूद बहुत कम सीटें मिलीं।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वोट व सीट का अंतर:</b> FPTP प्रणाली में वोटों के प्रतिशत और जीती गई सीटों के प्रतिशत में भारी अंतर हो सकता है।</li>
 </ul>
 </div>
 
 <!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
+<div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत द्वारा FPTP प्रणाली को चुनने के ऐतिहासिक और व्यावहारिक कारण</h2>
+<p>संविधान निर्माताओं ने जटिल समानुपातिक प्रणालियों के बजाय FPTP को चुनने के पीछे मुख्य व्यावहारिक कारण रखे:</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. सरलता:</b> यह प्रणाली इतनी सरल है कि कम पढ़े-लिखे सामान्य मतदाता भी इसे आसानी से समझकर वोट दे सकते हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. स्पष्ट विकल्प:</b> इसमें मतदाता को किसी पार्टी की सूची के बजाय सीधे अपने पसंदीदा प्रत्याशी को चुनने की आज़ादी होती है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. सरकार में स्थायित्व:</b> यह प्रणाली संसद में स्पष्ट बहुमत वाली सरकारों के गठन को सुगम बनाती है जिससे बार-बार सरकारें गिरने का खतरा कम रहता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. सामाजिक विविधता को जोड़ना:</b> यह विभिन्न जातियों और समुदायों के नेताओं को एक साथ मिलकर चुनावी गठबंधन बनाने के लिए प्रेरित करती है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. सरलता:</b> यह प्रणाली इतनी सरल है कि सामान्य निरक्षर या कम पढ़े-लिखे मतदाता भी इसे आसानी से समझ सकते हैं। उन्हें केवल पार्टी या उम्मीदवार के नाम के आगे बटन दबाना होता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. स्पष्ट विकल्प:</b> मतदाताओं के सामने उम्मीदवारों और राजनीतिक दलों का स्पष्ट विकल्प होता है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. क्षेत्र और प्रतिनिधि का सीधा संबंध:</b> मतदाता अपने निर्वाचन क्षेत्र के प्रतिनिधि (MP/MLA) को व्यक्तिगत रूप से जानता है और समस्याओं के लिए सीधे जवाबदेह ठहरा सकता है।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. स्थायी सरकार:</b> FPTP प्रणाली आमतौर पर किसी एक बड़े दल या गठबंधन को स्पष्ट बहुमत प्रदान करती है, जिससे सरकार में स्थिरता आती है।</li>
 </ul>
 </div>
 
 <!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
+<div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">समानुपातिक प्रतिनिधित्व प्रणाली (Proportional Representation - PR)</h2>
+<p><b>समानुपातिक प्रतिनिधित्व (PR) प्रणाली:</b> इसमें राजनीतिक दलों को चुनाव में मिले वोटों के कुल प्रतिशत के अनुपात में सीटें आवंटित की जाती हैं।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समानुपातिक सिद्धांत:</b> प्रत्येक राजनीतिक दल को विधायिका में उसी अनुपात में सीटें दी जाती हैं जिस अनुपात में उसे कुल मतों का प्रतिशत हासिल होता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">इज़राइल व नीदरलैंड्स केस स्टडी (NCERT Case Study):</b> इज़राइल में पूरे देश को एक निर्वाचन क्षेत्र माना जाता है और 3.25% से अधिक वोट पाने वाली हर पार्टी को संसद (Knesset) में आनुपातिक सीटें मिलती हैं। फिनलैंड और नीदरलैंड्स में पार्टी लिस्ट प्रणाली (List System) चलती है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">इजराइल का मॉडल (List System):</b> पूरा देश एक ही निर्वाचन क्षेत्र माना जाता है। प्रत्येक दल अपनी प्रत्याशियों की सूची (Party List) जारी करता है। दल को जितने प्रतिशत वोट मिलते हैं (न्यूनतम 3.25% थ्रेशोल्ड वोट आवश्यक), उसे संसद (Knesset) में उतनी ही प्रतिशत सीटें मिलती हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नीदरलैंड का मॉडल:</b> संपूर्ण देश एक निर्वाचन क्षेत्र होता है और मतों के राष्ट्रीय प्रतिशत के आधार पर पार्टी सूची से प्रतिनिधि चुने जाते हैं।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मुख्य विशेषता:</b> इसमें कोई भी वोट व्यर्थ नहीं जाता और हर छोटे राजनीतिक दल को उसकी जनप्रियता के अनुपात में प्रतिनिधित्व मिलता है।</li>
 </ul>
 </div>
 
 <!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
+<div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">तुलनात्मक तालिका: FPTP और PR प्रणाली में अंतर</h2>
-<table>
-<thead>
-<tr>
-<th>आधार</th>
-<th>FPTP (सर्वाधिक मत प्रणाली)</th>
-<th>PR (समानुपातिक प्रतिनिधित्व)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>निर्वाचन क्षेत्र</b></td>
-<td>छोटे एकल-सदस्यीय निर्वाचन क्षेत्र।</td>
-<td>बड़े बहु-सदस्यीय या पूरा देश एक क्षेत्र।</td>
-</tr>
-<tr>
-<td><b>मतदान</b></td>
-<td>मतदाता प्रत्याशी (व्यक्ति) को वोट देता है।</td>
-<td>मतदाता पार्टी (दल) को वोट देता है।</td>
-</tr>
-<tr>
-<td><b>सीटों का आबंटन</b></td>
-<td>जरूरी नहीं कि सीटों का अनुपात वोट% के बराबर हो।</td>
-<td>सीटों का अनुपात सीधे वोट% के बराबर होता है।</td>
-</tr>
-<tr>
-<td><b>उम्मीदवार का संबंध</b></td>
-<td>जनता का अपने सांसद/विधायक से सीधा संपर्क।</td>
-<td>जनता का पार्टी से संबंध, व्यक्तिगत प्रत्याशी दूर।</td>
-</tr>
-</tbody>
-</table>
+<p>FPTP और समानुपातिक प्रतिनिधित्व (PR) प्रणाली के मध्य मुख्य संवैधानिक अंतर निम्नलिखित हैं:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">निर्वाचन क्षेत्र:</b> FPTP में देश छोटे-छोटे एक-सदस्यीय क्षेत्रों में बंटा होता है; PR में पूरा देश या बड़ा क्षेत्र बहु-सदस्यीय निर्वाचन क्षेत्र होता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मतदाता का चुनाव:</b> FPTP में मतदाता व्यक्ति (प्रत्याशी) को वोट देता है; PR में मतदाता मुख्यतः पार्टी (दल) को वोट देता है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सीटों का आवंटन:</b> FPTP में सबसे ज्यादा वोट पाने वाला एक प्रत्याशी जीतता है; PR में पार्टी को प्राप्त वोटों के प्रतिशत के अनुपात में सीटें मिलती हैं।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">बहुमत की आवश्यकता:</b> FPTP में विजयी प्रत्याशी को 50%+1 वोट पाना आवश्यक नहीं है; PR में दल को वोट प्रतिशत के हिसाब से सीटें मिलती हैं।</li>
+<li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">उदाहरण:</b> FPTP - भारत, ब्रिटेन, कनाडा; PR - इजराइल, नीदरलैंड, जर्मनी।</li>
+</ul>
 </div>
 
 <!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
+<div class="part-container" style="border-top-color: #6366f1;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत में PR प्रणाली का सीमित प्रयोग: एकल संक्रमणीय मत (STV)</h2>
+<p>भारत ने प्रत्यक्ष आम चुनावों के लिए FPTP को अपनाया, लेकिन अप्रत्यक्ष चुनावों (राज्यसभा, विधान परिषद, राष्ट्रपति और उपराष्ट्रपति) के लिए <b>समानुपातिक प्रतिनिधित्व की एकल संक्रमणीय मत प्रणाली (Single Transferable Vote - STV)</b> को अपनाया।</p>
+
+<p><b>1. राज्यसभा चुनाव और कोटा निर्धारण सूत्र:</b></p>
+<p>राज्यसभा चुनाव में राज्य के विधायक (MLAs) मतदान करते हैं। प्रत्येक मतदाता प्रत्याशी को अपनी वरीयता (1st, 2nd, 3rd Preference) देता है। जीतने के लिए किसी प्रत्याशी को एक निश्चित न्यूनतम कोटा हासिल करना होता है:</p>
+
+<div style="background: #f8fafc; border: 3px solid #2563eb; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 4px 12px rgba(37,99,235,0.15);">
+  <h4 style="color: #1e3a8a; margin-top: 0; font-size: 24pt;">राज्यसभा चुनाव: न्यूनतम कोटा फॉर्मूला</h4>
+  <p style="font-size: 26pt; font-weight: 900; color: #0f172a; margin: 15px 0;">
+    $$\text{जीतने के लिए आवश्यक कोटा} = \left( \frac{\text{कुल डाले गए वैध मत}}{\text{कुल चुनी जाने वाली सीटें} + 1} \right) + 1$$
+  </p>
+  <p style="font-size: 22pt; color: #475569; margin-bottom: 0;">
+    <b>NCERT उदाहरण:</b> राजस्थान में 4 राज्यसभा सीटों के लिए 200 विधायक वोट डालते हैं:<br/>
+    $$\text{कोटा} = \left( \frac{200}{4 + 1} \right) + 1 = \left( \frac{200}{5} \right) + 1 = 40 + 1 = 41 \text{ मत}$$
+  </p>
+</div>
+
+<p><b>2. राष्ट्रपति का चुनाव (अनुच्छेद 54 व 55):</b></p>
+<p>राष्ट्रपति का चुनाव एक निर्वाचक मंडल (Electoral College) द्वारा indirect STV प्रणाली से होता है, जिसमें संसद (लोकसभा + राज्यसभा) के निर्वाचित सदस्य और राज्य विधानसभाओं (तथा दिल्ली व पुडुचेरी) के निर्वाचित सदस्य भाग लेते हैं।</p>
+
+<div style="background: #fdf2f8; border: 3px solid #db2777; border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 12px rgba(219,39,119,0.15);">
+  <h4 style="color: #831843; margin-top: 0; text-align: center; font-size: 24pt;">राष्ट्रपति चुनाव: मत मूल्य एवं कोटा फॉर्मूला</h4>
+  
+  <p style="font-size: 22pt; font-weight: 900; color: #831843; margin-bottom: 5px;">(क) एक विधायक (MLA) के मत का मूल्य:</p>
+  <p style="font-size: 24pt; font-weight: 900; text-align: center; color: #0f172a; margin: 10px 0;">
+    $$\text{एक विधायक के मत का मूल्य} = \frac{\text{राज्य की कुल जनसंख्या (1971)}}{\text{राज्य विधानसभा के कुल निर्वाचित सदस्य}} \times \frac{1}{1000}$$
+  </p>
+  
+  <p style="font-size: 22pt; font-weight: 900; color: #831843; margin-bottom: 5px;">(ख) एक सांसद (MP) के मत का मूल्य:</p>
+  <p style="font-size: 24pt; font-weight: 900; text-align: center; color: #0f172a; margin: 10px 0;">
+    $$\text{एक सांसद के मत का मूल्य} = \frac{\text{सभी राज्यों के कुल विधायकों के मतों का कुल मूल्य}}{\text{संसद के कुल निर्वाचित सदस्य (लोकसभा + राज्यसभा)}}$$
+  </p>
+  
+  <p style="font-size: 22pt; font-weight: 900; color: #831843; margin-bottom: 5px;">(ग) राष्ट्रपति चुनाव का जीत कोटा:</p>
+  <p style="font-size: 24pt; font-weight: 900; text-align: center; color: #0f172a; margin: 10px 0;">
+    $$\text{विजयी कोटा} = \left( \frac{\text{कुल डाले गए वैध मतों का मूल्य}}{2} \right) + 1$$
+  </p>
+</div>
+
+<p><b>3. मतों के हस्तांतरण (STV) की प्रक्रिया:</b></p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राज्यसभा व राष्ट्रपति चुनाव:</b> भारत ने प्रत्यक्ष चुनावों में FPTP अपनाया, लेकिन अप्रत्यक्ष चुनावों (राज्यसभा, विधान परिषद, राष्ट्रपति, उपराष्ट्रपति) में समानुपातिक प्रतिनिधित्व की 'एकल संक्रमणीय मत प्रणाली' (Single Transferable Vote System - STV) को अपनाया।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राज्यसभा चुनाव कोटा सूत्र:</b> राज्य सभा चुनाव में किसी विधायक को जीतने के लिए एक निश्चित कोटा पाना होता है: <code>[कुल वैध मत / (कुल सीटें + 1)] + 1</code>। इसमें विधायक पसंद की वरीयता (1st Preference, 2nd Preference) दर्ज करते हैं।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रथम वरीयता की गिनती:</b> पहले केवल 1st Preference के वोट गिने जाते हैं। यदि किसी को निर्धारित कोटा मिल जाए, तो वह विजयी घोषित होता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पुनर्गणना व हस्तांतरण:</b> यदि किसी को पहली गिनती में कोटा न मिले, तो सबसे कम वोट पाने वाले प्रत्याशी को प्रतियोगिता से बाहर कर दिया जाता है और उसके मतपत्रों पर अंकित 2nd Preference के वोट अन्य प्रत्याशियों को ट्रांसफर कर दिए जाते हैं। यह प्रक्रिया कोटा प्राप्त होने तक जारी रहती है।</li>
 </ul>
 </div>
 
 <!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
+<div class="part-container" style="border-top-color: #14b8a6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">निर्वाचन क्षेत्रों का परिसीमन (Delimitation Commission)</h2>
+<p>प्रत्येक चुनाव से पूर्व देश को जनसंख्या के आधार पर समान आकार के निर्वाचन क्षेत्रों में विभाजित किया जाता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">परिसीमन आयोग:</b> राष्ट्रपति द्वारा गठित एक स्वतंत्र निकाय जिसमें सर्वोच्च न्यायालय के सेवानिवृत्त जज और निर्वाचन आयोग शामिल होते हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जनसंख्या का संतुलन:</b> परिसीमन का उद्देश्य यह सुनिश्चित करना है कि प्रत्येक लोकसभा/विधानसभा क्षेत्र में आबादी का अनुपात लगभग बराबर रहे ताकि हर नागरिक के वोट की कीमत समान हो।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">परिसीमन आयोग:</b> राष्ट्रपति द्वारा गठित एक स्वतंत्र निकाय (Delimitation Commission) जिसमें सर्वोच्च न्यायालय के सेवानिवृत्त न्यायाधीश और चुनाव आयुक्त शामिल होते हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मुख्य कार्य:</b> प्रत्येक राज्य में जनसंख्या के अनुपात में निर्वाचन क्षेत्रों की सीमाओं का पुनर्निर्धारण करना तथा SC/ST सीटों का आरक्षण तय करना।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">न्यायिक समीक्षा से परे:</b> परिसीमन आयोग के फैसलों को किसी अदालत में चुनौती नहीं दी जा सकती।</li>
 </ul>
 </div>
 
 <!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
+<div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">आरक्षित निर्वाचन क्षेत्र (SC/ST Reservation) और ऐतिहासिक पृष्ठभूमि</h2>
+<p>FPTP प्रणाली में डर था कि कमजोर सामाजिक वर्ग कभी जीत नहीं पाएंगे, इसलिए संविधान ने आरक्षित निर्वाचन क्षेत्रों की व्यवस्था की।</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आवश्यकता:</b> FPTP प्रणाली में यह डर था कि सामाजिक रूप से उत्पीड़ित और अल्पसंख्यक वर्ग चुनाव नहीं जीत पाएंगे, इसलिए संविधान निर्माताओं ने आरक्षित निर्वाचन क्षेत्रों की व्यवस्था की।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वर्तमान स्थिति:</b> लोकसभा में 84 सीटें अनुसूचित जाति (SC) और 47 सीटें अनुसूचित जनजाति (ST) के लिए आरक्षित हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पृथक निर्वाचन मंडल का विरोध:</b> अंग्रेजों के 'पृथक निर्वाचन मंडल' (जहाँ केवल दलित ही दलित को वोट देता) के बजाय संयुक्त निर्वाचन क्षेत्र (जहाँ प्रत्याशी SC/ST होगा किंतु वोट सभी नागरिक देंगे) को अपनाया गया।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आरक्षण का स्वरूप:</b> आरक्षित निर्वाचन क्षेत्र में वोट सभी नागरिक डालते हैं, लेकिन उम्मीदवार केवल उसी आरक्षित वर्ग (SC या ST) का हो सकता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सीटों की संख्या:</b> वर्तमान में देश में 543 लोकसभा सीटों में से <b>84 सीटें अनुसूचित जाति (SC)</b> के लिए और <b>47 सीटें अनुसूचित जनजाति (ST)</b> के लिए आरक्षित हैं (कुल 131 सीटें)।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पृथक निर्वाचिका बनाम आरक्षित सीट:</b> अंग्रेजों द्वारा शुरू की गई पृथक निर्वाचिका (Separate Electorate) को खारिज कर आरक्षित क्षेत्रों की साझा व्यवस्था अपनाई गई।</li>
 </ul>
 </div>
 
 <!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
+<div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत निर्वाचन आयोग (ECI): अनुच्छेद 324, संरचना व स्वतंत्रता</h2>
+<p>भारतीय संविधान का <b>अनुच्छेद 324</b> स्वतंत्र एवं निष्पक्ष चुनाव कराने के लिए 'भारत निर्वाचन आयोग' (Election Commission of India) की स्थापना करता है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुच्छेद 324:</b> स्वतंत्र, निष्पक्ष और पारदर्शी चुनाव सुनिश्चित करने के लिए संविधान के अनुच्छेद 324 में 'भारत निर्वाचन आयोग' (Election Commission of India) का प्रावधान किया गया है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">बहु-सदस्यीय आयोग (1993 से):</b> 1989 तक आयोग एक-सदस्यीय था। 1993 से इसे 3-सदस्यीय (एक मुख्य निर्वाचन आयुक्त - CEC और दो निर्वाचन आयुक्त - ECs) बनाया गया। तीनों को समान शक्तियां और उच्चतम न्यायालय के जज के बराबर वेतन प्राप्त है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सुरक्षा की गारंटी:</b> CEC को कार्यकाल पूरा होने से पहले केवल संसद द्वारा महाभियोग (विशेष बहुमत) से ही हटाया जा सकता है, जिससे वे बिना किसी राजनीतिक दबाव के काम कर सकें।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संरचना:</b> आयोग में एक मुख्य निर्वाचन आयुक्त (CEC) और दो अन्य निर्वाचन आयुक्त होते हैं। 1993 से यह 3-सदस्यीय बहु-सदस्यीय निकाय (Multi-member body) है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नियुक्ति व कार्यकाल:</b> आयुक्तों की नियुक्ति राष्ट्रपति द्वारा की जाती है। इनका कार्यकाल 6 वर्ष या 65 वर्ष की आयु (जो भी पहले हो) तक होता है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पद की सुरक्षा:</b> मुख्य निर्वाचन आयुक्त को केवल संसद द्वारा महाभियोग (Impeachment) जैसी कठिन प्रक्रिया द्वारा ही हटाया जा सकता है, जिससे निष्पक्षता बनी रहे।</li>
 </ul>
 </div>
 
 <!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
+<div class="part-container" style="border-top-color: #10b981;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">चुनाव आयोग के प्रमुख कार्य, शक्तियाँ और आदर्श आचार संहिता</h2>
+<p>चुनाव आयोग भारत में पूरी चुनावी प्रक्रिया का सर्वोच्च नियंत्रक है।</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. मतदाता सूची की तैयारी:</b> 18 वर्ष से ऊपर के सभी पात्र नागरिकों को वोटर लिस्ट में दर्ज करना और त्रुटियाँ हटाना।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. चुनाव कार्यक्रमों की घोषणा:</b> नामांकन पत्र दाखिले से लेकर मतदान, मतगणना और परिणाम घोषित करने की तिथियां तय करना।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. आदर्श आचार संहिता (Model Code of Conduct):</b> चुनाव के दौरान राजनीतिक दलों और मंत्रियों द्वारा सरकारी तंत्र के दुरुपयोग और नफरत फैलाने वाले भाषणों पर रोक लगाने के लिए आचार संहिता लागू करना।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. दलों को मान्यता व चुनाव चिह्न:</b> राष्ट्रीय व राज्य स्तरीय दलों को मान्यता देना और चुनाव प्रतीक आबंटित करना।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. मतदाता सूचियां तैयार करना:</b> मतदाता सूचियों (Electoral Rolls) को अद्यतन करना और मतदाता पहचान पत्र (EPIC) जारी करना।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. चुनाव तिथियों की घोषणा:</b> चुनाव की अधिसूचना, नामांकन, मतदान और मतगणना की तिथियों का निर्धारण।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. राजनीतिक दलों को मान्यता:</b> नए राजनीतिक दलों को पंजीकृत करना और उन्हें चुनाव चिन्ह (Election Symbols) आवंटित करना।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. आदर्श आचार संहिता (Model Code of Conduct):</b> चुनाव के दौरान निष्पक्षता बनाए रखने के लिए आचार संहिता लागू करना तथा उल्लंघन पर सख्त कार्रवाई करना।</li>
 </ul>
 </div>
 
 <!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
+<div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सार्वभौमिक वयस्क मताधिकार और चुनाव लड़ने का अधिकार (61वाँ संशोधन)</h2>
+<p>भारत में सार्वभौमिक वयस्क मताधिकार लोकतंत्र का सबसे बड़ा स्तंभ है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">61वाँ संविधान संशोधन (1989):</b> 61वें संशोधन द्वारा मताधिकार की न्यूनतम आयु 21 वर्ष से घटाकर 18 वर्ष की गई।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनाव लड़ने की योग्यता:</b> लोकसभा व विधानसभा के लिए न्यूनतम आयु 25 वर्ष; राज्यसभा व विधान परिषद के लिए न्यूनतम आयु 30 वर्ष है। मानसिक रूप से अस्वस्थ या गंभीर अपराधों में सजायाफ्ता व्यक्ति को चुनाव लड़ने से रोका जा सकता है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मताधिकार की आयु:</b> 1989 से पूर्व मताधिकार की न्यूनतम आयु 21 वर्ष थी। <b>61वें संविधान संशोधन (1989)</b> द्वारा इसे घटाकर <b>18 वर्ष</b> कर दिया गया।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समानता:</b> जाति, धर्म, लिंग या संपत्ति के बिना सभी 18 वर्ष से ऊपर के भारतीय नागरिकों को 'एक व्यक्ति, एक वोट' का अधिकार प्राप्त है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">चुनाव लड़ने की न्यूनतम आयु:</b> लोकसभा व विधानसभा चुनाव के लिए 25 वर्ष; पंचायत व नगर निकाय के लिए 21 वर्ष; और राज्यसभा व विधान परिषद के लिए 30 वर्ष।</li>
 </ul>
 </div>
 
 <!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
+<div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारतीय चुनाव प्रणाली की चुनौतियाँ: धनबल, बाहुबल और अपराधीकरण</h2>
+<p>भारतीय लोकतंत्र की सफलता के बावजूद चुनावी प्रक्रिया में कई गंभीर बुराइयां मौजूद हैं:</p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. अत्यधिक धनबल का प्रयोग:</b> चुनावों में पानी की तरह पैसा बहाने से सामान्य और गरीब नागरिक चुनाव लड़ने से वंचित रह जाते हैं।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. राजनीति का अपराधीकरण:</b> आपराधिक छवि वाले लोगों का बाहुबल और पैसों के दम पर राजनीतिक दलों से टिकट पाना और जीतकर संसद में पहुँचना।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. वंशवाद व साम्प्रदायिक ध्रुवीकरण:</b> वास्तविक विकास के मुद्दों के बजाय धर्म, जाति और परिवारवाद के आधार पर वोट माँगना।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. धनबल का प्रभाव:</b> चुनावों में बेहिसाब पैसा पानी की तरह बहाया जाता है, जिससे गरीब उम्मीदवार पिछड़ जाते हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. राजनीति का अपराधीकरण:</b> आपराधिक पृष्ठभूमि वाले व्यक्तियों का चुनाव लड़ना और जीतना।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. जाति और धर्म का दुरुपयोग:</b> वोट बैंक की राजनीति के लिए साम्प्रदायिक और जातिगत भावनाएं भड़काना।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. वंशवाद व महिला प्रतिनिधित्व की कमी:</b> राजनीतिक दलों में आंतरिक लोकतंत्र का अभाव और संसद में महिलाओं की कम संख्या।</li>
 </ul>
 </div>
 
 <!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
+<div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">चुनावी सुधार (Electoral Reforms) और VVPAT / EVM तकनीक</h2>
+<p>भारतीय चुनाव प्रणाली को अधिक पारदर्शी और निष्पक्ष बनाने के लिए निरंतर सुधार किए गए हैं:</p>
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">तकनीकी सुधार (EVM & VVPAT):</b> इलेक्ट्रॉनिक वोटिंग मशीन (EVM) और वोटर वेरिफिएबल पेपर ऑडिट ट्रेल (VVPAT) ने मतदान प्रक्रिया में पारदर्शिता और गति बढ़ाई है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सुधार के प्रमुख प्रस्ताव:</b> (1) चुनावों का राज्य द्वारा वित्तपोषण (State Funding), (2) गंभीर आपराधिक मामलों के आरोपियों के चुनाव लड़ने पर आजीवन रोक, (3) संसद में महिलाओं के लिए 33% आरक्षण (नारी शक्ति वंदन अधिनियम), (4) राजनीतिक दलों के चंदे में पूर्ण पारदर्शिता।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. EVM और VVPAT:</b> इलेक्ट्रॉनिक वोटिंग मशीन (EVM) और वोटर वेरिफिएबल पेपर ऑडिट ट्रेल (VVPAT) मशीन के प्रयोग से फर्जी मतदान पर रोक लगी और पारदर्शकता बढ़ी।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. NOTA विकल्प:</b> 'उपरोक्त में से कोई नहीं' (None of the Above) विकल्प से मतदाताओं को नापसंदगी जताने का अधिकार मिला।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. आपराधिक शपथ पत्र:</b> उम्मीदवारों के लिए संपत्ति, देनदारियों और आपराधिक मुकदमों का हलफनामा (Affidavit) देना अनिवार्य किया गया।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. चुनाव सुधार सिफारिशें:</b> गोस्वामी समिति, इंद्रजीत गुप्त समिति और चुनाव आयोग द्वारा निरंतर सुधार प्रस्ताव।</li>
 </ul>
 </div>
 
 <!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
+<div class="part-container" style="border-top-color: #6366f1;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">निष्कर्ष: चुनाव — लोकतंत्र का महापर्व</h2>
+<p>भारत में चुनाव केवल सरकार चुनने का जरिया नहीं हैं, बल्कि यह 140 करोड़ नागरिकों का लोकतंत्र में अटूट विश्वास प्रकट करने का महापर्व है।</p>
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जनता की संप्रभुता:</b> भारत में चुनावों ने साबित किया है कि यहाँ अंतिम शक्ति आम नागरिक के हाथ में है जो किसी भी दंभी सरकार को वोट की ताकत से बदल सकता है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">शांतिपूर्ण सत्ता परिवर्तन:</b> 1952 के प्रथम आम चुनाव से लेकर आज तक भारत में शांतिपूर्ण और लोकतांत्रिक तरीके से सत्ता का हस्तांतरण हुआ है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वैश्विक मिसाल:</b> भारत का निष्पक्ष चुनाव ढांचा पूरी दुनिया के लोकतांत्रिक देशों के लिए एक मिसाल और प्रेरणा स्रोत है।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 3: (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-चुनाव लोकतंत्र की जीवंतता की कसौटी हैं। FPTP प्रणाली की सरलता और निष्पक्ष चुनाव आयोग की सतर्कता ने भारतीय चुनाव प्रणाली को दुनिया भर में एक मिसाल बनाया है। चुनावी सुधारों को अपनाकर हम अपने लोकतंत्र को और सुदृढ़ बना सकते हैं।
-</span>
 </div>
-</div>
+
 </div>
 </div>
 </body>
