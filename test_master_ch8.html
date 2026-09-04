@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="hi">
 <head>
 <meta charset="utf-8"/>
-<title>अध्याय 8: स्थानीय शासन</title>
+<title>अध्याय 8: स्थानीय शासन - COMPLETE MASTER EDITION</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
@@ -28,7 +27,6 @@
             box-sizing: border-box !important;
         }
 
-
         p, li, h1, h2, h3, h4, b, strong, td, th {
             font-weight: 900 !important;
             -webkit-text-stroke: 1.1px #000000;
@@ -38,347 +36,273 @@
             font-size: 28pt !important;
             line-height: 1.8 !important;
         }
-        .ch-content, .ch1-content, .ch2-content, .ch3-content, .ch4-content, .ch5-content, .ch6-content, .ch7-content, .ch8-content, .ch9-content, .ch10-content, .ch11-content, .ch12-content, .ch13-content, .ch14-content, .ch15-content, .ch16-content, .ch17-content, .ch18-content {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 10px !important;
-        }
-        /* Projector Banner Styles for Headings */
-        .hero-title, h1.section-header {
-            text-align: center !important;
-            color: #ffffff !important;
-            background-color: #064e3b !important; /* Dark Green Background */
-            border: 5px solid #10b981 !important;
-            border-radius: 20px !important;
-            padding: 30px !important;
-            margin-bottom: 50px !important;
-            font-size: 60pt !important;
-            font-weight: 900 !important;
-            box-shadow: 0 8px 25px rgba(6, 78, 59, 0.4) !important;
-        }
-        .hero-title span, h1.section-header span {
-            color: #a7f3d0 !important;
+        .part-container {
+            border-top: 10px solid #2563eb;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
         .part-header {
-            color: #7f1d1d !important;
-            background-color: #fee2e2 !important;
-            border-left: 18px solid #b91c1c !important;
-            padding: 22px 28px !important;
-            border-radius: 14px !important;
-            font-size: 46pt !important;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff !important;
+            padding: 25px 35px;
+            border-radius: 10px;
             font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 35px !important;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
-        }
-        .topic-header, h2.sub-header {
-            color: #1e3a8a !important;
-            background-color: #eff6ff !important;
-            border-left: 16px solid #2563eb !important;
-            padding: 20px 26px !important;
-            border-radius: 12px !important;
-            font-size: 38pt !important;
-            font-weight: 900 !important;
-            margin-top: 45px !important;
-            margin-bottom: 30px !important;
-        }
-        .subtopic-header {
-            color: #4c1d95 !important;
-            background-color: #f3e8ff !important;
-            border-left: 14px solid #7c3aed !important;
-            padding: 18px 24px !important;
-            border-radius: 10px !important;
+            margin-top: 0;
             font-size: 32pt !important;
-            font-weight: 900 !important;
-            margin-top: 40px !important;
-            margin-bottom: 25px !important;
         }
-        .box-header {
-            color: #166534 !important;
-            background-color: #f0fdf4 !important;
-            border-left: 12px solid #16a34a !important;
-            padding: 16px 20px !important;
-            border-radius: 10px !important;
-            font-size: 30pt !important;
-            font-weight: 900 !important;
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
         }
-        /* Highlights */
-        b, strong {
-            color: #b91c1c !important; /* Dark Red */
-            font-weight: 900 !important;
-        }
-        .blue-highlight, b.blue-text, strong.blue-text {
-            color: #1e3a8a !important;
-        }
-        .keyword-box, .story-box, .highlight-box, .concept-card, .un-card {
-            font-size: 28pt !important;
-            line-height: 1.8 !important;
-            padding: 25px !important;
-            margin: 30px 0 !important;
-        }
-        .illustration-box { border: 4px solid #cbd5e1 !important; border-radius: 12px; padding: 0px !important; background-color: #ffffff; margin-top: 25px; }
-        .illustration-explanation { border-left: 6px solid #cbd5e1 !important; padding-left: 15px; font-size: 28pt !important; line-height: 1.6 !important; text-align: left; margin-top: 15px; }
-
-
-        #control-header {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
-        }
-        #control-header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; }
-        body {
-            margin-top: 80px;
-            background-color: #ffffff;
-            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
-            font-size: 20pt;
-            font-weight: 800;
-            line-height: 2.2;
-            color: #000000;
-        }
-        p, li, div, td, th {
-            font-weight: 800 !important;
-            color: #000000 !important;
-        }
-        b, strong {
-            font-weight: 900 !important;
-            color: #000000 !important;
-        }
-        ul, ol { padding-left: 60px !important; margin-left: 20px !important; }
         li {
-            padding-left: 15px;
-            margin-bottom: 25px;
-            text-align: justify;
-            line-height: 2.2;
-            font-size: 20pt;
-            font-weight: 800 !important;
-        }
-        /* Heavy text thickness for projector visibility */
-        p, li, h1, h2, h3, h4, b, strong {
-            font-weight: 900 !important;
-            -webkit-text-stroke: 0.5px #000000;
-        }
-        
-        .part-container {
-            margin-bottom: 80px; padding: 50px 60px; background-color: #ffffff;
-            border-radius: 15px; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.05);
-            border-top: 12px solid #1e3a8a;
-        }
-        .info-box {
-            background-color: #f8fafc; padding: 30px; border-left: 14px solid #1e3a8a; 
-            margin: 30px 0; border-radius: 8px; font-size: 19pt; line-height: 2.2; font-weight: 900;
-        }
-        .debate-box {
-            background-color: #fffbeb; padding: 30px; border: 6px solid #b45309; 
-            border-radius: 15px; margin: 40px 0; line-height: 2.2; font-size: 19pt; font-weight: 900;
-        }
-    
-
-        /* Ensure no element bursts outside the white page card */
-        * {
-            box-sizing: border-box !important;
-            max-width: 100% !important;
-        }
-        #notes-content, #contentToCopy, .preview {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
-        .hero-title-wrapper, div[style*="double"] {
-            border: none !important;
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 0 30px 0 !important;
-            box-shadow: none !important;
-        }
-        .hero-title {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-        .part-container, .info-box, .debate-box, .concept-card, .keyword-box, .story-box, .highlight-box {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
+            margin-bottom: 20px;
         }
 </style>
-<script>
-        function copyToGoogleDoc() {
-            var content = document.getElementById('contentToCopy').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var data = [new ClipboardItem({ 'text/html': blob })];
-            
-            navigator.clipboard.write(data).then(function() {
-                var status = document.getElementById('status');
-                status.style.display = 'block';
-                setTimeout(function() {
-                    status.style.display = 'none';
-                }, 5000);
-            }).catch(function(err) {
-                alert('Copy failed: ' + err);
-            });
-        }
-    </script>
 </head>
 <body>
 <div id="contentToCopy">
-<div style="font-family: 'Arial', verdana, sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
+<div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
+
 <!-- Master Title Header -->
 <div style="text-align: center; margin-bottom: 30px; padding: 0px !important; border: none !important; background: transparent !important;">
-<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px;">अध्याय 8: स्थानीय शासन</h1>
-<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto;"></div>
+<h1 class="hero-title" style="font-weight: 950 !important; margin-bottom: 20px; color: #1e3a8a;">अध्याय 8: स्थानीय शासन</h1>
+<div style="height: 10px; width: 300px; background: #2563eb; margin: 30px auto; border-radius: 5px;"></div>
 </div>
 
 <!-- TOPIC 1 -->
-<div class="part-container">
+<div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">स्थानीय शासन क्या है? विकेंद्रीकरण की अवधारणा और केस स्टडी</h2>
+<p><b>स्थानीय शासन (Local Government):</b> गाँव, कस्बे या शहर के स्तर का शासन है जहाँ आम नागरिक अपने स्थानीय प्रतिनिधियों के माध्यम से अपनी समस्याओं का स्वयं समाधान करते हैं। यह सरकार का तीसरा स्तर (Third Tier of Government) है।</p>
+
+<p><b>स्थानीय शासन का महत्व:</b></p>
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">स्थानीय शासन का अर्थ:</b> स्थानीय शासन गाँव और नगर स्तर का वह शासन है जो आम नागरिकों के सबसे निकट होता है तथा उनकी दैनिक समस्याओं (पानी, बिजली, सफाई, प्राथमिक स्वास्थ्य, स्थानीय सड़कें) का त्वरित समाधान करता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सहभागी लोकतंत्र (Participatory Democracy):</b> स्थानीय शासन का मूल विचार यह है कि स्थानीय लोग अपनी समस्याओं को राजधानी में बैठे नेताओं से बेहतर समझते हैं, इसलिए निर्णय लेने की प्रक्रिया में उनकी सीधी भागीदारी होनी चाहिए।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">गीता राठौर व अनुपमा केस स्टडी (Case Study):</b> मध्य प्रदेश की जमनिया गाँव की सरपंच गीता राठौर और तमिलनाडु के गाँव का उदाहरण दिखाता है कि कैसे स्थानीय शासन में आरक्षण के माध्यम से आम महिलाओं ने गाँव के विकास, पानी की टंकी और प्राथमिक विद्यालयों की तस्वीर बदल दी।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. समस्याओं का त्वरित समाधान:</b> स्थानीय लोग अपनी समस्याओं (सड़क, पीने का पानी, नाली, प्राथमिक स्वास्थ्य, स्कूल) को राज्य या केंद्र सरकार की तुलना में बेहतर जानते हैं और उनका तुरंत समाधान कर सकते हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. लोकतंत्र की प्राथमिक पाठशाला:</b> यह आम नागरिकों को शासन प्रक्रिया में प्रत्यक्ष भागीदारी का अवसर देती है, जिससे उनमें लोकतांत्रिक चेतना और जिम्मेदारी का भाव पैदा होता है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. शक्तियों का विकेंद्रीकरण (Decentralization of Power):</b> सत्ता का केंद्र और राज्यों से नीचे धरातल (Grassroots Level) पर आम जनता तक पहुँचना।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. प्रशासनिक दक्षता व मितव्ययिता:</b> कम लागत और बिना लालफीताशाही के कार्य पूरा होना।</li>
 </ul>
 </div>
 
 <!-- TOPIC 2 -->
-<div class="part-container" style="border-top-color: #059669;">
+<div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारत में स्थानीय शासन का इतिहास: प्राचीन काल से स्वतंत्रता पश्चात् तक</h2>
+<p>भारत में स्थानीय स्वशासन की परंपरा बेहद प्राचीन है, जो आधुनिक समय तक निरंतर विकसित होती रही है:</p>
+
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्राचीन एवं मध्यकालीन भारत:</b> भारत में प्राचीन काल से ही 'सभा' और 'समिति' तथा चोल साम्राज्य में स्वशासी ग्राम पंचायतें मौजूद थीं जो न्याय और कर संग्रह करती थीं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लॉर्ड रिपन का प्रस्ताव (1882):</b> 1882 में वाइसराय लॉर्ड रिपन ने 'लोकल बोर्ड' बनाने की पहल की। इसलिए लॉर्ड रिपन को 'भारत में स्थानीय स्वशासन का पिता' कहा जाता है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">गांधीवादी विज़न बनाम आंबेडकर का दृष्टिकोण:</b> महात्मा गांधी 'ग्राम स्वराज' (आत्मनिर्भर गाँव) के प्रबल समर्थक थे और पंचायतों को लोकतंत्र की बुनियाद मानते थे। दूसरी ओर, डॉ. बी.आर. आंबेडकर का मानना था कि गाँवों में छुआछूत और जातिवाद का बोलबाला है, इसलिए बिना सामाजिक सुधार के केवल पंचायतों को शक्ति देने से उच्च जातियों का वर्चस्व बढ़ेगा। इसी कारण शुरुआती संविधान में पंचायतों को केवल 'नीति निर्देशक सिद्धांतों' (Article 40) में रखा गया।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्राचीन भारत:</b> प्राचीन काल में स्वायत्त गाँव पंचायतें अस्तित्व में थीं, जिन्हें 'सभा' या 'जाति पंचायत' कहा जाता था। ये गाँव के विवादों को सुलझाती थीं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">आधुनिक काल (लॉर्ड रिपन का 1882 का प्रस्ताव):</b> 1882 में भारत के वायसराय लॉर्ड रिपन (Lord Ripon) ने स्थानीय स्वशासन के लिए एक ऐतिहासिक प्रस्ताव पारित किया, जिसे भारत में स्थानीय शासन का **'मैग्ना कार्टा' (Magna Carta)** कहा जाता है। इसके तहत 'लोकल बोर्ड्स' बनाए गए।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">महात्मा गांधी का विचार ('ग्राम स्वराज'):</b> महात्मा गांधी का मानना था कि सच्चे लोकतंत्र का अर्थ केवल दिल्ली में बैठकर शासन चलाना नहीं, बल्कि प्रत्येक गाँव का अपने आप में एक आत्मनिर्भर और स्वायत्त गणराज्य (Village Republic) होना है।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संविधान सभा और अनुच्छेद 40:</b> संविधान सभा में बी.आर. अंबेडकर ने ग्रामीण रूढ़िवादिता के कारण पंचायतों का विरोध किया था, परंतु अंततः इसे नीति निर्देशक तत्वों (Part IV) के **अनुच्छेद 40** में शामिल किया गया, जिसने राज्यों को ग्राम पंचायतों के गठन का निर्देश दिया।</li>
 </ul>
 </div>
 
 <!-- TOPIC 3 -->
-<div class="part-container" style="border-top-color: #7c3aed;">
+<div class="part-container" style="border-top-color: #10b981;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">बलवंत राय मेहता समिति (1957) और पंचायती राज का 1992 से पहले का सफर</h2>
+<p>स्वतंत्रता के बाद 1952 में शुरू किए गए **सामुदायिक विकास कार्यक्रम (CDP)** की समीक्षा के लिए कई राष्ट्रीय समितियों का गठन किया गया:</p>
+
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सामुदायिक विकास कार्यक्रम (1952):</b> आजादी के बाद 1952 में शुरू किया गया सामुदायिक विकास कार्यक्रम नौकरशाही के अत्यधिक नियंत्रण के कारण विफल रहा।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">बलवंत राय मेहता समिति (1957):</b> इस समिति ने 'लोकतांत्रिक विकेंद्रीकरण' की सिफारिश की और ग्राम, ब्लॉक व जिला स्तर पर त्रि-स्तरीय पंचायती राज ढांचे का सुझाव दिया।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक दर्जे से पूर्व की कमियाँ:</b> 1959 में नागौर (राजस्थान) से पंचायती राज शुरू हुआ, लेकिन 1992 से पहले तक पंचायतों के चुनाव समय पर नहीं होते थे, राज्यों द्वारा पर्याप्त वित्तीय संसाधन नहीं दिए जाते थे और इन्हें भंग कर दिया जाता था।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. बलवंत राय मेहता समिति (1957):</b> इस समिति ने भारत में पहली बार **'लोकतांत्रिक विकेंद्रीकरण'** की सिफारिश की और **त्रिस्तरीय पंचायती राज प्रणाली (Three-Tier System)** का ढांचा पेश किया।
+  <ul>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पहला उद्घाटन:</b> <b>2 अक्टूबर 1959</b> को प्रधानमंत्री जवाहरलाल नेहरू ने राजस्थान के **नागौर जिले** में भारत के पहले पंचायती राज का उद्घाटन किया। इसके बाद आंध्र प्रदेश ने इसे लागू किया।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. अशोक मेहता समिति (1977):</b> इसने द्वि-स्तरीय पंचायती राज ढांचे (जिला परिषद व मंडल पंचायत) की सिफारिश की।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. एल.एम. सिंघवी समिति (1986):</b> इसने पंचायती राज संस्थाओं को **संवैधानिक दर्जा (Constitutional Status)** देने तथा निष्पक्ष चुनाव कराने की ऐतिहासिक सिफारिश की।</li>
+<li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. पी.के. थुंगन समिति (1988):</b> संवैधानिक संशोधन विधेयक पेश करने की सिफारिश की।</li>
 </ul>
 </div>
 
 <!-- TOPIC 4 -->
-<div class="part-container" style="border-top-color: #ea580c;">
+<div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">73वाँ और 74वाँ संविधान संशोधन (1992): एक ऐतिहासिक मोड़</h2>
+<p>1992 में संसद द्वारा पारित **73वें और 74वें संविधान संशोधन अधिनियम** (24 अप्रैल 1993 से लागू) ने भारत में स्थानीय स्वशासन को एक मजबूत संवैधानिक दर्जा प्रदान किया।</p>
+
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1992 के ऐतिहासिक संशोधन:</b> पी.वी. नरसिम्हा राव सरकार के समय 1992 में 73वाँ (ग्रामीण स्थानीय शासन) और 74वाँ (शहरी स्थानीय शासन) संविधान संशोधन विधेयक संसद द्वारा पारित किया गया (जो 1993 में लागू हुआ)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक बाध्यता:</b> इन संशोधनों ने देश के सभी राज्यों के लिए पंचायती राज और नगरीय निकायों को स्थापित करना, नियमित चुनाव कराना और वित्तीय साधन देना अनिवार्य बना दिया।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक भाग:</b> 73वें संशोधन द्वारा भाग IX और 11वीं अनुसूची जोड़ी गई; 74वें संशोधन द्वारा भाग IX-A और 12वीं अनुसूची जोड़ी गई।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक दर्जा:</b> अब स्थानीय निकाय केवल राज्यों की इच्छा पर निर्भर नहीं हैं, बल्कि उनका चुनाव कराना अनिवार्य संवैधानिक दायित्व है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">73वाँ संविधान संशोधन (1992):</b> ग्रामीण स्थानीय शासन (पंचायती राज) से संबंधित। इसने संविधान में **भाग IX (Part IX)** और **11वीं अनुसूची (11th Schedule)** जोड़ी, जिसमें पंचायतों के लिए **29 विषय** शामिल किए गए।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">74वाँ संविधान संशोधन (1992):</b> शहरी स्थानीय शासन (नगरीय निकाय / ULBs) से संबंधित। इसने संविधान में **भाग IX-A (Part IX-A)** और **12वीं अनुसूची (12th Schedule)** जोड़ी, जिसमें नगर निकायों के लिए **18 विषय** शामिल किए गए।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राष्ट्रीय पंचायती राज दिवस:</b> 73वाँ संशोधन 24 अप्रैल 1993 को लागू हुआ था, इसलिए प्रत्येक वर्ष **24 अप्रैल को राष्ट्रीय पंचायती राज दिवस** मनाया जाता है।</li>
 </ul>
 </div>
 
 <!-- TOPIC 5 -->
-<div class="part-container" style="border-top-color: #db2777;">
+<div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">पंचायती राज का त्रि-स्तरीय ढांचा (Three-Tier Panchayati Raj System)</h2>
-<ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. ग्राम पंचायत (Gram Panchayat):</b> सबसे निचले स्तर पर एक गाँव या गाँवों के समूह की पंचायत। इसके अध्यक्ष को सरपंच/प्रधान कहा जाता है।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. पंचायत समिति (Block/Intermediate Level):</b> मध्यवर्ती या ब्लॉक स्तर पर कार्य करती है। यह ग्राम पंचायतों और जिला परिषद के बीच कड़ी का काम करती है। (20 लाख से कम आबादी वाले राज्यों में मध्यवर्ती स्तर न बनाने की छूट है)।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. जिला परिषद (District Panchayat):</b> शीर्ष स्तर पर पूरे जिले के ग्रामीण क्षेत्र का प्रतिनिधित्व करती है। जिला स्तर की सभी विकास योजनाओं का समन्वय करती है।</li>
-</ul>
+<p>73वें संविधान संशोधन के तहत सभी राज्यों (20 लाख से अधिक आबादी वाले) में त्रिस्तरीय पंचायती राज ढांचा लागू किया गया है:</p>
+
+<div style="background: #f8fafc; border: 3px solid #0284c7; border-radius: 14px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 18px rgba(2,132,199,0.12);">
+  <h4 style="color: #0369a1; margin-top: 0; font-size: 26pt; text-align: center; font-weight: 950; margin-bottom: 15px;">पंचायती राज का त्रि-स्तरीय ढांचा</h4>
+  
+  <ul style="margin-bottom: 0;">
+  <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. ग्राम पंचायत (Gram Panchayat):</b> सबसे निचले (गाँव) स्तर पर। इसमें गाँव के मतदाताओं द्वारा सीधे चुने गए वार्ड पंच और **सरपंच/प्रधान** होते हैं।</li>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. ब्लॉक / पंचायत समिति (Panchayat Samiti / Block):</b> मध्यवर्ती स्तर पर। कई ग्राम पंचायतों को मिलाकर एक ब्लॉक बनता है। इसमें ब्लॉक प्रमुख/अध्यक्ष चुना जाता है।</li>
+  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. जिला पंचायत (Zila Parishad):</b> जिले के स्तर पर सर्वोच्च निकाय। पूरे जिले की ग्रामीण विकास योजनाओं का समन्वय करती है। इसका प्रमुख जिला पंचायत अध्यक्ष होता है।</li>
+  <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अपवाद:</b> जिन राज्यों की जनसंख्या 20 लाख से कम है (जैसे सिक्किम), वहां मध्यवर्ती (ब्लॉक) स्तर का गठन करना अनिवार्य नहीं है।</li>
+  </ul>
+</div>
 </div>
 
 <!-- TOPIC 6 -->
-<div class="part-container" style="border-top-color: #6366f1;">
+<div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">ग्राम सभा: प्रत्यक्ष लोकतंत्र की आत्मा और इसकी भूमिका</h2>
+<p><b>ग्राम सभा (Gram Sabha):</b> पंचायती राज व्यवस्था का सबसे महत्वपूर्ण आधार है। यह किसी गाँव की मतदाता सूची में दर्ज सभी वयस्क (18 वर्ष से ऊपर) नागरिकों की आम सभा होती है।</p>
+
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संरचना:</b> गाँव के उन सभी वयस्क निवासियों की संस्था जिनका नाम उस गाँव की मतदाता सूची में दर्ज होता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रत्यक्ष लोकतंत्र का उदाहरण:</b> भारत में ग्राम सभा ही प्रत्यक्ष लोकतंत्र (Direct Democracy) की एकमात्र कार्यशील संस्था है जहाँ नागरिक खुद आमने-सामने बैठकर फैसले लेते हैं।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कार्य:</b> पंचायत के बजट की समीक्षा करना, मनरेगा के कार्यों का सामाजिक अंकेक्षण (Social Audit) करना और पात्र लाभार्थियों का चयन करना।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रत्यक्ष लोकतंत्र का उदाहरण:</b> जैसे पूरे देश के प्रतिनिधि संसद में बैठते हैं, वैसे ही गाँव के सभी नागरिक सीधे ग्राम सभा की बैठक में बैठकर फैसले लेते हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">ग्राम सभा के मुख्य कार्य:</b>
+  <ul>
+  <li>ग्राम पंचायत की वार्षिक योजनाओं और बजट पर चर्चा करना और उसे स्वीकृति देना।</li>
+  <li>बीपीएल (BPL) लाभार्थियों और सरकारी कल्याणकारी योजनाओं के पात्र लोगों की सूची को अंतिम रूप देना।</li>
+  <li>ग्राम पंचायत के विकास कार्यों, वित्तीय खातों और खर्चों की सामाजिक लेखा-परीक्षा (Social Audit) करना।</li>
+  <li>ग्राम पंचायत के प्रतिनिधियों (सरपंच व पंचों) को जवाबदेह बनाए रखना।</li>
+  </ul>
+</li>
 </ul>
 </div>
 
 <!-- TOPIC 7 -->
-<div class="part-container" style="border-top-color: #10b981;">
+<div class="part-container" style="border-top-color: #6366f1;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">73वें संशोधन के प्रमुख प्रावधान: चुनाव, आरक्षण और 11वीं अनुसूची</h2>
-<ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">5 वर्ष का निश्चित कार्यकाल:</b> पंचायतों का कार्यकाल 5 साल निश्चित किया गया है। यदि पंचायत समय से पूर्व भंग हो जाए, तो 6 महीने के भीतर नए चुनाव कराना अनिवार्य है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">महिलाओं के लिए 33% आरक्षण:</b> सभी तीनों स्तरों पर साधारण और अध्यक्ष पदों पर कम से कम 1/3 (33%) सीटें महिलाओं के लिए आरक्षित हैं (बिहार, MP, राजस्थान आदि में यह 50% है)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">SC/ST आरक्षण:</b> जनसंख्या के अनुपात में अनुसूचित जाति और जनजाति के लिए आरक्षण।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">11वीं अनुसूची और 29 विषय:</b> संविधान में 11वीं अनुसूची जोड़कर 29 कार्य (जैसे कृषि, पेयजल, सड़कें, प्राथमिक शिक्षा, गरीबी उन्मूलन, ग्रामीण विद्युतीकरण) पंचायतों को सौंपे गए।</li>
-</ul>
+<p>73वें संविधान संशोधन ने पूरे देश में पंचायती राज व्यवस्था में एकरूपता और स्थायित्व लाने के लिए 5 मुख्य संवैधानिक नियम तय किए:</p>
+
+<div style="background: #eff6ff; border: 3px solid #2563eb; border-radius: 14px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 18px rgba(37,99,235,0.12);">
+  <h4 style="color: #1e3a8a; margin-top: 0; font-size: 26pt; text-align: center; font-weight: 950; margin-bottom: 15px;">73वें संविधान संशोधन की 5 मुख्य विशेषताएं</h4>
+  
+  <ul style="margin-bottom: 0;">
+  <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. निश्चित 5 वर्ष का कार्यकाल:</b> पंचायतों का कार्यकाल 5 वर्ष निश्चित है। यदि कोई पंचायत 5 वर्ष से पहले भंग हो जाती है, तो **6 महीने के भीतर नए चुनाव** कराना संवैधानिक रूप से अनिवार्य है।</li>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. 33% महिला आरक्षण (Women Reservation):</b> सभी स्तरों पर सदस्यों और अध्यक्षों (सरपंच/प्रमुख) के कुल पदों की कम से कम **एक-तिहाई (33%) सीटें महिलाओं के लिए आरक्षित** की गई हैं। (कई राज्यों जैसे बिहार, मध्य प्रदेश, राजस्थान, उत्तराखंड में यह आरक्षण बढ़ाकर **50%** कर दिया गया है)।</li>
+  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. SC व ST आरक्षण:</b> अनुसूचित जातियों और अनुसूचित जनजातियों के लिए उनकी जनसंख्या के अनुपात में सभी स्तरों पर सीटें आरक्षित हैं।</li>
+  <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. 11वीं अनुसूची के 29 विषय:</b> कृषि, सिंचाई, पशुपालन, प्राथमिक शिक्षा, ग्रामीण आवास, पीने का पानी, सड़कें, और गरीबी उन्मूलन जैसे 29 विषय पंचायतों को सौंपे गए हैं।</li>
+  <li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">5. स्वतंत्र चुनाव व वित्त आयोग:</b> राज्य चुनाव आयोग (Art 243K) और राज्य वित्त आयोग (Art 243I) की स्थापना।</li>
+  </ul>
+</div>
 </div>
 
 <!-- TOPIC 8 -->
-<div class="part-container" style="border-top-color: #f59e0b;">
+<div class="part-container" style="border-top-color: #14b8a6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">74वाँ संविधान संशोधन: नगरीय शासन (Urban Local Bodies - ULB) का विस्तार</h2>
+<p>शहरी क्षेत्रों में बढ़ती जनसंख्या, बुनियादी ढांचे के विकास और नागरिक सुविधाओं को सुचारू चलाने के लिए **74वाँ संविधान संशोधन (1992)** लागू किया गया।</p>
+
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नगरीय स्वशासन का संवैधानिक दर्जा:</b> 74वें संशोधन (1992) द्वारा भारत के कस्बों और शहरों में नगरीय शासन (Urban Governance) को संवैधानिक रूप दिया गया।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">शहरीकरण का महत्व (Focus):</b> भारत में तीव्र गति से हो रहे शहरीकरण को देखते हुए शहरों में नागरिक सुविधाओं (सफाई, जल आपूर्ति, सीवरेज, बस सेवा, नगर नियोजन) के लिए स्थानीय नगर निकायों का होना अति आवश्यक है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">भाग IX-A और 12वीं अनुसूची:</b> इसके द्वारा संविधान में भाग IX-A (अनुच्छेद 243P से 243ZG) तथा 12वीं अनुसूची जोड़ी गई जिसमें 18 विषय शामिल हैं।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">12वीं अनुसूची (12th Schedule):</b> इसके तहत नगर निकायों को **18 विषय** सौंपे गए (जैसे शहर नियोजन, भूमि उपयोग, सड़कें, पुल, जल आपूर्ति, सार्वजनिक स्वास्थ्य, अग्निशमन, और झुग्गी-झोपड़ी सुधार)।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समान विशेषताएं:</b> 73वें संशोधन की भांति 74वें संशोधन में भी 5 वर्ष का निश्चित कार्यकाल, 6 महीने में अनिवार्य पुनर्चुनाव, 33% महिला आरक्षण, SC/ST आरक्षण, और स्वतंत्र राज्य चुनाव व वित्त आयोग के प्रावधान लागू किए गए।</li>
 </ul>
 </div>
 
 <!-- TOPIC 9 -->
-<div class="part-container" style="border-top-color: #3b82f6;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">नगरीय निकायों की त्रि-स्तरीय संरचना एवं कार्यप्रणाली (Structure of Urban Bodies)</h2>
-<ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. नगर पंचायत (Nagar Panchayat):</b> ऐसे संक्रमणकालीन क्षेत्रों में गठित होती है जो ग्रामीण क्षेत्र से शहरी क्षेत्र में बदल रहे हों।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. नगरपालिका परिषद (Municipal Council):</b> छोटे शहरी क्षेत्रों या कस्बों में गठित निकाय। इसके अध्यक्ष को नगरपालिका अध्यक्ष कहा जाता है।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. नगर निगम (Municipal Corporation):</b> बड़े महानगरों और शहरों (जैसे मुंबई, दिल्ली, जयपुर) में गठित सर्वोच्च नगरीय निकाय। इसका राजनीतिक प्रमुख 'मेयर' (Mayor) और प्रशासनिक प्रमुख राज्य सरकार द्वारा नियुक्त 'नगर निगम आयुक्त' (Municipal Commissioner) होता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वार्ड समितियाँ (Ward Committees):</b> 3 लाख या उससे अधिक जनसंख्या वाले नगर निकायों में स्थानीय नागरिकों से सीधा संवाद रखने के लिए वार्ड समितियों का गठन अनिवार्य है।</li>
-</ul>
+<div class="part-container" style="border-top-color: #2563eb;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">नगरीय निकायों की त्रि-स्तरीय संरचना एवं कार्यप्रणाली</h2>
+<p>74वें संविधान संशोधन के तहत शहरों के आकार और जनसंख्या के आधार पर तीन प्रकार की नगरीय संस्थाएं गठित की जाती हैं:</p>
+
+<div style="background: #fdf2f8; border: 3px solid #db2777; border-radius: 14px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 18px rgba(219,39,119,0.12);">
+  <h4 style="color: #831843; margin-top: 0; font-size: 26pt; text-align: center; font-weight: 950; margin-bottom: 15px;">नगरीय निकायों की 3 श्रेणियां</h4>
+  
+  <ul style="margin-bottom: 0;">
+  <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. नगर निगम (Municipal Corporation):</b> 10 लाख या उससे अधिक की बड़ी शहरी आबादी (जैसे दिल्ली, मुंबई, कोलकाता, जयपुर, अहमदाबाद) के लिए।
+    <ul>
+    <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राजनीतिक प्रमुख:</b> चुनाव द्वारा निर्वाचित <b>मेयर/महापौर (Mayor)</b> और पार्षद (Councillors)।</li>
+    <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रशासनिक प्रमुख:</b> राज्य सरकार द्वारा नियुक्त <b>नगर निगम आयुक्त (Municipal Commissioner)</b> जो वरिष्ठ IAS अधिकारी होता है।</li>
+    </ul>
+  </li>
+  <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. नगर पालिका परिषद (Municipal Council / Board):</b> छोटे शहरों और मध्यम आकार के नगरों (1 लाख से 10 लाख आबादी) के लिए। इसका प्रमुख अध्यक्ष होता है।</li>
+  <li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. नगर पंचायत (Nagar Panchayat):</b> ऐसे ग्रामीण क्षेत्र जो धीरे-धीरे शहरी क्षेत्र में परिवर्तित (Transitional Areas) हो रहे हैं।</li>
+  <li><b style="color: #831843 !important; background-color: #fce7f3 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #db2777 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वार्ड समितियां (Ward Committees):</b> 3 लाख या उससे अधिक आबादी वाले शहरों में नागरिक भागीदारी बढ़ाने के लिए वार्ड समितियों का गठन अनिवार्य है।</li>
+  </ul>
+</div>
 </div>
 
 <!-- TOPIC 10 -->
-<div class="part-container" style="border-top-color: #8b5cf6;">
+<div class="part-container" style="border-top-color: #dc2626;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राज्य चुनाव आयोग और राज्य वित्त आयोग: स्वतंत्र संस्थागत सुरक्षा</h2>
+<p>स्थानीय निकायों को निष्पक्ष संचालन और स्वायत्तता देने के लिए दो स्वतंत्र संवैधानिक निकायों का गठन किया गया है:</p>
+
 <ul>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राज्य निर्वाचन आयोग (State Election Commission - Art. 243K & 243ZA):</b> प्रत्येक राज्य में एक स्वतंत्र आयुक्त की नियुक्ति जो ग्रामीण और नगरीय निकायों के चुनाव कराने, मतदाता सूची तैयार करने और आचार संहिता लागू करने के लिए जिम्मेदार है। (यह भारत निर्वाचन आयोग से स्वतंत्र होता है)।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राज्य वित्त आयोग (State Finance Commission - Art. 243I & 243Y):</b> प्रत्येक 5 वर्ष में राज्यपाल द्वारा गठित। यह राज्य सरकार द्वारा एकत्रित करों और राजस्व में से पंचायतों और नगर पालिकाओं को मिलने वाले वित्तीय हिस्से का निर्धारण करता है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. राज्य चुनाव आयोग (State Election Commission - Art 243K & 243ZA):</b>
+  <ul>
+  <li>प्रत्येक राज्य में एक स्वतंत्र राज्य चुनाव आयुक्त की नियुक्ति राज्यपाल द्वारा की जाती है।</li>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कार्य:</b> पंचायती राज संस्थाओं और नगर निकायों की मतदाता सूचियां तैयार करना तथा निष्पक्ष और समयबद्ध चुनाव संपन्न कराना। (यह भारत निर्वाचन आयोग से पूरी तरह स्वतंत्र होता है)।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. राज्य वित्त आयोग (State Finance Commission - Art 243I & 243Y):</b>
+  <ul>
+  <li>प्रत्येक राज्य का राज्यपाल हर **5 वर्ष में** एक राज्य वित्त आयोग का गठन करता है।</li>
+  <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कार्य:</b> राज्य सरकार द्वारा एकत्र किए गए कुल करों, शुल्कों और राजस्व का राज्य और स्थानीय निकायों (पंचायतों व नगरपालिकाओं) के मध्य बंटवारे का नियम तय करना।</li>
+  </ul>
+</li>
 </ul>
 </div>
 
 <!-- TOPIC 11 -->
-<div class="part-container" style="border-top-color: #14b8a6;">
+<div class="part-container" style="border-top-color: #10b981;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">PESA अधिनियम (1996): अनुसूचित जनजातीय क्षेत्रों में स्वशासन</h2>
-<ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">PESA Act (Panchayats Extension to Scheduled Areas Act 1996):</b> 73वाँ संशोधन शुरुआत में 5वीं अनुसूची के आदिवासी बहुल क्षेत्रों पर लागू नहीं था। इसके लिए 1996 में PESA कानून पास किया गया।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जनजातीय परंपराओं का संरक्षण:</b> PESA कानून आदिवासी ग्राम सभाओं को जल, जंगल, जमीन, खान आवंटन और लघु वनोपज (जैसे महुआ, तेन्दू पत्ता) पर विशेष संप्रभु अधिकार देता है ताकि उनकी पारंपरिक संस्कृति बची रहे।</li>
-</ul>
+<p>73वाँ संविधान संशोधन मूलतः 5वीं अनुसूची के जनजातीय/आदिवासी क्षेत्रों में लागू नहीं था। इसके लिए संसद ने **PESA अधिनियम (Panchayats Extension to Scheduled Areas Act, 1996)** पारित किया।</p>
+
+<div style="background: #f0fdf4; border: 3px solid #16a34a; border-radius: 14px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 18px rgba(22,163,74,0.12);">
+  <h4 style="color: #14532d; margin-top: 0; font-size: 26pt; text-align: center; font-weight: 950; margin-bottom: 15px;">PESA अधिनियम 1996 के मुख्य अधिकार</h4>
+  
+  <ul style="margin-bottom: 0;">
+  <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. जनजातीय परंपराओं का संरक्षण:</b> आदिवासियों की सांस्कृतिक पहचान, रूढ़िवादी परंपराओं और सामुदायिक संसाधनों की सुरक्षा करना।</li>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. ग्राम सभा की सर्वोच्चता:</b> PESA क्षेत्रों में ग्राम सभा को असाधारण शक्तियां दी गई हैं। खानों/खनिजों के खनन लाइसेंस देने, भूमि अधिग्रहण और शराब की बिक्री पर रोक लगाने के लिए ग्राम सभा की पूर्व स्वीकृति अनिवार्य है।</li>
+  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. जल, जंगल, जमीन पर अधिकार:</b> लघु वन उपज (Minor Forest Produce) का स्वामित्व ग्राम सभा को सौंपा गया है।</li>
+  </ul>
+</div>
 </div>
 
 <!-- TOPIC 12 -->
-<div class="part-container" style="border-top-color: #f43f5e;">
+<div class="part-container" style="border-top-color: #8b5cf6;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">स्थानीय शासन के व्यावहारिक संकट: 3F (Funds, Functions, Functionaries) की कमी</h2>
-<ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. धन की कमी (Funds):</b> पंचायतें और नगर पालिकाएं बहुत कम स्थानीय कर वसूल पाती हैं। वे राज्य और केंद्र सरकार के अनुदान पर निर्भर रहती हैं जिससे उनकी वित्तीय स्वायत्तता बाधित होती है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. कार्यों का अधूरा हस्तांतरण (Functions):</b> कई राज्य सरकारों ने कागजों पर तो 29 और 18 विषय हस्तांतरित कर दिए हैं, किंतु वास्तविक शक्तियां राज्य के विभागों के पास ही बनी हुई हैं।</li>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. कर्मचारियों व क्षमता की कमी (Functionaries):</b> ग्राम सचिव, बीडीओ और नगर निगम आयुक्त जैसे सरकारी अधिकारी चुनी हुई पंचायतों और मेयरों पर हावी होने का प्रयास करते हैं।</li>
-</ul>
+<p>संवैधानिक दर्जा मिलने के तीन दशकों बाद भी भारत में स्थानीय शासन अपने उद्देश्यों को पूर्ण रूप से हासिल नहीं कर पाया है। इसका मुख्य कारण **3Fs (Funds, Functions, Functionaries) की कमी** है:</p>
+
+<div style="background: #fef3c7; border: 3px solid #f59e0b; border-radius: 14px; padding: 25px; margin: 25px 0; box-shadow: 0 6px 18px rgba(245,158,11,0.12);">
+  <h4 style="color: #78350f; margin-top: 0; font-size: 26pt; text-align: center; font-weight: 950; margin-bottom: 15px;">स्थानीय शासन का 3F संकट</h4>
+  
+  <ul style="margin-bottom: 0;">
+  <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. फंड की कमी (Lack of Funds):</b> स्थानीय निकायों के पास स्वयं का कर एकत्र करने के बहुत कम अधिकार हैं (जैसे संपत्ति कर, मेला कर)। वे अपने 80% से अधिक खर्चों के लिए राज्य सरकार के अनुदानों पर निर्भर हैं, जो समय पर नहीं मिलता।</li>
+  <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. कार्यों का अधूरा हस्तांतरण (Lack of Functions):</b> राज्य सरकारों और नौकरशाही ने 11वीं और 12वीं अनुसूची के 29 व 18 विषयों को वास्तव में पंचायतों व नगरपालिकाओं को नहीं सौंपा है। मुख्य निर्णय अब भी राज्य के मंत्रालयों द्वारा लिए जाते हैं।</li>
+  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. प्रशासनिक कर्मियों का अभाव (Lack of Functionaries):</b> ग्रामीण पंचायतों के पास अपने कुशल इंजीनियर, लेखाकार (Accountants) और सचिव नहीं हैं। एक-एक पंचायत सचिव पर 5-5 गांवों का प्रभार होता है।</li>
+  </ul>
+</div>
 </div>
 
 <!-- TOPIC 13 -->
-<div class="part-container" style="border-top-color: #fbbf24;">
+<div class="part-container" style="border-top-color: #ea580c;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सामाजिक चुनौतियां: 'सरपंच-पति' प्रथा और जातिगत गतिकी</h2>
+<p>स्थानीय शासन में महिलाओं और वंचित वर्गों के लिए संवैधानिक आरक्षण से क्रांतिकारी बदलाव आया है, परंतु कुछ सामाजिक बुराइयां भी सामने आई हैं:</p>
+
 <ul>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">'सरपंच-पति' (Pati-Sarpanch Syndicate):</b> ग्रामीण भारत में कई जगह महिलाओं के चुनाव जीतने के बाद भी वास्तविक निर्णय उनके पति या पुरुष रिश्तेदार लेते हैं, जो महिला सशक्तिकरण के उद्देश्य को चोट पहुँचाता है।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">जातिगत और दबंग राजनीति:</b> कई गाँवों में दलित या गरीब पंच-सरपंचों को स्वतंत्र रूप से कार्य नहीं करने दिया जाता या ग्राम सभा की बैठकों में उनका बहिष्कार किया जाता है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. सरपंच-पति / पति-प्रधान प्रथा:</b> यद्यपि चुनाव जीतकर महिलाएँ सरपंच या अध्यक्ष बनती हैं, परंतु व्यावहारिक रूप से उनके पति, पिता या पुरुष रिश्तेदार ही बैठक में भाग लेते हैं और प्रशासनिक शक्तियों का प्रयोग करते हैं। (हालाँकि शिक्षा और जागरूकता बढ़ने से इसमें तेज़ी से कमी आ रही है)।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. जातिगत और दबंग राजनीति:</b> कई ग्रामीण क्षेत्रों में उच्च जाति के दबंग लोग अनुसूचित जाति (SC) के निर्वाचित सरपंचों को स्वतंत्र रूप से काम नहीं करने देते या झंडा फहराने से रोकते हैं।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. जागरूकता का अभाव:</b> निर्वाचित जनप्रतिनिधियों को प्रशासनिक नियमों और बजट की पूरी जानकारी न होना।</li>
 </ul>
 </div>
 
 <!-- TOPIC 14 -->
-<div class="part-container" style="border-top-color: #0284c7;">
+<div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">सफल स्थानीय स्वशासन के मॉडल: केरल का जन-योजना (People's Plan) मॉडल</h2>
+<p>तमाम चुनौतियों के बावजूद भारत में कई राज्यों में स्थानीय शासन ने विकास की नई मिसाल पेश की है:</p>
+
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">केरल की जन-योजना पहल (1996):</b> केरल सरकार ने एक साहसिक निर्णय लेते हुए राज्य के विकास बजट का 35 से 40% हिस्सा सीधे पंचायतों और नगरपालिकाओं को हस्तांतरित कर दिया।</li>
-<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">परिणाम:</b> स्थानीय ग्रामीणों ने स्वयं अपनी आवश्यकता अनुसार प्राथमिक स्वास्थ्य केंद्र, महिला रोजगार समूह (जैसे कुदुम्बश्री) और स्कूल बनाए, जिससे केरल पूरे भारत में मानव विकास और स्थानीय स्वशासन का रोल मॉडल बना।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">केरल का जन-योजना मॉडल (People's Planning Campaign):</b> 1996 में केरल सरकार ने राज्य के कुल विकास बजट का **35 से 40 प्रतिशत हिस्सा सीधे पंचायतों व नगर निकायों को सौंप दिया**। गाँव के लोगों ने ग्राम सभा में बैठकर तय किया कि अस्पताल, स्कूल और सड़कें कहाँ बनेंगी। यह भारत में वित्तीय विकेंद्रीकरण का सबसे सफल मॉडल माना जाता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">गीता राठौड़ की प्रेरणादायी कहानी:</b> मध्य प्रदेश के सीहोर जिले की जमुनिया तालाब ग्राम पंचायत की महिला सरपंच गीता राठौड़। उन्होंने सरपंच-पति प्रथा को दरकिनार कर खुद शासन संभाला, गाँव में प्राथमिक स्कूल की इमारत बनवाई, सड़कों का निर्माण कराया, पानी की समस्या दूर की और शराबबंदी के खिलाफ महिलाओं को एकजुट किया।</li>
 </ul>
 </div>
 
 <!-- TOPIC 15 -->
-<div class="part-container" style="border-top-color: #0f172a; border-top-width: 12px;">
-<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">भारतीय लोकतंत्र पर स्थानीय शासन का प्रभाव</h2>
+<div class="part-container" style="border-top-color: #6366f1;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">निष्कर्ष: भारतीय लोकतंत्र पर स्थानीय शासन का दूरगामी प्रभाव</h2>
+<p>73वें और 74वें संविधान संशोधनों ने भारतीय लोकतंत्र की जड़ों को देश के गाँव-गाँव और मोहल्ले-मोहल्ले तक मजबूत किया है।</p>
+
 <ul>
-<li><b style="color: #166534 !important; background-color: #f0fdf4 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #16a34a !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लोकतंत्र का ऐतिहासिक विस्तार:</b> भारत में आज 32 लाख से अधिक निर्वाचित स्थानीय प्रतिनिधि हैं, जिनमें 13 लाख से अधिक महिलाएँ हैं। यह पूरी दुनिया में लोकतांत्रिक सहभागिता का सबसे बड़ा प्रयोग है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लाखों जन प्रतिनिधियों का उदय:</b> आज भारत में 32 लाख से अधिक निर्वाचित स्थानीय प्रतिनिधि हैं, जिनमें से **13 लाख से अधिक निर्वाचित महिलाएँ** हैं—जो विश्व के किसी भी देश की तुलना में सबसे बड़ी लोकतांत्रिक संस्था है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वंचित वर्गों का सशक्तिकरण:</b> आरक्षण ने महिलाओं, अनुसूचित जातियों और जनजातियों को पहली बार राजनीतिक निर्णय लेने की शक्ति दी है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सुधार का मार्ग:</b> यदि राज्य सरकारें 3Fs (फंड, कार्य और कर्मी) का हस्तांतरण ईमानदारी से करें, तो भारत का स्थानीय शासन दुनिया के लिए सबसे जीवंत लोकतंत्र का उदाहरण बना रहेगा।</li>
 </ul>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 25px !important; background-color: #f8fafc; border-radius: 12px; border: 3px dashed #1e3a8a;">
-🎯 <b>अध्याय 8: (Final Synopsis):</b><br/>
-<span style="font-weight: 600 !important; color: #020617 !important; display: block; margin-top: 15px; text-align: justify;">
-स्थानीय शासन केवल प्रशासनिक कार्यकुशलता बढ़ाने का साधन नहीं, बल्कि यह 'सहभागी लोकतंत्र' (Participatory Democracy) का सर्वोच्च प्रतीक है। 73वें और 74वें संशोधन ने भारत की राजनीतिक व्यवस्था में जमीनी स्तर पर जनता, महिलाओं और शोषितों की वास्तविक हिस्सेदारी सुनिश्चित की है।
-</span>
 </div>
-</div>
+
 </div>
 </div>
 </body>
