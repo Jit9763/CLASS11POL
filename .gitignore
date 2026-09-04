@@ -3,7 +3,13 @@ class11_backup/
 *.json
 *.zip
 *.log
-*.md
 temp_*
 copy_master_theory_ch*.html
 test_master_ch*.html
+
+# Exclude local tracking docs
+quota_tracker.md
+Masterfile.md
+
+# Allow brain.md architecture specification
+!brain.md
