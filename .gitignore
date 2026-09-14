@@ -4,6 +4,7 @@ class11_backup/
 *.zip
 *.log
 temp_*
+scratch/
 copy_master_theory_ch*.html
 test_master_ch*.html
 
