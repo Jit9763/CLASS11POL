@@ -27,6 +27,7 @@ CLASS11POL/
 │   └── ch18/                     # Chapter 18 WebP Teaching Cards
 ├── copy_master_ch1.html .. ch18.html  # Production Notes Content Files (Chapters 1 to 18)
 ├── qa_master_ch1.html .. ch18.html    # Production Q&A Bank Files (Chapters 1 to 18)
+├── evm_master_simulator.html         # Interactive 3-Unit EVM-VVPAT-CU Mock Poll to Result Simulator
 ├── .gitignore                    # Clean Repository Rules (Excludes build/test artifacts)
 └── brain.md                      # [THIS FILE] Central Project Architecture & System Reference
 ```

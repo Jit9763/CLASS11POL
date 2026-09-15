@@ -719,16 +719,23 @@
 </ul>
 
 
-<!-- INTERACTIVE LIVE EVM & VVPAT SIMULATOR WITH PAUSE / PLAY / SPEED CONTROLS -->
-<div class="cartoon-card" style="padding: 18px; max-width: 1040px; margin: 40px auto;">
-    <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-        <span class="gif-badge" style="margin-bottom: 0;">🔴 LIVE SIMULATOR • इंटरैक्टिव शिक्षण मॉडल</span>
-        <span style="font-size: 14pt; color: #475569; font-weight: 800;">(नीचे 'पॉज़', 'प्ले' और 'धीमी गति' से समझें)</span>
+<!-- FULL INTERACTIVE 3-UNIT EVM-VVPAT-CU MASTER SIMULATOR -->
+<div class="cartoon-card" style="padding: 20px; max-width: 1200px; margin: 40px auto; border: 4px solid #2563eb;">
+    <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="gif-badge" style="margin-bottom: 0;">🔴 लाइव 3-यूनिट सिमुलेटर • BU + CU + VVPAT</span>
+            <span style="font-size: 14pt; color: #1e40af; font-weight: 900;">(वोटिंग से लेकर परिणाम घोषणा तक)</span>
+        </div>
+        <a href="evm_master_simulator.html" target="_blank" style="text-decoration: none;">
+            <button style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 13pt; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.35);">
+                <span>🔍</span> पूरी स्क्रीन में खोलें (Full Screen)
+            </button>
+        </a>
     </div>
 
-    <!-- Simulator Frame -->
-    <div style="border-radius: 14px; overflow: hidden; border: 3px solid #94a3b8; box-shadow: 0 8px 25px rgba(0,0,0,0.12); background: #ffffff;">
-        <iframe src="evm_simulator.html" style="width: 100%; height: 575px; border: none; display: block;" scrolling="no"></iframe>
+    <!-- Master Simulator Frame -->
+    <div style="border-radius: 16px; overflow: hidden; border: 3px solid #64748b; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: #0f172a;">
+        <iframe src="evm_master_simulator.html" style="width: 100%; height: 680px; border: none; display: block;" scrolling="yes"></iframe>
     </div>
 
     <!-- Educational GIF for Google Docs Copy and Offline Reference -->
@@ -739,12 +746,16 @@
         <img src="images/ch3/evm_vvpat_voting_process.gif" alt="⚡ सजीव एनिमेशन: EVM और VVPAT की पारदर्शी मतदान प्रक्रिया" style="max-width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
     </div>
 
-    <div class="cartoon-caption" style="border-left-color: #dc2626; margin-top: 20px;">
-        <div class="cartoon-caption-title" style="color: #dc2626 !important;">
-            ⚡ सजीव एनिमेशन व सिमुलेटर: EVM और VVPAT की पारदर्शी मतदान प्रक्रिया
+    <div class="cartoon-caption" style="border-left-color: #2563eb; margin-top: 20px;">
+        <div class="cartoon-caption-title" style="color: #1e40af !important;">
+            🗳️ संपूर्ण EVM-VVPAT-CU कार्यप्रणाली: वोटिंग से लेकर चुनाव परिणाम तक
         </div>
         <div class="cartoon-caption-desc">
-            <b>मुख्य बिंदु:</b> EVM का नीला बटन दबाते ही VVPAT मशीन में 7 सेकंड तक पर्ची दिखती है और बीप की आवाज के साथ बॉक्स में गिरती है, जिससे मतदान 100% पारदर्शी और विश्वसनीय रहता है। ऊपर सिमुलेटर में <b>'पॉज़ करें', 'धीमी गति (0.5x)'</b> और <b>चारों चरणों</b> पर क्लिक करके कक्षा में विस्तार से समझा सकते हैं।
+            <b>सिमुलेटर की विशेषताएं:</b><br>
+            • <b>कंट्रोल यूनिट (CU):</b> पीठासीन अधिकारी पहले <b>'बैलेट' (BALLOT)</b> बटन दबाकर मशीन चालू करता है।<br>
+            • <b>बैलट यूनिट (BU):</b> मतदाता अपनी पसंद के उम्मीदवार (कलाम, विवेकानंद, भगत सिंह, पटेल, NOTA) का नीला बटन दबाता है।<br>
+            • <b>वीवीपैट (VVPAT):</b> कांच की खिड़की में उसी प्रत्याशी की <b>7 सेकंड तक पर्ची</b> दिखती है, कटकर मतपेटी में गिरती है और बीप बजती है।<br>
+            • <b>परिणाम घोषणा (RESULT):</b> मतदान समाप्त करने हेतु <b>'CLOSE'</b> और फिर <b>'RESULT'</b> दबाने पर प्रत्येक प्रत्याशी के मतों का 100% VVPAT पर्ची मिलान पत्रक सामने आ जाता है!
         </div>
     </div>
 </div>

@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारतीय चुनाव प्रणाली: संपूर्ण EVM-VVPAT-CU इंटरैक्टिव सिमुलेटर (Mock Poll to Result)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #1e3a8a;
+        --accent: #2563eb;
+        --success: #16a34a;
+        --danger: #dc2626;
+        --warning: #d97706;
+        --lcd-bg: #8ba888;
+        --lcd-text: #142210;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        background: #0f172a;
+        color: #f8fafc;
+        font-family: 'Noto Sans Devanagari', 'Outfit', sans-serif;
+        min-height: 100vh;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        user-select: none;
+    }
+
+    /* Master Container */
+    .simulator-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        background: #1e293b;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        border: 2px solid #334155;
+        overflow: hidden;
+    }
+
+    /* Simulator Header */
+    .sim-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        padding: 16px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid #3b82f6;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .sim-header h1 {
+        font-size: 22px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #ffffff;
+    }
+    .status-pill {
+        background: #0f172a;
+        color: #38bdf8;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 800;
+        border: 1px solid #0284c7;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .status-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* Classroom Guide Banner */
+    .guide-banner {
+        background: #0f172a;
+        padding: 12px 24px;
+        border-bottom: 1px solid #334155;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 14px;
+    }
+    .instruction-steps {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .step-chip {
+        background: #1e293b;
+        color: #cbd5e1;
+        padding: 5px 12px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid #475569;
+    }
+    .step-chip.highlight {
+        background: #2563eb;
+        color: #ffffff;
+        border-color: #60a5fa;
+        box-shadow: 0 0 12px rgba(37,99,235,0.4);
+    }
+
+    /* 3-UNIT HARDWARE LAYOUT */
+    .units-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.9fr 1.05fr;
+        gap: 20px;
+        padding: 24px;
+        background: #0f172a;
+    }
+    @media (max-width: 1024px) {
+        .units-grid { grid-template-columns: 1fr; }
+    }
+
+    /* HARDWARE BOX BASE STYLING */
+    .hardware-unit {
+        background: #f1f5f9;
+        color: #0f172a;
+        border-radius: 16px;
+        border: 4px solid #cbd5e1;
+        box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 10px 25px rgba(0,0,0,0.3);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+    .unit-title-bar {
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 900;
+        font-size: 16px;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    .unit-badge-tag {
+        font-size: 12px;
+        background: rgba(0,0,0,0.2);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-weight: 800;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 1. CONTROL UNIT (CU) */
+    /* ------------------------------------------------------------- */
+    .cu-bar { background: #1e3a8a; }
+    
+    /* Digital LCD Display */
+    .cu-display-bezel {
+        background: #334155;
+        padding: 12px;
+        border-radius: 10px;
+        border: 3px solid #1e293b;
+        margin-bottom: 16px;
+        box-shadow: inset 0 3px 8px rgba(0,0,0,0.6);
+    }
+    .cu-lcd-screen {
+        background: var(--lcd-bg);
+        color: var(--lcd-text);
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 18px;
+        font-weight: 900;
+        padding: 12px 16px;
+        border-radius: 6px;
+        height: 68px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        letter-spacing: 1px;
+        box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+        text-transform: uppercase;
+        border: 2px solid #738f70;
+    }
+    .lcd-line1 { font-size: 16px; margin-bottom: 4px; }
+    .lcd-line2 { font-size: 19px; font-weight: 900; color: #0a1308; }
+
+    /* CU Status Lamps */
+    .cu-lamps-row {
+        display: flex;
+        justify-content: space-around;
+        background: #e2e8f0;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        margin-bottom: 16px;
+    }
+    .cu-lamp-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 900;
+        color: #475569;
+    }
+    .cu-lamp-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #94a3b8;
+        border: 2px solid #64748b;
+        transition: all 0.2s;
+    }
+    .cu-lamp-dot.on-green {
+        background: #22c55e;
+        border-color: #15803d;
+        box-shadow: 0 0 14px #22c55e, 0 0 4px #22c55e;
+    }
+    .cu-lamp-dot.busy-red {
+        background: #ef4444;
+        border-color: #b91c1c;
+        box-shadow: 0 0 14px #ef4444, 0 0 4px #ef4444;
+    }
+
+    /* Primary BALLOT button */
+    .ballot-btn-container {
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    .cu-ballot-btn {
+        width: 100%;
+        background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+        color: #ffffff;
+        border: 3px solid #1e3a8a;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 950;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 6px 14px rgba(37,99,235,0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.15s;
+    }
+    .cu-ballot-btn:hover {
+        background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+        transform: translateY(-2px);
+    }
+    .cu-ballot-btn:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .cu-ballot-btn.disabled {
+        background: #94a3b8;
+        border-color: #64748b;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.65;
+    }
+
+    /* Secondary Controls (Total, Close, Result, Clear) */
+    .cu-secondary-panel {
+        background: #e2e8f0;
+        padding: 12px;
+        border-radius: 10px;
+        border: 2px solid #cbd5e1;
+    }
+    .sec-label {
+        font-size: 12px;
+        font-weight: 900;
+        color: #475569;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .cu-btn-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .cu-sec-btn {
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 13px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.15s;
+        text-align: center;
+    }
+    .btn-total {
+        background: #0284c7;
+        color: white;
+        border-color: #0369a1;
+    }
+    .btn-close {
+        background: #dc2626;
+        color: white;
+        border-color: #991b1b;
+    }
+    .btn-result {
+        background: #16a34a;
+        color: white;
+        border-color: #15803d;
+    }
+    .btn-clear {
+        background: #64748b;
+        color: white;
+        border-color: #475569;
+    }
+    .cu-sec-btn:hover:not(.disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+    .cu-sec-btn:active:not(.disabled) { transform: translateY(1px); }
+    .cu-sec-btn.disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ------------------------------------------------------------- */
+    /* 2. BALLOT UNIT (BU) */
+    /* ------------------------------------------------------------- */
+    .bu-bar { background: #2563eb; }
+    .bu-ready-tag {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 900;
+    }
+    .bu-ready-lamp {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #94a3b8;
+        border: 1.5px solid #64748b;
+    }
+    .bu-ready-lamp.green {
+        background: #22c55e;
+        border-color: #15803d;
+        box-shadow: 0 0 14px #22c55e;
+    }
+
+    .bu-candidates-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+    .candidate-card {
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        height: 54px;
+        overflow: hidden;
+        transition: all 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+    .candidate-card.active-cand {
+        border-color: #2563eb;
+        background: #eff6ff;
+        box-shadow: 0 0 10px rgba(37,99,235,0.25);
+    }
+    .c-serial {
+        width: 44px;
+        height: 100%;
+        background: #1e293b;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 16px;
+    }
+    .c-name-col {
+        flex: 1;
+        padding-left: 10px;
+        font-weight: 800;
+        font-size: 14px;
+        color: #0f172a;
+    }
+    .c-sym-box {
+        width: 44px;
+        height: 38px;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-right: 10px;
+    }
+    .c-led {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        border: 1px solid #94a3b8;
+        margin-right: 8px;
+    }
+    .c-led.red-lit {
+        background: #ef4444;
+        border-color: #b91c1c;
+        box-shadow: 0 0 14px #ef4444, 0 0 4px #ef4444;
+    }
+    .c-vote-btn {
+        width: 48px;
+        height: 36px;
+        background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+        border: 2px solid #1e3a8a;
+        border-radius: 6px;
+        margin-right: 8px;
+        cursor: pointer;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        transition: all 0.1s;
+    }
+    .c-vote-btn:hover:not(.locked) {
+        background: #2563eb;
+        transform: scale(1.04);
+    }
+    .c-vote-btn:active:not(.locked) {
+        transform: scale(0.92);
+        background: #1e40af;
+    }
+    .c-vote-btn.locked {
+        background: #94a3b8;
+        border-color: #64748b;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+
+    .nota-card {
+        background: #fef2f2;
+    }
+    .nota-card .c-serial { background: #991b1b; }
+    .nota-card .c-name-col { color: #991b1b; }
+    .nota-card .c-vote-btn {
+        background: linear-gradient(180deg, #ec4899 0%, #be185d 100%);
+        border-color: #9d174d;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 3. VVPAT UNIT */
+    /* ------------------------------------------------------------- */
+    .vvpat-bar { background: #0d9488; }
+    
+    .vvpat-window-frame {
+        background: #e0f2fe;
+        border: 4px solid #0284c7;
+        border-radius: 12px;
+        height: 230px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 3px 12px rgba(2, 132, 199, 0.25);
+    }
+    .window-header-label {
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        font-size: 11px;
+        font-weight: 800;
+        color: #0369a1;
+    }
+
+    /* Animated Paper Slip */
+    .vvpat-slip {
+        width: 280px;
+        height: 130px;
+        background: #ffffff;
+        border: 2px dashed #475569;
+        border-radius: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+        padding: 10px 14px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        top: 28px;
+        transition: top 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+    }
+    .slip-top-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #334155;
+        font-weight: 800;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 3px;
+    }
+    .slip-mid-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+    }
+    .slip-candidate-name {
+        font-size: 17px;
+        font-weight: 900;
+        color: #0f172a;
+    }
+    .slip-candidate-num {
+        font-size: 12px;
+        color: #64748b;
+        font-weight: 800;
+    }
+    .slip-candidate-sym {
+        font-size: 32px;
+    }
+    .slip-bot-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11.5px;
+        font-weight: 900;
+        color: #16a34a;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 3px;
+    }
+
+    /* 7-Second Verification Countdown */
+    .vvpat-timer-pill {
+        position: absolute;
+        bottom: 8px;
+        background: #fef08a;
+        color: #854d0e;
+        border: 2px solid #ca8a04;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-weight: 900;
+        font-size: 13px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .cutting-badge {
+        position: absolute;
+        bottom: 8px;
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 2px solid #ef4444;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-weight: 900;
+        font-size: 13px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Sealed Drop Box */
+    .vvpat-drop-box {
+        background: #1e293b;
+        border: 2px solid #0f172a;
+        border-radius: 10px;
+        padding: 12px;
+        color: #ffffff;
+        margin-top: 12px;
+        height: 125px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .drop-box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 900;
+        font-size: 13px;
+        color: #cbd5e1;
+    }
+    .slit-graphic {
+        width: 180px;
+        height: 6px;
+        background: #020617;
+        border-radius: 3px;
+        margin: 4px auto;
+        border: 1px solid #475569;
+    }
+    .slips-counter-box {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 12.5px;
+        font-weight: 800;
+        text-align: center;
+        color: #94a3b8;
+    }
+    .slips-counter-box.highlight {
+        background: #14532d;
+        border-color: #22c55e;
+        color: #bbf7d0;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* RESULT & AUDIT MODAL */
+    /* ------------------------------------------------------------- */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(6px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        padding: 20px;
+    }
+    .result-dialog {
+        background: #ffffff;
+        color: #0f172a;
+        width: 100%;
+        max-width: 780px;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        border: 4px solid #2563eb;
+        overflow: hidden;
+        animation: pop-in 0.3s ease;
+    }
+    @keyframes pop-in {
+        0% { transform: scale(0.9); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .modal-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        color: #ffffff;
+        padding: 16px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-header h2 { font-size: 20px; font-weight: 900; }
+    .close-btn {
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: #ffffff;
+        font-size: 18px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-body {
+        padding: 24px;
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+    .winner-announcement {
+        background: #f0fdf4;
+        border: 2px solid #22c55e;
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .winner-badge {
+        font-size: 15px;
+        font-weight: 900;
+        color: #15803d;
+        margin-bottom: 6px;
+    }
+    .winner-name {
+        font-size: 24px;
+        font-weight: 950;
+        color: #0f172a;
+    }
+
+    /* Result Comparison Table */
+    .result-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    .result-table th, .result-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 15px;
+    }
+    .result-table th {
+        background: #f1f5f9;
+        color: #1e293b;
+        font-weight: 900;
+    }
+    .result-table tr:hover {
+        background: #f8fafc;
+    }
+    .vote-bar-cell {
+        width: 35%;
+    }
+    .progress-track {
+        height: 14px;
+        background: #e2e8f0;
+        border-radius: 7px;
+        overflow: hidden;
+    }
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        border-radius: 7px;
+    }
+    .audit-match-banner {
+        background: #eff6ff;
+        border: 2px solid #3b82f6;
+        border-radius: 12px;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 14px;
+        color: #1e40af;
+    }
+</style>
+</head>
+<body>
+
+<div class="simulator-wrapper">
+    <!-- Header -->
+    <div class="sim-header">
+        <h1>
+            <span>🗳️</span> भारत निर्वाचन आयोग • EVM & VVPAT संपूर्ण इंटरैक्टिव सिमुलेटर
+        </h1>
+        <div class="status-pill">
+            <div class="status-indicator" id="masterStatusDot"></div>
+            <span id="masterStatusText">मशीन तैयार (EVM Active)</span>
+        </div>
+    </div>
+
+    <!-- Classroom Guide Banner -->
+    <div class="guide-banner">
+        <div class="instruction-steps">
+            <span style="font-weight: 800; color: #94a3b8;">कक्षा में समझाने के चरण:</span>
+            <div class="step-chip highlight" id="guideStep1">1. CU पर 'BALLOT' दबाएँ</div>
+            <div class="step-chip" id="guideStep2">2. BU पर प्रत्याशी को वोट दें</div>
+            <div class="step-chip" id="guideStep3">3. VVPAT में 7s पर्ची देखें</div>
+            <div class="step-chip" id="guideStep4">4. 'RESULT' से परिणाम घोषित करें</div>
+        </div>
+        <div style="font-size: 13px; color: #60a5fa; font-weight: 800;">
+            🔊 साउंड इफ़ेक्ट्स सक्रिय (Audio Active)
+        </div>
+    </div>
+
+    <!-- 3-UNIT HARDWARE GRID -->
+    <div class="units-grid">
+        
+        <!-- ----------------------------------------------------------- -->
+        <!-- 1. CONTROL UNIT (CU - पीठासीन अधिकारी की मेज) -->
+        <!-- ----------------------------------------------------------- -->
+        <div class="hardware-unit">
+            <div>
+                <div class="unit-title-bar cu-bar">
+                    <span>1. कंट्रोल यूनिट (CU)</span>
+                    <span class="unit-badge-tag">पीठासीन अधिकारी</span>
+                </div>
+
+                <!-- Digital LCD Screen -->
+                <div class="cu-display-bezel">
+                    <div class="cu-lcd-screen">
+                        <div class="lcd-line1" id="cuLcd1">ECI M3-EVM OK</div>
+                        <div class="lcd-line2" id="cuLcd2">READY FOR POLL</div>
+                    </div>
+                </div>
+
+                <!-- Status Lamps -->
+                <div class="cu-lamps-row">
+                    <div class="cu-lamp-item">
+                        <div class="cu-lamp-dot on-green" id="cuLampOn"></div>
+                        <span>POWER (ON)</span>
+                    </div>
+                    <div class="cu-lamp-item">
+                        <div class="cu-lamp-dot" id="cuLampBusy"></div>
+                        <span>BUSY (व्यस्त)</span>
+                    </div>
+                </div>
+
+                <!-- Primary BALLOT Button -->
+                <div class="ballot-btn-container">
+                    <button class="cu-ballot-btn" id="btnBallot" onclick="pressBallotButton()">
+                        <span>🔘</span> बैलेट जारी करें (BALLOT)
+                    </button>
+                    <div style="font-size: 12px; color: #64748b; font-weight: 800; margin-top: 6px;">
+                        मतदाता को वोट देने की अनुमति देने हेतु दबाएँ
+                    </div>
+                </div>
+            </div>
+
+            <!-- Officer Secondary Panel -->
+            <div class="cu-secondary-panel">
+                <div class="sec-label">सीलबंद कम्पार्टमेंट (अधिकारी नियंत्रण)</div>
+                <div class="cu-btn-grid">
+                    <button class="cu-sec-btn btn-total" onclick="pressTotalButton()">
+                        📊 कुल मत (TOTAL)
+                    </button>
+                    <button class="cu-sec-btn btn-close" id="btnClose" onclick="pressCloseButton()">
+                        🔒 मतदान बंद (CLOSE)
+                    </button>
+                    <button class="cu-sec-btn btn-result disabled" id="btnResult" onclick="pressResultButton()">
+                        🏆 परिणाम (RESULT)
+                    </button>
+                    <button class="cu-sec-btn btn-clear" onclick="pressClearButton()">
+                        🔄 नया मॉक पोल (CLEAR)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------- -->
+        <!-- 2. BALLOT UNIT (BU - मतदान कक्ष / वोटिंग कम्पार्टमेंट) -->
+        <!-- ----------------------------------------------------------- -->
+        <div class="hardware-unit">
+            <div>
+                <div class="unit-title-bar bu-bar">
+                    <span>2. बैलट यूनिट (BU)</span>
+                    <div class="bu-ready-tag">
+                        <div class="bu-ready-lamp" id="buReadyLamp"></div>
+                        <span>READY</span>
+                    </div>
+                </div>
+
+                <!-- Candidate Rows -->
+                <div class="bu-candidates-wrapper">
+                    
+                    <!-- Candidate 1 -->
+                    <div class="candidate-card" id="cRow0">
+                        <div class="c-serial">01</div>
+                        <div class="c-name-col">डॉ. ए.पी.जे. अब्दुल कलाम</div>
+                        <div class="c-sym-box">🚀</div>
+                        <div class="c-led" id="cLed0"></div>
+                        <button class="c-vote-btn locked" id="cBtn0" onclick="castVote(0)"></button>
+                    </div>
+
+                    <!-- Candidate 2 -->
+                    <div class="candidate-card" id="cRow1">
+                        <div class="c-serial">02</div>
+                        <div class="c-name-col">स्वामी विवेकानंद</div>
+                        <div class="c-sym-box">🪔</div>
+                        <div class="c-led" id="cLed1"></div>
+                        <button class="c-vote-btn locked" id="cBtn1" onclick="castVote(1)"></button>
+                    </div>
+
+                    <!-- Candidate 3 -->
+                    <div class="candidate-card" id="cRow2">
+                        <div class="c-serial">03</div>
+                        <div class="c-name-col">शहीद भगत सिंह</div>
+                        <div class="c-sym-box">📖</div>
+                        <div class="c-led" id="cLed2"></div>
+                        <button class="c-vote-btn locked" id="cBtn2" onclick="castVote(2)"></button>
+                    </div>
+
+                    <!-- Candidate 4 -->
+                    <div class="candidate-card" id="cRow3">
+                        <div class="c-serial">04</div>
+                        <div class="c-name-col">सरदार वल्लभभाई पटेल</div>
+                        <div class="c-sym-box">🛡️</div>
+                        <div class="c-led" id="cLed3"></div>
+                        <button class="c-vote-btn locked" id="cBtn3" onclick="castVote(3)"></button>
+                    </div>
+
+                    <!-- Candidate 5 (NOTA) -->
+                    <div class="candidate-card nota-card" id="cRow4">
+                        <div class="c-serial">05</div>
+                        <div class="c-name-col">उपरोक्त में से कोई नहीं (NOTA)</div>
+                        <div class="c-sym-box">❌</div>
+                        <div class="c-led" id="cLed4"></div>
+                        <button class="c-vote-btn locked" id="cBtn4" onclick="castVote(4)"></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="background: #e2e8f0; padding: 10px; border-radius: 8px; text-align: center; margin-top: 14px;">
+                <span id="buInstructionText" style="font-size: 13px; font-weight: 900; color: #475569;">
+                    ⚠️ पहले CU पर 'बैलेट' बटन दबाकर मशीन चालू करें
+                </span>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------- -->
+        <!-- 3. VVPAT UNIT (वोटर वेरिफिएबल पेपर ऑडिट ट्रेल) -->
+        <!-- ----------------------------------------------------------- -->
+        <div class="hardware-unit">
+            <div>
+                <div class="unit-title-bar vvpat-bar">
+                    <span>3. वीवीपैट (VVPAT)</span>
+                    <span class="unit-badge-tag">पेपर ऑडिट ट्रेल</span>
+                </div>
+
+                <!-- Viewing Window -->
+                <div class="vvpat-window-frame">
+                    <div class="window-header-label">पारदर्शी ग्लास विंडो (Viewing Window)</div>
+
+                    <!-- Thermal Paper Slip -->
+                    <div class="vvpat-slip" id="vvpatSlip">
+                        <div class="slip-top-row">
+                            <span>भारत निर्वाचन आयोग (ECI)</span>
+                            <span>SLIP #<span id="slipIdText">01</span></span>
+                        </div>
+                        <div class="slip-mid-row">
+                            <div class="slip-candidate-info">
+                                <div class="slip-candidate-num" id="slipCandNum">क्रमांक: 03</div>
+                                <div class="slip-candidate-name" id="slipCandName">शहीद भगत सिंह</div>
+                            </div>
+                            <div class="slip-candidate-sym" id="slipCandSym">📖</div>
+                        </div>
+                        <div class="slip-bot-row">
+                            <span>✓</span> मत सफलतापूर्वक सत्यापित
+                        </div>
+                    </div>
+
+                    <!-- 7-Second Countdown Badge -->
+                    <div class="vvpat-timer-pill" id="vvpatTimerBadge">
+                        ⏱️ <span id="vvpatCountdownText">7</span> सेकंड तक पर्ची दिखेगी...
+                    </div>
+
+                    <!-- Cutting Badge -->
+                    <div class="cutting-badge" id="vvpatCuttingBadge">
+                        ✂️ पर्ची कट कर नीचे गिरी...
+                    </div>
+                </div>
+
+                <!-- Sealed Drop Box -->
+                <div class="vvpat-drop-box">
+                    <div class="drop-box-header">
+                        <span>🔒 सीलबंद मतपेटी (Drop Box)</span>
+                        <span id="dropLockStatus">सुरक्षित</span>
+                    </div>
+                    <div class="slit-graphic"></div>
+                    <div class="slips-counter-box" id="dropCounterBox">
+                        कुल संचित पर्चियाँ: <b id="vvpatPaperCount" style="color: #38bdf8; font-size: 15px;">0</b> (100% सीलबंद)
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #e2e8f0; padding: 10px; border-radius: 8px; text-align: center; margin-top: 14px;">
+                <span style="font-size: 12px; font-weight: 800; color: #475569;">
+                    धारा 49B: पर्ची 7 सेकंड तक दिखकर स्वतः कटती है
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- RESULT AND AUDIT MODAL DIALOG -->
+<div class="modal-overlay" id="resultModal">
+    <div class="result-dialog">
+        <div class="modal-header">
+            <h2>🏆 निर्वाचन परिणाम घोषणा एवं VVPAT मिलान पत्रक</h2>
+            <button class="close-btn" onclick="closeResultModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            
+            <!-- Winner Callout -->
+            <div class="winner-announcement" id="winnerCallout">
+                <div class="winner-badge">✨ सर्वाधिक मत प्राप्त विजेता ✨</div>
+                <div class="winner-name" id="winnerNameDisplay">डॉ. ए.पी.जे. अब्दुल कलाम</div>
+                <div style="font-size: 14px; color: #166534; font-weight: 800; margin-top: 4px;" id="winnerStatsDisplay">
+                    कुल 0 मतों में से 0 मत (0%)
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>क्र.</th>
+                        <th>प्रत्याशी का नाम</th>
+                        <th>चिन्ह</th>
+                        <th>EVM मत</th>
+                        <th>VVPAT पर्ची</th>
+                        <th class="vote-bar-cell">मत प्रतिशत</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTableBody">
+                    <!-- Dynamic rows inserted here -->
+                </tbody>
+            </table>
+
+            <!-- 100% Audit Match Banner -->
+            <div class="audit-match-banner">
+                <span style="font-size: 26px;">🛡️</span>
+                <div>
+                    <div style="font-weight: 900; font-size: 15px;">100% VVPAT पेपर ट्रेल सत्यापन सफल (Audit Matched)</div>
+                    <div style="font-size: 13px; color: #1d4ed8;">
+                        कंट्रोल यूनिट (EVM) में दर्ज मत और VVPAT मतपेटी में पाई गई पर्चियों की संख्या पूर्णतः एक समान है।
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="cu-ballot-btn" style="width: auto; padding: 10px 24px; display: inline-flex;" onclick="closeResultModal()">
+                    ✓ समीक्षा समाप्त
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ============================================================= */
+/* SIMULATOR DATA AND STATE ENGINE */
+/* ============================================================= */
+const candidates = [
+    { id: 0, num: "01", name: "डॉ. ए.पी.जे. अब्दुल कलाम", sym: "🚀", votes: 0 },
+    { id: 1, num: "02", name: "स्वामी विवेकानंद", sym: "🪔", votes: 0 },
+    { id: 2, num: "03", name: "शहीद भगत सिंह", sym: "📖", votes: 0 },
+    { id: 3, num: "04", name: "सरदार वल्लभभाई पटेल", sym: "🛡️", votes: 0 },
+    { id: 4, num: "05", name: "उपरोक्त में से कोई नहीं (NOTA)", sym: "❌", votes: 0 }
+];
+
+let totalVotesCast = 0;
+let isBallotActive = false; // BU enabled when true
+let isPollClosed = false;
+let isVotingInProgress = false;
+
+/* Web Audio Synthesizer (Realistic EVM Beep & Paper Cut) */
+let audioCtx = null;
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+function playBeep(freq = 1000, duration = 0.15, type = 'sine') {
+    try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    } catch(e) {}
+}
+
+function playLongEvmBeep() {
+    try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'square';
+        osc.frequency.value = 880; // Classic EVM beep tone
+        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.25, audioCtx.currentTime + 1.2);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.4);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.4);
+    } catch(e) {}
+}
+
+function playPaperCutSound() {
+    try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.25);
+    } catch(e) {}
+}
+
+/* ============================================================= */
+/* 1. CONTROL UNIT (CU) OPERATIONS */
+/* ============================================================= */
+function setCuLcd(line1, line2) {
+    document.getElementById('cuLcd1').textContent = line1;
+    document.getElementById('cuLcd2').textContent = line2;
+}
+
+function pressBallotButton() {
+    if (isPollClosed) {
+        setCuLcd("POLL CLOSED", "CANNOT VOTE");
+        playBeep(400, 0.3);
+        return;
+    }
+    if (isVotingInProgress) {
+        setCuLcd("BUSY", "WAIT FOR VOTER");
+        return;
+    }
+    if (isBallotActive) {
+        setCuLcd("BU ENABLED", "VOTE PENDING");
+        return;
+    }
+
+    playBeep(1200, 0.12);
+    isBallotActive = true;
+
+    // CU state
+    setCuLcd("BALLOT ISSUED", "VOTING ACTIVE");
+    document.getElementById('cuLampBusy').classList.add('busy-red');
+    document.getElementById('btnBallot').classList.add('disabled');
+
+    // BU state
+    document.getElementById('buReadyLamp').classList.add('green');
+    document.getElementById('buInstructionText').innerHTML = "🟢 <b>मतदान कक्ष तैयार:</b> अपने पसंदीदा प्रत्याशी के आगे का नीला बटन दबाएँ";
+    document.getElementById('buInstructionText').style.color = "#15803d";
+
+    // Unlock BU vote buttons
+    for (let i = 0; i < 5; i++) {
+        document.getElementById(`cBtn${i}`).classList.remove('locked');
+    }
+
+    // Update Guide highlight
+    setGuideHighlight(2);
+}
+
+function pressTotalButton() {
+    playBeep(1000, 0.1);
+    setCuLcd("TOTAL POLLED", `${totalVotesCast} VOTES`);
+}
+
+function pressCloseButton() {
+    if (isVotingInProgress) return;
+    if (isPollClosed) return;
+
+    playBeep(600, 0.3);
+    isPollClosed = true;
+    isBallotActive = false;
+
+    // Lock BU
+    lockAllBuButtons();
+    document.getElementById('buReadyLamp').classList.remove('green');
+    document.getElementById('btnBallot').classList.add('disabled');
+    document.getElementById('btnClose').classList.add('disabled');
+    document.getElementById('btnResult').classList.remove('disabled');
+
+    document.getElementById('buInstructionText').innerHTML = "🔒 <b>मतदान संपन्न:</b> चुनाव समाप्त हो चुका है। परिणाम देखने हेतु CU पर 'RESULT' दबाएँ";
+    document.getElementById('buInstructionText').style.color = "#b91c1c";
+
+    setCuLcd("POLL CLOSED", `TOT: ${totalVotesCast} VOTES`);
+    setGuideHighlight(4);
+}
+
+function pressResultButton() {
+    if (!isPollClosed) {
+        setCuLcd("ERROR", "CLOSE POLL FIRST");
+        playBeep(400, 0.25);
+        return;
+    }
+
+    playBeep(1400, 0.2);
+    setCuLcd("RESULT DISPLAY", "CALCULATING...");
+
+    // Build Table & Open Modal
+    buildResultModal();
+}
+
+function pressClearButton() {
+    if (confirm("क्या आप मॉक पोल का सारा डेटा साफ़ करके नया मतदान शुरू करना चाहते हैं?")) {
+        playBeep(800, 0.2);
+        candidates.forEach(c => c.votes = 0);
+        totalVotesCast = 0;
+        isBallotActive = false;
+        isPollClosed = false;
+        isVotingInProgress = false;
+
+        // Reset CU
+        setCuLcd("DATA CLEARED", "READY FOR POLL");
+        document.getElementById('cuLampBusy').classList.remove('busy-red');
+        document.getElementById('btnBallot').classList.remove('disabled');
+        document.getElementById('btnClose').classList.remove('disabled');
+        document.getElementById('btnResult').classList.add('disabled');
+
+        // Reset BU
+        lockAllBuButtons();
+        document.getElementById('buReadyLamp').classList.remove('green');
+        for (let i = 0; i < 5; i++) {
+            document.getElementById(`cRow${i}`).classList.remove('active-cand');
+            document.getElementById(`cLed${i}`).classList.remove('red-lit');
+        }
+        document.getElementById('buInstructionText').innerHTML = "⚠️ पहले CU पर 'बैलेट' बटन दबाकर मशीन चालू करें";
+        document.getElementById('buInstructionText').style.color = "#475569";
+
+        // Reset VVPAT
+        document.getElementById('vvpatSlip').style.display = 'none';
+        document.getElementById('vvpatTimerBadge').style.display = 'none';
+        document.getElementById('vvpatCuttingBadge').style.display = 'none';
+        document.getElementById('vvpatPaperCount').textContent = '0';
+        document.getElementById('dropCounterBox').classList.remove('highlight');
+
+        setGuideHighlight(1);
+    }
+}
+
+function lockAllBuButtons() {
+    for (let i = 0; i < 5; i++) {
+        document.getElementById(`cBtn${i}`).classList.add('locked');
+    }
+}
+
+/* ============================================================= */
+/* 2. BALLOT UNIT (BU) & VOTING WORKFLOW */
+/* ============================================================= */
+function castVote(candIndex) {
+    if (!isBallotActive || isVotingInProgress || isPollClosed) return;
+
+    isVotingInProgress = true;
+    isBallotActive = false;
+    lockAllBuButtons();
+
+    const cand = candidates[candIndex];
+    cand.votes++;
+    totalVotesCast++;
+
+    // 1. BU Feedback (Red LED lights & Row highlight)
+    playBeep(900, 0.1);
+    document.getElementById(`cRow${candIndex}`).classList.add('active-cand');
+    document.getElementById(`cLed${candIndex}`).classList.add('red-lit');
+    document.getElementById('buInstructionText').innerHTML = `🗳️ <b>मत दर्ज:</b> ${cand.name} को वोट दिया गया। VVPAT में पर्ची देखें...`;
+    document.getElementById('buInstructionText').style.color = "#2563eb";
+
+    // 2. CU Feedback
+    setCuLcd("RECORDING VOTE", `SLIP IN VVPAT`);
+
+    // 3. VVPAT Slip Printing & Verification
+    setGuideHighlight(3);
+    showVvpatSlip(cand);
+}
+
+/* ============================================================= */
+/* 3. VVPAT SLIP PRINTING, 7-SEC TIMER & CUT-DROP */
+/* ============================================================= */
+function showVvpatSlip(cand) {
+    const slip = document.getElementById('vvpatSlip');
+    const timerBadge = document.getElementById('vvpatTimerBadge');
+    const countdownText = document.getElementById('vvpatCountdownText');
+    const cuttingBadge = document.getElementById('vvpatCuttingBadge');
+
+    // Populate slip info
+    document.getElementById('slipIdText').textContent = totalVotesCast.toString().padStart(2, '0');
+    document.getElementById('slipCandNum').textContent = `क्रमांक: ${cand.num}`;
+    document.getElementById('slipCandName').textContent = cand.name;
+    document.getElementById('slipCandSym').textContent = cand.sym;
+
+    // Slip rolls in
+    slip.style.display = 'flex';
+    slip.style.top = '28px';
+    slip.style.opacity = '1';
+    slip.style.transform = 'scale(1)';
+
+    timerBadge.style.display = 'flex';
+    cuttingBadge.style.display = 'none';
+
+    // 7-second countdown (1 sec interval)
+    let timeLeft = 7;
+    countdownText.textContent = timeLeft;
+
+    const timerInterval = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+            countdownText.textContent = timeLeft;
+            playBeep(1200, 0.05); // subtle clock tick
+        } else {
+            clearInterval(timerInterval);
+            // Slip cut & drop phase
+            timerBadge.style.display = 'none';
+            cuttingBadge.style.display = 'flex';
+            playPaperCutSound();
+
+            // Animate slip dropping down
+            slip.style.top = '160px';
+            slip.style.opacity = '0';
+            slip.style.transform = 'scale(0.85)';
+
+            setTimeout(() => {
+                slip.style.display = 'none';
+                cuttingBadge.style.display = 'none';
+
+                // Update sealed drop counter
+                document.getElementById('vvpatPaperCount').textContent = totalVotesCast;
+                document.getElementById('dropCounterBox').classList.add('highlight');
+
+                // Trigger long EVM BEEP sound!
+                playLongEvmBeep();
+
+                // Reset CU & BU to ready for next voter
+                finishVotingCycle(cand);
+            }, 800);
+        }
+    }, 1000);
+}
+
+function finishVotingCycle(cand) {
+    // Reset BU LEDs
+    for (let i = 0; i < 5; i++) {
+        document.getElementById(`cRow${i}`).classList.remove('active-cand');
+        document.getElementById(`cLed${i}`).classList.remove('red-lit');
+    }
+    document.getElementById('buReadyLamp').classList.remove('green');
+
+    // Reset CU Busy lamp
+    document.getElementById('cuLampBusy').classList.remove('busy-red');
+    document.getElementById('btnBallot').classList.remove('disabled');
+
+    setCuLcd("VOTE RECORDED", `TOT: ${totalVotesCast} VOTES`);
+    document.getElementById('buInstructionText').innerHTML = "✅ <b>वोट सफलतापूर्वक दर्ज!</b> अगले मतदाता के लिए CU पर 'बैलेट' दबाएँ";
+    document.getElementById('buInstructionText').style.color = "#15803d";
+
+    isVotingInProgress = false;
+    setGuideHighlight(1);
+}
+
+function setGuideHighlight(stepNum) {
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`guideStep${i}`).classList.remove('highlight');
+    }
+    document.getElementById(`guideStep${stepNum}`).classList.add('highlight');
+}
+
+/* ============================================================= */
+/* 4. RESULT DECLARATION & AUDIT MODAL */
+/* ============================================================= */
+function buildResultModal() {
+    const tbody = document.getElementById('resultTableBody');
+    tbody.innerHTML = '';
+
+    // Find winner
+    let maxVotes = -1;
+    let winner = candidates[0];
+    let isTie = false;
+
+    candidates.forEach(c => {
+        if (c.votes > maxVotes) {
+            maxVotes = c.votes;
+            winner = c;
+            isTie = false;
+        } else if (c.votes === maxVotes && maxVotes > 0) {
+            isTie = true;
+        }
+    });
+
+    // Populate rows
+    candidates.forEach(c => {
+        let pct = totalVotesCast > 0 ? ((c.votes / totalVotesCast) * 100).toFixed(1) : 0;
+        let isWinnerRow = (c.id === winner.id && maxVotes > 0 && !isTie);
+
+        let tr = document.createElement('tr');
+        if (isWinnerRow) tr.style.background = '#f0fdf4';
+
+        tr.innerHTML = `
+            <td><b>${c.num}</b></td>
+            <td>
+                <b>${c.name}</b> 
+                ${isWinnerRow ? '<span style="background:#22c55e; color:#fff; font-size:11px; padding:2px 6px; border-radius:10px; margin-left:6px;">विजेता</span>' : ''}
+            </td>
+            <td style="font-size: 22px;">${c.sym}</td>
+            <td><b style="color: #2563eb; font-size: 16px;">${c.votes}</b> मत</td>
+            <td><b style="color: #0d9488; font-size: 16px;">${c.votes}</b> पर्चियाँ</td>
+            <td class="vote-bar-cell">
+                <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:4px;">
+                    <span>${pct}%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: ${pct}%;"></div>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    // Winner Callout
+    const winnerName = document.getElementById('winnerNameDisplay');
+    const winnerStats = document.getElementById('winnerStatsDisplay');
+
+    if (totalVotesCast === 0) {
+        winnerName.textContent = "कोई मत नहीं डाला गया";
+        winnerStats.textContent = "कुल 0 मत";
+    } else if (isTie) {
+        winnerName.textContent = "मत बराबर (Tie)!";
+        winnerStats.textContent = `शीर्ष प्रत्याशियों को समान ${maxVotes} मत मिले`;
+    } else {
+        winnerName.innerHTML = `${winner.name} (${winner.sym})`;
+        let winPct = ((maxVotes / totalVotesCast) * 100).toFixed(1);
+        winnerStats.textContent = `कुल ${totalVotesCast} मतों में से ${maxVotes} मत (${winPct}%) प्राप्त किए`;
+    }
+
+    document.getElementById('resultModal').style.display = 'flex';
+}
+
+function closeResultModal() {
+    document.getElementById('resultModal').style.display = 'none';
+}
+</script>
+</body>
+</html>
