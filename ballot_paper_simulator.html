@@ -3323,12 +3323,16 @@ function sys2_handleBallotClick(event) {
     const clickX = event.clientX - rect.left;
     const clickY = event.clientY - rect.top;
 
+    // Calculate exact normalized percentage coordinates across the ballot paper
+    const paperXPct = Math.max(0.02, Math.min(0.98, clickX / rect.width));
+    const paperYPct = Math.max(0.02, Math.min(0.98, clickY / rect.height));
+
     const tbody = document.getElementById('sys2BallotTbody');
     const rows = tbody.querySelectorAll('.ballot-row');
 
     let clickedRowIndex = -1;
     let isNearBorderLine = false;
-    const borderTolerance = 7;
+    const borderTolerance = 3; // Strict 3px boundary line tolerance to avoid false border triggers
 
     for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
@@ -3350,6 +3354,8 @@ function sys2_handleBallotClick(event) {
     const stampData = {
         x: clickX,
         y: clickY,
+        paperXPct: paperXPct,
+        paperYPct: paperYPct,
         rowIndex: clickedRowIndex,
         isBorder: isNearBorderLine,
         candId: clickedRowIndex >= 0 ? sys2_candidates[clickedRowIndex].id : -1
@@ -3584,26 +3590,34 @@ function sys2_dropBallot() {
 
     if (sys2_currentStamps.length === 0) {
         isValid = false;
-        reason = 'कोरा मतपत्र (Blank Ballot): मतदाता द्वारा किसी भी प्रत्याशी के पक्ष में मुहर नहीं लगाई गई।';
-    } else if (hasBorderStamp) {
-        isValid = false;
-        reason = 'विभाजन रेखा पर मुहर (Borderline Stamp): मुहर दो प्रत्याशियों के मध्य विभाजक काली रेखा पर लगी है, जिससे मतदाता का आशय अनिश्चित है।';
-    } else if (hasOutsideStamp) {
-        isValid = false;
-        reason = 'खाने से बाहर मुहर (Outside Candidate Area): मुहर प्रत्याशी के विहित खाने से बाहर प्रतिपर्ण या शीर्षक पट्टी पर लगी है।';
+        reason = 'कोरा मतपत्र (Blank Ballot): मतदाता द्वारा किसी भी प्रत्याशी के पक्ष में मुहर नहीं लगाई गई। (Rule 56(2)(a))';
+        ruleRef = 'Rule 56(2)(a), Conduct of Elections Rules, 1961';
     } else if (stampedCandIds.length > 1) {
+        // Priority 1: Multiple candidates stamped (2, 3 or more candidates)
         isValid = false;
         const candNames = stampedCandIds.map(id => sys2_candidates.find(c => c.id === id).name).join(', ');
-        reason = `एक से अधिक प्रत्याशियों पर मुहर: मतदाता ने एक से अधिक प्रत्याशियों (${candNames}) के पक्ष में मुहर लगा दी है।`;
+        reason = `एक से अधिक प्रत्याशियों पर मुहर: मतदाता द्वारा ${stampedCandIds.length} प्रत्याशियों (${candNames}) के पक्ष में मुहर लगाई गई। (Rule 56(2)(b))`;
+        ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
     } else if (isVerticalFold && sys2_currentStamps.length > 0) {
-        // Vertical fold caused wet ink transfer to mirrored row!
+        // Priority 2: Vertical folding wet smudge transfer to another candidate
         const originalRow = sys2_currentStamps[0].rowIndex;
         const mirroredRow = (originalRow <= 1) ? (originalRow + 2) : (originalRow - 2);
         isValid = false;
-        const cand1 = sys2_candidates[originalRow].name;
-        const cand2 = sys2_candidates[mirroredRow] ? sys2_candidates[mirroredRow].name : "अन्य प्रत्याशी";
-        reason = `सीधा (ऊपर से नीचे) मोड़ने के कारण ताज़ा गीली स्याही ${cand1} से ${cand2} के खाने में छप गई, जिससे दो प्रत्याशियों पर निशान बन गए।`;
-    } else {
+        const cand1 = (originalRow >= 0 && sys2_candidates[originalRow]) ? sys2_candidates[originalRow].name : "मूल प्रत्याशी";
+        const cand2 = (mirroredRow >= 0 && sys2_candidates[mirroredRow]) ? sys2_candidates[mirroredRow].name : "अन्य प्रत्याशी";
+        reason = `सीधा (ऊपर से नीचे) गलत मोड़ने के कारण ताज़ा गीली स्याही ${cand1} से ${cand2} के खाने में छप गई, जिससे दो प्रत्याशियों पर निशान बन गए। (Rule 56(2)(b))`;
+        ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
+    } else if (hasBorderStamp && stampedCandIds.length <= 1) {
+        // Priority 3: Borderline stamp making intent ambiguous between candidates
+        isValid = false;
+        reason = 'विभाजन रेखा पर मुहर (Borderline Stamp): मुहर दो प्रत्याशियों के मध्य विभाजक काली रेखा पर लगी है, जिससे मतदाता का आशय अनिश्चित है। (Rule 56(2)(b))';
+        ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
+    } else if (hasOutsideStamp && stampedCandIds.length === 0) {
+        // Priority 4: Stamped outside candidate rows
+        isValid = false;
+        reason = 'खाने से बाहर मुहर (Outside Candidate Area): मुहर प्रत्याशी के विहित खाने से बाहर प्रतिपर्ण या शीर्षक पट्टी पर लगी है। (Rule 56(2)(g))';
+        ruleRef = 'Rule 56(2)(g), Conduct of Elections Rules, 1961';
+    } else if (stampedCandIds.length === 1) {
         isValid = true;
         chosenCand = sys2_candidates[stampedCandIds[0]];
     }
@@ -3663,7 +3677,7 @@ function sys2_quickAddSampleVotes() {
     sys2_boxSlips.push({
         voterNum: sys2_voterCount,
         slipCode: `PB-${sys2_voterCount < 10 ? '0' + sys2_voterCount : sys2_voterCount}`,
-        stamps: [{ x: 420, y: 195, rowIndex: 1, isBorder: false, candId: 1 }],
+        stamps: [{ x: 420, y: 195, paperXPct: 0.85, paperYPct: 0.42, rowIndex: 1, isBorder: false, candId: 1 }],
         foldType: 'horizontal',
         hasSmudge: false,
         smudgeRowIndex: -1,
@@ -3681,8 +3695,8 @@ function sys2_quickAddSampleVotes() {
         voterNum: sys2_voterCount,
         slipCode: `PB-${sys2_voterCount < 10 ? '0' + sys2_voterCount : sys2_voterCount}`,
         stamps: [
-            { x: 410, y: 130, rowIndex: 0, isBorder: false, candId: 0 },
-            { x: 425, y: 320, rowIndex: 3, isBorder: false, candId: 3 }
+            { x: 410, y: 130, paperXPct: 0.82, paperYPct: 0.28, rowIndex: 0, isBorder: false, candId: 0 },
+            { x: 425, y: 320, paperXPct: 0.85, paperYPct: 0.72, rowIndex: 3, isBorder: false, candId: 3 }
         ],
         foldType: 'horizontal',
         hasSmudge: false,
@@ -3691,7 +3705,7 @@ function sys2_quickAddSampleVotes() {
         candidateId: -1,
         candidateName: 'निरस्त',
         candidateSym: '❌',
-        rejectionReason: 'एक से अधिक प्रत्याशियों (डॉ. कलाम एवं सरदार पटेल) के पक्ष में मुहर लगाई गई।',
+        rejectionReason: 'एक से अधिक प्रत्याशियों (डॉ. कलाम एवं सरदार पटेल) के पक्ष में मुहर लगाई गई। (Rule 56(2)(b))',
         ruleReference: 'Rule 56(2)(b), Conduct of Elections Rules, 1961'
     });
 
@@ -3700,7 +3714,7 @@ function sys2_quickAddSampleVotes() {
     sys2_boxSlips.push({
         voterNum: sys2_voterCount,
         slipCode: `PB-${sys2_voterCount < 10 ? '0' + sys2_voterCount : sys2_voterCount}`,
-        stamps: [{ x: 420, y: 260, rowIndex: 2, isBorder: false, candId: 2 }],
+        stamps: [{ x: 420, y: 260, paperXPct: 0.84, paperYPct: 0.57, rowIndex: 2, isBorder: false, candId: 2 }],
         foldType: 'vertical',
         hasSmudge: true,
         smudgeRowIndex: 0,
@@ -3708,7 +3722,7 @@ function sys2_quickAddSampleVotes() {
         candidateId: -1,
         candidateName: 'निरस्त',
         candidateSym: '❌',
-        rejectionReason: 'सीधा मोड़ने के कारण शहीद भगत सिंह की गीली स्याही विपरीत प्रत्याशी डॉ. कलाम पर छप गई।',
+        rejectionReason: 'सीधा मोड़ने के कारण शहीद भगत सिंह की गीली स्याही विपरीत प्रत्याशी डॉ. कलाम पर छप गई। (Rule 56(2)(b))',
         ruleReference: 'Rule 56(2)(b), Conduct of Elections Rules, 1961'
     });
 
@@ -4345,12 +4359,53 @@ function sys2_showInspectBallot(index) {
 
     const foreContainer = document.getElementById('sys2AuditForensicContainer');
 
-    // Build Candidate rows with cell-based stamp alignment
+    // Build Candidate rows and exact proportional stamp overlay
     const isBlank = (!slip.stamps || slip.stamps.length === 0);
+    const stampsList = slip.stamps || [];
+
+    // Construct Exact Proportion Overlay Layer: Stamps appear EXACTLY where the voter stamped them!
+    let stampsOverlayHtml = '';
+    stampsList.forEach((st, sIdx) => {
+        let xPct = (st.paperXPct !== undefined) ? st.paperXPct : (st.x ? (st.x / 500) : 0.85);
+        let yPct = (st.paperYPct !== undefined) ? st.paperYPct : (st.y ? (st.y / 380) : 0.5);
+
+        // Clamp inside paper boundaries
+        xPct = Math.max(0.04, Math.min(0.96, xPct));
+        yPct = Math.max(0.04, Math.min(0.96, yPct));
+
+        const leftPct = (xPct * 100).toFixed(1);
+        const topPct = (yPct * 100).toFixed(1);
+
+        stampsOverlayHtml += `
+            <div style="position: absolute; left: ${leftPct}%; top: ${topPct}%; transform: translate(-50%, -50%) rotate(-8deg); width: 38px; height: 38px; border: 2.5px solid #581c87; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #581c87; font-weight: 900; font-size: 21px; background: rgba(88, 28, 135, 0.22); box-shadow: 0 0 10px rgba(88, 28, 135, 0.45); pointer-events: none;" title="मूल मुहर #${sIdx+1} (वामावर्त 卍)">
+                卍
+            </div>
+        `;
+    });
+
+    // If vertical fold wet ink transfer happened (smudge), show the smudge impression at the mirrored coordinate
+    if (slip.hasSmudge && stampsList.length > 0) {
+        const origStamp = stampsList[0];
+        let origXPct = (origStamp.paperXPct !== undefined) ? origStamp.paperXPct : (origStamp.x ? (origStamp.x / 500) : 0.85);
+        origXPct = Math.max(0.04, Math.min(0.96, origXPct));
+
+        // Approximated row centers (vertical percentage across ballot sheet) for candidate rows 0 to 4:
+        const rowCenters = [0.28, 0.42, 0.57, 0.72, 0.86];
+        const targetRow = (slip.smudgeRowIndex >= 0 && slip.smudgeRowIndex < rowCenters.length) ? slip.smudgeRowIndex : ((origStamp.rowIndex <= 1) ? origStamp.rowIndex + 2 : origStamp.rowIndex - 2);
+        const smudgeYPct = rowCenters[targetRow] || 0.6;
+
+        const sLeftPct = (origXPct * 100).toFixed(1);
+        const sTopPct = (smudgeYPct * 100).toFixed(1);
+
+        stampsOverlayHtml += `
+            <div style="position: absolute; left: ${sLeftPct}%; top: ${sTopPct}%; transform: translate(-50%, -50%) rotate(8deg); width: 38px; height: 38px; border: 2.5px dashed #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #581c87; font-weight: 900; font-size: 21px; background: radial-gradient(circle, rgba(88,28,135,0.45) 0%, rgba(88,28,135,0.15) 70%, transparent 100%); filter: blur(0.4px); opacity: 0.95; box-shadow: 0 0 8px rgba(217, 119, 6, 0.6); pointer-events: none;" title="उल्टी छाप (दक्षिणावर्त 卐)">
+                卐
+            </div>
+        `;
+    }
 
     const rowsHtml = sys2_candidates.map((c, rIdx) => {
-        // Find stamps on this candidate
-        const stampsOnCand = (slip.stamps || []).filter(s => s.candId === c.id || s.rowIndex === rIdx);
+        const stampsOnCand = stampsList.filter(s => s.candId === c.id || s.rowIndex === rIdx);
         const hasCandStamp = stampsOnCand.length > 0;
         const isSmudgedRow = (slip.hasSmudge && slip.smudgeRowIndex === rIdx);
 
@@ -4362,42 +4417,22 @@ function sys2_showInspectBallot(index) {
         }
 
         return `
-            <tr style="height: 52px; border-bottom: 2px solid #0f172a; ${rowHighlight}">
-                <td style="width: 36px; text-align: center; font-weight: 900; border-right: 1.5px solid #0f172a; background: #f1f5f9; color: #0f172a; font-size: 13px;">
+            <tr class="ballot-row candidate-${rIdx}" style="height: 52px; border-bottom: 3px solid #0f172a; ${rowHighlight}">
+                <td class="td-num" style="width: 44px; text-align: center; font-weight: 900; font-size: 13.5px; border-right: 1.5px solid #0f172a; background: #f8fafc; color: #0f172a;">
                     ${c.num}
                 </td>
-                <td style="padding: 0 10px; font-weight: 800; color: #0f172a; font-size: 13px;">
+                <td class="td-name" style="padding: 4px 8px; font-weight: 800; font-size: 12.5px; color: #0f172a; border-right: 1.5px solid #0f172a;">
                     ${c.name}
-                    ${hasCandStamp ? `<span style="background: #ef4444; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 6px;">मुहर अंकित</span>` : ''}
-                    ${isSmudgedRow ? `<span style="background: #d97706; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 6px;">⚠️ स्याही छपी</span>` : ''}
+                    ${hasCandStamp ? `<span style="background: #ef4444; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 5px; display: inline-block;">मुहर अंकित</span>` : ''}
+                    ${isSmudgedRow ? `<span style="background: #d97706; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 5px; display: inline-block;">⚠️ स्याही छपी</span>` : ''}
                 </td>
-                <td style="width: 46px; text-align: center; font-size: 22px; border-right: 1.5px solid #0f172a;">
+                <td class="td-sym" style="width: 50px; text-align: center; font-size: 20px; border-right: 1.5px solid #0f172a;">
                     ${c.sym}
                 </td>
-                <td style="width: 90px; text-align: center; position: relative; padding: 2px;">
-                    <!-- Accurate In-Cell Stamp Rendering -->
-                    ${hasCandStamp ? stampsOnCand.map((st, sIdx) => `
-                        <div style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center;">
-                            <div style="width: 34px; height: 34px; border-radius: 50%; border: 2px solid #581c87; background: rgba(88, 28, 135, 0.15); display: flex; align-items: center; justify-content: center; color: #581c87; font-weight: 900; font-size: 19px; transform: rotate(-6deg); box-shadow: 0 2px 6px rgba(88, 28, 135, 0.3);">
-                                卍
-                            </div>
-                            ${stampsOnCand.length > 1 ? `<span style="font-size: 8.5px; font-weight: 900; color: #581c87;">मूल मुहर #${sIdx+1}</span>` : `<span style="font-size: 8px; font-weight: 900; color: #581c87;">मूल मुहर (वामावर्त 卍)</span>`}
-                        </div>
-                    `).join('') : ''}
-
-                    <!-- Wet Smudge Rendering in mirrored cell (Clockwise 卐) -->
-                    ${isSmudgedRow ? `
-                        <div style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center;">
-                            <div style="width: 34px; height: 34px; border-radius: 50%; border: 2px dashed #d97706; background: radial-gradient(circle, rgba(88,28,135,0.45) 0%, rgba(88,28,135,0.15) 70%, transparent 100%); filter: blur(0.4px); display: flex; align-items: center; justify-content: center; color: #581c87; font-size: 19px; font-weight: 900; opacity: 0.95;">
-                                卐
-                            </div>
-                            <span style="font-size: 8px; font-weight: 900; color: #b45309;">उल्टी छाप (दक्षिणावर्त 卐)</span>
-                        </div>
-                    ` : ''}
-
-                    ${!hasCandStamp && !isSmudgedRow ? `
-                        <span style="font-size: 10px; color: #cbd5e1;">卍</span>
-                    ` : ''}
+                <td class="td-stamp-box" style="width: 90px; text-align: center; font-size: 10px; color: #94a3b8; padding: 2px;">
+                    <div style="border: 1px dashed #cbd5e1; border-radius: 4px; height: 36px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 9px; color: #64748b;">मुहर स्थान</span>
+                    </div>
                 </td>
             </tr>
         `;
@@ -4406,43 +4441,66 @@ function sys2_showInspectBallot(index) {
     foreContainer.innerHTML = `
         <div class="sys2-inspect-grid">
             <!-- Left: Visual Ballot Replica with Exact Markings -->
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <div style="font-size: 13px; font-weight: 800; color: #f87171; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; width: 100%; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                <div style="font-size: 13px; font-weight: 800; color: #f87171; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; width: 100%; justify-content: space-between;">
                     <span>⚠️ मतपत्र की सजीव प्रतिकृति (Visual Replica)</span>
                     <span style="font-size: 11px; background: #334155; color: #cbd5e1; padding: 2px 8px; border-radius: 4px;">मतदाता #${slip.voterNum}</span>
                 </div>
 
-                <div class="sys2-ballot-replica" style="width: 100%; max-width: 440px; position: relative;">
-                    <!-- Ballot Paper Header -->
-                    <div style="background: #e2e8f0; padding: 6px 10px; font-size: 11px; font-weight: 900; display: flex; justify-content: space-between; border-bottom: 2px dashed #64748b; color: #0f172a;">
-                        <span>भारत निर्वाचन आयोग • चुनाव मतपत्र</span>
-                        <span style="font-family: monospace; color: #1e3a8a;">${slip.slipCode}</span>
+                <!-- Exact Replica of Ballot Paper matching #sys2BallotPaper -->
+                <div class="ballot-paper" style="width: 100%; max-width: 440px; position: relative; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 2.5px solid #1e293b; border-radius: 4px; pointer-events: none; background: #fffdf5;" id="sys2ReplicaSheet">
+                    <!-- Counterfoil -->
+                    <div class="ballot-top-counterfoil" style="padding: 5px 10px; font-size: 11px; display: flex; justify-content: space-between; border-bottom: 2px dashed #64748b; background: #f8fafc;">
+                        <span style="font-weight: 800; color: #1e293b;">भारत निर्वाचन आयोग • चुनाव मतपत्र</span>
+                        <span class="counterfoil-tag" style="font-family: monospace; font-weight: 900; color: #1e3a8a; background: #e2e8f0; padding: 2px 8px; border-radius: 4px;">${slip.slipCode}</span>
                     </div>
+
+                    <!-- Title Strip -->
+                    <div class="ballot-title-strip" style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #0f172a; background: #fefce8;">
+                        <h3 style="font-size: 13px; margin: 0; font-weight: 900; color: #0f172a;">लोक सभा निर्वाचन हेतु वास्तविक मतपत्र</h3>
+                        <div class="ballot-subtitle" style="font-size: 10px; color: #64748b;">जाँच प्रति: मतदाता #${slip.voterNum} द्वारा डाला गया मूल मतपत्र</div>
+                    </div>
+
+                    <!-- Ballot Table -->
+                    <table class="ballot-table" style="width: 100%; border-collapse: collapse;">
+                        <thead class="ballot-thead">
+                            <tr style="background: #e2e8f0; border-bottom: 2px solid #0f172a;">
+                                <th style="width: 44px; padding: 4px; font-size: 11px; text-align: center; border-right: 1.5px solid #0f172a;">क्र.सं.</th>
+                                <th style="padding: 4px 8px; font-size: 11px; text-align: left; border-right: 1.5px solid #0f172a;">उम्मीदवार का नाम</th>
+                                <th style="width: 50px; padding: 4px; font-size: 11px; text-align: center; border-right: 1.5px solid #0f172a;">चिह्न</th>
+                                <th style="width: 90px; padding: 4px; font-size: 11px; text-align: center;">मुहर स्थान</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHtml}
+                        </tbody>
+                    </table>
 
                     <!-- Watermark for Blank Ballot -->
                     ${isBlank ? `
-                        <div style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); background: rgba(220, 38, 38, 0.9); color: white; padding: 8px 20px; font-weight: 900; font-size: 16px; border-radius: 8px; border: 2px solid white; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.5); pointer-events: none; text-align: center;">
-                            ⚠️ कोरा मतपत्र<br><span style="font-size: 10px;">(कोई मुहर नहीं)</span>
+                        <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); background: rgba(220, 38, 38, 0.92); color: white; padding: 8px 20px; font-weight: 900; font-size: 15px; border-radius: 8px; border: 2px solid white; z-index: 25; box-shadow: 0 4px 15px rgba(0,0,0,0.5); pointer-events: none; text-align: center;">
+                            ⚠️ कोरा मतपत्र<br><span style="font-size: 10.5px;">(कोई मुहर नहीं लगाई गई)</span>
                         </div>
                     ` : ''}
 
-                    <table style="width: 100%; border-collapse: collapse; font-size: 12px; position: relative;" id="replicaTable">
-                        ${rowsHtml}
-                    </table>
+                    <!-- Real Stamping Overlay with Exact Coordinates -->
+                    <div style="position: absolute; inset: 0; pointer-events: none; z-index: 20;">
+                        ${stampsOverlayHtml}
+                    </div>
+                </div>
 
-                    <!-- Presiding Officer Statutory Rejection Seal under Rule 56(3) -->
-                    <div class="presiding-officer-seal">
-                        <div class="seal-header">
-                            <span>भारत निर्वाचन आयोग • REJECTED / निरस्त</span>
-                            <span style="font-size: 10px;">FORM 20</span>
-                        </div>
-                        <div style="line-height: 1.4; margin-top: 3px;">
-                            <b>कारण:</b> ${slip.rejectionReason}<br>
-                            <b>नियम:</b> ${slip.ruleReference || 'Rule 56(2), Conduct of Elections Rules, 1961'}<br>
-                            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px; padding-top: 4px; border-top: 1px dashed #fca5a5;">
-                                <span>तारीख: 15/09/2026</span>
-                                <span style="font-style: italic; font-weight: 800;">हस्ताक्षर: पीठासीन अधिकारी / RO</span>
-                            </div>
+                <!-- Presiding Officer Statutory Rejection Seal under Rule 56(3) -->
+                <div class="presiding-officer-seal" style="width: 100%; max-width: 440px; margin-top: 12px;">
+                    <div class="seal-header">
+                        <span>भारत निर्वाचन आयोग • REJECTED / निरस्त</span>
+                        <span style="font-size: 10px;">FORM 20</span>
+                    </div>
+                    <div style="line-height: 1.4; margin-top: 3px;">
+                        <b>कारण:</b> ${slip.rejectionReason}<br>
+                        <b>नियम:</b> ${slip.ruleReference || 'Rule 56(2), Conduct of Elections Rules, 1961'}<br>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px; padding-top: 4px; border-top: 1px dashed #fca5a5;">
+                            <span>तारीख: 15/09/2026</span>
+                            <span style="font-style: italic; font-weight: 800;">हस्ताक्षर: पीठासीन अधिकारी / RO</span>
                         </div>
                     </div>
                 </div>
