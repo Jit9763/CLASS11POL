@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVM & VVPAT Interactive Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #ffffff;
+        font-family: 'Noto Sans Devanagari', 'Outfit', sans-serif;
+        user-select: none;
+        overflow: hidden;
+    }
+    
+    /* Top Simulator Control Bar */
+    .sim-controls {
+        background: #0f172a;
+        color: #ffffff;
+        padding: 10px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+    }
+    .sim-title {
+        font-size: 17px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .btn-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .ctrl-btn {
+        background: #2563eb;
+        color: #ffffff;
+        border: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 13.5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+    .ctrl-btn:hover { background: #1d4ed8; }
+    .ctrl-btn.active { background: #16a34a; }
+    .speed-btn {
+        background: #334155;
+        color: #e2e8f0;
+    }
+    .speed-btn:hover { background: #475569; }
+
+    .main-stage {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+        height: 442px;
+        background: #ffffff;
+        position: relative;
+    }
+
+    /* EVM BALLOT UNIT */
+    .evm-unit {
+        width: 440px;
+        height: 418px;
+        background: #f8fafc;
+        border: 3px solid #64748b;
+        border-radius: 16px;
+        padding: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+    .evm-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #2563eb;
+        color: #ffffff;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-weight: 900;
+        font-size: 15px;
+    }
+    .ready-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 900;
+        background: rgba(255,255,255,0.25);
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+    .lamp {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #94a3b8;
+    }
+    .lamp.green-on {
+        background: #22c55e;
+        box-shadow: 0 0 12px #22c55e;
+    }
+
+    .candidate-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 6px;
+    }
+    .cand-row {
+        display: flex;
+        align-items: center;
+        height: 52px;
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        overflow: visible;
+        position: relative;
+    }
+    .cand-row.active {
+        border-color: #2563eb;
+        background: #eff6ff;
+        box-shadow: 0 0 10px rgba(37,99,235,0.2);
+    }
+    .cand-num {
+        width: 40px;
+        height: 100%;
+        background: #1e293b;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 16px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    .cand-name {
+        flex: 1;
+        padding-left: 10px;
+        font-weight: 800;
+        font-size: 14.5px;
+        color: #0f172a;
+    }
+    .cand-sym {
+        width: 42px;
+        height: 38px;
+        background: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-right: 10px;
+    }
+    .cand-led {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        border: 1px solid #94a3b8;
+        margin-right: 10px;
+    }
+    .cand-led.red-on {
+        background: #ef4444;
+        border-color: #b91c1c;
+        box-shadow: 0 0 14px #ef4444, 0 0 6px #ef4444;
+    }
+    .cand-btn {
+        width: 48px;
+        height: 34px;
+        background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+        border: 2px solid #1e3a8a;
+        border-radius: 6px;
+        margin-right: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+        cursor: pointer;
+    }
+    .cand-btn.pressed {
+        transform: scale(0.92);
+        background: #1e40af;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .finger-pointer {
+        position: absolute;
+        right: -130px;
+        top: 8px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+        background: #fef08a;
+        border: 2px solid #ca8a04;
+        color: #854d0e;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-weight: 900;
+        font-size: 12.5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 100;
+        white-space: nowrap;
+    }
+
+    .beep-alert {
+        display: none;
+        background: #fee2e2;
+        border: 2px solid #ef4444;
+        color: #b91c1c;
+        text-align: center;
+        padding: 5px;
+        border-radius: 6px;
+        font-weight: 900;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    /* CABLE */
+    .cable-section {
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    .cable-line {
+        width: 100%;
+        height: 8px;
+        background: #334155;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+    }
+    .cable-pulse {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #0284c7;
+        box-shadow: 0 0 12px #38bdf8;
+        position: absolute;
+        top: -3px;
+        left: 0;
+    }
+    .cable-label {
+        font-size: 11px;
+        font-weight: 800;
+        color: #475569;
+        margin-top: 6px;
+        white-space: nowrap;
+    }
+
+    /* VVPAT UNIT */
+    .vvpat-unit {
+        width: 440px;
+        height: 418px;
+        background: #f8fafc;
+        border: 3px solid #64748b;
+        border-radius: 16px;
+        padding: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .vvpat-top {
+        background: #0d9488;
+        color: #ffffff;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-weight: 900;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    /* Viewing Window */
+    .viewing-window {
+        height: 202px;
+        background: #f0f9ff;
+        border: 3px solid #0284c7;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        margin: 6px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .window-label {
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        font-size: 11px;
+        font-weight: 800;
+        color: #0369a1;
+    }
+
+    /* Thermal Paper Slip */
+    .paper-slip {
+        width: 290px;
+        height: 126px;
+        background: #ffffff;
+        border: 2px dashed #475569;
+        border-radius: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        padding: 8px 14px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        top: 26px;
+        transition: top 0.4s ease, opacity 0.4s ease;
+    }
+    .slip-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1.5px solid #cbd5e1;
+        padding-bottom: 3px;
+        font-size: 11px;
+        color: #334155;
+        font-weight: 800;
+    }
+    .slip-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 0;
+    }
+    .slip-cand-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .slip-num {
+        font-size: 12px;
+        color: #64748b;
+        font-weight: 800;
+    }
+    .slip-name {
+        font-size: 17px;
+        font-weight: 900;
+        color: #0f172a;
+    }
+    .slip-symbol {
+        font-size: 28px;
+    }
+    .slip-footer {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11.5px;
+        font-weight: 900;
+        color: #15803d;
+        border-top: 1.5px solid #cbd5e1;
+        padding-top: 3px;
+    }
+
+    .countdown-badge {
+        position: absolute;
+        bottom: 8px;
+        background: #fef08a;
+        border: 2px solid #ca8a04;
+        color: #854d0e;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-weight: 900;
+        font-size: 13px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cutting-badge {
+        position: absolute;
+        bottom: 8px;
+        background: #fee2e2;
+        border: 2px solid #ef4444;
+        color: #b91c1c;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-weight: 900;
+        font-size: 13px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Drop Box */
+    .drop-box {
+        height: 122px;
+        background: #1e293b;
+        border: 2px solid #0f172a;
+        border-radius: 10px;
+        padding: 10px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #ffffff;
+        position: relative;
+    }
+    .drop-box-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 900;
+        font-size: 13.5px;
+        color: #f1f5f9;
+    }
+    .drop-slit {
+        width: 180px;
+        height: 6px;
+        background: #020617;
+        border-radius: 3px;
+        margin: 2px auto;
+        border: 1px solid #475569;
+    }
+    .drop-box-status {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        text-align: center;
+        color: #94a3b8;
+        font-weight: 800;
+    }
+    .drop-box-status.success {
+        background: #14532d;
+        border-color: #22c55e;
+        color: #bbf7d0;
+        font-size: 13.5px;
+        font-weight: 900;
+        box-shadow: 0 0 10px rgba(34,197,94,0.3);
+    }
+
+    /* BOTTOM PROGRESS STEPS (Interactive Tabs) */
+    .footer-steps {
+        height: 60px;
+        background: #f1f5f9;
+        border-top: 2px solid #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+    }
+    .step-item {
+        flex: 1;
+        margin: 0 5px;
+        height: 40px;
+        border-radius: 8px;
+        background: #e2e8f0;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 13px;
+        text-align: center;
+        padding: 0 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .step-item:hover {
+        background: #cbd5e1;
+    }
+    .step-item.active {
+        background: #2563eb;
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(37,99,235,0.3);
+    }
+    .step-item.completed {
+        background: #10b981;
+        color: #ffffff;
+    }
+</style>
+</head>
+<body>
+
+<!-- TOP CONTROL BAR -->
+<div class="sim-controls">
+    <div class="sim-title">
+        <span>🗳️</span> EVM-VVPAT इंटरैक्टिव सिमुलेटर
+    </div>
+    <div class="btn-group">
+        <button class="ctrl-btn" id="playPauseBtn" onclick="togglePlayPause()">
+            <span id="playIcon">⏸️</span> <span id="playText">पॉज़ करें</span>
+        </button>
+        <button class="ctrl-btn speed-btn" onclick="restartAnimation()">
+            <span>🔄</span> शुरू से देखें
+        </button>
+        <button class="ctrl-btn speed-btn" id="speedBtn" onclick="toggleSpeed()">
+            <span id="speedIcon">🐢</span> <span id="speedText">धीमी गति (0.5x)</span>
+        </button>
+    </div>
+</div>
+
+<div class="main-stage">
+    <!-- EVM BALLOT UNIT -->
+    <div class="evm-unit">
+        <div class="evm-top">
+            <span>बैलट यूनिट (BALLOT UNIT)</span>
+            <div class="ready-badge">
+                <div class="lamp green-on" id="readyLamp"></div>
+                <span>READY</span>
+            </div>
+        </div>
+
+        <div class="candidate-list">
+            <!-- Cand 1 -->
+            <div class="cand-row">
+                <div class="cand-num">01</div>
+                <div class="cand-name">डॉ. ए.पी.जे. अब्दुल कलाम</div>
+                <div class="cand-sym">🚀</div>
+                <div class="cand-led"></div>
+                <div class="cand-btn"></div>
+            </div>
+            <!-- Cand 2 -->
+            <div class="cand-row">
+                <div class="cand-num">02</div>
+                <div class="cand-name">स्वामी विवेकानंद</div>
+                <div class="cand-sym">🪔</div>
+                <div class="cand-led"></div>
+                <div class="cand-btn"></div>
+            </div>
+            <!-- Cand 3 (Active) -->
+            <div class="cand-row" id="row3">
+                <div class="cand-num">03</div>
+                <div class="cand-name">शहीद भगत सिंह</div>
+                <div class="cand-sym">📖</div>
+                <div class="cand-led" id="led3"></div>
+                <div class="cand-btn" id="btn3" onclick="triggerVoteClick()"></div>
+                <!-- Finger pointer attached directly beside candidate 3 -->
+                <div class="finger-pointer" id="fingerPointer">
+                    <span>👈 बटन दबाया</span>
+                </div>
+            </div>
+            <!-- Cand 4 -->
+            <div class="cand-row">
+                <div class="cand-num">04</div>
+                <div class="cand-name">सरदार वल्लभभाई पटेल</div>
+                <div class="cand-sym">🛡️</div>
+                <div class="cand-led"></div>
+                <div class="cand-btn"></div>
+            </div>
+            <!-- Cand 5 NOTA -->
+            <div class="cand-row" style="background: #fef2f2;">
+                <div class="cand-num" style="background: #991b1b;">05</div>
+                <div class="cand-name" style="color: #991b1b;">उपरोक्त में से कोई नहीं (NOTA)</div>
+                <div class="cand-sym">❌</div>
+                <div class="cand-led"></div>
+                <div class="cand-btn" style="background: linear-gradient(180deg, #ec4899 0%, #be185d 100%);"></div>
+            </div>
+        </div>
+
+        <div class="beep-alert" id="beepAlert">
+            🔊 बीप... (BEEP Sound Active - मत दर्ज हो रहा है)
+        </div>
+    </div>
+
+    <!-- CABLE SECTION -->
+    <div class="cable-section">
+        <div class="cable-line">
+            <div class="cable-pulse" id="cablePulse"></div>
+        </div>
+        <div class="cable-label">सुरक्षित केबल</div>
+    </div>
+
+    <!-- VVPAT UNIT -->
+    <div class="vvpat-unit">
+        <div class="vvpat-top">
+            वीवीपैट यूनिट (VVPAT UNIT)
+        </div>
+
+        <div class="viewing-window">
+            <div class="window-label">पारदर्शी ग्लास विंडो (Viewing Window)</div>
+
+            <!-- Paper Slip -->
+            <div class="paper-slip" id="paperSlip">
+                <div class="slip-header">
+                    <span>भारत निर्वाचन आयोग (ECI)</span>
+                    <span>VVPAT SLIP</span>
+                </div>
+                <div class="slip-body">
+                    <div class="slip-cand-info">
+                        <span class="slip-num">क्रमांक: 03</span>
+                        <span class="slip-name">शहीद भगत सिंह</span>
+                    </div>
+                    <div class="slip-symbol">📖</div>
+                </div>
+                <div class="slip-footer">
+                    <span>✓</span> मत सफलतापूर्वक सत्यापित
+                </div>
+            </div>
+
+            <div class="countdown-badge" id="countdownBadge">
+                ⏱️ 7 सेकंड तक मतदाता को दिखती है!
+            </div>
+
+            <div class="cutting-badge" id="cuttingBadge">
+                ✂️ पर्ची कट कर नीचे गिरी...
+            </div>
+        </div>
+
+        <div class="drop-box">
+            <div class="drop-box-title">
+                <span>🔒 सीलबंद मतपेटी (Sealed Ballot Drop Box)</span>
+            </div>
+            <div class="drop-slit"></div>
+            <div class="drop-box-status" id="dropStatus">
+                मतगणना के समय 100% पर्ची मिलान संभव
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER PROGRESS BAR (Clickable Steps) -->
+<div class="footer-steps">
+    <div class="step-item" id="step1" onclick="goToStep(1)">1. नीला बटन दबाएँ</div>
+    <div class="step-item" id="step2" onclick="goToStep(2)">2. लाल बत्ती व बीप</div>
+    <div class="step-item" id="step3" onclick="goToStep(3)">3. 7 सेकंड पर्ची देखें</div>
+    <div class="step-item" id="step4" onclick="goToStep(4)">4. सीलबंद बॉक्स में पर्ची</div>
+</div>
+
+<script>
+let currentFrame = 0;
+const totalFrames = 24;
+let isPlaying = true;
+let isSlow = true; // start with slow educational speed
+let timerId = null;
+
+function getFrameDelay(f) {
+    let multiplier = isSlow ? 1.6 : 1.0;
+    if (f === 0) return 1200 * multiplier;
+    if (5 <= f && f <= 9) return 600 * multiplier;
+    if (10 <= f && f <= 16) return 700 * multiplier;
+    if (17 <= f && f <= 20) return 500 * multiplier;
+    if (f >= 21) return 1400 * multiplier;
+    return 400 * multiplier;
+}
+
+function renderFrame(f) {
+    const readyLamp = document.getElementById('readyLamp');
+    const row3 = document.getElementById('row3');
+    const led3 = document.getElementById('led3');
+    const btn3 = document.getElementById('btn3');
+    const beepAlert = document.getElementById('beepAlert');
+    const fingerPointer = document.getElementById('fingerPointer');
+    const cablePulse = document.getElementById('cablePulse');
+    const paperSlip = document.getElementById('paperSlip');
+    const countdownBadge = document.getElementById('countdownBadge');
+    const cuttingBadge = document.getElementById('cuttingBadge');
+    const dropStatus = document.getElementById('dropStatus');
+
+    const s1 = document.getElementById('step1');
+    const s2 = document.getElementById('step2');
+    const s3 = document.getElementById('step3');
+    const s4 = document.getElementById('step4');
+
+    [s1, s2, s3, s4].forEach(s => { s.className = 'step-item'; });
+
+    let pulseLeft = (f * 14) % 65;
+    cablePulse.style.left = pulseLeft + 'px';
+
+    if (f <= 4) {
+        // Step 1: Ready
+        s1.className = 'step-item active';
+        readyLamp.className = 'lamp green-on';
+        row3.className = 'cand-row';
+        led3.className = 'cand-led';
+        btn3.className = 'cand-btn';
+        beepAlert.style.display = 'none';
+        fingerPointer.style.display = 'none';
+        paperSlip.style.display = 'none';
+        countdownBadge.style.display = 'none';
+        cuttingBadge.style.display = 'none';
+        dropStatus.className = 'drop-box-status';
+        dropStatus.innerHTML = 'मतगणना के समय 100% पर्ची मिलान संभव';
+    } 
+    else if (f <= 9) {
+        // Step 2: Press & Beep
+        s1.className = 'step-item completed';
+        s2.className = 'step-item active';
+        readyLamp.className = 'lamp';
+        row3.className = 'cand-row active';
+        led3.className = 'cand-led red-on';
+        btn3.className = (f <= 7) ? 'cand-btn pressed' : 'cand-btn';
+        beepAlert.style.display = 'block';
+        fingerPointer.style.display = (f <= 8) ? 'flex' : 'none';
+        paperSlip.style.display = 'none';
+        countdownBadge.style.display = 'none';
+        cuttingBadge.style.display = 'none';
+        dropStatus.className = 'drop-box-status';
+        dropStatus.innerHTML = 'मतगणना के समय 100% पर्ची मिलान संभव';
+    } 
+    else if (f <= 16) {
+        // Step 3: VVPAT Slip View & 7-sec Countdown
+        s1.className = 'step-item completed';
+        s2.className = 'step-item completed';
+        s3.className = 'step-item active';
+        readyLamp.className = 'lamp';
+        row3.className = 'cand-row active';
+        led3.className = 'cand-led red-on';
+        btn3.className = 'cand-btn';
+        beepAlert.style.display = 'none';
+        fingerPointer.style.display = 'none';
+
+        paperSlip.style.display = 'flex';
+        paperSlip.style.top = '26px';
+        paperSlip.style.opacity = '1';
+
+        let secRemaining = Math.max(1, 7 - (f - 10));
+        countdownBadge.style.display = 'flex';
+        countdownBadge.innerHTML = `⏱️ ${secRemaining} सेकंड तक मतदाता को दिखती है!`;
+        cuttingBadge.style.display = 'none';
+        dropStatus.className = 'drop-box-status';
+        dropStatus.innerHTML = 'मतदाता द्वारा पुष्टि की जा रही है...';
+    } 
+    else if (f <= 20) {
+        // Step 4A: Slip Cutting & Dropping
+        s1.className = 'step-item completed';
+        s2.className = 'step-item completed';
+        s3.className = 'step-item completed';
+        s4.className = 'step-item active';
+        readyLamp.className = 'lamp';
+        row3.className = 'cand-row';
+        led3.className = 'cand-led';
+        btn3.className = 'cand-btn';
+        beepAlert.style.display = 'none';
+        fingerPointer.style.display = 'none';
+
+        paperSlip.style.display = 'flex';
+        let dropTop = 26 + (f - 16) * 38;
+        paperSlip.style.top = dropTop + 'px';
+        paperSlip.style.opacity = (f >= 19) ? '0.2' : '1';
+
+        countdownBadge.style.display = 'none';
+        cuttingBadge.style.display = 'flex';
+        dropStatus.className = 'drop-box-status';
+        dropStatus.innerHTML = 'पर्ची कट कर सीलबंद बॉक्स में गिर रही है...';
+    } 
+    else {
+        // Step 4B: Success & Stored
+        s1.className = 'step-item completed';
+        s2.className = 'step-item completed';
+        s3.className = 'step-item completed';
+        s4.className = 'step-item completed';
+        readyLamp.className = 'lamp green-on';
+        row3.className = 'cand-row';
+        led3.className = 'cand-led';
+        btn3.className = 'cand-btn';
+        beepAlert.style.display = 'none';
+        fingerPointer.style.display = 'none';
+
+        paperSlip.style.display = 'none';
+        countdownBadge.style.display = 'none';
+        cuttingBadge.style.display = 'none';
+
+        dropStatus.className = 'drop-box-status success';
+        dropStatus.innerHTML = '✅ वोट सुरक्षित दर्ज! (सीलबंद मतपेटी में सुरक्षित)';
+    }
+}
+
+function tick() {
+    if (!isPlaying) return;
+    renderFrame(currentFrame);
+    let delay = getFrameDelay(currentFrame);
+    currentFrame = (currentFrame + 1) % totalFrames;
+    timerId = setTimeout(tick, delay);
+}
+
+function togglePlayPause() {
+    isPlaying = !isPlaying;
+    const playIcon = document.getElementById('playIcon');
+    const playText = document.getElementById('playText');
+    const btn = document.getElementById('playPauseBtn');
+
+    if (isPlaying) {
+        playIcon.textContent = '⏸️';
+        playText.textContent = 'पॉज़ करें';
+        btn.classList.remove('active');
+        tick();
+    } else {
+        clearTimeout(timerId);
+        playIcon.textContent = '▶️';
+        playText.textContent = 'प्ले करें';
+        btn.classList.add('active');
+    }
+}
+
+function restartAnimation() {
+    clearTimeout(timerId);
+    currentFrame = 0;
+    isPlaying = true;
+    document.getElementById('playIcon').textContent = '⏸️';
+    document.getElementById('playText').textContent = 'पॉज़ करें';
+    document.getElementById('playPauseBtn').classList.remove('active');
+    tick();
+}
+
+function toggleSpeed() {
+    isSlow = !isSlow;
+    const speedIcon = document.getElementById('speedIcon');
+    const speedText = document.getElementById('speedText');
+    if (isSlow) {
+        speedIcon.textContent = '🐢';
+        speedText.textContent = 'धीमी गति (0.5x)';
+    } else {
+        speedIcon.textContent = '⚡';
+        speedText.textContent = 'सामान्य गति (1x)';
+    }
+}
+
+function goToStep(stepNum) {
+    clearTimeout(timerId);
+    if (stepNum === 1) currentFrame = 0;
+    else if (stepNum === 2) currentFrame = 6;
+    else if (stepNum === 3) currentFrame = 12;
+    else if (stepNum === 4) currentFrame = 22;
+    renderFrame(currentFrame);
+    // Pause on this step so teacher can explain
+    isPlaying = false;
+    document.getElementById('playIcon').textContent = '▶️';
+    document.getElementById('playText').textContent = 'प्ले करें';
+    document.getElementById('playPauseBtn').classList.add('active');
+}
+
+function triggerVoteClick() {
+    goToStep(2);
+}
+
+// Start animation on load
+window.addEventListener('DOMContentLoaded', () => {
+    tick();
+});
+</script>
+</body>
+</html>
