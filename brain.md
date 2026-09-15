@@ -28,6 +28,7 @@ CLASS11POL/
 ├── copy_master_ch1.html .. ch18.html  # Production Notes Content Files (Chapters 1 to 18)
 ├── qa_master_ch1.html .. ch18.html    # Production Q&A Bank Files (Chapters 1 to 18)
 ├── evm_master_simulator.html         # Interactive 3-Unit EVM-VVPAT-CU Mock Poll to Result Simulator
+├── ballot_paper_simulator.html      # Interactive Ballot Paper & Ballot Box Simulator (Stamp validation & fold rules)
 ├── .gitignore                    # Clean Repository Rules (Excludes build/test artifacts)
 └── brain.md                      # [THIS FILE] Central Project Architecture & System Reference
 ```

@@ -715,7 +715,39 @@
 </ul>
 
 
-<!-- FULL INTERACTIVE 3-UNIT EVM-VVPAT-CU MASTER SIMULATOR -->
+<!-- 1. HISTORICAL BALLOT PAPER & BALLOT BOX SIMULATOR -->
+<div class="cartoon-card" style="padding: 20px; max-width: 1200px; margin: 40px auto; border: 4px solid #16a34a;">
+    <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="gif-badge" style="background: #15803d; margin-bottom: 0;">🗳️ पारंपरिक प्रणाली सिमुलेटर • मतपत्र एवं मतपेटी</span>
+            <span style="font-size: 14pt; color: #15803d; font-weight: 900;">(मुहर लगाना, आड़ा मोड़ नियम व मतपेटी में डालना)</span>
+        </div>
+        <a href="ballot_paper_simulator.html" target="_blank" style="text-decoration: none;">
+            <button style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 13pt; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(22,163,74,0.35);">
+                <span>🔍</span> पूरी स्क्रीन में खोलें (Full Screen)
+            </button>
+        </a>
+    </div>
+
+    <!-- Ballot Paper Simulator Frame -->
+    <div style="border-radius: 16px; overflow: hidden; border: 3px solid #64748b; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: #0f172a;">
+        <iframe src="ballot_paper_simulator.html" style="width: 100%; height: 680px; border: none; display: block;" scrolling="yes"></iframe>
+    </div>
+
+    <div class="cartoon-caption" style="border-left-color: #16a34a; margin-top: 20px;">
+        <div class="cartoon-caption-title" style="color: #15803d !important;">
+            📑 पारंपरिक मतपत्र एवं मतपेटी (1952-1990s): कार्यप्रणाली व नियम
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>सिमुलेटर में क्या सीखें:</b><br>
+            • <b>मुहर लगाने का नियम:</b> स्वास्तिक रबर स्टैंप उम्मीदवार के खाने में लगाना आवश्यक है। यदि मुहर विभाजन रेखा (Border Line) पर लगी तो मतपत्र <b>खारिज (अवैध)</b> हो जाता है।<br>
+            • <b>मतपत्र मोड़ने का सही तरीका:</b> मतपत्र को हमेशा <b>आड़ा (Horizontal)</b> मोड़ा जाता है ताकि ताज़ा स्याही केवल उसी प्रत्याशी के खाने में सीमित रहे। सीधा (Vertical) मोड़ने पर स्याही दूसरे प्रत्याशी पर छप जाने से वोट रद्द हो जाता था।<br>
+            • <b>मतपेटी में डालना:</b> मुड़े हुए मतपत्र को सीलबंद धातु की मतपेटी की झिरी में डाला जाता है।
+        </div>
+    </div>
+</div>
+
+<!-- 2. MODERN EVM-VVPAT-CU MASTER SIMULATOR -->
 <div class="cartoon-card" style="padding: 20px; max-width: 1200px; margin: 40px auto; border: 4px solid #2563eb;">
     <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -732,14 +764,6 @@
     <!-- Master Simulator Frame -->
     <div style="border-radius: 16px; overflow: hidden; border: 3px solid #64748b; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: #0f172a;">
         <iframe src="evm_master_simulator.html" style="width: 100%; height: 680px; border: none; display: block;" scrolling="yes"></iframe>
-    </div>
-
-    <!-- Educational GIF for Google Docs Copy and Offline Reference -->
-    <div style="margin-top: 24px;">
-        <div style="font-size: 13pt; color: #64748b; font-weight: 800; margin-bottom: 8px; text-align: left;">
-            📸 एनिमेटेड GIF संदर्भ (Google Docs कॉपी हेतु):
-        </div>
-        <img src="images/ch3/evm_vvpat_voting_process.gif" alt="⚡ सजीव एनिमेशन: EVM और VVPAT की पारदर्शी मतदान प्रक्रिया" style="max-width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
     </div>
 
     <div class="cartoon-caption" style="border-left-color: #2563eb; margin-top: 20px;">
