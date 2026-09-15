@@ -874,7 +874,10 @@
                     <!-- Candidate 5 (NOTA) -->
                     <div class="candidate-card nota-card" id="cRow4">
                         <div class="c-serial">05</div>
-                        <div class="c-name-col">उपरोक्त में से कोई नहीं (NOTA)</div>
+                        <div class="c-name-col" style="display: flex; flex-direction: column; justify-content: center; line-height: 1.15; padding-left: 8px;">
+                            <span style="font-size: 12.5px; font-weight: 900; color: #991b1b; white-space: nowrap;">उपरोक्त में से कोई नहीं</span>
+                            <span style="font-size: 10.5px; font-weight: 800; color: #7f1d1d; white-space: nowrap;">None of the Above (NOTA)</span>
+                        </div>
                         <div class="c-sym-box">❌</div>
                         <div class="c-led" id="cLed4"></div>
                         <button class="c-vote-btn locked" id="cBtn4" onclick="castVote(4)"></button>
@@ -1256,7 +1259,11 @@ function showVvpatSlip(cand) {
     // Populate slip info
     document.getElementById('slipIdText').textContent = totalVotesCast.toString().padStart(2, '0');
     document.getElementById('slipCandNum').textContent = `क्रमांक: ${cand.num}`;
-    document.getElementById('slipCandName').textContent = cand.name;
+    if (cand.id === 4) {
+        document.getElementById('slipCandName').innerHTML = '<div style="font-size: 14.5px; font-weight: 900; line-height: 1.15; color: #991b1b;">उपरोक्त में से कोई नहीं</div><div style="font-size: 11px; font-weight: 800; color: #7f1d1d; line-height: 1.15;">(None of the Above - NOTA)</div>';
+    } else {
+        document.getElementById('slipCandName').textContent = cand.name;
+    }
     document.getElementById('slipCandSym').textContent = cand.sym;
 
     // Slip rolls in
