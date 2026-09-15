@@ -18,6 +18,7 @@ CLASS11POL/
 ├── js/
 │   └── main.js                   # Navigation & Dynamic Chapter Card Rendering
 ├── images/                       # Educational Visual Assets
+│   ├── ch3/                      # Chapter 3 WebP Teaching Cards (20 Cards + 1 Animated EVM-VVPAT GIF)
 │   ├── ch11/                     # Chapter 11 WebP Teaching Cards
 │   ├── ch14/                     # Chapter 14 WebP Teaching Cards
 │   ├── ch15/                     # Chapter 15 WebP Teaching Cards
