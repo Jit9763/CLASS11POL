@@ -23,7 +23,7 @@
         color: #f8fafc;
         font-family: 'Noto Sans Devanagari', 'Outfit', sans-serif;
         min-height: 100vh;
-        padding: 16px;
+        padding: 8px 12px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -35,49 +35,50 @@
         width: 100%;
         max-width: 1150px;
         background: #1e293b;
-        border-radius: 20px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        border-radius: 14px;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         border: 2px solid #334155;
         overflow: hidden;
     }
 
-    /* Header */
+    /* Header - Compact, Single-Line Friendly */
     .sim-header {
         background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-        padding: 14px 24px;
+        padding: 8px 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 3px solid #3b82f6;
+        border-bottom: 2.5px solid #3b82f6;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 8px;
     }
     .sim-header h1 {
-        font-size: 20px;
+        font-size: 15.5px;
         font-weight: 900;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         color: #ffffff;
+        letter-spacing: 0.2px;
     }
     .header-actions {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-wrap: wrap;
     }
     .switch-btn {
         background: #f59e0b;
         color: #0f172a;
         border: none;
-        padding: 7px 16px;
-        border-radius: 8px;
-        font-weight: 900;
-        font-size: 13px;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 11.5px;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
         transition: all 0.2s;
         text-decoration: none;
     }
@@ -90,46 +91,71 @@
         background: #334155;
         color: #f1f5f9;
         border: 1px solid #475569;
-        padding: 6px 12px;
+        padding: 5px 10px;
         border-radius: 6px;
         font-weight: 800;
-        font-size: 12.5px;
+        font-size: 11.5px;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
+    }
+    .proj-mode-btn {
+        background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+        color: #ffffff;
+        border: 1.5px solid #a78bfa;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 11.5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 8px rgba(124, 58, 237, 0.35);
+    }
+    .proj-mode-btn:hover {
+        background: #8b5cf6;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.5);
+    }
+    body.projector-mode .proj-mode-btn {
+        background: #16a34a;
+        border-color: #4ade80;
+        box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
     }
 
-    /* 4-Step Sequential Pipeline Indicator */
+    /* 4-Step Sequential Pipeline Indicator - Compact */
     .stepper-banner {
         background: #0f172a;
-        padding: 14px 24px;
-        border-bottom: 2px solid #334155;
+        padding: 6px 14px;
+        border-bottom: 1.5px solid #334155;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         flex-wrap: wrap;
     }
     .step-pill {
         display: flex;
         align-items: center;
-        gap: 6px;
-        padding: 7px 14px;
-        border-radius: 30px;
-        font-size: 13px;
+        gap: 5px;
+        padding: 4px 11px;
+        border-radius: 20px;
+        font-size: 12px;
         font-weight: 800;
         background: #1e293b;
         color: #94a3b8;
         border: 1.5px solid #475569;
-        transition: all 0.3s;
+        transition: all 0.25s;
     }
     .step-pill.active {
         background: #2563eb;
         color: #ffffff;
         border-color: #60a5fa;
-        box-shadow: 0 0 16px rgba(37,99,235,0.45);
-        transform: scale(1.04);
+        box-shadow: 0 0 12px rgba(37,99,235,0.45);
+        transform: scale(1.03);
     }
     .step-pill.done {
         background: #064e3b;
@@ -138,46 +164,46 @@
     }
     .step-arrow {
         color: #64748b;
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 900;
     }
 
-    /* Stage Containers */
+    /* Stage Containers - Compact Padding & Viewport-friendly */
     .stage-section {
         display: none;
-        padding: 24px 20px;
-        min-height: 580px;
+        padding: 10px 14px;
+        min-height: auto;
         flex-direction: column;
         align-items: center;
-        animation: fadeInStage 0.35s ease;
+        animation: fadeInStage 0.3s ease;
     }
     .stage-section.active-stage {
         display: flex;
     }
     @keyframes fadeInStage {
-        0% { opacity: 0; transform: translateY(12px); }
+        0% { opacity: 0; transform: translateY(8px); }
         100% { opacity: 1; transform: translateY(0); }
     }
 
     .stage-title-card {
         text-align: center;
-        margin-bottom: 16px;
-        max-width: 760px;
+        margin-bottom: 6px;
+        max-width: 820px;
     }
     .stage-title-card h2 {
-        font-size: 20px;
+        font-size: 14.5px;
         font-weight: 900;
         color: #60a5fa;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 6px;
     }
     .stage-title-card p {
-        font-size: 13.5px;
+        font-size: 11.5px;
         color: #cbd5e1;
-        margin-top: 4px;
-        line-height: 1.5;
+        margin-top: 2px;
+        line-height: 1.35;
     }
 
     /* ======================================================== */
@@ -185,11 +211,11 @@
     /* ======================================================== */
     .ballot-desk {
         width: 100%;
-        max-width: 620px;
+        max-width: 560px;
         background: #0f172a;
         border: 2px solid #334155;
-        border-radius: 16px;
-        padding: 16px;
+        border-radius: 14px;
+        padding: 10px 12px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -197,10 +223,10 @@
     }
     .ballot-paper {
         width: 100%;
-        max-width: 540px;
+        max-width: 500px;
         background: var(--paper-bg);
         border: 3px double #1e293b;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.35);
         color: #0f172a;
         position: relative;
         cursor: crosshair;
@@ -208,37 +234,37 @@
     }
     .ballot-top-counterfoil {
         border-bottom: 2px dashed #64748b;
-        padding: 8px 14px;
+        padding: 4px 10px;
         background: #f8fafc;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 11.5px;
+        font-size: 11px;
         font-weight: 800;
         color: #475569;
     }
     .counterfoil-tag {
         background: #e2e8f0;
-        padding: 2px 8px;
+        padding: 2px 7px;
         border-radius: 4px;
     }
     .ballot-title-strip {
         text-align: center;
-        padding: 8px 10px;
+        padding: 4px 8px;
         border-bottom: 2px solid #0f172a;
         background: #fefce8;
     }
     .ballot-title-strip h3 {
-        font-size: 15px;
+        font-size: 13.5px;
         font-weight: 900;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
         color: #0f172a;
     }
     .ballot-subtitle {
-        font-size: 11px;
+        font-size: 10.5px;
         color: #475569;
         font-weight: 700;
-        margin-top: 2px;
+        margin-top: 1px;
     }
     .ballot-table {
         width: 100%;
@@ -250,8 +276,8 @@
         border-bottom: 2px solid #0f172a;
     }
     .ballot-thead th {
-        padding: 6px 8px;
-        font-size: 11.5px;
+        padding: 4px 6px;
+        font-size: 11px;
         font-weight: 900;
         color: #1e293b;
         border-right: 1.5px solid #0f172a;
@@ -260,9 +286,9 @@
         border-right: none;
     }
     .ballot-row {
-        height: 64px;
+        height: 50px;
         position: relative;
-        border-bottom: 4px solid #0f172a; /* Prominent dividing line */
+        border-bottom: 3.5px solid #0f172a; /* Prominent dividing line */
         background: #ffffff;
         transition: background 0.15s;
     }
@@ -273,36 +299,36 @@
         border-bottom: none;
     }
     .td-num {
-        width: 44px;
+        width: 38px;
         text-align: center;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 900;
         border-right: 2px solid #0f172a;
         background: #f1f5f9;
     }
     .td-name {
-        padding: 0 12px;
-        font-size: 14px;
+        padding: 0 10px;
+        font-size: 13.5px;
         font-weight: 800;
         border-right: 2px solid #0f172a;
         color: #0f172a;
     }
     .td-sym {
-        width: 60px;
+        width: 50px;
         text-align: center;
-        font-size: 26px;
+        font-size: 22px;
         border-right: 2px solid #0f172a;
         background: #fafafa;
     }
     .td-stamp-box {
-        width: 110px;
+        width: 95px;
         text-align: center;
         position: relative;
         background: #fff;
     }
     .stamp-guide-box {
-        width: 76px;
-        height: 48px;
+        width: 68px;
+        height: 38px;
         margin: 0 auto;
         border: 1.5px dashed #94a3b8;
         border-radius: 6px;
@@ -311,7 +337,7 @@
         justify-content: center;
         align-items: center;
         color: #94a3b8;
-        font-size: 10px;
+        font-size: 9.5px;
         font-weight: 800;
         pointer-events: none;
     }
@@ -319,15 +345,15 @@
     /* Stamp Mark Imprint */
     .stamp-mark {
         position: absolute;
-        width: 44px;
-        height: 44px;
+        width: 38px;
+        height: 38px;
         border: 3px solid var(--purple-ink);
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: var(--purple-ink);
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 900;
         transform: translate(-50%, -50%) rotate(-8deg);
         pointer-events: none;
@@ -345,7 +371,7 @@
     .stamp-mark.invalid::after {
         content: '✕';
         position: absolute;
-        font-size: 32px;
+        font-size: 28px;
         color: #dc2626;
         font-weight: 900;
     }
@@ -356,16 +382,16 @@
 
     .stamp-feedback-banner {
         width: 100%;
-        max-width: 540px;
-        padding: 12px 16px;
-        border-radius: 10px;
-        font-size: 13.5px;
+        max-width: 500px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 12.5px;
         font-weight: 800;
         display: none;
         align-items: center;
         justify-content: space-between;
-        margin-top: 14px;
-        gap: 12px;
+        margin-top: 8px;
+        gap: 10px;
         flex-wrap: wrap;
         background: #064e3b;
         color: #a7f3d0;
@@ -375,14 +401,14 @@
         background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
         color: #ffffff;
         border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
+        padding: 7px 16px;
+        border-radius: 6px;
         font-weight: 900;
-        font-size: 13.5px;
+        font-size: 12.5px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
     }
 
@@ -391,30 +417,30 @@
     /* ======================================================== */
     .folding-desk {
         width: 100%;
-        max-width: 780px;
+        max-width: 720px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 10px;
     }
     .fold-control-bar {
         display: flex;
         justify-content: center;
-        gap: 16px;
+        gap: 10px;
         flex-wrap: wrap;
         width: 100%;
     }
     .fold-btn-choice {
         flex: 1;
-        min-width: 260px;
+        min-width: 220px;
         background: #1e293b;
         border: 2px solid #475569;
-        border-radius: 12px;
-        padding: 14px 18px;
+        border-radius: 10px;
+        padding: 8px 14px;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 10px;
         transition: all 0.2s;
         text-align: left;
     }
@@ -434,14 +460,14 @@
         background: #064e3b;
     }
 
-    /* 3D Folding Stage Arena */
+    /* 3D Folding Stage Arena - Compact */
     .folding-arena {
         width: 100%;
-        max-width: 640px;
-        height: 440px;
+        max-width: 600px;
+        height: 350px;
         background: #020617;
         border: 2px dashed #475569;
-        border-radius: 18px;
+        border-radius: 14px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -460,6 +486,9 @@
         transform-style: preserve-3d;
         box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         transition: transform 0.8s ease;
+        transform: scale(0.92);
+        transform-origin: center center;
+        color: #000000 !important;
     }
     .book-left-page {
         width: 230px;
@@ -472,6 +501,7 @@
         flex-direction: column;
         justify-content: space-between;
         z-index: 2;
+        color: #000000 !important;
     }
     .book-right-flap {
         width: 230px;
@@ -483,6 +513,7 @@
         transform-style: preserve-3d;
         transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 5;
+        color: #000000 !important;
     }
     .flap-face-front {
         position: absolute;
@@ -496,6 +527,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        color: #000000 !important;
     }
     .flap-face-back {
         position: absolute;
@@ -538,6 +570,9 @@
         transform-style: preserve-3d;
         box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         transition: transform 0.8s ease;
+        transform: scale(0.92);
+        transform-origin: center center;
+        color: #000000 !important;
     }
     .vert-bottom-half {
         width: 440px;
@@ -548,11 +583,12 @@
         background: var(--paper-bg);
         border: 2px solid #0f172a;
         border-top: 1px dashed #64748b;
-        padding: 8px 14px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         z-index: 2;
+        color: #000000 !important;
     }
     .vert-top-flap {
         width: 440px;
@@ -564,6 +600,7 @@
         transform-style: preserve-3d;
         transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 5;
+        color: #000000 !important;
     }
     .vert-flap-front {
         position: absolute;
@@ -572,11 +609,12 @@
         background: var(--paper-bg);
         border: 2px solid #0f172a;
         border-bottom: none;
-        padding: 8px 14px;
+        padding: 10px;
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        color: #000000 !important;
     }
     .vert-flap-back {
         position: absolute;
@@ -623,29 +661,29 @@
         box-shadow: 0 0 10px rgba(88, 28, 135, 0.3);
     }
 
-    /* Fold Status Bar */
+    /* Fold Status Bar - Compact */
     .fold-status-bar {
         width: 100%;
-        max-width: 640px;
-        padding: 14px 18px;
-        border-radius: 12px;
-        font-size: 14px;
+        max-width: 600px;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 12.5px;
         font-weight: 800;
         display: none;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        gap: 10px;
     }
     .fold-status-bar.error-bar {
         background: #7f1d1d;
         color: #fecaca;
-        border: 2px solid #ef4444;
+        border: 1.5px solid #ef4444;
         display: flex;
     }
     .fold-status-bar.success-bar {
         background: #064e3b;
         color: #a7f3d0;
-        border: 2px solid #10b981;
+        border: 1.5px solid #10b981;
         display: flex;
     }
 
@@ -654,101 +692,101 @@
     /* ======================================================== */
     .box-desk {
         width: 100%;
-        max-width: 650px;
+        max-width: 600px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 12px;
     }
     .box-stage-view {
         width: 100%;
         background: #020617;
         border: 2px solid #334155;
-        border-radius: 20px;
-        padding: 30px 20px;
+        border-radius: 14px;
+        padding: 16px 14px;
         display: flex;
         flex-direction: column;
         align-items: center;
         position: relative;
-        min-height: 420px;
+        min-height: 320px;
         justify-content: flex-end;
     }
     .floating-folded-paper {
-        width: 135px;
-        height: 52px;
+        width: 125px;
+        height: 46px;
         background: #bbf7d0;
-        border: 2.5px solid #15803d;
+        border: 2px solid #15803d;
         border-radius: 6px;
         color: #14532d;
-        font-size: 11px;
+        font-size: 10.5px;
         font-weight: 900;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 10px 22px rgba(0,0,0,0.6);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
         position: absolute;
-        top: 30px;
+        top: 20px;
         cursor: pointer;
         transition: transform 0.2s;
         animation: floatPaperLoop 2s infinite ease-in-out;
         z-index: 10;
     }
     .floating-folded-paper:hover {
-        transform: scale(1.08);
+        transform: scale(1.06);
     }
     @keyframes floatPaperLoop {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
+        50% { transform: translateY(-8px); }
     }
     .floating-folded-paper.dropping-now {
         animation: dropIntoSlotAnimation 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
     @keyframes dropIntoSlotAnimation {
-        0% { top: 30px; transform: scale(1) rotate(0deg); opacity: 1; }
-        45% { top: 155px; transform: scale(0.92) rotate(4deg); opacity: 1; }
-        100% { top: 220px; transform: scale(0.2) rotate(8deg); opacity: 0; }
+        0% { top: 20px; transform: scale(1) rotate(0deg); opacity: 1; }
+        45% { top: 110px; transform: scale(0.92) rotate(4deg); opacity: 1; }
+        100% { top: 160px; transform: scale(0.2) rotate(8deg); opacity: 0; }
     }
     .guide-drop-arrow {
         position: absolute;
-        top: 95px;
+        top: 75px;
         color: #4ade80;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 900;
         animation: bounceArrow 1s infinite alternate;
     }
     @keyframes bounceArrow {
         0% { transform: translateY(0); }
-        100% { transform: translateY(8px); }
+        100% { transform: translateY(6px); }
     }
     .godrej-ballot-box {
-        width: 250px;
-        height: 230px;
+        width: 220px;
+        height: 200px;
         background: linear-gradient(135deg, #15803d 0%, #14532d 100%);
-        border: 4px solid #052e16;
-        border-radius: 14px;
-        box-shadow: inset 0 3px 10px rgba(255,255,255,0.25), 0 20px 40px rgba(0,0,0,0.7);
+        border: 3.5px solid #052e16;
+        border-radius: 12px;
+        box-shadow: inset 0 3px 10px rgba(255,255,255,0.25), 0 16px 32px rgba(0,0,0,0.7);
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 14px;
-        margin-top: 60px;
+        padding: 12px;
+        margin-top: 45px;
     }
     .box-metal-handle {
-        width: 70px;
-        height: 14px;
-        border: 3.5px solid #cbd5e1;
+        width: 64px;
+        height: 12px;
+        border: 3px solid #cbd5e1;
         border-bottom: none;
-        border-radius: 6px 6px 0 0;
-        margin-bottom: 8px;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: 6px;
     }
     .box-metal-slit {
-        width: 120px;
-        height: 12px;
+        width: 110px;
+        height: 11px;
         background: #022c22;
         border: 2px solid #4ade80;
-        border-radius: 5px;
+        border-radius: 4px;
         box-shadow: inset 0 2px 6px #000;
         position: relative;
         transition: all 0.3s;
@@ -760,24 +798,24 @@
     .box-seal-badge {
         background: #fee2e2;
         color: #991b1b;
-        font-size: 10px;
+        font-size: 9.5px;
         font-weight: 900;
-        padding: 3px 10px;
+        padding: 2px 8px;
         border-radius: 3px;
-        margin-top: 25px;
+        margin-top: 18px;
         border: 1.5px solid #ef4444;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     .box-counter-tag {
-        margin-top: 14px;
+        margin-top: 10px;
         color: #86efac;
         font-family: 'Share Tech Mono', monospace;
-        font-size: 13px;
+        font-size: 12px;
         text-align: center;
-        letter-spacing: 1px;
+        letter-spacing: 0.8px;
     }
     .box-counter-val {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 900;
         color: #ffffff;
     }
@@ -785,24 +823,24 @@
     /* Actions after drop in Stage 3 */
     .stage3-actions {
         display: flex;
-        gap: 12px;
+        gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 8px;
     }
     .btn-drop-ballot {
         background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
         color: #ffffff;
         border: none;
-        padding: 14px 30px;
-        border-radius: 10px;
-        font-size: 15.5px;
+        padding: 9px 22px;
+        border-radius: 8px;
+        font-size: 13.5px;
         font-weight: 900;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 10px;
-        box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+        gap: 8px;
+        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.4);
         transition: all 0.2s;
     }
     .btn-drop-ballot:hover {
@@ -813,15 +851,15 @@
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         color: #ffffff;
         border: none;
-        padding: 14px 28px;
-        border-radius: 10px;
-        font-size: 15.5px;
+        padding: 9px 22px;
+        border-radius: 8px;
+        font-size: 13.5px;
         font-weight: 900;
         cursor: pointer;
         display: none;
         align-items: center;
-        gap: 10px;
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        gap: 8px;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         animation: pulseNext 1.5s infinite;
     }
 
@@ -1191,38 +1229,38 @@
     }
 
     /* ======================================================== */
-    /* MASTER SYSTEM SWITCHER BAR */
+    /* MASTER SYSTEM SWITCHER BAR - Compact */
     /* ======================================================== */
     .system-switcher-bar {
         width: 100%;
         max-width: 1150px;
         background: #0f172a;
-        border: 2px solid #334155;
-        border-radius: 14px;
-        padding: 8px 12px;
+        border: 1.5px solid #334155;
+        border-radius: 10px;
+        padding: 4px 8px;
         display: flex;
-        gap: 10px;
+        gap: 8px;
         justify-content: center;
         align-items: center;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         flex-wrap: wrap;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         position: sticky;
-        top: 10px;
+        top: 6px;
         z-index: 100;
     }
     .sys-tab-btn {
         background: #1e293b;
         color: #94a3b8;
         border: 1.5px solid #475569;
-        padding: 9px 18px;
-        border-radius: 10px;
+        padding: 5px 12px;
+        border-radius: 8px;
         font-weight: 800;
-        font-size: 13.5px;
+        font-size: 12px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         transition: all 0.25s ease;
         text-decoration: none;
     }
@@ -1235,24 +1273,24 @@
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         color: #ffffff;
         border-color: #60a5fa;
-        box-shadow: 0 0 16px rgba(37, 99, 235, 0.45);
+        box-shadow: 0 0 14px rgba(37, 99, 235, 0.45);
     }
     .sys-badge {
         background: rgba(255,255,255,0.2);
-        padding: 2px 7px;
-        border-radius: 12px;
-        font-size: 11px;
+        padding: 1px 6px;
+        border-radius: 10px;
+        font-size: 10px;
     }
 
     /* ======================================================== */
-    /* SYSTEM 2 SPECIFIC STYLES */
+    /* SYSTEM 2 SPECIFIC STYLES - Compact */
     /* ======================================================== */
     .sys2-divider {
         width: 100%;
         max-width: 1150px;
         height: 2px;
         background: linear-gradient(90deg, transparent, #3b82f6, #10b981, transparent);
-        margin: 40px 0 24px 0;
+        margin: 24px 0 16px 0;
         position: relative;
         display: flex;
         justify-content: center;
@@ -1262,52 +1300,53 @@
         background: #0f172a;
         color: #38bdf8;
         border: 1.5px solid #0284c7;
-        padding: 4px 18px;
-        border-radius: 20px;
-        font-size: 13px;
+        padding: 3px 14px;
+        border-radius: 16px;
+        font-size: 12px;
         font-weight: 900;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     .sys2-wrapper {
         width: 100%;
         max-width: 1150px;
         background: #111827;
-        border-radius: 20px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-        border: 2.5px solid #0284c7;
+        border-radius: 14px;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+        border: 2px solid #0284c7;
         overflow: hidden;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
     }
     .sys2-header {
         background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
-        padding: 16px 24px;
+        padding: 8px 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 3px solid #0284c7;
+        border-bottom: 2.5px solid #0284c7;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 8px;
     }
     .sys2-header h2 {
-        font-size: 20px;
+        font-size: 15.5px;
         font-weight: 900;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         color: #ffffff;
+        letter-spacing: 0.2px;
     }
     .sys2-voter-chip {
         background: #0369a1;
         color: #e0f2fe;
         border: 1px solid #38bdf8;
-        padding: 5px 14px;
-        border-radius: 8px;
+        padding: 4px 10px;
+        border-radius: 6px;
         font-weight: 800;
-        font-size: 13px;
+        font-size: 11.5px;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
     }
 
     /* Stamping Controls Toolbar */
@@ -1444,151 +1483,154 @@
         backdrop-filter: blur(10px);
     }
     .sys2-inspect-modal-card {
-        background: #0f172a;
-        border: 2px solid #ef4444;
+        background: #090e1f;
+        border: 2.5px solid #ef4444;
         border-radius: 20px;
-        max-width: 980px;
+        max-width: 1220px;
         width: 100%;
-        max-height: 94vh;
+        max-height: 95vh;
         overflow-y: auto;
-        padding: 22px;
-        box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+        padding: 24px;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.92);
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
         animation: popModal 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .audit-tab-switcher {
         display: flex;
-        gap: 8px;
+        gap: 10px;
         background: #1e293b;
         padding: 6px;
-        border-radius: 10px;
-        border: 1px solid #334155;
+        border-radius: 12px;
+        border: 1.5px solid #334155;
     }
     .audit-tab-btn {
         flex: 1;
         background: transparent;
-        color: #94a3b8;
+        color: #cbd5e1;
         border: none;
-        padding: 8px 14px;
+        padding: 11px 20px;
         border-radius: 8px;
-        font-weight: 800;
-        font-size: 13px;
+        font-weight: 900;
+        font-size: 15.5px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 6px;
+        gap: 8px;
         transition: all 0.2s;
     }
     .audit-tab-btn.active {
         background: #ef4444;
         color: #ffffff;
-        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+        box-shadow: 0 4px 14px rgba(239, 68, 68, 0.5);
     }
     .audit-stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
     }
     .audit-stat-card {
         background: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 10px;
-        padding: 10px 14px;
+        border: 2px solid #334155;
+        border-radius: 12px;
+        padding: 12px 16px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 5px;
     }
     .audit-stat-card .val {
-        font-size: 22px;
+        font-size: 32px;
         font-weight: 900;
         font-family: 'Share Tech Mono', monospace;
     }
     .audit-stat-card .lbl {
-        font-size: 11px;
-        color: #94a3b8;
-        font-weight: 700;
+        font-size: 13.5px;
+        color: #f1f5f9;
+        font-weight: 800;
     }
     .audit-register-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 12.5px;
+        font-size: 14.5px;
         background: #1e293b;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        border: 1px solid #334155;
+        border: 2px solid #334155;
     }
     .audit-register-table th {
-        background: #0f172a;
-        color: #93c5fd;
-        padding: 10px 12px;
+        background: #020617;
+        color: #38bdf8;
+        padding: 13px 15px;
         text-align: left;
-        font-weight: 800;
-        border-bottom: 2px solid #334155;
+        font-weight: 900;
+        font-size: 14.5px;
+        border-bottom: 2.5px solid #38bdf8;
     }
     .audit-register-table td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #334155;
-        color: #f1f5f9;
+        padding: 13px 15px;
+        border-bottom: 1.5px solid #334155;
+        color: #f8fafc;
         vertical-align: middle;
+        font-size: 14.5px;
     }
     .audit-register-table tr:hover td {
-        background: rgba(239, 68, 68, 0.08);
+        background: rgba(239, 68, 68, 0.12);
     }
     .sys2-inspect-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 22px;
         align-items: start;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
         .sys2-inspect-grid {
             grid-template-columns: 1fr;
         }
     }
     .sys2-ballot-replica {
         background: #fffdf5;
-        border: 2px solid #1e293b;
-        color: #0f172a;
+        border: 3px solid #1e293b;
+        color: #000000;
         position: relative;
-        padding: 6px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        border-radius: 6px;
+        padding: 8px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        border-radius: 8px;
     }
     .sys2-reason-card {
-        background: #1e293b;
-        border: 1.5px solid #ef4444;
-        border-radius: 12px;
-        padding: 18px;
+        background: #131d35;
+        border: 2px solid #ef4444;
+        border-radius: 14px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        color: #f1f5f9;
-    }
+        gap: 15px;
+        color: #f8fafc;
     .presiding-officer-seal {
-        margin-top: 12px;
-        border: 2.5px dashed #b91c1c;
-        background: rgba(185, 28, 28, 0.06);
-        border-radius: 8px;
-        padding: 10px 12px;
-        color: #991b1b;
-        font-size: 11.5px;
+        margin-top: 15px;
+        border: 3px solid #b91c1c;
+        background: #fffdfa;
+        border-radius: 10px;
+        padding: 14px 18px;
+        color: #0f172a;
+        font-size: 14.5px;
         transform: rotate(-0.5deg);
         position: relative;
-        box-shadow: inset 0 0 12px rgba(185, 28, 28, 0.08);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
     .presiding-officer-seal .seal-header {
         font-weight: 900;
-        font-size: 12px;
+        font-size: 15.5px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        border-bottom: 1.5px solid #f87171;
-        padding-bottom: 4px;
-        margin-bottom: 6px;
+        border-bottom: 2.5px solid #b91c1c;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        color: #b91c1c;
     }
     .tray-rejected {
         border-color: #ef4444 !important;
@@ -1601,6 +1643,104 @@
         box-shadow: 0 0 16px rgba(239, 68, 68, 0.4);
         transform: translateY(-2px);
     }
+
+    /* ======================================================== */
+    /* PROJECTOR FRIENDLY / PRESENTATION MODE OPTIMIZATIONS */
+    /* ======================================================== */
+    body.projector-mode {
+        padding: 4px 6px;
+        background: #020617;
+    }
+    body.projector-mode .simulator-wrapper,
+    body.projector-mode .sys2-wrapper {
+        max-width: 100%;
+        border-color: #38bdf8;
+        box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+    }
+    body.projector-mode .system-switcher-bar {
+        position: static;
+        margin-bottom: 6px;
+        padding: 3px 6px;
+    }
+    body.projector-mode .stage-section {
+        padding: 6px 10px;
+    }
+    body.projector-mode .td-name {
+        font-size: 14.5px !important;
+        font-weight: 900 !important;
+        color: #000000 !important;
+    }
+    body.projector-mode .td-sym {
+        font-size: 25px !important;
+    }
+    body.projector-mode .ballot-row {
+        height: 48px;
+    }
+    body.projector-mode .folding-arena {
+        height: 330px;
+    }
+    body.projector-mode .box-stage-view {
+        min-height: 290px;
+    }
+    body.projector-mode .stage-title-card h2 {
+        color: #7dd3fc !important;
+        font-weight: 900 !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    body.projector-mode .step-pill.active {
+        box-shadow: 0 0 18px rgba(37, 99, 235, 0.7);
+    }
+    /* Audit Modal Projector-Mode Enhancements */
+    body.projector-mode .sys2-inspect-modal-card {
+        max-width: 98vw;
+        max-height: 96vh;
+        padding: 24px;
+        background: #020617;
+    }
+    body.projector-mode .audit-tab-btn {
+        font-size: 16.5px !important;
+        padding: 12px 22px !important;
+    }
+    body.projector-mode .audit-stat-card .val {
+        font-size: 34px !important;
+    }
+    body.projector-mode .audit-stat-card .lbl {
+        font-size: 14px !important;
+    }
+    body.projector-mode .audit-register-table th {
+        font-size: 15px !important;
+        padding: 13px 16px !important;
+    }
+    body.projector-mode .audit-register-table td {
+        font-size: 15px !important;
+        padding: 13px 16px !important;
+    }
+    body.projector-mode #sys2ReplicaSheet {
+        max-width: 520px !important;
+    }
+    body.projector-mode #sys2ReplicaSheet td.td-name span {
+        font-size: 16.5px !important;
+        font-weight: 900 !important;
+        color: #000000 !important;
+    }
+    body.projector-mode #sys2ReplicaSheet td.td-num {
+        font-size: 18px !important;
+        color: #000000 !important;
+    }
+    body.projector-mode #sys2ReplicaSheet td.td-sym {
+        font-size: 30px !important;
+    }
+    body.projector-mode .presiding-officer-seal {
+        max-width: 520px !important;
+        font-size: 16px !important;
+        padding: 16px 20px !important;
+    }
+    body.projector-mode .presiding-officer-seal .seal-header {
+        font-size: 17.5px !important;
+    }
+    body.projector-mode .sys2-reason-card {
+        padding: 24px !important;
+    }
 </style>
 </head>
 <body>
@@ -1608,13 +1748,16 @@
 <!-- Master Navigation Bar to switch / jump between System 1 and System 2 -->
 <div class="system-switcher-bar">
     <a href="#simulator-wrapper" class="sys-tab-btn active" id="tabBtnSys1" onclick="focusSystem(1, event)">
-        <span>🎯 प्रणाली १: एकल मत प्रशिक्षण सिमुलेटर</span>
-        <span class="sys-badge">Step-by-Step Training</span>
+        <span>🎯 प्रणाली १: एकल प्रशिक्षण</span>
+        <span class="sys-badge">Step-by-Step</span>
     </a>
     <a href="#system2-wrapper" class="sys-tab-btn" id="tabBtnSys2" onclick="focusSystem(2, event)">
-        <span>🗳️ प्रणाली २: वास्तविक मतदान एवं मतगणना सिमुलेटर</span>
-        <span class="sys-badge">Live Multi-Voter Election</span>
+        <span>🗳️ प्रणाली २: लाइव चुनाव</span>
+        <span class="sys-badge">Live Multi-Voter</span>
     </a>
+    <button class="proj-mode-btn" id="topProjBtn" onclick="toggleProjectorMode()" title="कक्षा में प्रोजेक्टर/बड़ी स्क्रीन पर दिखाने हेतु अनुकूलित दृश्य">
+        <span>📽️</span> प्रोजेक्टर मोड (F11)
+    </button>
 </div>
 
 <div class="simulator-wrapper" id="simulator-wrapper">
@@ -1623,11 +1766,14 @@
     <div class="sim-header">
         <h1>
             <span>🗳️</span>
-            <span>प्रणाली १: पारंपरिक मतपत्र एवं मतपेटी सिमुलेटर (एकल मत प्रशिक्षण चक्र)</span>
+            <span>प्रणाली १: मतपत्र व मतपेटी सिमुलेटर (एकल मत चक्र)</span>
         </h1>
         <div class="header-actions">
+            <button class="proj-mode-btn" id="projToggleBtn" onclick="toggleProjectorMode()" title="प्रोजेक्टर/फुलस्क्रीन मोड">
+                <span>📽️</span> प्रोजेक्टर मोड
+            </button>
             <a href="evm_master_simulator.html" class="switch-btn">
-                <span>⚡</span> EVM सिमुलेटर देखें
+                <span>⚡</span> EVM सिमुलेटर
             </a>
             <button class="sound-toggle-btn" id="soundBtn" onclick="toggleSound()">
                 <span id="soundIcon">🔊</span> ध्वनि: चालू
@@ -1982,13 +2128,16 @@
     <div class="sys2-header">
         <h2>
             <span>🗳️</span>
-            <span>प्रणाली २: वास्तविक मतदान एवं मतगणना सिमुलेटर (Live Multi-Voter Election)</span>
+            <span>प्रणाली २: वास्तविक मतदान व मतगणना सिमुलेटर (Live Multi-Voter)</span>
         </h2>
         <div class="header-actions">
+            <button class="proj-mode-btn" id="projToggleBtnSys2" onclick="toggleProjectorMode()" title="प्रोजेक्टर/फुलस्क्रीन मोड">
+                <span>📽️</span> प्रोजेक्टर मोड
+            </button>
             <span class="sys2-voter-chip" id="sys2VoterBadge">
                 <span>👤</span> <span id="sys2CurrentVoterTitle">मतदाता #1</span>
                 <span style="opacity: 0.6;">|</span>
-                <span>📮 पेटी में कुल मत: <b id="sys2BoxVoteCountChip" style="color: #4ade80;">0</b></span>
+                <span>📮 पेटी: <b id="sys2BoxVoteCountChip" style="color: #4ade80;">0</b> मत</span>
             </span>
             <button class="sound-toggle-btn" onclick="sys2_resetEntireFlow()" style="background: #0369a1; border-color: #38bdf8; color: #fff;">
                 <span>🔄</span> नया चुनाव
@@ -2384,17 +2533,17 @@
 <div class="sys2-inspect-modal" id="sys2RejectionModal">
     <div class="sys2-inspect-modal-card">
         <!-- Modal Header -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2.5px solid #334155; padding-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div>
-                <div style="font-size: 19px; font-weight: 900; color: #f87171; display: flex; align-items: center; gap: 8px;">
+                <div style="font-size: 22px; font-weight: 900; color: #fca5a5; display: flex; align-items: center; gap: 8px;">
                     <span>⚖️</span>
                     <span>खारिज मतपत्र विधिक ऑडिट व न्यायिक समीक्षा (Statutory Rejection Audit)</span>
                 </div>
-                <div style="font-size: 12.5px; color: #94a3b8; margin-top: 2px;">
+                <div style="font-size: 14px; font-weight: 700; color: #cbd5e1; margin-top: 3px;">
                     भारत निर्वाचन आयोग • चुनाव संचालन नियम, 1961 (Conduct of Elections Rules - Rule 56) के तहत पूर्ण ऑडिट
                 </div>
             </div>
-            <button type="button" onclick="sys2_closeRejectionInspector()" style="background: #334155; border: 1px solid #475569; color: #fff; width: 34px; height: 34px; border-radius: 50%; font-weight: 900; font-size: 16px; cursor: pointer;">
+            <button type="button" onclick="sys2_closeRejectionInspector()" style="background: #ef4444; border: none; color: #fff; width: 38px; height: 38px; border-radius: 50%; font-weight: 900; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5);">
                 ✕
             </button>
         </div>
@@ -2420,26 +2569,26 @@
         </div>
 
         <!-- Modal Footer Navigation (Visible in Forensic View) -->
-        <div id="sys2AuditFooterBar" style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #334155; padding-top: 14px; flex-wrap: wrap; gap: 10px;">
-            <button type="button" id="sys2BtnPrevReject" onclick="sys2_navigateReject(-1)" class="primary-modal-btn" style="background: #334155;">
+        <div id="sys2AuditFooterBar" style="display: flex; justify-content: space-between; align-items: center; border-top: 2.5px solid #334155; padding-top: 14px; flex-wrap: wrap; gap: 10px;">
+            <button type="button" id="sys2BtnPrevReject" onclick="sys2_navigateReject(-1)" class="primary-modal-btn" style="background: #334155; font-size: 14.5px; font-weight: 900; padding: 9px 18px;">
                 <span>◀</span> पिछला खारिज मत
             </button>
 
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span id="sys2InspectPageIndicator" style="font-weight: 900; color: #38bdf8; font-size: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span id="sys2InspectPageIndicator" style="font-weight: 900; color: #38bdf8; font-size: 16px;">
                     मतपत्र: 1 / 1
                 </span>
-                <select id="sys2AuditBallotJumpSelect" onchange="sys2_showInspectBallot(parseInt(this.value))" style="background: #1e293b; color: #f8fafc; border: 1px solid #475569; padding: 5px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;"></select>
+                <select id="sys2AuditBallotJumpSelect" onchange="sys2_showInspectBallot(parseInt(this.value))" style="background: #1e293b; color: #f8fafc; border: 1.5px solid #475569; padding: 7px 12px; border-radius: 8px; font-size: 13.5px; font-weight: 800; cursor: pointer;"></select>
             </div>
 
-            <div style="display: flex; gap: 8px;">
-                <button type="button" id="sys2BtnNextReject" onclick="sys2_navigateReject(1)" class="primary-modal-btn" style="background: #2563eb;">
+            <div style="display: flex; gap: 10px;">
+                <button type="button" id="sys2BtnNextReject" onclick="sys2_navigateReject(1)" class="primary-modal-btn" style="background: #2563eb; font-size: 14.5px; font-weight: 900; padding: 9px 20px;">
                     अगला खारिज मत <span>▶</span>
                 </button>
-                <button type="button" onclick="sys2_switchAuditTab('register')" class="primary-modal-btn" style="background: #475569;">
+                <button type="button" onclick="sys2_switchAuditTab('register')" class="primary-modal-btn" style="background: #475569; font-size: 14.5px; font-weight: 900; padding: 9px 18px;">
                     <span>📋</span> पंजी देखें
                 </button>
-                <button type="button" onclick="sys2_closeRejectionInspector()" class="primary-modal-btn" style="background: #dc2626;">
+                <button type="button" onclick="sys2_closeRejectionInspector()" class="primary-modal-btn" style="background: #dc2626; font-size: 14.5px; font-weight: 900; padding: 9px 18px;">
                     ✕ बंद करें
                 </button>
             </div>
@@ -2569,6 +2718,61 @@ function toggleSound() {
         btn.innerHTML = `<span id="soundIcon">🔇</span> ध्वनि: बंद`;
     }
 }
+
+/* Projector & Fullscreen Mode Controller */
+function toggleProjectorMode() {
+    const isProj = document.body.classList.toggle('projector-mode');
+    const labels = [
+        document.getElementById('topProjBtn'),
+        document.getElementById('projToggleBtn'),
+        document.getElementById('projToggleBtnSys2')
+    ];
+    
+    labels.forEach(btn => {
+        if (btn) {
+            btn.innerHTML = `<span>📽️</span> ${isProj ? 'सामान्य दृश्य' : 'प्रोजेक्टर मोड (F11)'}`;
+            if (isProj) {
+                btn.style.background = '#16a34a';
+                btn.style.borderColor = '#4ade80';
+            } else {
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }
+        }
+    });
+
+    if (isProj) {
+        playSound('stamp');
+        if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        }
+    } else {
+        if (document.fullscreenElement && document.exitFullscreen) {
+            document.exitFullscreen().catch(() => {});
+        }
+    }
+}
+
+// Listen for fullscreen change (e.g. Esc key)
+document.addEventListener('fullscreenchange', () => {
+    const isFullScreen = !!document.fullscreenElement;
+    const bodyHasProj = document.body.classList.contains('projector-mode');
+    if (!isFullScreen && bodyHasProj) {
+        document.body.classList.remove('projector-mode');
+        const labels = [
+            document.getElementById('topProjBtn'),
+            document.getElementById('projToggleBtn'),
+            document.getElementById('projToggleBtnSys2')
+        ];
+        labels.forEach(btn => {
+            if (btn) {
+                btn.innerHTML = `<span>📽️</span> प्रोजेक्टर मोड (F11)`;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }
+        });
+    }
+});
 
 /* ======================================================== */
 /* PIPELINE NAVIGATION */
@@ -2752,36 +2956,36 @@ function setupStage2Visuals() {
     document.getElementById('vertTopFlap').style.transform = 'rotateX(0deg)';
     document.getElementById('wetSmudgeInk').style.display = 'none';
 
-    // Populate Left Page
+    // Populate Left Page - High Contrast Black Text
     const leftPage = document.getElementById('bookLeftPage');
     leftPage.innerHTML = `
-        <div style="border-bottom: 2px solid #0f172a; padding-bottom: 4px; font-size: 11px; font-weight: 900;">
+        <div style="border-bottom: 2.5px solid #0f172a; padding: 4px 6px; font-size: 11.5px; font-weight: 900; color: #000000; background: #fef08a; border-radius: 4px; margin-bottom: 6px;">
             भारत निर्वाचन आयोग • मतपत्र PB-2026/0842
         </div>
     `;
     candidates.forEach(cand => {
         const isSelected = (stampedCandidate && stampedCandidate.id === cand.id);
         const row = document.createElement('div');
-        row.style.cssText = `padding: 6px 4px; border-bottom: 1.5px solid #0f172a; font-size: 12px; font-weight: 800; color: #0f172a; ${isSelected ? 'background: #eff6ff;' : ''}`;
-        row.innerHTML = `<span>${cand.num}. ${cand.name}</span>`;
+        row.style.cssText = `padding: 6px 8px; border-bottom: 1.5px solid #0f172a; font-size: 13.5px; font-weight: 900; color: #000000; ${isSelected ? 'background: #dbeafe; border-left: 4px solid #2563eb;' : ''}`;
+        row.innerHTML = `<span style="color: #000000; font-weight: 900;">${cand.num}. ${cand.name}</span>`;
         leftPage.appendChild(row);
     });
 
-    // Populate Right Flap
+    // Populate Right Flap - High Contrast
     const frontFace = document.getElementById('flapFaceFront');
     frontFace.innerHTML = `
-        <div style="border-bottom: 2px solid #0f172a; padding-bottom: 4px; font-size: 11px; font-weight: 900; text-align: right;">
+        <div style="border-bottom: 2.5px solid #0f172a; padding: 4px 6px; font-size: 11.5px; font-weight: 900; text-align: right; color: #000000; background: #fef08a; border-radius: 4px; margin-bottom: 6px;">
             चिह्न व मुहर स्थान
         </div>
     `;
     candidates.forEach(cand => {
         const isSelected = (stampedCandidate && stampedCandidate.id === cand.id);
         const row = document.createElement('div');
-        row.style.cssText = `padding: 4px 6px; border-bottom: 1.5px solid #0f172a; display: flex; justify-content: space-between; align-items: center; ${isSelected ? 'background: #eff6ff;' : ''}`;
+        row.style.cssText = `padding: 4px 8px; border-bottom: 1.5px solid #0f172a; display: flex; justify-content: space-between; align-items: center; ${isSelected ? 'background: #dbeafe; border-right: 4px solid #2563eb;' : ''}`;
         row.innerHTML = `
-            <span style="font-size: 18px;">${cand.sym}</span>
-            <div style="width: 50px; height: 32px; border: 1.5px dashed #94a3b8; border-radius: 4px; display: flex; justify-content: center; align-items: center; position: relative;">
-                ${isSelected ? '<span style="color: var(--purple-ink); font-size: 20px; font-weight: 900;">卍</span>' : ''}
+            <span style="font-size: 20px; color: #000000; font-weight: 900;">${cand.sym}</span>
+            <div style="width: 50px; height: 32px; border: 1.5px dashed #475569; border-radius: 4px; display: flex; justify-content: center; align-items: center; position: relative; background: #ffffff;">
+                ${isSelected ? '<span style="color: #581c87; font-size: 22px; font-weight: 900;">卍</span>' : ''}
             </div>
         `;
         frontFace.appendChild(row);
@@ -2804,30 +3008,30 @@ function triggerRealPaperFold(type) {
         document.getElementById('vertTopFlap').style.transform = 'rotateX(0deg)';
         document.getElementById('wetSmudgeInk').style.display = 'none';
 
-        // Fill Top Flap (Cand 0, 1)
+        // Fill Top Flap (Cand 0, 1) - High Contrast Black Text
         const topFront = document.getElementById('vertFlapFront');
-        topFront.innerHTML = `<div style="font-size: 10.5px; font-weight: 900; border-bottom: 1.5px solid #0f172a; margin-bottom: 4px;">मतपत्र (ऊपरी भाग)</div>`;
+        topFront.innerHTML = `<div style="font-size: 11.5px; font-weight: 900; border-bottom: 2px solid #0f172a; margin-bottom: 4px; color: #000000; background: #fef08a; padding: 3px 6px; border-radius: 4px;">मतपत्र (ऊपरी भाग)</div>`;
         for (let i = 0; i <= 1; i++) {
             const cand = candidates[i];
             const isSelected = (stampedCandidate && stampedCandidate.id === cand.id);
             topFront.innerHTML += `
-                <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; padding: 4px 0; border-bottom: 1px solid #cbd5e1; ${isSelected ? 'background: #eff6ff;' : ''}">
-                    <span>${cand.num}. ${cand.name}</span>
-                    <span>${cand.sym} ${isSelected ? '卍' : ''}</span>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; color: #000000; padding: 6px 8px; border-bottom: 1.5px solid #0f172a; ${isSelected ? 'background: #dbeafe; border-left: 4px solid #2563eb;' : ''}">
+                    <span style="color: #000000; font-weight: 900;">${cand.num}. ${cand.name}</span>
+                    <span style="color: #000000; font-weight: 900;">${cand.sym} ${isSelected ? '<span style="color: #581c87; font-size: 18px;">卍</span>' : ''}</span>
                 </div>
             `;
         }
 
-        // Fill Bottom Half (Cand 2, 3, 4)
+        // Fill Bottom Half (Cand 2, 3, 4) - High Contrast Black Text
         const botHalf = document.getElementById('vertBottomHalf');
-        botHalf.innerHTML = `<div style="font-size: 10.5px; font-weight: 900; border-bottom: 1.5px solid #0f172a; margin-bottom: 4px;">मतपत्र (निचला भाग)</div>`;
+        botHalf.innerHTML = `<div style="font-size: 11.5px; font-weight: 900; border-bottom: 2px solid #0f172a; margin-bottom: 4px; color: #000000; background: #fef08a; padding: 3px 6px; border-radius: 4px;">मतपत्र (निचला भाग)</div>`;
         for (let i = 2; i <= 4; i++) {
             const cand = candidates[i];
             const isSelected = (stampedCandidate && stampedCandidate.id === cand.id);
             botHalf.innerHTML += `
-                <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; padding: 4px 0; border-bottom: 1px solid #cbd5e1; ${isSelected ? 'background: #eff6ff;' : ''}">
-                    <span>${cand.num}. ${cand.name}</span>
-                    <span>${cand.sym} ${isSelected ? '卍' : ''}</span>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; color: #000000; padding: 6px 8px; border-bottom: 1.5px solid #0f172a; ${isSelected ? 'background: #dbeafe; border-left: 4px solid #2563eb;' : ''}">
+                    <span style="color: #000000; font-weight: 900;">${cand.num}. ${cand.name}</span>
+                    <span style="color: #000000; font-weight: 900;">${cand.sym} ${isSelected ? '<span style="color: #581c87; font-size: 18px;">卍</span>' : ''}</span>
                 </div>
             `;
         }
@@ -2838,18 +3042,28 @@ function triggerRealPaperFold(type) {
             vertCont.classList.add('is-vert-folded');
 
             setTimeout(() => {
-                playSound('buzzer');
+                const hasStamp = (stampedCandidate !== null);
                 const smudge = document.getElementById('wetSmudgeInk');
-                smudge.style.display = 'flex';
-                smudge.innerHTML = '卐';
-                smudge.title = 'मोड़ने से छपी दक्षिणावर्ती छाप (Clockwise Smudge: 卐)';
-                smudge.style.bottom = '40px';
-                smudge.style.right = '45px';
 
-                statusBar.className = 'fold-status-bar error-bar';
-                statusText.innerHTML = `
-                    <span>❌ <b>गलत मोड़! मतपत्र खारिज:</b> सीधा मोड़ने पर ताज़ा गीली स्याही दूसरे प्रत्याशी पर छप गई! ऐसा अमान्य मतपत्र मतपेटी में नहीं डाला जा सकता।</span>
-                `;
+                if (hasStamp) {
+                    playSound('buzzer');
+                    smudge.style.display = 'flex';
+                    smudge.innerHTML = '卐';
+                    smudge.title = 'मोड़ने से छपी दक्षिणावर्ती छाप (Clockwise Smudge: 卐)';
+                    smudge.style.bottom = '40px';
+                    smudge.style.right = '45px';
+
+                    statusBar.className = 'fold-status-bar error-bar';
+                    statusText.innerHTML = `
+                        <span>❌ <b>गलत मोड़! मतपत्र खारिज:</b> सीधा मोड़ने पर <b>${stampedCandidate.name}</b> की ताज़ा गीली स्याही विपरीत प्रत्याशी पर छप गई! ऐसा अमान्य मतपत्र मतपेटी में नहीं डाला जा सकता।</span>
+                    `;
+                } else {
+                    smudge.style.display = 'none';
+                    statusBar.className = 'fold-status-bar error-bar';
+                    statusText.innerHTML = `
+                        <span>⚠️ <b>सीधा मोड़:</b> यद्यपि यह मोड़ने का गलत तरीका है, परंतु मतपत्र पर कोई मुहर न होने के कारण कोई स्याही नहीं फैली। (मतदान हेतु पहले मुहर लगाना आवश्यक है)</span>
+                    `;
+                }
                 statusBtn.textContent = '🔄 कागज़ सीधा खोलें';
                 statusBtn.style.display = 'block';
                 statusBtn.onclick = () => setupStage2Visuals();
@@ -2867,10 +3081,17 @@ function triggerRealPaperFold(type) {
         document.getElementById('bookRightFlap').style.transform = 'rotateY(-180deg)';
         bookCont.classList.add('is-horizontal-folded');
 
+        const hasStamp = (stampedCandidate !== null);
         statusBar.className = 'fold-status-bar success-bar';
-        statusText.innerHTML = `
-            <span>✓ <b>कागज़ सचमुच आड़ा मुड़ रहा है!</b> स्याही उसी खाने में सुरक्षित रही। अब मतपेटी आ रही है...</span>
-        `;
+        if (hasStamp) {
+            statusText.innerHTML = `
+                <span>✓ <b>कागज़ सचमुच आड़ा मुड़ रहा है!</b> स्याही उसी खाने में सुरक्षित रही। अब मतपेटी आ रही है...</span>
+            `;
+        } else {
+            statusText.innerHTML = `
+                <span>✓ <b>कागज़ सचमुच आड़ा मुड़ रहा है!</b> मतपत्र कोरा है (कोई मुहर नहीं)। अब मतपेटी आ रही है...</span>
+            `;
+        }
         statusBtn.style.display = 'none';
         statusBar.style.display = 'flex';
 
@@ -2909,12 +3130,14 @@ function dropBallotIntoSlit() {
     document.getElementById('dropArrow').style.display = 'none';
     document.getElementById('btnDropBallot').disabled = true;
 
-    // Add this user vote to ballot box collection
+    // Add this user vote to ballot box collection safely
+    const isBlank = (stampedCandidate === null);
     ballotBoxSlips.push({
-        candidateId: stampedCandidate.id,
-        name: stampedCandidate.name,
-        sym: stampedCandidate.sym,
-        isValid: true
+        candidateId: isBlank ? -1 : stampedCandidate.id,
+        name: isBlank ? "कोरा मतपत्र" : stampedCandidate.name,
+        sym: isBlank ? "❌" : stampedCandidate.sym,
+        isValid: isBlank ? false : isStampValid,
+        rejectionReason: isBlank ? 'कोरा मतपत्र (कोई मुहर नहीं लगी)' : (!isStampValid ? 'विभाजन रेखा पर मुहर' : '')
     });
 
     setTimeout(() => {
@@ -3143,7 +3366,7 @@ function processNextBallotSort() {
 
     } else {
         playSound('buzzer');
-        inspector.innerHTML = `जाँच: मतपत्र <b>PB-${currentSortIndex + 1}</b> ➔ <b style="color: #ef4444;">विभाजन रेखा पर मुहर (अवैध मत - खारिज!)</b>`;
+        inspector.innerHTML = `जाँच: मतपत्र <b>PB-${currentSortIndex + 1}</b> ➔ <b style="color: #ef4444;">${slip.rejectionReason || 'विभाजन रेखा पर मुहर'} (अवैध मत - खारिज!)</b>`;
 
         const rejTray = document.getElementById('tray_cand_rejected');
         rejTray.classList.add('active-receiving');
@@ -3459,15 +3682,15 @@ function sys2_setupStage2Visuals() {
     sys2_candidates.forEach(c => {
         const hasStamp = sys2_currentStamps.some(s => s.candId === c.id);
         leftCont.innerHTML += `
-            <div style="display:flex; justify-content:space-between; font-size:11.5px; font-weight:800; border-bottom:1px solid #e2e8f0; padding:2px 0;">
-                <span>${c.num}. ${c.name}</span>
-                <span>${c.sym}</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900; color:#000000; border-bottom:1.5px solid #0f172a; padding:5px 6px; ${hasStamp ? 'background:#dbeafe; border-left:4px solid #0284c7;' : ''}">
+                <span style="color:#000000; font-weight:900;">${c.num}. ${c.name}</span>
+                <span style="color:#000000; font-size:19px;">${c.sym}</span>
             </div>
         `;
         rightCont.innerHTML += `
-            <div style="display:flex; justify-content:space-between; font-size:11.5px; font-weight:800; border-bottom:1px solid #e2e8f0; padding:2px 0; color: #581c87;">
-                <span>कोष्ठक</span>
-                <span>${hasStamp ? '卍' : '—'}</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900; border-bottom:1.5px solid #0f172a; padding:5px 6px; color: #581c87; ${hasStamp ? 'background:#dbeafe; border-right:4px solid #0284c7;' : ''}">
+                <span style="color:#475569; font-size:11px; font-weight:800;">मुहर स्थान</span>
+                <span style="font-size:20px; font-weight:900;">${hasStamp ? '卍' : '—'}</span>
             </div>
         `;
     });
@@ -3477,9 +3700,26 @@ function sys2_chooseFold(type) {
     sys2_currentFold = type;
     const statusBar = document.getElementById('sys2FoldStatusBar');
     const statusText = document.getElementById('sys2FoldStatusText');
+    const btnHoriz = document.getElementById('sys2BtnFoldHoriz');
+    const btnVert = document.getElementById('sys2BtnFoldVert');
+
+    if (btnHoriz && btnVert) {
+        if (type === 'horizontal') {
+            btnHoriz.style.borderColor = '#10b981';
+            btnHoriz.style.background = 'rgba(16, 185, 129, 0.18)';
+            btnVert.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+            btnVert.style.background = 'rgba(15, 23, 42, 0.8)';
+        } else {
+            btnVert.style.borderColor = '#ef4444';
+            btnVert.style.background = 'rgba(239, 68, 68, 0.2)';
+            btnHoriz.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+            btnHoriz.style.background = 'rgba(15, 23, 42, 0.8)';
+        }
+    }
 
     if (type === 'horizontal') {
         document.getElementById('sys2VertPaperContainer').style.display = 'none';
+        document.getElementById('sys2WetSmudgeInk').style.display = 'none';
         const bookCont = document.getElementById('sys2BookPaperContainer');
         bookCont.style.display = 'flex';
         bookCont.className = 'book-paper-container';
@@ -3488,10 +3728,17 @@ function sys2_chooseFold(type) {
         document.getElementById('sys2BookRightFlap').style.transform = 'rotateY(-180deg)';
         bookCont.classList.add('is-horizontal-folded');
 
+        const hasAnyStamp = (sys2_currentStamps && sys2_currentStamps.length > 0);
         statusBar.className = 'fold-status-bar success-bar';
-        statusText.innerHTML = `
-            <span>✓ <b>आड़ा मोड़ (Horizontal) चुना गया:</b> स्याही उसी खाने में सुरक्षित रही। अब मतपेटी में डालें।</span>
-        `;
+        if (hasAnyStamp) {
+            statusText.innerHTML = `
+                <span>✓ <b>आड़ा मोड़ (Horizontal) चुना गया:</b> स्याही उसी खाने में सुरक्षित रही। अब मतपेटी में डालें।</span>
+            `;
+        } else {
+            statusText.innerHTML = `
+                <span>✓ <b>आड़ा मोड़ (Horizontal) चुना गया:</b> मतपत्र कोरा है (कोई मुहर नहीं)। अब मतपेटी में डालें।</span>
+            `;
+        }
         statusBar.style.display = 'flex';
 
     } else if (type === 'vertical') {
@@ -3500,29 +3747,29 @@ function sys2_chooseFold(type) {
         vertCont.style.display = 'block';
         vertCont.className = 'vert-paper-container';
 
-        // Fill Top & Bottom halves
+        // Fill Top & Bottom halves - High Contrast Black Text
         const topFront = document.getElementById('sys2VertTopFront');
-        topFront.innerHTML = `<div style="font-size: 10.5px; font-weight: 900; border-bottom: 1.5px solid #0f172a; margin-bottom: 4px;">मतपत्र (ऊपरी भाग)</div>`;
+        topFront.innerHTML = `<div style="font-size: 11.5px; font-weight: 900; border-bottom: 2px solid #0f172a; margin-bottom: 4px; color:#000000; background:#fef08a; padding:3px 6px; border-radius:4px;">मतपत्र (ऊपरी भाग)</div>`;
         for (let i = 0; i <= 1; i++) {
             const cand = sys2_candidates[i];
             const hasStamp = sys2_currentStamps.some(s => s.candId === cand.id);
             topFront.innerHTML += `
-                <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; padding:3px 0; border-bottom:1px solid #cbd5e1;">
-                    <span>${cand.num}. ${cand.name}</span>
-                    <span>${cand.sym} ${hasStamp ? '卍' : ''}</span>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900; color:#000000; padding:6px 6px; border-bottom:1.5px solid #0f172a; ${hasStamp ? 'background:#dbeafe; border-left:4px solid #0284c7;' : ''}">
+                    <span style="color:#000000; font-weight:900;">${cand.num}. ${cand.name}</span>
+                    <span style="color:#000000; font-weight:900;">${cand.sym} ${hasStamp ? '<span style="color:#581c87; font-size:18px;">卍</span>' : ''}</span>
                 </div>
             `;
         }
 
         const botHalf = document.getElementById('sys2VertBottomHalf');
-        botHalf.innerHTML = `<div style="font-size: 10.5px; font-weight: 900; border-bottom: 1.5px solid #0f172a; margin-bottom: 4px;">मतपत्र (निचला भाग)</div>`;
+        botHalf.innerHTML = `<div style="font-size: 11.5px; font-weight: 900; border-bottom: 2px solid #0f172a; margin-bottom: 4px; color:#000000; background:#fef08a; padding:3px 6px; border-radius:4px;">मतपत्र (निचला भाग)</div>`;
         for (let i = 2; i <= 4; i++) {
             const cand = sys2_candidates[i];
             const hasStamp = sys2_currentStamps.some(s => s.candId === cand.id);
             botHalf.innerHTML += `
-                <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; padding:3px 0; border-bottom:1px solid #cbd5e1;">
-                    <span>${cand.num}. ${cand.name}</span>
-                    <span>${cand.sym} ${hasStamp ? '卍' : ''}</span>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900; color:#000000; padding:6px 6px; border-bottom:1.5px solid #0f172a; ${hasStamp ? 'background:#dbeafe; border-left:4px solid #0284c7;' : ''}">
+                    <span style="color:#000000; font-weight:900;">${cand.num}. ${cand.name}</span>
+                    <span style="color:#000000; font-weight:900;">${cand.sym} ${hasStamp ? '<span style="color:#581c87; font-size:18px;">卍</span>' : ''}</span>
                 </div>
             `;
         }
@@ -3533,19 +3780,30 @@ function sys2_chooseFold(type) {
             vertCont.classList.add('is-vert-folded');
 
             setTimeout(() => {
+                const hasAnyStamp = (sys2_currentStamps && sys2_currentStamps.length > 0);
                 const smudge = document.getElementById('sys2WetSmudgeInk');
-                smudge.style.display = 'flex';
-                smudge.innerHTML = '卐';
-                smudge.title = 'मोड़ने से छपी दक्षिणावर्ती छाप (Clockwise Smudge: 卐)';
-                smudge.style.bottom = '40px';
-                smudge.style.right = '45px';
 
-                statusBar.className = 'fold-status-bar error-bar';
-                statusText.innerHTML = `
-                    <span>⚠️ <b>सीधा मोड़ चुना गया:</b> ताज़ा गीली स्याही सामने वाले प्रत्याशी पर छप गई है! (वास्तविक मतदान में यह मतपत्र पेटी में जा सकता है, किन्तु मतगणना के समय इस पर निर्णय होगा!)</span>
-                `;
-                statusBar.style.display = 'flex';
-                playSound('buzzer');
+                if (hasAnyStamp) {
+                    smudge.style.display = 'flex';
+                    smudge.innerHTML = '卐';
+                    smudge.title = 'मोड़ने से छपी दक्षिणावर्ती छाप (Clockwise Smudge: 卐)';
+                    smudge.style.bottom = '40px';
+                    smudge.style.right = '45px';
+
+                    statusBar.className = 'fold-status-bar error-bar';
+                    statusText.innerHTML = `
+                        <span>⚠️ <b>सीधा मोड़ चुना गया:</b> ताज़ा गीली स्याही सामने वाले प्रत्याशी पर छप गई है! (वास्तविक मतदान में यह मतपत्र पेटी में जा सकता है, किन्तु मतगणना के समय इस पर निर्णय होगा!)</span>
+                    `;
+                    statusBar.style.display = 'flex';
+                    playSound('buzzer');
+                } else {
+                    smudge.style.display = 'none';
+                    statusBar.className = 'fold-status-bar error-bar';
+                    statusText.innerHTML = `
+                        <span>⚠️ <b>सीधा मोड़ चुना गया:</b> यद्यपि यह मोड़ने का गलत तरीका है, परंतु मतपत्र पर <b>कोई मुहर न होने (कोरा मतपत्र)</b> के कारण कोई स्याही नहीं फैली। (मतगणना में यह कोरा होने के कारण निरस्त होगा)</span>
+                    `;
+                    statusBar.style.display = 'flex';
+                }
             }, 700);
         }, 100);
     }
@@ -3590,15 +3848,15 @@ function sys2_dropBallot() {
 
     if (sys2_currentStamps.length === 0) {
         isValid = false;
-        reason = 'कोरा मतपत्र (Blank Ballot): मतदाता द्वारा किसी भी प्रत्याशी के पक्ष में मुहर नहीं लगाई गई। (Rule 56(2)(a))';
-        ruleRef = 'Rule 56(2)(a), Conduct of Elections Rules, 1961';
+        reason = 'कोरा मतपत्र (Blank Ballot): मतदाता द्वारा किसी भी प्रत्याशी के पक्ष में मुहर नहीं लगाई गई। (Rule 56(2)(d))';
+        ruleRef = 'Rule 56(2)(d), Conduct of Elections Rules, 1961';
     } else if (stampedCandIds.length > 1) {
         // Priority 1: Multiple candidates stamped (2, 3 or more candidates)
         isValid = false;
         const candNames = stampedCandIds.map(id => sys2_candidates.find(c => c.id === id).name).join(', ');
         reason = `एक से अधिक प्रत्याशियों पर मुहर: मतदाता द्वारा ${stampedCandIds.length} प्रत्याशियों (${candNames}) के पक्ष में मुहर लगाई गई। (Rule 56(2)(b))`;
         ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
-    } else if (isVerticalFold && sys2_currentStamps.length > 0) {
+    } else if (isVerticalFold && stampedCandIds.length > 0) {
         // Priority 2: Vertical folding wet smudge transfer to another candidate
         const originalRow = sys2_currentStamps[0].rowIndex;
         const mirroredRow = (originalRow <= 1) ? (originalRow + 2) : (originalRow - 2);
@@ -3607,28 +3865,31 @@ function sys2_dropBallot() {
         const cand2 = (mirroredRow >= 0 && sys2_candidates[mirroredRow]) ? sys2_candidates[mirroredRow].name : "अन्य प्रत्याशी";
         reason = `सीधा (ऊपर से नीचे) गलत मोड़ने के कारण ताज़ा गीली स्याही ${cand1} से ${cand2} के खाने में छप गई, जिससे दो प्रत्याशियों पर निशान बन गए। (Rule 56(2)(b))`;
         ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
-    } else if (hasBorderStamp && stampedCandIds.length <= 1) {
+    } else if (hasBorderStamp) {
         // Priority 3: Borderline stamp making intent ambiguous between candidates
         isValid = false;
         reason = 'विभाजन रेखा पर मुहर (Borderline Stamp): मुहर दो प्रत्याशियों के मध्य विभाजक काली रेखा पर लगी है, जिससे मतदाता का आशय अनिश्चित है। (Rule 56(2)(b))';
         ruleRef = 'Rule 56(2)(b), Conduct of Elections Rules, 1961';
-    } else if (hasOutsideStamp && stampedCandIds.length === 0) {
+    } else if (hasOutsideStamp) {
         // Priority 4: Stamped outside candidate rows
         isValid = false;
-        reason = 'खाने से बाहर मुहर (Outside Candidate Area): मुहर प्रत्याशी के विहित खाने से बाहर प्रतिपर्ण या शीर्षक पट्टी पर लगी है। (Rule 56(2)(g))';
-        ruleRef = 'Rule 56(2)(g), Conduct of Elections Rules, 1961';
+        reason = 'खाने से बाहर मुहर (Outside Candidate Area): मुहर प्रत्याशी के विहित खाने से बाहर प्रतिपर्ण या शीर्षक पट्टी पर लगी है। (Rule 56(2)(h))';
+        ruleRef = 'Rule 56(2)(h), Conduct of Elections Rules, 1961';
     } else if (stampedCandIds.length === 1) {
         isValid = true;
         chosenCand = sys2_candidates[stampedCandIds[0]];
     }
+
+    const hasActualSmudge = isVerticalFold && stampedCandIds.length > 0;
+    const smudgeRow = hasActualSmudge && sys2_currentStamps[0].rowIndex >= 0 ? ((sys2_currentStamps[0].rowIndex <= 1) ? sys2_currentStamps[0].rowIndex + 2 : sys2_currentStamps[0].rowIndex - 2) : -1;
 
     const ballotRecord = {
         voterNum: sys2_voterCount,
         slipCode: `PB-${sys2_voterCount < 10 ? '0' + sys2_voterCount : sys2_voterCount}`,
         stamps: JSON.parse(JSON.stringify(sys2_currentStamps)),
         foldType: sys2_currentFold,
-        hasSmudge: isVerticalFold && sys2_currentStamps.length > 0,
-        smudgeRowIndex: isVerticalFold && sys2_currentStamps.length > 0 ? ((sys2_currentStamps[0].rowIndex <= 1) ? sys2_currentStamps[0].rowIndex + 2 : sys2_currentStamps[0].rowIndex - 2) : -1,
+        hasSmudge: hasActualSmudge,
+        smudgeRowIndex: smudgeRow,
         isValid: isValid,
         candidateId: chosenCand ? chosenCand.id : -1,
         candidateName: chosenCand ? chosenCand.name : (isValid ? 'वैध' : 'निरस्त'),
@@ -4232,31 +4493,31 @@ function sys2_renderAuditRegister() {
     regContainer.innerHTML = `
         <!-- Statistical Overview Cards -->
         <div class="audit-stats-grid">
-            <div class="audit-stat-card" style="border-color: #3b82f6;">
-                <span class="lbl">कुल मतपेटी मत (Box Total)</span>
-                <span class="val" style="color: #60a5fa;">${totalBoxVotes}</span>
+            <div class="audit-stat-card" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.12);">
+                <span class="lbl" style="color: #93c5fd; font-size: 13.5px; font-weight: 800;">कुल मतपेटी मत (Box Total)</span>
+                <span class="val" style="color: #60a5fa; font-size: 32px; font-weight: 900;">${totalBoxVotes}</span>
             </div>
-            <div class="audit-stat-card" style="border-color: #22c55e;">
-                <span class="lbl">कुल वैध मत (Valid Votes)</span>
-                <span class="val" style="color: #4ade80;">${totalValid}</span>
+            <div class="audit-stat-card" style="border-color: #22c55e; background: rgba(34, 197, 94, 0.12);">
+                <span class="lbl" style="color: #86efac; font-size: 13.5px; font-weight: 800;">कुल वैध मत (Valid Votes)</span>
+                <span class="val" style="color: #4ade80; font-size: 32px; font-weight: 900;">${totalValid}</span>
             </div>
-            <div class="audit-stat-card" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.08);">
-                <span class="lbl" style="color: #fca5a5;">कुल खारिज मत (Rejected)</span>
-                <span class="val" style="color: #f87171;">${rejectedList.length}</span>
+            <div class="audit-stat-card" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.14);">
+                <span class="lbl" style="color: #fca5a5; font-size: 13.5px; font-weight: 800;">कुल खारिज मत (Rejected)</span>
+                <span class="val" style="color: #f87171; font-size: 32px; font-weight: 900;">${rejectedList.length}</span>
             </div>
-            <div class="audit-stat-card" style="border-color: #eab308;">
-                <span class="lbl">निरस्तीकरण दर (Rejection Rate)</span>
-                <span class="val" style="color: #fde047;">${rejectPct}%</span>
+            <div class="audit-stat-card" style="border-color: #eab308; background: rgba(234, 179, 8, 0.12);">
+                <span class="lbl" style="color: #fef08a; font-size: 13.5px; font-weight: 800;">निरस्तीकरण दर (Rejection Rate)</span>
+                <span class="val" style="color: #fde047; font-size: 32px; font-weight: 900;">${rejectPct}%</span>
             </div>
         </div>
 
         <!-- Audit Register Table -->
-        <div style="background: #1e293b; border-radius: 12px; border: 1.5px solid #334155; overflow: hidden;">
-            <div style="padding: 12px 16px; background: #0f172a; border-bottom: 2px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-                <span style="font-weight: 900; font-size: 14px; color: #f87171; display: flex; align-items: center; gap: 6px;">
-                    <span>📋</span> निरस्त मतपत्र पंजी (Form 20 Register of Rejected Ballot Papers)
+        <div style="background: #1e293b; border-radius: 12px; border: 2px solid #334155; overflow: hidden;">
+            <div style="padding: 14px 18px; background: #0b1329; border-bottom: 2.5px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span style="font-weight: 900; font-size: 16.5px; color: #fca5a5; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 19px;">📋</span> निरस्त मतपत्र पंजी (Form 20 Register of Rejected Ballot Papers)
                 </span>
-                <span style="font-size: 11.5px; color: #94a3b8;">
+                <span style="font-size: 13px; color: #cbd5e1; font-weight: 700; background: #1e293b; padding: 4px 10px; border-radius: 6px; border: 1px solid #475569;">
                     Conduct of Elections Rules, 1961 - Rule 56(2)
                 </span>
             </div>
@@ -4265,34 +4526,38 @@ function sys2_renderAuditRegister() {
                 <table class="audit-register-table">
                     <thead>
                         <tr>
-                            <th style="width: 45px;">क्र.</th>
-                            <th style="width: 80px;">मतपत्र कोड</th>
-                            <th style="width: 80px;">मतदाता सं.</th>
-                            <th style="width: 120px;">मोड़ने का प्रकार</th>
+                            <th style="width: 50px; text-align: center;">क्र.</th>
+                            <th style="width: 95px;">मतपत्र कोड</th>
+                            <th style="width: 95px;">मतदाता सं.</th>
+                            <th style="width: 135px;">मोड़ने का प्रकार</th>
                             <th>निरस्तीकरण का विधिक आधार (Grounds for Rejection)</th>
-                            <th style="width: 140px;">विधिक धारा</th>
-                            <th style="width: 95px; text-align: center;">फोरेंसिक जांच</th>
+                            <th style="width: 145px;">विधिक धारा</th>
+                            <th style="width: 105px; text-align: center;">फोरेंसिक जांच</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${rejectedList.map((slip, idx) => `
                             <tr>
-                                <td style="font-weight: 800; color: #94a3b8;">${idx + 1}</td>
-                                <td style="font-weight: 900; font-family: monospace; color: #f87171;">${slip.slipCode}</td>
-                                <td style="font-weight: 800; color: #38bdf8;">#${slip.voterNum}</td>
+                                <td style="font-weight: 900; color: #cbd5e1; text-align: center; font-size: 15px;">${idx + 1}</td>
+                                <td style="font-weight: 900; font-family: monospace; color: #f87171; font-size: 15.5px;">${slip.slipCode}</td>
+                                <td style="font-weight: 900; color: #38bdf8; font-size: 15px;">#${slip.voterNum}</td>
                                 <td>
-                                    <span style="background: ${slip.foldType === 'vertical' ? 'rgba(239,68,68,0.2)' : 'rgba(59,130,246,0.2)'}; color: ${slip.foldType === 'vertical' ? '#fca5a5' : '#93c5fd'}; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 800;">
-                                        ${slip.foldType === 'vertical' ? '⚠️ सीधा मोड़' : '📐 आड़ा मोड़'}
+                                    <span style="background: ${slip.foldType === 'vertical' ? 'rgba(239,68,68,0.25)' : 'rgba(59,130,246,0.25)'}; color: ${slip.foldType === 'vertical' ? '#fecaca' : '#bfdbfe'}; border: 1px solid ${slip.foldType === 'vertical' ? '#ef4444' : '#3b82f6'}; padding: 4px 10px; border-radius: 6px; font-size: 12.5px; font-weight: 900; display: inline-block;">
+                                        ${slip.foldType === 'vertical' ? ((slip.stamps && slip.stamps.length === 0) ? '⚠️ सीधा मोड़ (कोरा)' : '⚠️ सीधा मोड़') : '📐 आड़ा मोड़'}
                                     </span>
                                 </td>
-                                <td style="color: #fca5a5; font-weight: 700; line-height: 1.4;">
-                                    ${slip.rejectionReason}
+                                <td>
+                                    <div style="color: #ffffff; font-weight: 800; font-size: 14.5px; line-height: 1.5; background: rgba(220, 38, 38, 0.15); padding: 8px 12px; border-radius: 6px; border-left: 3.5px solid #ef4444;">
+                                        ${slip.rejectionReason}
+                                    </div>
                                 </td>
-                                <td style="font-size: 11px; color: #94a3b8; font-family: monospace;">
-                                    ${slip.ruleReference || 'Rule 56(2)'}
+                                <td>
+                                    <span style="font-size: 13px; color: #fde047; font-family: monospace; font-weight: 800;">
+                                        ${slip.ruleReference || 'Rule 56(2)'}
+                                    </span>
                                 </td>
                                 <td style="text-align: center;">
-                                    <button type="button" onclick="sys2_inspectSpecificBallot(${idx})" style="background: #2563eb; color: #fff; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 800; font-size: 11.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                                    <button type="button" onclick="sys2_inspectSpecificBallot(${idx})" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; padding: 7px 15px; border-radius: 8px; font-weight: 900; font-size: 13.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 8px rgba(37,99,235,0.4); transition: all 0.2s;">
                                         <span>🔍</span> जाँचें
                                     </button>
                                 </td>
@@ -4303,11 +4568,11 @@ function sys2_renderAuditRegister() {
             </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
-            <span style="font-size: 12px; color: #94a3b8;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
+            <span style="font-size: 13.5px; color: #e2e8f0; font-weight: 700;">
                 💡 किसी भी मतपत्र के सामने <b>'जाँचें'</b> बटन दबाकर उसका हूबहू मतपत्र और स्याही का फोरेंसिक परीक्षण देखें।
             </span>
-            <button type="button" onclick="sys2_inspectSpecificBallot(0)" class="primary-modal-btn" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); font-size: 13px; padding: 8px 18px;">
+            <button type="button" onclick="sys2_inspectSpecificBallot(0)" class="primary-modal-btn" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); font-size: 14.5px; font-weight: 900; padding: 9px 22px; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.5);">
                 <span>🔬</span> प्रथम खारिज मत की विस्तृत जांच शुरू करें ➔
             </button>
         </div>
@@ -4411,27 +4676,27 @@ function sys2_showInspectBallot(index) {
 
         let rowHighlight = '';
         if (hasCandStamp) {
-            rowHighlight = 'background: rgba(185, 28, 28, 0.08); border-left: 4px solid #ef4444;';
+            rowHighlight = 'background: rgba(239, 68, 68, 0.14); border-left: 5px solid #ef4444;';
         } else if (isSmudgedRow) {
-            rowHighlight = 'background: rgba(234, 179, 8, 0.12); border-left: 4px solid #eab308;';
+            rowHighlight = 'background: rgba(234, 179, 8, 0.2); border-left: 5px solid #eab308;';
         }
 
         return `
-            <tr class="ballot-row candidate-${rIdx}" style="height: 52px; border-bottom: 3px solid #0f172a; ${rowHighlight}">
-                <td class="td-num" style="width: 44px; text-align: center; font-weight: 900; font-size: 13.5px; border-right: 1.5px solid #0f172a; background: #f8fafc; color: #0f172a;">
+            <tr class="ballot-row candidate-${rIdx}" style="height: 56px; border-bottom: 3px solid #0f172a; ${rowHighlight}">
+                <td class="td-num" style="width: 46px; text-align: center; font-weight: 900; font-size: 16px; border-right: 2px solid #0f172a; background: #f8fafc; color: #000000;">
                     ${c.num}
                 </td>
-                <td class="td-name" style="padding: 4px 8px; font-weight: 800; font-size: 12.5px; color: #0f172a; border-right: 1.5px solid #0f172a;">
-                    ${c.name}
-                    ${hasCandStamp ? `<span style="background: #ef4444; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 5px; display: inline-block;">मुहर अंकित</span>` : ''}
-                    ${isSmudgedRow ? `<span style="background: #d97706; color: #fff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-left: 5px; display: inline-block;">⚠️ स्याही छपी</span>` : ''}
+                <td class="td-name" style="padding: 6px 10px; font-weight: 900; font-size: 15.5px; color: #000000 !important; border-right: 2px solid #0f172a;">
+                    <span style="color: #000000 !important; font-weight: 900; font-size: 15.5px;">${c.name}</span>
+                    ${hasCandStamp ? `<span style="background: #dc2626; color: #ffffff; font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 4px; margin-left: 6px; display: inline-block;">मुहर अंकित</span>` : ''}
+                    ${isSmudgedRow ? `<span style="background: #d97706; color: #ffffff; font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 4px; margin-left: 6px; display: inline-block;">⚠️ स्याही छपी</span>` : ''}
                 </td>
-                <td class="td-sym" style="width: 50px; text-align: center; font-size: 20px; border-right: 1.5px solid #0f172a;">
+                <td class="td-sym" style="width: 55px; text-align: center; font-size: 26px; color: #000000; font-weight: 900; border-right: 2px solid #0f172a;">
                     ${c.sym}
                 </td>
-                <td class="td-stamp-box" style="width: 90px; text-align: center; font-size: 10px; color: #94a3b8; padding: 2px;">
-                    <div style="border: 1px dashed #cbd5e1; border-radius: 4px; height: 36px; display: flex; align-items: center; justify-content: center;">
-                        <span style="font-size: 9px; color: #64748b;">मुहर स्थान</span>
+                <td class="td-stamp-box" style="width: 95px; text-align: center; padding: 4px;">
+                    <div style="border: 2px dashed #64748b; border-radius: 4px; height: 42px; display: flex; align-items: center; justify-content: center; background: #ffffff;">
+                        <span style="font-size: 11.5px; font-weight: 900; color: #334155;">मुहर स्थान</span>
                     </div>
                 </td>
             </tr>
@@ -4442,33 +4707,36 @@ function sys2_showInspectBallot(index) {
         <div class="sys2-inspect-grid">
             <!-- Left: Visual Ballot Replica with Exact Markings -->
             <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                <div style="font-size: 13px; font-weight: 800; color: #f87171; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; width: 100%; justify-content: space-between;">
-                    <span>⚠️ मतपत्र की सजीव प्रतिकृति (Visual Replica)</span>
-                    <span style="font-size: 11px; background: #334155; color: #cbd5e1; padding: 2px 8px; border-radius: 4px;">मतदाता #${slip.voterNum}</span>
+                <div style="font-size: 15px; font-weight: 900; color: #f87171; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; width: 100%; justify-content: space-between;">
+                    <span style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 18px;">⚠️</span>
+                        <span>मतपत्र की सजीव प्रतिकृति (Visual Replica)</span>
+                    </span>
+                    <span style="font-size: 13px; font-weight: 900; background: #334155; color: #38bdf8; padding: 3px 10px; border-radius: 6px; border: 1px solid #475569;">मतदाता #${slip.voterNum}</span>
                 </div>
 
                 <!-- Exact Replica of Ballot Paper matching #sys2BallotPaper -->
-                <div class="ballot-paper" style="width: 100%; max-width: 440px; position: relative; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 2.5px solid #1e293b; border-radius: 4px; pointer-events: none; background: #fffdf5;" id="sys2ReplicaSheet">
+                <div class="ballot-paper" style="width: 100%; max-width: 480px; position: relative; margin: 0 auto; box-shadow: 0 6px 25px rgba(0,0,0,0.5); border: 3px solid #0f172a; border-radius: 6px; pointer-events: none; background: #fffdf5;" id="sys2ReplicaSheet">
                     <!-- Counterfoil -->
-                    <div class="ballot-top-counterfoil" style="padding: 5px 10px; font-size: 11px; display: flex; justify-content: space-between; border-bottom: 2px dashed #64748b; background: #f8fafc;">
-                        <span style="font-weight: 800; color: #1e293b;">भारत निर्वाचन आयोग • चुनाव मतपत्र</span>
-                        <span class="counterfoil-tag" style="font-family: monospace; font-weight: 900; color: #1e3a8a; background: #e2e8f0; padding: 2px 8px; border-radius: 4px;">${slip.slipCode}</span>
+                    <div class="ballot-top-counterfoil" style="padding: 7px 12px; font-size: 13px; font-weight: 900; color: #000000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2.5px dashed #475569; background: #f1f5f9;">
+                        <span style="font-weight: 900; color: #000000;">भारत निर्वाचन आयोग • चुनाव मतपत्र</span>
+                        <span class="counterfoil-tag" style="font-family: monospace; font-weight: 900; font-size: 14px; color: #1e3a8a; background: #cbd5e1; padding: 3px 10px; border-radius: 4px; border: 1px solid #94a3b8;">${slip.slipCode}</span>
                     </div>
 
                     <!-- Title Strip -->
-                    <div class="ballot-title-strip" style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #0f172a; background: #fefce8;">
-                        <h3 style="font-size: 13px; margin: 0; font-weight: 900; color: #0f172a;">लोक सभा निर्वाचन हेतु वास्तविक मतपत्र</h3>
-                        <div class="ballot-subtitle" style="font-size: 10px; color: #64748b;">जाँच प्रति: मतदाता #${slip.voterNum} द्वारा डाला गया मूल मतपत्र</div>
+                    <div class="ballot-title-strip" style="padding: 8px 10px; text-align: center; border-bottom: 2.5px solid #0f172a; background: #fefce8;">
+                        <h3 style="font-size: 15.5px; margin: 0; font-weight: 900; color: #000000;">लोक सभा निर्वाचन हेतु वास्तविक मतपत्र</h3>
+                        <div class="ballot-subtitle" style="font-size: 12.5px; font-weight: 800; color: #334155; margin-top: 2px;">जाँच प्रति: मतदाता #${slip.voterNum} द्वारा डाला गया मूल मतपत्र</div>
                     </div>
 
                     <!-- Ballot Table -->
                     <table class="ballot-table" style="width: 100%; border-collapse: collapse;">
                         <thead class="ballot-thead">
-                            <tr style="background: #e2e8f0; border-bottom: 2px solid #0f172a;">
-                                <th style="width: 44px; padding: 4px; font-size: 11px; text-align: center; border-right: 1.5px solid #0f172a;">क्र.सं.</th>
-                                <th style="padding: 4px 8px; font-size: 11px; text-align: left; border-right: 1.5px solid #0f172a;">उम्मीदवार का नाम</th>
-                                <th style="width: 50px; padding: 4px; font-size: 11px; text-align: center; border-right: 1.5px solid #0f172a;">चिह्न</th>
-                                <th style="width: 90px; padding: 4px; font-size: 11px; text-align: center;">मुहर स्थान</th>
+                            <tr style="background: #e2e8f0; border-bottom: 2.5px solid #0f172a;">
+                                <th style="width: 46px; padding: 6px; font-size: 13px; font-weight: 900; color: #000000; text-align: center; border-right: 2px solid #0f172a;">क्र.सं.</th>
+                                <th style="padding: 6px 10px; font-size: 13px; font-weight: 900; color: #000000; text-align: left; border-right: 2px solid #0f172a;">उम्मीदवार का नाम</th>
+                                <th style="width: 55px; padding: 6px; font-size: 13px; font-weight: 900; color: #000000; text-align: center; border-right: 2px solid #0f172a;">चिह्न</th>
+                                <th style="width: 95px; padding: 6px; font-size: 13px; font-weight: 900; color: #000000; text-align: center;">मुहर स्थान</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -4478,8 +4746,8 @@ function sys2_showInspectBallot(index) {
 
                     <!-- Watermark for Blank Ballot -->
                     ${isBlank ? `
-                        <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); background: rgba(220, 38, 38, 0.92); color: white; padding: 8px 20px; font-weight: 900; font-size: 15px; border-radius: 8px; border: 2px solid white; z-index: 25; box-shadow: 0 4px 15px rgba(0,0,0,0.5); pointer-events: none; text-align: center;">
-                            ⚠️ कोरा मतपत्र<br><span style="font-size: 10.5px;">(कोई मुहर नहीं लगाई गई)</span>
+                        <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%) rotate(-22deg); background: rgba(220, 38, 38, 0.95); color: #ffffff; padding: 12px 28px; font-weight: 900; font-size: 20px; border-radius: 8px; border: 3px solid #ffffff; z-index: 25; box-shadow: 0 6px 25px rgba(0,0,0,0.65); pointer-events: none; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                            ⚠️ कोरा मतपत्र<br><span style="font-size: 13.5px; font-weight: 800;">(कोई मुहर नहीं लगाई गई)</span>
                         </div>
                     ` : ''}
 
@@ -4489,18 +4757,26 @@ function sys2_showInspectBallot(index) {
                     </div>
                 </div>
 
-                <!-- Presiding Officer Statutory Rejection Seal under Rule 56(3) -->
-                <div class="presiding-officer-seal" style="width: 100%; max-width: 440px; margin-top: 12px;">
-                    <div class="seal-header">
-                        <span>भारत निर्वाचन आयोग • REJECTED / निरस्त</span>
-                        <span style="font-size: 10px;">FORM 20</span>
+                <!-- Presiding Officer Statutory Rejection Seal under Rule 56(3) (High Contrast Paper Stamp for Projectors) -->
+                <div class="presiding-officer-seal" style="width: 100%; max-width: 490px; margin-top: 15px; background: #fffdfa; border: 3px solid #b91c1c; border-radius: 10px; padding: 14px 18px; color: #0f172a; box-shadow: 0 8px 24px rgba(0,0,0,0.5); transform: rotate(-0.5deg);">
+                    <div class="seal-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2.5px solid #b91c1c; padding-bottom: 8px; margin-bottom: 10px;">
+                        <span style="font-size: 16px; font-weight: 900; color: #b91c1c; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                            <span style="font-size: 18px;">🔴</span> भारत निर्वाचन आयोग • REJECTED / निरस्त
+                        </span>
+                        <span style="font-size: 13.5px; font-weight: 900; background: #b91c1c; color: #ffffff; padding: 3px 10px; border-radius: 5px; letter-spacing: 0.5px;">FORM 20</span>
                     </div>
-                    <div style="line-height: 1.4; margin-top: 3px;">
-                        <b>कारण:</b> ${slip.rejectionReason}<br>
-                        <b>नियम:</b> ${slip.ruleReference || 'Rule 56(2), Conduct of Elections Rules, 1961'}<br>
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px; padding-top: 4px; border-top: 1px dashed #fca5a5;">
-                            <span>तारीख: 15/09/2026</span>
-                            <span style="font-style: italic; font-weight: 800;">हस्ताक्षर: पीठासीन अधिकारी / RO</span>
+                    <div style="line-height: 1.6; font-size: 15px; color: #0f172a;">
+                        <div style="margin-bottom: 6px;">
+                            <b style="color: #b91c1c; font-size: 15.5px;">कारण:</b> 
+                            <span style="font-weight: 800; color: #000000; font-size: 15px; line-height: 1.55;">${slip.rejectionReason}</span>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <b style="color: #1e40af; font-size: 15px;">नियम:</b> 
+                            <span style="font-weight: 900; color: #b91c1c; font-size: 14.5px; font-family: monospace;">${slip.ruleReference || 'Rule 56(2), Conduct of Elections Rules, 1961'}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 2px dashed #dc2626; font-size: 13.5px;">
+                            <span style="color: #475569; font-weight: 800;">📅 तारीख: 15/09/2026</span>
+                            <span style="font-style: italic; font-weight: 900; color: #0f172a; font-size: 14px;">✍️ हस्ताक्षर: पीठासीन अधिकारी / Returning Officer</span>
                         </div>
                     </div>
                 </div>
@@ -4509,49 +4785,75 @@ function sys2_showInspectBallot(index) {
             <!-- Right: Exact Statutory Adjudication Order -->
             <div class="sys2-reason-card">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="background: #7f1d1d; color: #fecaca; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 900;">
-                        अवैध / निरस्त मतपत्र (REJECTED)
+                    <span style="background: #dc2626; color: #ffffff; padding: 7px 16px; border-radius: 8px; font-size: 15px; font-weight: 900; box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4); letter-spacing: 0.5px;">
+                        🚫 अवैध / निरस्त मतपत्र (REJECTED)
                     </span>
-                    <span style="font-weight: 900; color: #38bdf8; font-size: 13px;">
+                    <span style="font-weight: 900; color: #38bdf8; font-size: 17px; font-family: monospace; background: rgba(56, 189, 248, 0.15); padding: 4px 12px; border-radius: 6px; border: 1.5px solid #38bdf8;">
                         मतपत्र: ${slip.slipCode}
                     </span>
                 </div>
 
                 <div>
-                    <div style="font-size: 12px; font-weight: 800; color: #94a3b8;">1. निरस्तीकरण का विधिक आधार (Grounds):</div>
-                    <div style="font-size: 14.5px; font-weight: 900; color: #fca5a5; margin-top: 4px; line-height: 1.5; background: rgba(239, 68, 68, 0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                    <div style="font-size: 15px; font-weight: 900; color: #38bdf8; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <span>⚖️</span> 1. निरस्तीकरण का विधिक आधार (Grounds):
+                    </div>
+                    <div style="font-size: 16.5px; font-weight: 900; color: #ffffff; line-height: 1.6; background: rgba(220, 38, 38, 0.35); border: 2.5px solid #ef4444; padding: 14px 18px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.8);">
                         ${slip.rejectionReason}
                     </div>
                 </div>
 
                 <div>
-                    <div style="font-size: 12px; font-weight: 800; color: #94a3b8;">2. मतपत्र मोड़ने का प्रभाव (Folding Analysis):</div>
-                    <div style="font-size: 13px; font-weight: 800; color: #f1f5f9; margin-top: 4px; line-height: 1.5;">
-                        ${slip.foldType === 'vertical' ? 
-                            '⚠️ <b>सीधा मोड़ (Vertical Fold - गलत तरीका):</b> मतदाता ने मतपत्र को ऊपर से नीचे सीधा मोड़ा, जिससे ताज़ा गीली स्याही विपरीत दिशा के प्रत्याशी के खाने में छप गई और दोहरे निशान बन गए।' : 
-                            '📐 <b>आड़ा मोड़ (Horizontal Fold - सही तरीका):</b> मतपत्र को बीच से आड़ा मोड़ा गया था, जिससे कोई स्याही अन्य प्रत्याशी पर नहीं फैली। निरस्तीकरण का कारण मतदाता द्वारा लगाई गई मुहरें हैं।'}
+                    <div style="font-size: 15px; font-weight: 900; color: #38bdf8; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <span>📐</span> 2. मतपत्र मोड़ने का प्रभाव (Folding Analysis):
+                    </div>
+                    <div style="font-size: 15.5px; font-weight: 800; color: #ffffff; line-height: 1.65; background: #0b1329; border: 2px solid #3b82f6; padding: 14px 18px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        ${isBlank ? 
+                            (slip.foldType === 'vertical' ? 
+                                '⚠️ <b style="color: #f87171;">सीधा मोड़ (Vertical Fold):</b> यद्यपि मतपत्र सीधा मोड़ा गया था, परंतु मतपत्र पर <b style="color: #fde047;">कोई मुहर न होने (कोरा मतपत्र)</b> के कारण किसी भी खाने में स्याही नहीं फैली। निरस्तीकरण का एकमात्र कारण <b style="color: #fde047;">"कोरा मतपत्र"</b> होना है, मोड़ने की त्रुटि नहीं।' : 
+                                '📐 <b style="color: #4ade80;">आड़ा मोड़ (Horizontal Fold - सही तरीका):</b> मतपत्र को नियमानुसार बीच से आड़ा मोड़ा गया था। मतपत्र पर कोई मुहर नहीं लगाई गई है।') :
+                            (slip.hasSmudge && stampsList.length > 0 ? 
+                                '⚠️ <b style="color: #f87171;">सीधा मोड़ (Vertical Fold - गलत तरीका):</b> मतदाता ने मतपत्र को ऊपर से नीचे सीधा मोड़ा, जिससे ताज़ा गीली स्याही विपरीत दिशा के प्रत्याशी के खाने में छप गई और दोहरे निशान बन गए।' : 
+                                (slip.foldType === 'vertical' ? 
+                                    '⚠️ <b style="color: #f87171;">सीधा मोड़ (Vertical Fold):</b> मतपत्र सीधा मोड़ा गया, किन्तु निरस्तीकरण का मुख्य कारण मतदाता द्वारा विहित प्रक्रिया के विपरीत मुहर लगाना है।' : 
+                                    '📐 <b style="color: #4ade80;">आड़ा मोड़ (Horizontal Fold - सही तरीका):</b> मतपत्र को बीच से आड़ा मोड़ा गया था, जिससे कोई स्याही अन्य प्रत्याशी पर नहीं फैली। निरस्तीकरण का कारण मतदाता द्वारा लगाई गई मुहरें हैं।'))
+                        }
                     </div>
                 </div>
 
-                <!-- Forensic Clockwise vs Anti-Clockwise Rule Card -->
-                <div style="background: rgba(88, 28, 135, 0.2); border: 1.5px solid #a855f7; border-radius: 8px; padding: 12px; font-size: 12px; color: #f3e8ff; line-height: 1.6;">
-                    <b style="color: #d8b4fe;">🔬 मुहर की दिशा व फोरेंसिक जांच (Anti-Clockwise vs Clockwise Seal):</b><br>
-                    • <b>मूल चुनाव मुहर (Original Stamp):</b> निर्वाचन आयोग की अधिकृत रबर मुहर <b>वामावर्ती (Anti-Clockwise: 卍)</b> होती है।<br>
-                    • <b>मोड़ने से छपी छाप (Mirror Impression):</b> मतपत्र को सीधा मोड़ने पर गीली स्याही का दर्पण प्रतिबिंब बनने के कारण यह निशान <b>दक्षिणावर्ती (Clockwise: 卐)</b> बन जाता है!<br>
-                    • <b>पीठासीन अधिकारी का विधिक निष्कर्ष:</b> इसी वैज्ञानिक अंतर से स्पष्ट होता है कि मतदाता ने वास्तव में किसे मत दिया था और कौन सा निशान केवल मोड़ने की अशुद्धि (Smudge) है।
-                </div>
+                <!-- Forensic / Statutory Rule Card (Dynamically tailored to the actual rejection reason) -->
+                ${isBlank ? `
+                    <div style="background: rgba(220, 38, 38, 0.28); border: 2.5px solid #ef4444; border-radius: 10px; padding: 14px 18px; font-size: 15px; color: #ffffff; line-height: 1.7;">
+                        <b style="color: #fca5a5; font-size: 16px;">🚫 कोरा मतपत्र विधिक परीक्षण (Blank Ballot Examination):</b><br>
+                        • <b style="color: #fde047;">मतदाता का कोई अधिमान नहीं:</b> मतपत्र पर किसी भी प्रत्याशी के पक्ष में कोई अधिकृत मुहर या निशान नहीं लगाया गया।<br>
+                        • <b style="color: #67e8f9;">मोड़ने का कोई स्याही प्रभाव नहीं:</b> मुहर न होने के कारण मोड़ने पर किसी भी प्रत्याशी के खाने में स्याही छपने का कोई प्रश्न ही नहीं उठता।<br>
+                        • <b style="color: #86efac;">विधिक परिणाम:</b> Conduct of Elections Rules, 1961 के नियम 56(2)(d) के अंतर्गत कोरे मतपत्र को सीधे निरस्त घोषित किया जाता है।
+                    </div>
+                ` : (slip.hasSmudge && stampsList.length > 0 ? `
+                    <div style="background: rgba(88, 28, 135, 0.45); border: 2.5px solid #c084fc; border-radius: 10px; padding: 14px 18px; font-size: 15px; color: #ffffff; line-height: 1.7;">
+                        <b style="color: #f3e8ff; font-size: 16.5px; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">🔬 मुहर की दिशा व फोरेंसिक जांच (Anti-Clockwise vs Clockwise Seal):</b><br>
+                        • <b style="color: #38bdf8;">मूल चुनाव मुहर (Original Stamp):</b> निर्वाचन आयोग की अधिकृत रबर मुहर <b style="color: #4ade80;">वामावर्ती (Anti-Clockwise: 卍)</b> होती है।<br>
+                        • <b style="color: #f87171;">मोड़ने से छपी छाप (Mirror Impression):</b> मतपत्र को सीधा मोड़ने पर गीली स्याही का दर्पण प्रतिबिंब बनने के कारण यह निशान <b style="color: #fde047;">दक्षिणावर्ती (Clockwise: 卐)</b> बन जाता है!<br>
+                        • <b style="color: #e2e8f0;">पीठासीन अधिकारी का विधिक निष्कर्ष:</b> इसी वैज्ञानिक अंतर से स्पष्ट होता है कि मतदाता ने वास्तव में किसे मत दिया था और कौन सा निशान केवल मोड़ने की अशुद्धि (Smudge) है।
+                    </div>
+                ` : `
+                    <div style="background: rgba(234, 179, 8, 0.22); border: 2.5px solid #facc15; border-radius: 10px; padding: 14px 18px; font-size: 15px; color: #ffffff; line-height: 1.7;">
+                        <b style="color: #fde047; font-size: 16px;">🔍 मुहर स्थिति परीक्षण (Stamp Placement Examination):</b><br>
+                        • <b style="color: #fde047;">मतदाता का आशय अस्पष्ट:</b> ${slip.rejectionReason}<br>
+                        • <b style="color: #67e8f9;">पीठासीन अधिकारी का विधिक नियम:</b> Conduct of Elections Rules, 1961 के नियम 56(2) के अनुसार मतदाता का स्पष्ट आशय निर्धारित न हो पाने पर मत को निरस्त घोषित किया जाता है।
+                    </div>
+                `)}
 
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 8px; padding: 12px; font-size: 12px; color: #cbd5e1; line-height: 1.6;">
-                    <b style="color: #38bdf8;">⚖️ चुनाव आयोग विधिक नियम (Conduct of Elections Rules, 1961 - Rule 56):</b><br>
-                    <span style="color: #f1f5f9; font-weight: 700;">${slip.ruleReference || 'Rule 56(2)'}:</span> 
+                <div style="background: #090e1f; border: 2px solid #38bdf8; border-radius: 10px; padding: 14px 18px; font-size: 14.5px; color: #ffffff; line-height: 1.7;">
+                    <b style="color: #38bdf8; font-size: 16px;">⚖️ चुनाव आयोग विधिक नियम (Conduct of Elections Rules, 1961 - Rule 56):</b><br>
+                    <span style="color: #fde047; font-weight: 900; font-size: 15.5px;">${slip.ruleReference || 'Rule 56(2)'}:</span> 
                     पीठासीन अधिकारी / निर्वाचन अधिकारी मतपत्र को खारिज कर देगा यदि:<br>
-                    • (a) उस पर ऐसा कोई निशान या लिखावट हो जिससे मतदाता की पहचान हो सके,<br>
-                    • (b) उस पर एक से अधिक प्रत्याशियों के पक्ष में मत दिया गया हो,<br>
-                    • (c) मुहर इस प्रकार लगी हो जिससे यह अनिश्चित हो कि मत किस प्रत्याशी को दिया गया है,<br>
-                    • (d) मतपत्र पर कोई भी मुहर न लगी हो (कोरा मतपत्र)।
+                    • <b>(a)</b> उस पर ऐसा कोई निशान या लिखावट हो जिससे मतदाता की पहचान हो सके,<br>
+                    • <b>(b)</b> उस पर एक से अधिक प्रत्याशियों के पक्ष में मत दिया गया हो,<br>
+                    • <b>(c)</b> मुहर इस प्रकार लगी हो जिससे यह अनिश्चित हो कि मत किस प्रत्याशी को दिया गया है,<br>
+                    • <b>(d)</b> मतपत्र पर कोई भी मुहर न लगी हो (कोरा मतपत्र)।
                 </div>
 
-                <div style="background: rgba(2, 132, 199, 0.1); border: 1px solid #0284c7; border-radius: 8px; padding: 10px 12px; font-size: 11.5px; color: #bae6fd; line-height: 1.5;">
+                <div style="background: rgba(2, 132, 199, 0.25); border: 2px solid #38bdf8; border-radius: 10px; padding: 12px 16px; font-size: 14px; font-weight: 800; color: #e0f2fe; line-height: 1.6;">
                     ℹ️ <b>विधिक अंतिमता (Rule 56(6)):</b> मतपत्र की अस्वीकृति के संबंध में निर्वाचन अधिकारी का निर्णय अंतिम होता है। इसे केवल उच्च न्यायालय में चुनाव याचिका (Election Petition) दायर कर ही चुनौती दी जा सकती है।
                 </div>
             </div>
@@ -4582,6 +4884,11 @@ function sys2_resetEntireFlow() {
     document.getElementById('sys2StampCountText').textContent = '0';
     document.getElementById('sys2BoxVoteCountChip').textContent = '0';
     document.getElementById('sys2BoxVoteCounter').textContent = '00';
+
+    const rejModal = document.getElementById('sys2RejectionModal');
+    if (rejModal) rejModal.style.display = 'none';
+    const resultSheet = document.getElementById('sys2CountingResultSheet');
+    if (resultSheet) resultSheet.style.display = 'none';
 
     sys2_renderBallot();
     sys2_goToStage(1);
