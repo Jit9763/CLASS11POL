@@ -2,10 +2,13 @@
 <html lang="hi">
 <head>
 <meta charset="utf-8"/>
-<title>अध्याय 4: कार्यपालिका</title>
+<title>अध्याय 4: कार्यपालिका (Master Copy Edition)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&amp;family=Outfit:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <style>
         /* Completely remove outer double-line blue box wrapper around hero title */
         div[style*="double"], 
@@ -36,6 +39,11 @@
             font-size: 28pt !important;
             line-height: 1.8 !important;
         }
+        body {
+            margin-top: 80px;
+            background-color: #f8fafc;
+            font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
+        }
         .part-container {
             border-top: 10px solid #2563eb;
             background: #ffffff;
@@ -44,25 +52,121 @@
             margin-bottom: 40px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        .part-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: #ffffff !important;
-            padding: 25px 35px;
-            border-radius: 10px;
-            font-weight: 900 !important;
-            margin-top: 0;
+        .part-container h2, .part-header {
+            color: #1e3a8a !important;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 10px solid #2563eb !important;
+            padding: 20px 28px !important;
+            border-radius: 12px !important;
             font-size: 32pt !important;
+            font-weight: 900 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
         }
         ul {
             list-style-type: square;
             padding-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 20px;
         }
         li {
             margin-bottom: 20px;
+            line-height: 1.8 !important;
+        }
+
+        /* Realistic Cartoon Card Styles */
+        .cartoon-card {
+            margin: 45px 0;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 20px;
+            border: 4px solid #e2e8f0;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .cartoon-card img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .cartoon-caption {
+            margin-top: 22px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            padding: 22px 28px;
+            border-radius: 14px;
+            border-left: 10px solid #0284c7;
+            text-align: left;
+        }
+        .cartoon-caption-title {
+            font-size: 22pt;
+            font-weight: 950 !important;
+            color: #0369a1 !important;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cartoon-caption-desc {
+            font-size: 18pt;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        #control-header {
+            position: fixed; top: 0; left: 0; width: 100%; background-color: #0f172a; color: #ffffff;
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: 'Outfit', sans-serif; box-sizing: border-box;
+        }
+        #control-header h1 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        #mainCopyBtn {
+            background-color: #2563eb; color: #ffffff; border: none; padding: 10px 22px;
+            font-size: 1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.2s;
+        }
+        #mainCopyBtn:hover { background-color: #1d4ed8; }
+        #status {
+            display: none; position: fixed; top: 75px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1001; font-family: sans-serif; font-size: 14pt;
         }
 </style>
+<script>
+    function copyToGoogleDoc() {
+        var content = document.getElementById('contentToCopy').innerHTML;
+        var blob = new Blob([content], { type: 'text/html' });
+        var data = [new ClipboardItem({ 'text/html': blob })];
+        
+        navigator.clipboard.write(data).then(function() {
+            var status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 5000);
+        }).catch(function(err) {
+            alert('Copy failed: ' + err);
+        });
+    }
+</script>
 </head>
 <body>
+    <!-- Persistent Control Header -->
+    <div id="control-header">
+        <h1>अध्याय 4: कार्यपालिका - कक्षा 11 राजनीति विज्ञान (Master Copy Edition)</h1>
+        <button id="mainCopyBtn" onclick="copyToGoogleDoc()">
+            📋 COPY EVERYTHING FOR GOOGLE DOCS
+        </button>
+    </div>
+    
+    <div id="status">
+        ✨ SUCCESS! Content copied to clipboard in rich format. Now open Google Docs and press Ctrl+V.
+    </div>
+
 <div id="contentToCopy">
 <div style="font-family: 'Noto Sans Devanagari', 'Arial', sans-serif; line-height: 2.2; color: #020617; max-width: 1400px; margin: auto; padding: 0px !important;">
 
@@ -82,6 +186,20 @@
 <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">स्थायी कार्यपालिका (Permanent Executive):</b> लोक सेवक या सिविल कर्मचारी (IAS, IPS आदि) जो स्थायी रूप से सेवानिवृत्ति की आयु तक पद पर रहते हैं और नीतियों के क्रियान्वयन में निरंतरता और तकनीकी दक्षता प्रदान करते हैं।</li>
 <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मुख्य कार्य:</b> देश में कानून-व्यवस्था बनाए रखना, राष्ट्रीय सुरक्षा, सामाजिक-आर्थिक नीतियों को लागू करना, और बजट का निष्पादन।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 1 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part1_executive_types.webp" alt="🎨 शिक्षण कार्ड 1: कार्यपालिका क्या है? राजनीतिक बनाम स्थायी कार्यपालिका">
+    <div class="cartoon-caption" style="border-left-color: #2563eb;">
+        <div class="cartoon-caption-title" style="color: #2563eb !important;">
+            🎨 शिक्षण कार्ड 1: कार्यपालिका क्या है? राजनीतिक बनाम स्थायी कार्यपालिका
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> राजनीतिक कार्यपालिका (प्रधानमंत्री व मंत्री) 5 वर्ष के लिए चुनी जाती है और नीतिगत निर्णय लेती है, जबकि स्थायी कार्यपालिका (सिविल सेवा/IAS) प्रशासनिक क्रियान्वयन निरंतर बनाए रखती है।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 2 -->
@@ -108,6 +226,20 @@
   </ul>
 </li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 2 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part2_global_executive_systems.webp" alt="🎨 शिक्षण कार्ड 2: कार्यपालिका की वैश्विक प्रणालियाँ">
+    <div class="cartoon-caption" style="border-left-color: #dc2626;">
+        <div class="cartoon-caption-title" style="color: #dc2626 !important;">
+            🎨 शिक्षण कार्ड 2: कार्यपालिका की वैश्विक प्रणालियाँ (अध्यक्षात्मक, संसदीय व अर्ध-अध्यक्षात्मक)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अध्यक्षात्मक व्यवस्था (अमेरिका) में राष्ट्रपति प्रत्यक्ष प्रमुख होता है, संसदीय व्यवस्था (भारत) में प्रधानमंत्री संसद के प्रति जवाबदेह होता है, और अर्ध-अध्यक्षात्मक (फ्रांस) में दोनों शक्तियाँ साझा करते हैं।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 3 -->
@@ -120,6 +252,20 @@
 <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. विविधता का समावेश:</b> संसदीय प्रणाली में देश के विभिन्न क्षेत्रों, जातियों, धर्मों और भाषाई समूहों के प्रतिनिधियों को मंत्रिपरिषद में स्थान मिलना आसान होता है।</li>
 <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. टकराव से बचाव:</b> संसदीय व्यवस्था में कार्यपालिका और विधायिका के बीच सहयोग बना रहता है, जिससे गतिरोध (Deadlock) की संभावना कम होती है।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 3 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part3_reasons_for_parliamentary_system.webp" alt="🎨 शिक्षण कार्ड 3: भारत द्वारा संसदीय शासन प्रणाली चुनने के ऐतिहासिक कारण">
+    <div class="cartoon-caption" style="border-left-color: #10b981;">
+        <div class="cartoon-caption-title" style="color: #10b981 !important;">
+            🎨 शिक्षण कार्ड 3: भारत द्वारा संसदीय शासन प्रणाली चुनने के ऐतिहासिक कारण
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> 1919 व 1935 के अधिनियमों का ऐतिहासिक अनुभव, उत्तरदायी शासन की चाह, तानाशाही से बचाव और भारत की सामाजिक विविधता को मंत्रिपरिषद में उचित स्थान देना।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 4 -->
@@ -138,6 +284,36 @@
 <li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अनुपातिक प्रतिनिधित्व एवं एकल संक्रमणीय मत (STV):</b> चुनाव गुप्त मतदान द्वारा अनुपातिक प्रतिनिधित्व प्रणाली के अनुसार एकल संक्रमणीय मत द्वारा होता है।</li>
 <li><b style="color: #831843 !important; background-color: #fce7f3 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #db2777 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">महाभियोग प्रक्रिया (Impeachment - Article 61):</b> राष्ट्रपति को उनके 5 वर्ष के कार्यकाल से पूर्व केवल <b>'संविधान का अतिक्रमण' (Violation of the Constitution)</b> करने पर संसद के दोनों सदनों द्वारा 2/3 विशेष बहुमत से महाभियोग प्रस्ताव पारित कर हटाया जा सकता है।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 4 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part4_presidential_electoral_college.webp" alt="🎨 शिक्षण कार्ड 4: भारत का राष्ट्रपति: निर्वाचक मंडल व चुनाव प्रक्रिया">
+    <div class="cartoon-caption" style="border-left-color: #8b5cf6;">
+        <div class="cartoon-caption-title" style="color: #8b5cf6 !important;">
+            🎨 शिक्षण कार्ड 4: भारत का राष्ट्रपति: निर्वाचक मंडल व चुनाव प्रक्रिया
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> राष्ट्रपति का चुनाव संसद (लोकसभा + राज्यसभा) और राज्यों की विधानसभाओं के केवल 'निर्वाचित सदस्यों' द्वारा आनुपातिक प्रतिनिधित्व प्रणाली (STV) से अप्रत्यक्ष होता है।
+        </div>
+    </div>
+</div>
+
+<!-- INTERACTIVE SIMULATOR CALLOUT BANNER -->
+<div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); border: 3px solid #fbbf24; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+    <div style="display: inline-block; background: #fbbf24; color: #0f172a; padding: 6px 18px; border-radius: 20px; font-size: 16pt; font-weight: 900; margin-bottom: 12px;">
+        ⚡ लाइव इंटरैक्टिव सिमुलेटर
+    </div>
+    <h3 style="color: #ffffff; font-size: 26pt; font-weight: 950; margin: 10px 0;">
+        भारत का राष्ट्रपति चुनाव: संपूर्ण डिजिटल सिमुलेटर
+    </h3>
+    <p style="color: #cbd5e1; font-size: 18pt; max-width: 900px; margin: 0 auto 20px;">
+        सांसदों व विधायकों के मत-मूल्य की लाइव संवैधानिक गणना, हरा व गुलाबी गुप्त मतपत्र, एकल संक्रमणीय मत (STV) तथा 1969 व 2022 के ऐतिहासिक मतगणना राउंड्स का सजीव अनुभव करें।
+    </p>
+    <a href="presidential_election_simulator.html" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); color: #0f172a; text-decoration: none; padding: 14px 32px; border-radius: 12px; font-size: 20pt; font-weight: 900; box-shadow: 0 6px 18px rgba(251, 191, 36, 0.4); transition: 0.2s;">
+        🚀 राष्ट्रपति चुनाव सिमुलेटर खोलें (Open Simulator)
+    </a>
+</div>
+
 </div>
 
 <!-- TOPIC 5 -->
@@ -151,21 +327,49 @@
 <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. न्यायिक शक्तियां (Judicial Powers):</b> अनुच्छेद 72 के तहत राष्ट्रपति को किसी भी अपराधी की सजा को क्षमा (Pardon), कम (Commute) या स्थगित करने का अधिकार है।</li>
 <li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">5. आपातकालीन शक्तियां (Emergency Powers):</b> राष्ट्रीय आपातकाल (अनुच्छेद 352), राष्ट्रपति शासन (अनुच्छेद 356), और वित्तीय आपातकाल (अनुच्छेद 360) लागू करना।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 5 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part5_presidential_powers.webp" alt="🎨 शिक्षण कार्ड 5: राष्ट्रपति की प्रमुख संवैधानिक शक्तियाँ">
+    <div class="cartoon-caption" style="border-left-color: #ea580c;">
+        <div class="cartoon-caption-title" style="color: #ea580c !important;">
+            🎨 शिक्षण कार्ड 5: राष्ट्रपति की प्रमुख संवैधानिक शक्तियाँ (कार्यकारी, विधायी, न्यायिक, आपातकालीन)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> कार्यकारी नियुक्तियाँ, संसद में विधेयकों व अध्यादेश (अनुच्छेद 123) पर हस्ताक्षर, अनुच्छेद 72 के तहत क्षमादान तथा अनुच्छेद 352, 356 व 360 के अंतर्गत आपातकालीन शक्तियाँ।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 6 -->
 <div class="part-container" style="border-top-color: #db2777;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रपति के विवेकाधीन अधिकार (Discretionary Powers) व पॉकेट वीटो</h2>
-<p>अनुच्छेद 74 के अनुसार राष्ट्रपति मंत्रिपरिषद की सलाह मानने के लिए बाध्य हैं, परंतु व्यावहारिक रूप से तीन परिस्थितियों में राष्ट्रपति अपने **स्वविवेक (Discretion)** का प्रयोग कर सकते हैं:</p>
+<p>अनुच्छेद 74 के अनुसार राष्ट्रपति मंत्रिपरिषद की सलाह मानने के लिए बाध्य हैं, परंतु व्यावहारिक रूप से तीन परिस्थितियों में राष्ट्रपति अपने <b>स्वविवेक (Discretion)</b> का प्रयोग कर सकते हैं:</p>
 <ul>
 <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. सलाह को पुनर्विचार हेतु लौटाना:</b> राष्ट्रपति मंत्रिपरिषद द्वारा भेजी गई किसी सलाह या विधेयक को एक बार पुनर्विचार (Reconsideration) के लिए वापस भेज सकते हैं। यदि मंत्रिपरिषद वही सलाह दोबारा भेजे, तो राष्ट्रपति उसे मानने के लिए बाध्य हैं।</li>
-<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. वीटो शक्ति का प्रयोग (Veto Power):</b> संसद द्वारा पारित विधेयक को राष्ट्रपति रोक सकते हैं या उस पर कोई निर्णय न लेकर अनिश्चित काल के लिए लंबित रख सकते हैं। इसे **पॉकेट वीटो (Pocket Veto)** कहते हैं।
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. वीटो शक्ति का प्रयोग (Veto Power):</b> संसद द्वारा पारित विधेयक को राष्ट्रपति रोक सकते हैं या उस पर कोई निर्णय न लेकर अनिश्चित काल के लिए लंबित रख सकते हैं। इसे <b>पॉकेट वीटो (Pocket Veto)</b> कहते हैं।
   <ul>
-  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">ज्ञाना सिंह पॉकेट वीटो केस (1986):</b> राष्ट्रपति ज्ञानी जैल सिंह ने 1986 में संसद द्वारा पारित 'भारतीय डाकघर संशोधन विधेयक' पर न तो हस्ताक्षर किए और न ही इसे अस्वीकार किया, बल्कि पॉकेट वीटो का प्रयोग कर विधेयक को रोक दिया।</li>
+  <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">ज्ञानी जैल सिंह पॉकेट वीटो केस (1986):</b> राष्ट्रपति ज्ञानी जैल सिंह ने 1986 में संसद द्वारा पारित 'भारतीय डाकघर संशोधन विधेयक' पर न तो हस्ताक्षर किए और न ही इसे अस्वीकार किया, बल्कि पॉकेट वीटो का प्रयोग कर विधेयक को रोक दिया।</li>
   </ul>
 </li>
 <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. प्रधानमंत्री की नियुक्ति में स्वविवेक:</b> जब किसी चुनाव के बाद किसी भी राजनीतिक दल या गठबंधन को लोकसभा में स्पष्ट बहुमत न मिले (त्रिशंकु लोकसभा), तब राष्ट्रपति स्वविवेक से तय करते हैं कि किसे सरकार बनाने के लिए आमंत्रित किया जाए।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 6 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part6_presidential_discretion_veto.webp" alt="🎨 शिक्षण कार्ड 6: राष्ट्रपति के विवेकाधीन अधिकार व पॉकेट वीटो">
+    <div class="cartoon-caption" style="border-left-color: #db2777;">
+        <div class="cartoon-caption-title" style="color: #db2777 !important;">
+            🎨 शिक्षण कार्ड 6: राष्ट्रपति के विवेकाधीन अधिकार व पॉकेट वीटो
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> मंत्रिपरिषद की सलाह को एक बार पुनर्विचार हेतु लौटाना, विधेयकों पर अनिश्चितकालीन पॉकेट वीटो (1986 ज्ञानी जैल सिंह डाक विधेयक केस), और त्रिशंकु संसद में सरकार गठन हेतु स्वविवेक।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 7 -->
@@ -177,6 +381,20 @@
 <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">पदेन सभापति (Ex-officio Chairman):</b> उपराष्ट्रपति राज्यसभा के पदेन सभापति के रूप में कार्य करते हैं और सदन की कार्यवाहियों का संचालन करते हैं।</li>
 <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">कार्यवाहक राष्ट्रपति:</b> यदि राष्ट्रपति का पद मृत्यु, त्यागपत्र या महाभियोग के कारण रिक्त हो जाए, तो उपराष्ट्रपति अधिकतम <b>6 महीने</b> के लिए कार्यवाहक राष्ट्रपति के रूप में कार्य करते हैं। इस दौरान वे राज्यसभा के सभापति का कार्य नहीं करते।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 7 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part7_vice_president_role_election.webp" alt="🎨 शिक्षण कार्ड 7: भारत का उपराष्ट्रपति: पद, चुनाव और संवैधानिक भूमिका">
+    <div class="cartoon-caption" style="border-left-color: #6366f1;">
+        <div class="cartoon-caption-title" style="color: #6366f1 !important;">
+            🎨 शिक्षण कार्ड 7: भारत का उपराष्ट्रपति: पद, चुनाव और संवैधानिक भूमिका
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> राज्यसभा के पदेन सभापति के रूप में सदन का संचालन तथा राष्ट्रपति का पद रिक्त होने पर अधिकतम 6 माह के लिए कार्यवाहक राष्ट्रपति की भूमिका निभाना।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 8 -->
@@ -194,6 +412,23 @@
 <li><b style="color: #831843 !important; background-color: #fce7f3 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #db2777 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">6. नीति आयोग व विभिन्न परिषदों के अध्यक्ष:</b> प्रधानमंत्री 'नीति आयोग' (NITI Aayog), राष्ट्रीय एकता परिषद और अंतर्राज्यीय परिषद के पदेन अध्यक्ष होते हैं।</li>
 <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">7. आपातकाल व राष्ट्रीय संकट में देश का नेता:</b> युद्ध, महामारी या प्राकृतिक आपदा के समय राष्ट्र का मार्गदर्शन करना और त्वरित निर्णय लेना।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 8 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part8_prime_minister_functions_powers.webp" alt="🎨 शिक्षण कार्ड 8: प्रधानमंत्री: वास्तविक कार्यपालिका का प्रमुख और देश का नेता">
+    <div class="cartoon-caption" style="border-left-color: #14b8a6;">
+        <div class="cartoon-caption-title" style="color: #14b8a6 !important;">
+            🎨 शिक्षण कार्ड 8: प्रधानमंत्री: वास्तविक कार्यपालिका का प्रमुख और देश का नेता
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> मंत्रिपरिषद का गठन व विभागों का आवंटन, कैबिनेट बैठकों की अध्यक्षता, संसद का नेतृत्व तथा राष्ट्रपति व मंत्रिमंडल के मध्य संवैधानिक सेतु (अनुच्छेद 78)।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 9 -->
 <div class="part-container" style="border-top-color: #2563eb;">
 <h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">मंत्रिपरिषद और शक्ति का केंद्र: प्रधानमंत्री का वर्चस्व</h2>
 <p>भारतीय राजनीतिक व्यवस्था में प्रधानमंत्री की शक्ति के कई स्रोत हैं, जो उन्हें शक्तिशाली बनाते हैं:</p>
@@ -203,6 +438,20 @@
 <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मीडिया और जनता से सीधा संपर्क:</b> राष्ट्रीय संकट के समय देश का नेतृत्व करना और वैश्विक मंचों पर भारत का प्रतिनिधित्व करना।</li>
 <li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">गठबंधन राजनीति की सीमाएं:</b> जब देश में गठबंधन सरकारें बनती हैं, तो प्रधानमंत्री की शक्तियां कुछ हद तक सहयोगी दलों की सहमति पर निर्भर हो जाती हैं।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 9 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part9_pm_hegemony_council_of_ministers.webp" alt="🎨 शिक्षण कार्ड 9: मंत्रिपरिषद और शक्ति का केंद्र: प्रधानमंत्री का वर्चस्व">
+    <div class="cartoon-caption" style="border-left-color: #2563eb;">
+        <div class="cartoon-caption-title" style="color: #2563eb !important;">
+            🎨 शिक्षण कार्ड 9: मंत्रिपरिषद और शक्ति का केंद्र: प्रधानमंत्री का वर्चस्व
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> प्रधानमंत्री मंत्रिपरिषद के केंद्रबिंदु हैं; उनके त्यागपत्र या मृत्यु से पूरी सरकार भंग हो जाती है। गठबंधन राजनीति में सहयोगी दलों के साथ समन्वय आवश्यक होता है।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 10 -->
@@ -213,6 +462,20 @@
 <li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एक साथ तैरते हैं और एक साथ डूबते हैं:</b> अनुच्छेद 75(3) के अनुसार मंत्रिपरिषद सामूहिक रूप से <b>लोकसभा के प्रति उत्तरदायी</b> होती है। इसका अर्थ है कि यदि किसी एक मंत्री के खिलाफ भी लोकसभा में अविश्वास प्रस्ताव (No-Confidence Motion) पारित हो जाता है, तो पूरी सरकार (समस्त मंत्रिपरिषद) को त्यागपत्र देना पड़ता है।</li>
 <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मंत्रिमंडल की एकजुटता:</b> कैबिनेट की बैठक में किसी मुद्दे पर मतभेद हो सकते हैं, परंतु एक बार फैसला होने के बाद सभी मंत्रियों को सार्वजनिक रूप से उस निर्णय का समर्थन करना अनिवार्य है। यदि कोई मंत्री असहमत है, तो उसे पद से त्यागपत्र देना पड़ता है (जैसे डॉ. बी.आर. अंबेडकर और चिंतामन देशमुख का त्यागपत्र)।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 10 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part10_collective_responsibility_principle.webp" alt="🎨 शिक्षण कार्ड 10: सामूहिक उत्तरदायित्व (Collective Responsibility) का सिद्धांत">
+    <div class="cartoon-caption" style="border-left-color: #dc2626;">
+        <div class="cartoon-caption-title" style="color: #dc2626 !important;">
+            🎨 शिक्षण कार्ड 10: सामूहिक उत्तरदायित्व (Collective Responsibility) का सिद्धांत
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अनुच्छेद 75(3) के अनुसार पूरी मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी है; यदि एक मंत्री के खिलाफ भी अविश्वास प्रस्ताव पारित हो जाए तो पूरी सरकार को त्यागपत्र देना होता है।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 11 -->
@@ -230,6 +493,20 @@
   <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">दलबदल पर रोक:</b> दलबदल करने वाले सदस्यों को मंत्री पद पाने से अयोग्य घोषित किया गया।</li>
   </ul>
 </div>
+
+<!-- VISUAL TEACHING CARD 11 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part11_91st_amendment_council_size.webp" alt="🎨 शिक्षण कार्ड 11: मंत्रिपरिषद का आकार और 91वाँ संविधान संशोधन (2003)">
+    <div class="cartoon-caption" style="border-left-color: #10b981;">
+        <div class="cartoon-caption-title" style="color: #10b981 !important;">
+            🎨 शिक्षण कार्ड 11: मंत्रिपरिषद का आकार और 91वाँ संविधान संशोधन (2003)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अनुच्छेद 75(1A) के तहत मंत्रिपरिषद का कुल आकार लोकसभा की कुल सदस्य संख्या के 15% से अधिक नहीं हो सकता (राज्यों में भी 15% सीमा, न्यूनतम 12 मंत्री)।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 12 -->
@@ -246,6 +523,20 @@
   </ul>
 </li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 12 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part12_president_pm_relationship_art74_78.webp" alt="🎨 शिक्षण कार्ड 12: राष्ट्रपति और प्रधानमंत्री के बीच संवैधानिक संबंध (Art. 74 & 78)">
+    <div class="cartoon-caption" style="border-left-color: #8b5cf6;">
+        <div class="cartoon-caption-title" style="color: #8b5cf6 !important;">
+            🎨 शिक्षण कार्ड 12: राष्ट्रपति और प्रधानमंत्री के बीच संवैधानिक संबंध (अनुच्छेद 74 व 78)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अनुच्छेद 74 के तहत राष्ट्रपति मंत्रिपरिषद की सलाह पर कार्य करते हैं, तथा अनुच्छेद 78 के तहत प्रधानमंत्री का कर्तव्य है कि वे प्रशासन व विधायी प्रस्तावों की जानकारी राष्ट्रपति को दें।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 13 -->
@@ -261,6 +552,20 @@
   </ul>
 </li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 13 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part13_bureaucracy_structure_characteristics.webp" alt="🎨 शिक्षण कार्ड 13: स्थायी कार्यपालिका: भारत में नौकरशाही का ढांचा">
+    <div class="cartoon-caption" style="border-left-color: #ea580c;">
+        <div class="cartoon-caption-title" style="color: #ea580c !important;">
+            🎨 शिक्षण कार्ड 13: स्थायी कार्यपालिका: भारत में नौकरशाही (Bureaucracy) का ढांचा
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> खुली प्रतियोगी परीक्षा द्वारा योग्यता आधारित निष्पक्ष चयन, सरकारों के बदलने पर भी राजनीतिक तटस्थता, और संसद के समक्ष अनामिकता का सिद्धांत।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 14 -->
@@ -279,6 +584,20 @@
 </div>
 
 <p><b>संघ लोक सेवा आयोग (UPSC) & SPSC:</b> अनुच्छेद 315 के तहत निष्पक्ष चयन हेतु स्वतंत्र संवैधानिक आयोग गठित हैं। इसके अलावा संविधान में SC, ST, OBC और महिलाओं के लिए आरक्षण का प्रावधान है ताकि प्रशासनिक सेवा सामाजिक रूप से समावेशी बने।</p>
+
+<!-- VISUAL TEACHING CARD 14 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part14_civil_services_classification_upsc.webp" alt="🎨 शिक्षण कार्ड 14: सिविल सेवाओं का वर्गीकरण और UPSC/SPSC">
+    <div class="cartoon-caption" style="border-left-color: #db2777;">
+        <div class="cartoon-caption-title" style="color: #db2777 !important;">
+            🎨 शिक्षण कार्ड 14: भारतीय सिविल सेवाओं का त्रिस्तरीय वर्गीकरण (UPSC व SPSC)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अखिल भारतीय सेवाएं (IAS, IPS - केंद्र व राज्य दोनों में), केंद्रीय सेवाएं (IFS, IRS - केवल केंद्र/विदेश में), और राज्य सेवाएं (PCS, SPS - संबंधित राज्य में)।
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- TOPIC 15 -->
@@ -290,6 +609,338 @@
 <li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नागरिकों के प्रति जवाबदेही:</b> सूचना का अधिकार (RTI Act 2005), सिटीजन चार्टर, और ई-गवर्नेंस से नौकरशाही में पारदर्शिता और जन-सेवा की भावना बढ़ी है।</li>
 <li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नौकरशाही की चुनौतियाँ:</b> लालफीताशाही (Red Tapism), भ्रष्टाचार, और राजनीतिक दबाव में काम करने की प्रवृत्ति को दूर करने के लिए द्वितीय प्रशासनिक सुधार आयोग (2nd ARC) की सिफारिशों को लागू करना आवश्यक है।</li>
 </ul>
+
+<!-- VISUAL TEACHING CARD 15 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part15_bureaucracy_accountability_reforms.webp" alt="🎨 शिक्षण कार्ड 15: नौकरशाही की जवाबदेही, लोकतंत्र और सुधार की आवश्यकता">
+    <div class="cartoon-caption" style="border-left-color: #6366f1;">
+        <div class="cartoon-caption-title" style="color: #6366f1 !important;">
+            🎨 शिक्षण कार्ड 15: नौकरशाही की जवाबदेही, लोकतंत्र और प्रशासनिक सुधार
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> संसदीय नियंत्रण, सूचना का अधिकार (RTI Act 2005), ई-गवर्नेंस, सिटीजन चार्टर और लालफीताशाही समाप्त करने हेतु द्वितीय प्रशासनिक सुधार आयोग (2nd ARC) के सुझाव।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 16 -->
+<div class="part-container" style="border-top-color: #dc2626;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रपति पर महाभियोग प्रक्रिया (अनुच्छेद 61)</h2>
+<p>भारतीय संविधान के <b>अनुच्छेद 61</b> में राष्ट्रपति को उनके पद से हटाने के लिए एक विशिष्ट और कठोर प्रक्रिया दी गई है जिसे <b>महाभियोग (Impeachment)</b> कहा जाता है।</p>
+<ul>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एकमात्र आधार:</b> राष्ट्रपति पर महाभियोग केवल <b>"संविधान के उल्लंघन" (Violation of the Constitution)</b> के आधार पर ही लगाया जा सकता है।</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">प्रक्रिया की शुरुआत:</b> महाभियोग का प्रस्ताव संसद के किसी भी सदन (लोकसभा या राज्यसभा) में लाया जा सकता है। इसके लिए उस सदन के कम से कम <b>1/4 (एक-चौथाई) सदस्यों के हस्ताक्षर</b> और <b>14 दिन की पूर्व लिखित सूचना</b> अनिवार्य है।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विशेष बहुमत (2/3 कुल संख्या):</b> आरोप लगाने वाले सदन की <b>कुल सदस्य संख्या के कम से कम 2/3 बहुमत</b> से प्रस्ताव पारित होना आवश्यक है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अर्ध-न्यायिक जांच व पदमुक्ति:</b> दूसरा सदन इन आरोपों की जांच करता है। जांच के दौरान राष्ट्रपति को स्वयं उपस्थित होने या अपने प्रतिनिधि द्वारा पक्ष रखने का पूर्ण अधिकार होता है। यदि दूसरा सदन भी कुल सदस्य संख्या के 2/3 बहुमत से आरोप को सही ठहरा देता है, तो राष्ट्रपति उसी दिन से पदमुक्त माने जाते हैं।</li>
+<li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नोट:</b> स्वतंत्र भारत के इतिहास में आज तक किसी भी राष्ट्रपति पर महाभियोग नहीं लगाया गया है।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 16 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part16_presidential_impeachment_art61.webp" alt="🎨 शिक्षण कार्ड 16: राष्ट्रपति पर महाभियोग प्रक्रिया (अनुच्छेद 61)">
+    <div class="cartoon-caption" style="border-left-color: #dc2626;">
+        <div class="cartoon-caption-title" style="color: #dc2626 !important;">
+            🎨 शिक्षण कार्ड 16: राष्ट्रपति पर महाभियोग प्रक्रिया (अनुच्छेद 61)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> केवल संविधान के उल्लंघन पर महाभियोग संभव, 14 दिन पूर्व 1/4 सदस्यों की सूचना, दोनों सदनों में कुल संख्या के 2/3 विशेष बहुमत से पारित होना अनिवार्य (अर्ध-न्यायिक प्रक्रिया)।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 17 -->
+<div class="part-container" style="border-top-color: #ea580c;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रपति की आपातकालीन शक्तियाँ (अनुच्छेद 352, 356, 360)</h2>
+<p>भारतीय संविधान के <b>भाग 18</b> में राष्ट्रपति को देश की संप्रभुता, एकता और अखंडता की सुरक्षा हेतु तीन प्रकार की आपातकालीन शक्तियाँ प्रदान की गई हैं:</p>
+<ul>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. राष्ट्रीय आपातकाल (अनुच्छेद 352):</b>
+  <ul>
+  <li><b>आधार:</b> युद्ध, बाह्य आक्रमण अथवा सशस्त्र विद्रोह (44वें संशोधन 1978 द्वारा 'आंतरिक अशांति' की जगह 'सशस्त्र विद्रोह' शब्द जोड़ा गया)।</li>
+  <li><b>शर्त:</b> यह केवल केंद्रीय मंत्रिमंडल की <b>लिखित सिफारिश</b> पर ही घोषित किया जा सकता है और 1 माह के भीतर संसद के दोनों सदनों द्वारा विशेष बहुमत से अनुमोदित होना आवश्यक है।</li>
+  </ul>
+</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. राज्य में संवैधानिक तंत्र की विफलता / राष्ट्रपति शासन (अनुच्छेद 356):</b>
+  <ul>
+  <li><b>आधार:</b> यदि राज्यपाल की रिपोर्ट या अन्य आधार पर राष्ट्रपति संतुष्ट हों कि राज्य सरकार संविधान के अनुसार नहीं चल पा रही है।</li>
+  <li><b>प्रभाव:</b> राज्य की मंत्रिपरिषद बर्खास्त कर दी जाती है और राज्य की विधायी शक्तियां संसद को प्राप्त हो जाती हैं (एस.आर. बोम्मई केस 1994 के अनुसार यह न्यायिक समीक्षा के अधीन है)।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. वित्तीय आपातकाल (अनुच्छेद 360):</b>
+  <ul>
+  <li><b>आधार:</b> यदि भारत या उसके किसी भाग के वित्तीय स्थायित्व या साख को गंभीर खतरा उत्पन्न हो जाए। भारत में आज तक कभी वित्तीय आपातकाल नहीं लगाया गया है।</li>
+  </ul>
+</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 17 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part17_presidential_emergency_powers.webp" alt="🎨 शिक्षण कार्ड 17: राष्ट्रपति की आपातकालीन शक्तियाँ (अनुच्छेद 352, 356, 360)">
+    <div class="cartoon-caption" style="border-left-color: #ea580c;">
+        <div class="cartoon-caption-title" style="color: #ea580c !important;">
+            🎨 शिक्षण कार्ड 17: राष्ट्रपति की आपातकालीन शक्तियाँ (अनुच्छेद 352, 356 व 360)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अनु. 352 (राष्ट्रीय आपात - युद्ध/बाह्य आक्रमण/सशस्त्र विद्रोह), अनु. 356 (राज्यों में राष्ट्रपति शासन), अनु. 360 (वित्तीय आपातकाल - भारत में कभी नहीं लगा)।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 18 -->
+<div class="part-container" style="border-top-color: #0284c7;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रपति की न्यायिक क्षमादान शक्तियाँ (अनुच्छेद 72)</h2>
+<p>संविधान के <b>अनुच्छेद 72</b> के तहत भारत के राष्ट्रपति को किसी भी अपराध के लिए दोषी ठहराए गए व्यक्ति के दंड को कम करने, बदलने या माफ करने की संप्रभु न्यायिक शक्ति प्राप्त है:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">दायरा:</b> यह शक्ति संघ सूची के कानूनों के उल्लंघन, सैन्य न्यायालय (Court Martial) द्वारा दिए गए दंड, और <b>मृत्युदंड (Death Sentence)</b> के सभी मामलों में लागू होती है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">क्षमादान के 5 रूप:</b>
+  <ul>
+  <li><b>1. क्षमा (Pardon):</b> दंड और दोषसिद्धि दोनों को पूर्णतः समाप्त कर देना; व्यक्ति ऐसा हो जाता है मानो उसने अपराध किया ही न हो।</li>
+  <li><b>2. लघुकरण (Commutation):</b> दंड के स्वरूप को बदलकर कम कठोर दंड देना (उदा. मृत्युदंड को आजीवन कारावास में बदलना)।</li>
+  <li><b>3. परिहार (Remission):</b> दंड की प्रकृति बदले बिना उसकी अवधि कम करना (उदा. 2 वर्ष के कठोर कारावास को 1 वर्ष में बदलना)।</li>
+  <li><b>4. विराम (Respite):</b> किसी विशेष परिस्थिति (जैसे गर्भावस्था या गंभीर बीमारी) में मूल दंड को कम करना।</li>
+  <li><b>5. प्रविलंबन (Reprieve):</b> किसी दंड (विशेषकर मृत्युदंड) पर अस्थाई रोक लगाना ताकि क्षमा या लघुकरण की याचिका पर विचार किया जा सके।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक नियम:</b> राष्ट्रपति इस शक्ति का प्रयोग केंद्रीय मंत्रिपरिषद (गृह मंत्रालय) की सलाह पर ही करते हैं।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 18 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part18_presidential_pardoning_power_art72.webp" alt="🎨 शिक्षण कार्ड 18: राष्ट्रपति की न्यायिक क्षमादान शक्तियाँ (अनुच्छेद 72)">
+    <div class="cartoon-caption" style="border-left-color: #0284c7;">
+        <div class="cartoon-caption-title" style="color: #0284c7 !important;">
+            🎨 शिक्षण कार्ड 18: राष्ट्रपति की न्यायिक क्षमादान शक्तियाँ (अनुच्छेद 72)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> क्षमादान के 5 रूप: क्षमा (Pardon), लघुकरण (Commutation), परिहार (Remission), विराम (Respite) और प्रविलंबन (Reprieve)। मंत्रिपरिषद की सलाह पर प्रयोग।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 19 -->
+<div class="part-container" style="border-top-color: #10b981;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राष्ट्रपति की अध्यादेश निर्माण शक्ति (अनुच्छेद 123)</h2>
+<p>संविधान का <b>अनुच्छेद 123</b> राष्ट्रपति को आपात या असाधारण परिस्थितियों में कानून बनाने की असाधारण विधायी शक्ति प्रदान करता है जिसे <b>अध्यादेश (Ordinance)</b> कहते हैं:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">लागू होने की अनिवार्य शर्त:</b> जब संसद का कम से कम एक सदन सत्र में न हो और राष्ट्रपति को विश्वास हो कि तत्काल कानून बनाना अनिवार्य हो गया है।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संसद के कानून के समान प्रभाव:</b> अध्यादेश को संसद द्वारा पारित अधिनियम के समान ही कानूनी शक्ति और प्रभाव प्राप्त होता है।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">समय सीमा (Life of Ordinance):</b> संसद का सत्र पुनः प्रारंभ होने की तिथि से <b>6 सप्ताह के भीतर</b> दोनों सदनों द्वारा अध्यादेश अनुमोदित होना अनिवार्य है। यदि अनुमोदित नहीं होता, तो वह स्वतः समाप्त हो जाता है।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अधिकतम अवधि:</b> चूंकि दो संसद सत्रों के बीच अधिकतम अंतर 6 माह हो सकता है, इसलिए किसी अध्यादेश की अधिकतम अवधि <b>6 माह + 6 सप्ताह</b> हो सकती है। सर्वोच्च न्यायालय ने (डी.सी. वाधवा केस) यह स्पष्ट किया है कि अध्यादेश का बार-बार पुनः प्रख्यापन संसद की अनदेखी और असंवैधानिक है।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 19 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part19_presidential_ordinance_art123.webp" alt="🎨 शिक्षण कार्ड 19: राष्ट्रपति की अध्यादेश निर्माण शक्ति (अनुच्छेद 123)">
+    <div class="cartoon-caption" style="border-left-color: #10b981;">
+        <div class="cartoon-caption-title" style="color: #10b981 !important;">
+            🎨 शिक्षण कार्ड 19: राष्ट्रपति की अध्यादेश निर्माण शक्ति (अनुच्छेद 123)
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> संसद सत्र न चलने पर तत्काल कानून निर्माण, संसद के अधिनियम जैसी कानूनी शक्ति, संसद सत्र शुरू होने के 6 सप्ताह के भीतर अनुमोदन अनिवार्य (अधिकतम अवधि 6 माह + 6 सप्ताह)।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 20 -->
+<div class="part-container" style="border-top-color: #8b5cf6;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">राज्यपाल: राज्य स्तर पर कार्यपालिका और संवैधानिक स्थिति</h2>
+<p>भारत के संघीय ढांचे में राज्यों में कार्यपालिका की संरचना केंद्र के समान ही है। राज्य स्तर पर कार्यपालिका में <b>राज्यपाल (Governor), मुख्यमंत्री और उनकी मंत्रिपरिषद</b> शामिल होते हैं (अनुच्छेद 153-167):</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">नियुक्ति और कार्यकाल:</b> राज्यपाल का निर्वाचन नहीं होता; उनकी नियुक्ति <b>राष्ट्रपति द्वारा 5 वर्ष के लिए</b> की जाती है और वे राष्ट्रपति के 'प्रसादपर्यंत' (Pleasure of the President) पद धारण करते हैं।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">राज्यपाल की दोहरी भूमिका:</b>
+  <ul>
+  <li>1. राज्य का संवैधानिक व नाममात्र का प्रमुख (समान राष्ट्रपति)।</li>
+  <li>2. केंद्र सरकार के प्रतिनिधि/एजेंट के रूप में कार्य करना जो केंद्र-राज्य संबंधों में सेतु का कार्य करता है।</li>
+  </ul>
+</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विवेकाधीन शक्तियाँ (Discretionary Powers - अनु. 163):</b> राष्ट्रपति की तुलना में राज्यपाल के पास संविधान द्वारा स्पष्ट विवेकाधिकार दिए गए हैं:
+  <ul>
+  <li>राज्य विधानसभा द्वारा पारित विधेयक को राष्ट्रपति के विचारार्थ सुरक्षित रखना (अनुच्छेद 200)।</li>
+  <li>त्रिशंकु विधानसभा में मुख्यमंत्री का चयन और विश्वास मत का समय तय करना।</li>
+  <li>राज्य में राष्ट्रपति शासन (अनुच्छेद 356) की सिफारिश राष्ट्रपति को भेजना।</li>
+  </ul>
+</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 20 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part20_governor_role_powers.webp" alt="🎨 शिक्षण कार्ड 20: राज्यपाल: राज्य स्तर पर कार्यपालिका और संवैधानिक स्थिति">
+    <div class="cartoon-caption" style="border-left-color: #8b5cf6;">
+        <div class="cartoon-caption-title" style="color: #8b5cf6 !important;">
+            🎨 शिक्षण कार्ड 20: राज्यपाल: राज्य की कार्यपालिका व दोहरी संवैधानिक भूमिका
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> राष्ट्रपति द्वारा नियुक्ति (प्रसादपर्यंत पद), राज्य का संवैधानिक प्रमुख + केंद्र का प्रतिनिधि (दोहरी भूमिका), और अनुच्छेद 163 के तहत महत्वपूर्ण विवेकाधीन शक्तियाँ।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 21 -->
+<div class="part-container" style="border-top-color: #f59e0b;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">गठबंधन सरकारों में प्रधानमंत्री की बदलती भूमिका</h2>
+<p>1989 से 2014 तक भारतीय राजनीति में <b>गठबंधन सरकारों (Coalition Governments)</b> का लंबा दौर रहा। इसने प्रधानमंत्री की शक्तियों, कार्यशैली और निर्णय प्रक्रिया को गहराई से प्रभावित किया:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">एकदलीय प्रभुत्व बनाम गठबंधन:</b> एकदलीय पूर्ण बहुमत की सरकारों (जैसे 1971 या 1984) में प्रधानमंत्री की सत्ता सर्वोच्च और वर्चस्वशाली होती थी। परंतु गठबंधन सरकारों में प्रधानमंत्री को विभिन्न दलों के बीच तालमेल बैठाना पड़ता है।</li>
+<li><b style="color: #9a3412 !important; background-color: #ffedd5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #ea580c !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">न्यूनतम साझा कार्यक्रम (Common Minimum Programme - CMP):</b> गठबंधन के सभी घटक दल मिलकर एक साझा एजेंडा तय करते हैं, जिसके आधार पर नीतियां बनती हैं। प्रधानमंत्री अपनी व्यक्तिगत या दलीय प्राथमिकताओं को मनमाने ढंग से नहीं थोप सकते।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">मंत्रियों के चयन में सीमाएं:</b> गठबंधन सरकारों में सहयोगी दल अपने मंत्रालयों का फैसला स्वयं करते हैं। प्रधानमंत्री को महत्वपूर्ण मंत्रालय (जैसे वित्त, गृह, रेल) सहयोगी दलों को देने पड़ते हैं।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सहमति और मध्यस्थता की कला:</b> गठबंधन युग में प्रधानमंत्री एक 'तानाशाह' या 'अधिनायक' के बजाय एक <b>कुशल मध्यस्थ (Facilitator) और वार्ताकार</b> के रूप में उभरे।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 21 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part21_coalition_politics_prime_minister.webp" alt="🎨 शिक्षण कार्ड 21: गठबंधन सरकारों में प्रधानमंत्री की बदलती भूमिका">
+    <div class="cartoon-caption" style="border-left-color: #f59e0b;">
+        <div class="cartoon-caption-title" style="color: #f59e0b !important;">
+            🎨 शिक्षण कार्ड 21: गठबंधन सरकारों में प्रधानमंत्री: संवाद, सहमति व तालमेल
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> एकदलीय पूर्ण बहुमत के वर्चस्व से हटकर न्यूनतम साझा कार्यक्रम (CMP) पर आधारित शासन, सहयोगी दलों से निरंतर विचार-विमर्श और सर्वसम्मति आधारित कार्यशैली।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 22 -->
+<div class="part-container" style="border-top-color: #0d9488;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">मंत्रिपरिषद का त्रिस्तरीय ढांचा: कैबिनेट, राज्य मंत्री और उप-मंत्री</h2>
+<p>मंत्रिपरिषद (Council of Ministers) में सभी श्रेणियों के मंत्री शामिल होते हैं। प्रशासनिक दक्षता और कार्यविभाजन की दृष्टि से इसे तीन प्रमुख स्तरों में वर्गीकृत किया गया है:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. कैबिनेट मंत्री (Cabinet Ministers):</b>
+  <ul>
+  <li>यह मंत्रिपरिषद का सबसे शीर्ष और शक्तिशाली अंग है (लगभग 15 से 20 वरिष्ठतम नेता)।</li>
+  <li>महत्वपूर्ण मंत्रालय (गृह, रक्षा, वित्त, विदेश, शिक्षा) इनके अधीन होते हैं। देश के सभी नीतिगत और विधायी निर्णय कैबिनेट बैठकों में ही लिए जाते हैं।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. राज्य मंत्री (Ministers of State - MoS):</b>
+  <ul>
+  <li><b>(क) स्वतंत्र प्रभार (Independent Charge):</b> इन्हें किसी मंत्रालय का पूरा प्रभार दिया जाता है, परंतु ये कैबिनेट बैठकों में केवल तभी आमंत्रित किए जाते हैं जब इनके विभाग का विषय हो।</li>
+  <li><b>(ख) कैबिनेट मंत्री के सहायक:</b> बड़े मंत्रालयों में कैबिनेट मंत्री के कार्यभार को साझा करने और सहायता हेतु नियुक्त किए जाते हैं।</li>
+  </ul>
+</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. उप-मंत्री (Deputy Ministers):</b>
+  <ul>
+  <li>ये सबसे निचले स्तर के मंत्री होते हैं। इन्हें कोई स्वतंत्र विभाग नहीं मिलता। ये कैबिनेट या राज्य मंत्रियों को प्रशासनिक, राजनीतिक और संसदीय कार्यों में सहयोग देते हैं।</li>
+  </ul>
+</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">किचन कैबिनेट (Kitchen Cabinet / Inner Cabinet):</b> प्रधानमंत्री के 2-4 अत्यंत विश्वसनीय सलाहकारों का एक अनौपचारिक आंतरिक समूह, जहाँ अति-संवेदनशील और त्वरित राष्ट्रीय फैसले अनौपचारिक रूप से पहले तय किए जाते हैं।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 22 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part22_three_tier_council_of_ministers.webp" alt="🎨 शिक्षण कार्ड 22: मंत्रिपरिषद का त्रिस्तरीय ढांचा: कैबिनेट, राज्य मंत्री और उप-मंत्री">
+    <div class="cartoon-caption" style="border-left-color: #0d9488;">
+        <div class="cartoon-caption-title" style="color: #0d9488 !important;">
+            🎨 शिक्षण कार्ड 22: मंत्रिपरिषद का त्रिस्तरीय वर्गीकरण व किचन कैबिनेट
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> कैबिनेट मंत्री (नीति निर्माता शीर्ष कोर), राज्य मंत्री (स्वतंत्र प्रभार या सहायक), उप-मंत्री (प्रशासनिक सहयोगी), और प्रधानमंत्री का आंतरिक कोर 'किचन कैबिनेट'।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 23 -->
+<div class="part-container" style="border-top-color: #e11d48;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">अविश्वास प्रस्ताव, विश्वास मत और फ्लोर टेस्ट</h2>
+<p>संसदीय लोकतंत्र में कार्यपालिका तब तक ही पद पर बनी रह सकती है जब तक उसे लोकसभा का विश्वास प्राप्त है (अनुच्छेद 75(3)):</p>
+<ul>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">अविश्वास प्रस्ताव (No-Confidence Motion):</b>
+  <ul>
+  <li>यह प्रस्ताव <b>केवल विपक्ष द्वारा केवल लोकसभा में</b> लाया जा सकता है (राज्यसभा में नहीं)।</li>
+  <li>प्रस्ताव पेश करने के लिए कम से कम <b>50 सांसदों का समर्थन</b> अनिवार्य है।</li>
+  <li>यदि यह प्रस्ताव लोकसभा में साधारण बहुमत (50% + 1) से पारित हो जाता है, तो संपूर्ण मंत्रिपरिषद सहित प्रधानमंत्री को तत्काल इस्तीफा देना पड़ता है।</li>
+  </ul>
+</li>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">विश्वास मत (Confidence Motion):</b>
+  <ul>
+  <li>जब राष्ट्रपति किसी नेता को प्रधानमंत्री नियुक्त करते हैं (विशेषकर त्रिशंकु संसद में), तो वे सदन में बहुमत साबित करने के लिए विश्वास मत लाने का निर्देश देते हैं। यह प्रस्ताव सरकार स्वयं लाती है।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">फ्लोर टेस्ट (Floor Test):</b> सदन के पटल पर खुली वोटिंग द्वारा यह तय करना कि सरकार के पास 272+ सदस्यों का जादुई आंकड़ा मौजूद है या नहीं। यदि फ्लोर टेस्ट में सरकार पराजित हो जाए, तो सरकार गिर जाती है।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 23 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part23_no_confidence_motion_floor_test.webp" alt="🎨 शिक्षण कार्ड 23: अविश्वास प्रस्ताव, विश्वास मत और फ्लोर टेस्ट">
+    <div class="cartoon-caption" style="border-left-color: #e11d48;">
+        <div class="cartoon-caption-title" style="color: #e11d48 !important;">
+            🎨 शिक्षण कार्ड 23: लोकसभा में अविश्वास प्रस्ताव, विश्वास मत व फ्लोर टेस्ट
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> विपक्ष द्वारा 50 सांसदों के समर्थन से केवल लोकसभा में अविश्वास प्रस्ताव, साधारण बहुमत से पास होने पर संपूर्ण सरकार का पतन, और फ्लोर टेस्ट द्वारा शक्ति परीक्षण।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 24 -->
+<div class="part-container" style="border-top-color: #7c3aed;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">नौकरशाही में सामाजिक प्रतिनिधित्व व आरक्षण नीतियां</h2>
+<p>भारतीय संविधान का उद्देश्य एक ऐसी नौकरशाही का निर्माण करना है जो केवल कुछ विशेषाधिकार प्राप्त वर्गों तक सीमित न रहे, बल्कि पूरे भारत की सामाजिक विविधता को प्रतिबिंबित करे:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">संवैधानिक प्रावधान:</b>
+  <ul>
+  <li><b>अनुच्छेद 16(4):</b> राज्य को उन पिछड़े वर्गों के लिए सरकारी नौकरियों में आरक्षण देने का अधिकार देता है जिनका प्रशासन में पर्याप्त प्रतिनिधित्व नहीं है।</li>
+  <li><b>अनुच्छेद 335:</b> अनुसूचित जातियों (SC) और अनुसूचित जनजातियों (ST) के दावों को प्रशासनिक दक्षता बनाए रखने के साथ संतुलित करने का निर्देश देता है।</li>
+  </ul>
+</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">वर्तमान आरक्षण ढांचा:</b> अनुसूचित जाति (SC - 15%), अनुसूचित जनजाति (ST - 7.5%), अन्य पिछड़ा वर्ग (OBC - 27%), आर्थिक रूप से कमजोर वर्ग (EWS - 10%), तथा दिव्यांगजन और महिलाओं के लिए विशेष अवसर।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">सकारात्मक प्रभाव:</b> आरक्षण नीतियों ने सिविल सेवाओं के पारंपरिक उच्च-वर्गीय और कुलीन चरित्र को तोड़ा है। इससे वंचित और ग्रामीण पृष्ठभूमि के युवाओं को निर्णय लेने की उच्च प्रशासनिक प्रक्रियाओं में सीधी भागीदारी मिली है।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 24 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part24_bureaucracy_social_representation.webp" alt="🎨 शिक्षण कार्ड 24: नौकरशाही में सामाजिक प्रतिनिधित्व व आरक्षण नीतियां">
+    <div class="cartoon-caption" style="border-left-color: #7c3aed;">
+        <div class="cartoon-caption-title" style="color: #7c3aed !important;">
+            🎨 शिक्षण कार्ड 24: नौकरशाही में सामाजिक प्रतिनिधित्व व समावेशी विकास
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> अनु. 16(4) व 335 के तहत SC, ST, OBC, EWS आरक्षण, लोक प्रशासन में सामाजिक विविधता का समावेश, और कुलीन तंत्र के एकाधिकार को समाप्त करना।
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- TOPIC 25 -->
+<div class="part-container" style="border-top-color: #059669;">
+<h2 class="part-header" style="padding: 25px 35px; border-radius: 10px; font-weight: 900 !important; margin-top: 0;">कार्यपालिका पर लोकतांत्रिक व संस्थागत नियंत्रण (PAC, प्रश्नकाल, CAG)</h2>
+<p>लोकतंत्र में कार्यपालिका को निरंकुश होने से रोकने के लिए संविधान और संसदीय नियमों ने कई शक्तिशाली संस्थागत जांच और नियंत्रण (Checks and Balances) स्थापित किए हैं:</p>
+<ul>
+<li><b style="color: #1e3a8a !important; background-color: #eff6ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #2563eb !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">1. संसदीय प्रश्नकाल (Question Hour) व शून्यकाल:</b> संसद सत्र के प्रतिदिन पहले घंटे में सांसद मंत्रियों से उनके विभागों के कामकाज पर तीखे तारांकित (Starred) और अतारांकित (Unstarred) प्रश्न पूछते हैं और पूरक प्रश्न भी कर सकते हैं।</li>
+<li><b style="color: #991b1b !important; background-color: #fee2e2 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #dc2626 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">2. लोक लेखा समिति (Public Accounts Committee - PAC):</b> संसद की सबसे महत्वपूर्ण वित्तीय समिति जो सरकार द्वारा जनता के पैसे के खर्च की गहन जांच करती है। परंपरा के अनुसार इसका अध्यक्ष <b>विपक्ष का नेता</b> होता है ताकि निष्पक्ष जांच सुनिश्चित हो सके।</li>
+<li><b style="color: #065f46 !important; background-color: #d1fae5 !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #10b981 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">3. नियंत्रक एवं महालेखापरीक्षक (CAG - अनुच्छेद 148):</b> जनता के धन का संवैधानिक संरक्षक (Watchdog of the Public Purse)। CAG केंद्र और राज्य सरकारों के सभी आय-व्यय का ऑडिट कर संसद को रिपोर्ट देता है।</li>
+<li><b style="color: #5b21b6 !important; background-color: #f3e8ff !important; padding: 4px 14px !important; border-radius: 8px !important; border-left: 6px solid #8b5cf6 !important; display: inline-block !important; margin-right: 8px !important; margin-bottom: 4px !important; font-weight: 900 !important;">4. न्यायिक समीक्षा (Judicial Review):</b> यदि कार्यपालिका का कोई भी आदेश या नीति संविधान या मौलिक अधिकारों के विरुद्ध हो, तो न्यायपालिका (सुप्रीम कोर्ट / हाई कोर्ट) उसे असंवैधानिक घोषित कर रद्द कर सकती है।</li>
+</ul>
+
+<!-- VISUAL TEACHING CARD 25 -->
+<div class="cartoon-card">
+    <img src="images/ch4/part25_executive_democratic_control_cag.webp" alt="🎨 शिक्षण कार्ड 25: कार्यपालिका पर लोकतांत्रिक व संस्थागत नियंत्रण">
+    <div class="cartoon-caption" style="border-left-color: #059669;">
+        <div class="cartoon-caption-title" style="color: #059669 !important;">
+            🎨 शिक्षण कार्ड 25: कार्यपालिका पर संसदीय, वित्तीय व न्यायिक नियंत्रण
+        </div>
+        <div class="cartoon-caption-desc">
+            <b>मुख्य बिंदु:</b> दैनिक नियंत्रण हेतु प्रश्नकाल/शून्यकाल, वित्तीय शुचिता हेतु PAC व CAG (अनुच्छेद 148), और असंवैधानिक निर्णयों को रद्द करने हेतु स्वतंत्र न्यायपालिका की न्यायिक समीक्षा शक्ति।
+        </div>
+    </div>
+</div>
+
 </div>
 
 </div>

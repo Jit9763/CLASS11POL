@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारत का राष्ट्रपति चुनाव: संपूर्ण संवैधानिक इंटरैक्टिव सिमुलेटर (अनुच्छेद 54 व 55)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-main: #f8fafc;
+        --card-bg: #ffffff;
+        --card-border: #cbd5e1;
+        --card-border-subtle: #e2e8f0;
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
+        --text-muted: #64748b;
+        --gold-primary: #b45309;
+        --gold-glow: rgba(180, 83, 9, 0.15);
+        --mp-green: #047857;
+        --mp-green-light: #ecfdf5;
+        --mp-green-border: #10b981;
+        --mla-pink: #be185d;
+        --mla-pink-light: #fdf2f8;
+        --mla-pink-border: #ec4899;
+        --quota-color: #dc2626;
+        --accent-blue: #1d4ed8;
+        --accent-blue-light: #eff6ff;
+        --font-scale: 1;
+        --base-weight-normal: 600;
+        --base-weight-bold: 800;
+        --base-weight-extra: 900;
+    }
+
+    
+    /* PROFESSIONAL MATHEMATICAL FORMULA TYPOGRAPHY (NCERT STYLE) */
+    .math-formula-display {
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-left: 6px solid #2563eb;
+        border-radius: 14px;
+        padding: 16px 14px;
+        margin: 12px 0;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+    .formula-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        text-align: center;
+        width: 100%;
+        line-height: 1.3;
+        flex-wrap: wrap;
+    }
+    .formula-body-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .formula-lhs {
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.3;
+    }
+    .formula-eq {
+        font-size: calc(22px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #d97706;
+        user-select: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 2px;
+    }
+    .math-fraction {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    .math-num {
+        font-size: calc(13.5px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        padding: 4px 8px;
+        border-bottom: 2.5px solid #1e293b;
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.35;
+    }
+    .math-den {
+        font-size: calc(13.5px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        padding: 4px 8px;
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.35;
+    }
+    .math-op {
+        font-size: calc(20px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #d97706;
+        padding: 0 4px;
+        user-select: none;
+    }
+    .math-bracket-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+    }
+    .math-bracket {
+        font-size: calc(38px * var(--font-scale));
+        font-weight: 300;
+        color: #334155;
+        line-height: 1;
+        user-select: none;
+    }
+    .math-number {
+        font-size: calc(20px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #dc2626;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    /* LIVE STATE CALCULATION INLINE HORIZONTAL EQUATION */
+    .live-formula-inline {
+        background: #ffffff;
+        border: 2px solid #bfdbfe;
+        border-left: 6px solid #2563eb;
+        border-radius: 14px;
+        padding: 12px 18px;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+    }
+    .live-formula-inline .formula-lhs {
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        white-space: nowrap !important;
+    }
+    .live-formula-inline .formula-eq {
+        font-size: calc(22px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #d97706;
+        user-select: none;
+        white-space: nowrap !important;
+    }
+    .live-formula-inline .math-fraction {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: middle;
+        text-align: center;
+        width: auto !important;
+        min-width: 100px;
+    }
+    .live-formula-inline .math-num {
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        padding: 3px 8px;
+        border-bottom: 2px solid #1e293b;
+        white-space: nowrap !important;
+        font-family: monospace;
+    }
+    .live-formula-inline .math-den {
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        padding: 3px 8px;
+        white-space: nowrap !important;
+        font-family: monospace;
+    }
+    .live-formula-inline .live-formula-result {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: calc(18px * var(--font-scale));
+        font-weight: 900;
+        color: #b45309;
+        white-space: nowrap !important;
+        background: #fef3c7;
+        padding: 4px 10px;
+        border-radius: 8px;
+        border: 1px solid #fde68a;
+    }
+
+    /* Dynamic Font Weight Levels */
+    body.weight-normal {
+        --base-weight-normal: 600;
+        --base-weight-bold: 800;
+        --base-weight-extra: 900;
+    }
+    body.weight-bold {
+        --base-weight-normal: 700;
+        --base-weight-bold: 850;
+        --base-weight-extra: 900;
+        text-shadow: 0 0 0.35px rgba(15, 23, 42, 0.3);
+    }
+    body.weight-extra {
+        --base-weight-normal: 800;
+        --base-weight-bold: 900;
+        --base-weight-extra: 950;
+        text-shadow: 0 0 0.6px rgba(15, 23, 42, 0.5);
+        -webkit-text-stroke: 0.2px rgba(15, 23, 42, 0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        background: var(--bg-main);
+        color: var(--text-primary);
+        font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-normal);
+        line-height: 1.6;
+        min-height: 100vh;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: background 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+    }
+
+    .master-wrapper {
+        width: 100%;
+        max-width: 1360px;
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* HEADER */
+    .sim-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #0f172a 100%);
+        padding: 22px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid #3b82f6;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+    .ashok-chakra-badge {
+        width: 58px;
+        height: 58px;
+        background: radial-gradient(circle, #fbbf24 0%, #d97706 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    }
+    .sim-title h1 {
+        font-size: calc(23px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        letter-spacing: -0.5px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .sim-title p {
+        font-size: calc(13.5px * var(--font-scale));
+        color: #bfdbfe;
+        margin-top: 4px;
+        font-weight: 700;
+    }
+    .header-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .tool-btn {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 9px 16px;
+        border-radius: 12px;
+        font-size: calc(13.5px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        backdrop-filter: blur(4px);
+    }
+    .tool-btn:hover {
+        background: rgba(255, 255, 255, 0.28);
+        border-color: #ffffff;
+        transform: translateY(-1px);
+    }
+    .tool-btn.highlight-btn {
+        background: #ffffff;
+        color: #1e3a8a;
+        font-weight: 900;
+        border: 2px solid #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .tool-btn.highlight-btn:hover {
+        background: #fef08a;
+        color: #854d0e;
+        border-color: #fbbf24;
+    }
+    .tool-btn.active {
+        background: #f59e0b;
+        border-color: #fbbf24;
+        color: #0f172a;
+        box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    /* NAVIGATION TABS */
+    .tab-bar {
+        display: flex;
+        background: #f1f5f9;
+        border-bottom: 2px solid #cbd5e1;
+        overflow-x: auto;
+    }
+    .tab-btn {
+        flex: 1;
+        min-width: 200px;
+        padding: 16px 20px;
+        background: transparent;
+        border: none;
+        color: #475569;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-bottom: 4px solid transparent;
+        transition: all 0.25s;
+        white-space: nowrap;
+        font-family: inherit;
+    }
+    .tab-btn:hover {
+        color: #1e3a8a;
+        background: rgba(255, 255, 255, 0.6);
+    }
+    .tab-btn.active {
+        color: #1e3a8a;
+        border-bottom-color: #2563eb;
+        background: #ffffff;
+        font-weight: var(--base-weight-extra);
+    }
+
+    /* CONTENT PANELS */
+    .tab-content {
+        padding: 26px;
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TAB 1: FORMULA & ELECTORAL COLLEGE STYLES */
+    .formula-hero {
+        background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+        border: 2px solid #bfdbfe;
+        border-radius: 18px;
+        padding: 24px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    .formula-card {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    }
+    .formula-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: calc(13px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        margin-bottom: 12px;
+    }
+    .badge-mla { background: #fdf2f8; color: #be185d; border: 1.5px solid #ec4899; }
+    .badge-mp { background: #ecfdf5; color: #047857; border: 1.5px solid #10b981; }
+    .badge-quota { background: #fef2f2; color: #b91c1c; border: 1.5px solid #ef4444; }
+
+    .math-formula-box {
+        font-family: 'Share Tech Mono', monospace;
+        background: #fefce8;
+        padding: 14px 18px;
+        border-radius: 10px;
+        border: 1px solid #fef08a;
+        border-left: 6px solid #d97706;
+        color: #854d0e;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        line-height: 1.6;
+        margin: 12px 0;
+    }
+
+    .state-selector-grid {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 24px;
+    }
+    .state-list-box {
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 16px;
+        max-height: 480px;
+        overflow-y: auto;
+    }
+    .state-item-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        background: #f8fafc;
+        color: #0f172a;
+        border: 1px solid #e2e8f0;
+        font-family: inherit;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s;
+    }
+    .state-item-btn:hover {
+        background: #eff6ff;
+        border-color: #93c5fd;
+        transform: translateX(2px);
+    }
+    .state-item-btn.selected {
+        background: #eff6ff;
+        color: #1e3a8a;
+        border: 2px solid #2563eb;
+        font-weight: var(--base-weight-extra);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    .calculation-breakdown-card {
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    }
+    .live-calc-display {
+        background: #f8fafc;
+        border-radius: 14px;
+        padding: 20px;
+        border: 1.5px solid #cbd5e1;
+        margin: 16px 0;
+    }
+    .calc-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed #cbd5e1;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-normal);
+        color: #1e293b;
+    }
+    .calc-row:last-child {
+        border-top: 2px solid #1e3a8a;
+        border-bottom: none;
+        font-size: calc(18px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        margin-top: 6px;
+    }
+
+    /* STATS COUNTER STRIP */
+    .electoral-stats-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .stat-box {
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 18px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .stat-label {
+        font-size: calc(13px * var(--font-scale));
+        color: #475569;
+        font-weight: var(--base-weight-bold);
+        margin-bottom: 6px;
+    }
+    .stat-number {
+        font-size: calc(26px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    /* TAB 2: INTERACTIVE BALLOT PAPER */
+    .ballot-playground {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 28px;
+    }
+    .voter-identity-card {
+        background: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 18px;
+        padding: 22px;
+    }
+    .persona-select-btn {
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        background: #ffffff;
+        color: #0f172a;
+        border: 2px solid #cbd5e1;
+        font-family: inherit;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+        text-align: left;
+    }
+    .persona-select-btn:hover {
+        border-color: #3b82f6;
+        background: #eff6ff;
+    }
+    .persona-select-btn.selected-mp {
+        border-color: #10b981;
+        background: #ecfdf5;
+        color: #047857;
+        font-weight: var(--base-weight-extra);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+    .persona-select-btn.selected-mla {
+        border-color: #ec4899;
+        background: #fdf2f8;
+        color: #be185d;
+        font-weight: var(--base-weight-extra);
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+    }
+
+    /* REALISTIC BALLOT PAPER LOOK */
+    .ballot-paper-sheet {
+        background: #ffffff;
+        color: #1e293b;
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        border: 3px solid #94a3b8;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    /* MP BALLOT: AUTHENTIC GREEN PAPER (हरा मतपत्र - सम्पूर्ण आंतरिक रंग) */
+    .ballot-paper-sheet.mp-ballot {
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #dcfce7 100%);
+        border: 4px double #047857;
+        box-shadow: 0 14px 35px rgba(4, 120, 87, 0.25);
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-heading {
+        border-bottom: 3px solid #047857;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-heading h3 {
+        color: #064e3b;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-heading p {
+        color: #065f46;
+        font-weight: 800;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-seal {
+        background: #a7f3d0;
+        color: #064e3b;
+        border: 2px solid #047857;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-table {
+        border: 2.5px solid #047857;
+        background: #ecfdf5;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-table th {
+        background: #86efac;
+        color: #064e3b;
+        border: 2px solid #047857;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-table td {
+        background: #ecfdf5;
+        color: #064e3b;
+        border: 2px solid #10b981;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-table tr:nth-child(even) td {
+        background: #d1fae5;
+    }
+    .ballot-paper-sheet.mp-ballot .ballot-table td:nth-child(3) {
+        color: #047857 !important;
+    }
+    .ballot-paper-sheet.mp-ballot .pref-input-btn {
+        background: #ffffff;
+        color: #065f46;
+        border: 2px solid #059669;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mp-ballot .pref-input-btn:hover {
+        background: #a7f3d0;
+        border-color: #047857;
+    }
+    .ballot-paper-sheet.mp-ballot .pref-input-btn.filled {
+        background: #047857;
+        color: #ffffff;
+        border-color: #064e3b;
+        box-shadow: 0 0 12px rgba(4, 120, 87, 0.6);
+    }
+
+    /* MLA BALLOT: AUTHENTIC PINK PAPER (गुलाबी मतपत्र - सम्पूर्ण आंतरिक रंग) */
+    .ballot-paper-sheet.mla-ballot {
+        background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #fce7f3 100%);
+        border: 4px double #be185d;
+        box-shadow: 0 14px 35px rgba(190, 24, 93, 0.25);
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-heading {
+        border-bottom: 3px solid #be185d;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-heading h3 {
+        color: #831843;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-heading p {
+        color: #9d174d;
+        font-weight: 800;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-seal {
+        background: #fbcfe8;
+        color: #831843;
+        border: 2px solid #be185d;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-table {
+        border: 2.5px solid #be185d;
+        background: #fdf2f8;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-table th {
+        background: #f472b6;
+        color: #831843;
+        border: 2px solid #be185d;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-table td {
+        background: #fdf2f8;
+        color: #831843;
+        border: 2px solid #f472b6;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-table tr:nth-child(even) td {
+        background: #fce7f3;
+    }
+    .ballot-paper-sheet.mla-ballot .ballot-table td:nth-child(3) {
+        color: #9d174d !important;
+    }
+    .ballot-paper-sheet.mla-ballot .pref-input-btn {
+        background: #ffffff;
+        color: #9d174d;
+        border: 2px solid #db2777;
+        font-weight: 900;
+    }
+    .ballot-paper-sheet.mla-ballot .pref-input-btn:hover {
+        background: #fbcfe8;
+        border-color: #be185d;
+    }
+    .ballot-paper-sheet.mla-ballot .pref-input-btn.filled {
+        background: #be185d;
+        color: #ffffff;
+        border-color: #831843;
+        box-shadow: 0 0 12px rgba(190, 24, 93, 0.6);
+    }
+
+    .ballot-seal {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        border: 2px solid #475569;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: calc(12px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        text-transform: uppercase;
+        color: #1e293b;
+        transform: rotate(4deg);
+        background: rgba(255, 255, 255, 0.85);
+    }
+    .ballot-heading {
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #334155;
+        padding-bottom: 12px;
+    }
+    .ballot-heading h3 {
+        font-size: calc(18px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+    }
+    .ballot-heading p {
+        font-size: calc(13px * var(--font-scale));
+        color: #334155;
+        font-weight: var(--base-weight-bold);
+    }
+    .ballot-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    .ballot-table th, .ballot-table td {
+        border: 2px solid #475569;
+        padding: 12px 14px;
+        text-align: left;
+    }
+    .ballot-table th {
+        background: #e2e8f0;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+    }
+    .ballot-table td {
+        background: #ffffff;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        color: #0f172a;
+    }
+    .pref-input-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        border: 2px solid #64748b;
+        background: #f8fafc;
+        color: #0f172a;
+        font-size: calc(18px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Outfit', sans-serif;
+        transition: all 0.2s;
+    }
+    .pref-input-btn:hover {
+        border-color: #2563eb;
+        background: #dbeafe;
+    }
+    .pref-input-btn.filled {
+        background: #1e3a8a;
+        color: #ffffff;
+        border-color: #1e3a8a;
+        box-shadow: 0 0 10px rgba(30, 58, 138, 0.4);
+    }
+
+    .ballot-action-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        background: #f1f5f9;
+        border: 1.5px solid #cbd5e1;
+        padding: 16px 20px;
+        border-radius: 12px;
+    }
+    .cast-vote-btn {
+        background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        color: #fff;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 10px;
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+        transition: all 0.2s;
+    }
+    .cast-vote-btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(22, 163, 74, 0.5);
+    }
+
+    /* TAB 3: FULL ELECTION ENGINE & ROUND COUNTING */
+    .scenario-preset-strip {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+    }
+    .preset-chip {
+        flex: 1;
+        min-width: 260px;
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 16px 20px;
+        cursor: pointer;
+        transition: all 0.25s;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+    .preset-chip:hover {
+        border-color: #3b82f6;
+        background: #f8fafc;
+    }
+    .preset-chip.active {
+        border-color: #2563eb;
+        background: #eff6ff;
+        box-shadow: 0 0 18px rgba(37, 99, 235, 0.15);
+    }
+    .preset-title {
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        margin-bottom: 6px;
+    }
+    .preset-desc {
+        font-size: calc(13px * var(--font-scale));
+        color: #334155;
+        line-height: 1.4;
+        font-weight: var(--base-weight-normal);
+    }
+
+    /* CUSTOM 10-VOTER SANDBOX STYLES */
+    .custom-sandbox-wrapper {
+        background: #f8fafc;
+        border: 2px solid #cbd5e1;
+        border-radius: 18px;
+        padding: 24px;
+        margin-bottom: 24px;
+        display: none;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    }
+    .custom-sandbox-wrapper.active {
+        display: block;
+    }
+    .sandbox-top-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #cbd5e1;
+    }
+    .sandbox-preset-btns {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .quick-preset-btn {
+        background: #ffffff;
+        color: #0f172a;
+        border: 1.5px solid #cbd5e1;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: calc(13px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+    .quick-preset-btn:hover {
+        background: #eff6ff;
+        border-color: #3b82f6;
+        color: #1e3a8a;
+    }
+
+    .voter-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+    .voter-mini-card {
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 12px 14px;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        transition: all 0.2s;
+    }
+    .voter-mini-card:hover {
+        transform: translateY(-2px);
+    }
+    /* MP VOTER CARD: AUTHENTIC GREEN THEME */
+    .voter-mini-card.voter-card-mp {
+        background: #f0fdf4;
+        border: 2px solid #10b981;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+    }
+    .voter-mini-card.voter-card-mp:hover {
+        border-color: #047857;
+        box-shadow: 0 6px 16px rgba(4, 120, 87, 0.22);
+    }
+    .voter-mini-card.voter-card-mp .voter-mini-header {
+        color: #064e3b;
+    }
+    .voter-mini-card.voter-card-mp .pref-dropdown-row select {
+        background: #ffffff;
+        border-color: #10b981;
+        color: #064e3b;
+    }
+
+    /* MLA VOTER CARD: AUTHENTIC PINK THEME */
+    .voter-mini-card.voter-card-mla {
+        background: #fdf2f8;
+        border: 2px solid #ec4899;
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.12);
+    }
+    .voter-mini-card.voter-card-mla:hover {
+        border-color: #be185d;
+        box-shadow: 0 6px 16px rgba(190, 24, 93, 0.22);
+    }
+    .voter-mini-card.voter-card-mla .voter-mini-header {
+        color: #831843;
+    }
+    .voter-mini-card.voter-card-mla .pref-dropdown-row select {
+        background: #ffffff;
+        border-color: #ec4899;
+        color: #831843;
+    }
+    .voter-mini-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: calc(13px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+    }
+    .voter-role-badge {
+        font-size: calc(11px * var(--font-scale));
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-weight: var(--base-weight-extra);
+    }
+    .role-mp { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .role-mla { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+
+    .pref-dropdown-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: calc(12.5px * var(--font-scale));
+        font-weight: var(--base-weight-normal);
+        color: #334155;
+        margin-bottom: 5px;
+    }
+    .pref-dropdown-row select {
+        background: #ffffff;
+        color: #0f172a;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 3px 6px;
+        font-size: calc(12px * var(--font-scale));
+        font-family: inherit;
+        font-weight: var(--base-weight-extra);
+        cursor: pointer;
+    }
+
+    /* COUNTING STAGE VISUALIZER */
+    .counting-dashboard {
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 18px;
+        padding: 24px;
+        position: relative;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+    .quota-line-indicator {
+        background: #fef2f2;
+        border: 2px dashed #ef4444;
+        border-radius: 12px;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+    .quota-title {
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #b91c1c;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .quota-formula-tag {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: calc(17px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #991b1b;
+    }
+
+    .candidates-tally-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .candidate-card-bar {
+        background: #f8fafc;
+        border: 2px solid #cbd5e1;
+        border-radius: 16px;
+        padding: 18px 22px;
+        transition: all 0.3s ease;
+    }
+    .candidate-card-bar.leading {
+        border-color: #059669;
+        background: #f0fdf4;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+    }
+    .candidate-card-bar.eliminated {
+        opacity: 0.55;
+        border-color: #ef4444;
+        background: #fef2f2;
+    }
+    .candidate-card-bar.winner {
+        border-color: #b45309;
+        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.25);
+    }
+
+    .candidate-top-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .cand-name-tag {
+        font-size: calc(18px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .cand-alliance-badge {
+        font-size: calc(12px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+    }
+    .cand-score-digits {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: calc(24px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+    }
+
+    /* PROGRESS BAR */
+    .bar-track {
+        height: 28px;
+        background: #e2e8f0;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #cbd5e1;
+    }
+    .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        border-radius: 14px;
+        width: 0%;
+        transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    .bar-fill.lead-fill {
+        background: linear-gradient(90deg, #059669, #10b981);
+    }
+    .bar-fill.win-fill {
+        background: linear-gradient(90deg, #d97706, #fbbf24);
+    }
+
+    /* COUNTING TICKER & CONTROLS */
+    .live-ticker-box {
+        margin-top: 22px;
+        background: #f1f5f9;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: calc(15px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        color: #0f172a;
+    }
+    .ticker-icon {
+        font-size: 22px;
+        animation: rotateIcon 2s linear infinite;
+    }
+    @keyframes rotateIcon {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .counting-controls-bar {
+        display: flex;
+        gap: 14px;
+        margin-top: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .count-action-btn {
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.2s;
+    }
+    .btn-start { background: #2563eb; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.3); }
+    .btn-transfer { background: #d97706; color: #fff; box-shadow: 0 4px 14px rgba(217,119,6,0.3); }
+    .btn-reset { background: #e2e8f0; color: #0f172a; border: 1.5px solid #cbd5e1; }
+    .count-action-btn:hover { transform: translateY(-2px); }
+
+    /* AUDIT REGISTER ACCORDION */
+    .audit-log-card {
+        margin-top: 24px;
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 18px 22px;
+        display: none;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+    .audit-log-card.active { display: block; }
+    .audit-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+        font-size: calc(13.5px * var(--font-scale));
+    }
+    .audit-table th, .audit-table td {
+        border: 1px solid #cbd5e1;
+        padding: 10px 12px;
+        text-align: left;
+        color: #0f172a;
+    }
+    .audit-table th {
+        background: #f1f5f9;
+        color: #1e3a8a;
+        font-weight: var(--base-weight-extra);
+    }
+
+    /* TAB 4: CONSTITUTIONAL FAQ & QUIZ */
+    .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+    .faq-card {
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .faq-q {
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #1e3a8a;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .faq-a {
+        font-size: calc(14px * var(--font-scale));
+        color: #334155;
+        line-height: 1.6;
+        font-weight: var(--base-weight-normal);
+    }
+
+    .quiz-container {
+        background: #f8fafc;
+        border: 2px solid #cbd5e1;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    }
+    .quiz-title {
+        font-size: calc(20px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        color: #0f172a;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .quiz-q-box {
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        padding: 18px;
+        border-radius: 12px;
+        margin-bottom: 14px;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+    .quiz-question {
+        font-size: calc(16px * var(--font-scale));
+        font-weight: var(--base-weight-extra);
+        margin-bottom: 12px;
+        color: #0f172a;
+    }
+    .quiz-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .quiz-opt-btn {
+        background: #ffffff;
+        color: #0f172a;
+        border: 1.5px solid #cbd5e1;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: calc(14px * var(--font-scale));
+        font-weight: var(--base-weight-bold);
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .quiz-opt-btn:hover {
+        background: #eff6ff;
+        border-color: #3b82f6;
+    }
+    .quiz-opt-btn.correct {
+        background: #dcfce7 !important;
+        border-color: #16a34a !important;
+        color: #14532d !important;
+        font-weight: var(--base-weight-extra) !important;
+    }
+    .quiz-opt-btn.wrong {
+        background: #fee2e2 !important;
+        border-color: #dc2626 !important;
+        color: #7f1d1d !important;
+        font-weight: var(--base-weight-extra) !important;
+    }
+
+    /* CERTIFICATE MODAL */
+    .cert-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 20px;
+    }
+    .cert-overlay.active { display: flex; }
+    .cert-frame {
+        background: #fff;
+        color: #0f172a;
+        max-width: 820px;
+        width: 100%;
+        border: 8px double #b45309;
+        border-radius: 16px;
+        padding: 36px;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        position: relative;
+        animation: scalePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes scalePop {
+        from { transform: scale(0.85); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    .cert-header-seal {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 12px;
+        background: #b45309;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+    }
+    .cert-close-btn {
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        background: #e2e8f0;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-weight: 900;
+        cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .formula-hero, .state-selector-grid, .ballot-playground, .faq-grid, .electoral-stats-strip {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="master-wrapper">
+    <!-- SIMULATOR HEADER -->
+    <header class="sim-header">
+        <div class="header-left">
+            <div class="ashok-chakra-badge">🏛️</div>
+            <div class="sim-title">
+                <h1>भारत का राष्ट्रपति चुनाव: संपूर्ण संवैधानिक सिमुलेटर</h1>
+                <p>भारतीय संविधान अनुच्छेद 54 व 55 • एकल संक्रमणीय मत (STV) • मत-मूल्य गणना व कोटा प्रणाली</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="tool-btn highlight-btn" id="fontSizeBtn" onclick="cycleFontSize()" title="फ़ॉन्ट का आकार बड़ा या सामान्य करें">
+                🔠 टेक्स्ट आकार: 100%
+            </button>
+            <button class="tool-btn highlight-btn" id="fontWeightBtn" onclick="cycleFontWeight()" title="टेक्स्ट की मोटाई / बोल्डनेस बदलें">
+                🖋️ मोटाई: गहरा (Bold)
+            </button>
+            <button class="tool-btn active" id="soundBtn" onclick="toggleSound()">
+                🔊 ध्वनि: चालू
+            </button>
+            <button class="tool-btn" onclick="resetEntireSimulator()">
+                🔄 रीसेट
+            </button>
+        </div>
+    </header>
+
+    <!-- NAVIGATION TAB BAR -->
+    <nav class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab(0)">
+            📐 1. मत-मूल्य एवं निर्वाचक मंडल
+        </button>
+        <button class="tab-btn" onclick="switchTab(1)">
+            🗳️ 2. इंटरैक्टिव गुप्त मतपत्र (STV)
+        </button>
+        <button class="tab-btn" onclick="switchTab(2)">
+            📊 3. महा-चुनाव व लाइव मतगणना (10-मतदाता लैब)
+        </button>
+        <button class="tab-btn" onclick="switchTab(3)">
+            🧠 4. संवैधानिक नियम व क्विज़
+        </button>
+    </nav>
+
+    <!-- TAB 1: FORMULA & ELECTORAL COLLEGE ENGINE -->
+    <section class="tab-content active" id="tab0">
+        <div class="formula-hero" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <!-- MLA FORMULA CARD -->
+            <div class="formula-card">
+                <span class="formula-badge badge-mla">📌 विधायक (MLA) का मत-मूल्य सूत्र</span>
+                <div class="math-formula-display" style="border-left-color: #ec4899;">
+                    <div class="formula-title-row" style="color: #be185d;">
+                        <span>1 विधायक (MLA) का मत-मूल्य</span>
+                        <span class="formula-eq">=</span>
+                    </div>
+                    <div class="formula-body-row">
+                        <div class="math-fraction">
+                            <div class="math-num">राज्य की कुल जनसंख्या (1971 की जनगणना)</div>
+                            <div class="math-den">राज्य विधानसभा के निर्वाचित सदस्य (MLAs) × 1,000</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                    💡 <b>संवैधानिक नियम:</b> यदि शेषफल 500 या उससे अधिक आता है, तो मत-मूल्य में <b>+1</b> जोड़ दिया जाता है। उत्तर प्रदेश (208) सर्वाधिक तथा सिक्किम (7) न्यूनतम है।
+                </p>
+            </div>
+
+            <!-- MP FORMULA CARD -->
+            <div class="formula-card">
+                <span class="formula-badge badge-mp">📌 सांसद (MP) का मत-मूल्य सूत्र</span>
+                <div class="math-formula-display" style="border-left-color: #10b981;">
+                    <div class="formula-title-row" style="color: #047857;">
+                        <span>1 सांसद (MP) का मत-मूल्य</span>
+                        <span class="formula-eq">=</span>
+                    </div>
+                    <div class="formula-body-row">
+                        <div class="math-fraction">
+                            <div class="math-num">सभी राज्यों के निर्वाचित विधायकों का कुल मत-मूल्य</div>
+                            <div class="math-den">संसद के दोनों सदनों के कुल निर्वाचित सदस्य (776)</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                    💡 <b>संवैधानिक नियम:</b> 776 सांसद = लोकसभा (543) + राज्यसभा (233)। 2022 राष्ट्रपति चुनाव में 1 सांसद का मत-मूल्य = <b>700 अंक</b> (5,43,231 ÷ 776 = 700)।
+                </p>
+            </div>
+
+            <!-- QUOTA FORMULA CARD -->
+            <div class="formula-card">
+                <span class="formula-badge badge-quota">📌 विजयी संवैधानिक कोटा (Quota) सूत्र</span>
+                <div class="math-formula-display" style="border-left-color: #ef4444;">
+                    <div class="formula-title-row" style="color: #b91c1c;">
+                        <span>विजयी संवैधानिक कोटा (Quota)</span>
+                        <span class="formula-eq">=</span>
+                    </div>
+                    <div class="formula-body-row">
+                        <div class="math-bracket-group" style="flex: 1 1 auto; max-width: 100%;">
+                            <span class="math-bracket">[</span>
+                            <div class="math-fraction">
+                                <div class="math-num">डाले गए कुल वैध मतों का कुल मूल्य</div>
+                                <div class="math-den">1 + 1 (रिक्त पद + 1 = 2)</div>
+                            </div>
+                            <span class="math-bracket">]</span>
+                        </div>
+                        <div class="math-op">+</div>
+                        <div class="math-number">1</div>
+                    </div>
+                </div>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                    💡 <b>संवैधानिक नियम:</b> चुनाव जीतने के लिए प्रत्याशी को केवल सर्वाधिक मत नहीं, बल्कि <b>50% + 1 मत</b> का स्पष्ट कोटा पाना अनिवार्य होता है।
+                </p>
+            </div>
+        </div>
+
+        <!-- STATE SELECTOR & LIVE CALCULATION -->
+        <div class="state-selector-grid">
+            <div class="state-list-box">
+                <h4 style="margin-bottom: 12px; font-size: 15px; color: #93c5fd;">🗺️ राज्य चुनें (Live MLA Value):</h4>
+                <div id="statesContainer">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <div class="calculation-breakdown-card">
+                <div>
+                    <h3 id="selectedStateTitle" style="font-size: 20px; font-weight: 900; color: #fbbf24; margin-bottom: 6px;">
+                        उत्तर प्रदेश (Uttar Pradesh) - लाइव गणना विवरण
+                    </h3>
+                    <p style="font-size: 14px; color: var(--text-secondary);">
+                        1971 की आधिकारिक जनगणना के आधार पर प्रत्यक्ष संवैधानिक गणना:
+                    </p>
+
+                    <!-- LIVE FORMULA STEP VISUALIZER -->
+                    <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 14px; padding: 14px; margin: 14px 0;">
+                        <div style="font-size: 13px; font-weight: 800; color: #1e40af; margin-bottom: 6px;">
+                            📐 सूत्र में वास्तविक मान रखकर गणना (Formula in Action):
+                        </div>
+                        <div class="live-formula-inline" style="border-left-color: #3b82f6; margin: 0;">
+                            <div class="formula-lhs" id="liveStateFormulaLhs">UP MLA मत-मूल्य</div>
+                            <div class="formula-eq">=</div>
+                            <div class="math-fraction">
+                                <div class="math-num" id="liveFormulaPop">8,38,49,905</div>
+                                <div class="math-den" id="liveFormulaMlaTimes">403 × 1,000</div>
+                            </div>
+                            <div class="formula-eq">=</div>
+                            <div class="math-fraction">
+                                <div class="math-num" id="liveFormulaPop2">8,38,49,905</div>
+                                <div class="math-den" id="liveFormulaDivisor">4,03,000</div>
+                            </div>
+                            <div class="formula-eq">=</div>
+                            <div class="live-formula-result" id="liveFormulaResult">
+                                208.064 ➔ 208
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="live-calc-display">
+                        <div class="calc-row">
+                            <span>राज्य की 1971 जनगणना जनसंख्या:</span>
+                            <span id="calcPop" style="color: #1e3a8a; font-family: monospace; font-weight: 800;">8,38,49,905</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>कुल निर्वाचित विधायक (Elected MLAs):</span>
+                            <span id="calcMlas" style="color: #f472b6; font-family: monospace;">403</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>भाजक (MLAs × 1000):</span>
+                            <span id="calcDivisor" style="color: #cbd5e1; font-family: monospace;">4,03,000</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>गणितीय भागफल (Quotient + Remainder check):</span>
+                            <span id="calcRaw">208.064</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>⭐ अंतिम 1 MLA का मत-मूल्य (Vote Value):</span>
+                            <span id="calcFinalValue" style="font-size: 24px;">208</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #2563eb; border-radius: 12px; padding: 14px; font-size: 13px; color: #bfdbfe;">
+                    🏛️ <b>कुल राज्य मत-मूल्य:</b> <span id="stateTotalVal" style="font-weight: 900; color: #fff;">403 × 208 = 83,824 अंक</span>। यह उत्तर प्रदेश को भारत के राष्ट्रपति चुनाव में सर्वाधिक प्रभावशाली राज्य बनाता है।
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS STRIP -->
+        <div class="electoral-stats-strip">
+            <div class="stat-box">
+                <div class="stat-label">कुल निर्वाचित विधायक (All States)</div>
+                <div class="stat-number" style="color: #f472b6;">4,033</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">कुल निर्वाचित सांसद (LS + RS)</div>
+                <div class="stat-number" style="color: #34d399;">776</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">निर्वाचक मंडल का कुल मत-मूल्य</div>
+                <div class="stat-number" style="color: #60a5fa;">10,86,431</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">विजयी कोटा (50% + 1)</div>
+                <div class="stat-number" style="color: #ef4444;">5,43,216</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 2: INTERACTIVE BALLOT PAPER (STV) -->
+    <section class="tab-content" id="tab1">
+        <div class="ballot-playground">
+            <!-- VOTER PERSONA SELECTION -->
+            <div class="voter-identity-card">
+                <h3 style="font-size: 17px; font-weight: 900; color: #fbbf24; margin-bottom: 8px;">
+                    👤 अपनी मतदाता पहचान चुनें:
+                </h3>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                    राष्ट्रपति चुनाव में सांसद को <b>हरा मतपत्र</b> तथा विधायक को <b>गुलाबी मतपत्र</b> दिया जाता है।
+                </p>
+
+                <button class="persona-select-btn selected-mp" id="personaMP" onclick="selectPersona('MP')">
+                    <span style="font-size: 24px;">🟢</span>
+                    <div>
+                        <div style="font-weight: 800;">सांसद (Member of Parliament)</div>
+                        <div style="font-size: 12px; opacity: 0.8;">हरा मतपत्र • मत-मूल्य: 700 अंक</div>
+                    </div>
+                </button>
+
+                <button class="persona-select-btn" id="personaUP" onclick="selectPersona('UP_MLA')">
+                    <span style="font-size: 24px;">🌸</span>
+                    <div>
+                        <div style="font-weight: 800;">उत्तर प्रदेश विधायक (MLA)</div>
+                        <div style="font-size: 12px; opacity: 0.8;">गुलाबी मतपत्र • मत-मूल्य: 208 अंक</div>
+                    </div>
+                </button>
+
+                <button class="persona-select-btn" id="personaRJ" onclick="selectPersona('RJ_MLA')">
+                    <span style="font-size: 24px;">🌸</span>
+                    <div>
+                        <div style="font-weight: 800;">राजस्थान विधायक (MLA)</div>
+                        <div style="font-size: 12px; opacity: 0.8;">गुलाबी मतपत्र • मत-मूल्य: 129 अंक</div>
+                    </div>
+                </button>
+
+                <button class="persona-select-btn" id="personaSK" onclick="selectPersona('SK_MLA')">
+                    <span style="font-size: 24px;">🌸</span>
+                    <div>
+                        <div style="font-weight: 800;">सिक्किम विधायक (MLA)</div>
+                        <div style="font-size: 12px; opacity: 0.8;">गुलाबी मतपत्र • मत-मूल्य: 7 अंक</div>
+                    </div>
+                </button>
+
+                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #dc2626; border-radius: 12px; padding: 12px; font-size: 12px; color: #fca5a5; margin-top: 14px;">
+                    ⚠️ <b>मतदान नियम:</b> प्रथम वरीयता (1) अंकित करना अनिवार्य है। दो प्रत्याशियों को एक ही वरीयता देने पर मतपत्र अमान्य (Reject) हो जाएगा!
+                </div>
+            </div>
+
+            <!-- THE BALLOT PAPER -->
+            <div>
+                <div class="ballot-paper-sheet mp-ballot" id="ballotSheet">
+                    <div class="ballot-seal" id="ballotSeal">ECI FORM 4 • LOK SABHA</div>
+
+                    <div class="ballot-heading">
+                        <h3>भारत का राष्ट्रपति चुनाव • गोपनीय मतपत्र (BALLOT PAPER)</h3>
+                        <p id="ballotSubText">मतदाता: निर्वाचित सांसद | मत-मूल्य: 700 अंक | एकल संक्रमणीय मत</p>
+                    </div>
+
+                    <table class="ballot-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 70px; text-align: center;">क्र.सं.</th>
+                                <th>उम्मीदवार का नाम (Candidate)</th>
+                                <th>नामांकन / दल (Party Alliance)</th>
+                                <th style="width: 140px; text-align: center;">वरीयता क्रम (Preference)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ballotCandidatesBody">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+
+                    <p style="font-size: 13px; color: #64748b; text-align: center; font-style: italic;">
+                        निर्देश: अपनी पसंद के अनुसार 1, 2, 3, 4 की संख्या दर्ज करें।
+                    </p>
+                </div>
+
+                <div class="ballot-action-bar">
+                    <div style="font-size: 14px; font-weight: 700; color: #93c5fd;">
+                        🔒 गुप्त मतदान बूथ (Secret Ballot Chamber)
+                    </div>
+                    <button class="cast-vote-btn" onclick="castBallotVote()">
+                        📥 मतपेटी में मत डालें (Cast Vote)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 3: FULL ELECTION ENGINE & LIVE COUNTING -->
+    <section class="tab-content" id="tab2">
+        <!-- SCENARIO PRESETS -->
+        <div class="scenario-preset-strip">
+            <div class="preset-chip" id="chip2022" onclick="loadScenario('2022')">
+                <div class="preset-title">🏛️ 2022 राष्ट्रपति चुनाव (वास्तविक आंकड़े)</div>
+                <div class="preset-desc">द्रौपदी मुर्मू (NDA) बनाम यशवंत सिन्हा (विपक्ष)। प्रथम चरण में ही मुर्मू जी 64.03% मतों से विजयी।</div>
+            </div>
+            <div class="preset-chip" id="chip1969" onclick="loadScenario('1969')">
+                <div class="preset-title">⚡ 1969 का ऐतिहासिक चुनाव (2nd Round Elimination)</div>
+                <div class="preset-desc">वी.वी. गिरि बनाम संजीव रेड्डी बनाम सी.डी. देशमुख। द्वितीय वरीयता की गणना का एकमात्र ऐतिहासिक केस!</div>
+            </div>
+            <div class="preset-chip active" id="chipCustom" onclick="loadScenario('custom')">
+                <div class="preset-title">🎯 10-मतदाता लाइव एसटीवी लैब (Custom Sandbox)</div>
+                <div class="preset-desc">10 सांसदों व विधायकों का वास्तविक गुप्त मतदान! राउंड 1, 2 या 3 में कोटा पूरा होने तक सजीव मतगणना।</div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC 10-VOTER CUSTOM SANDBOX ROSTER -->
+        <div class="custom-sandbox-wrapper active" id="customSandboxPanel">
+            <div class="sandbox-top-controls">
+                <div>
+                    <h3 style="font-size: 18px; font-weight: 900; color: #fbbf24; margin-bottom: 4px;">
+                        🗳️ 10-मतदाता मतपेटी कॉन्फ़िगरेशन (Polling Booth Registry)
+                    </h3>
+                    <p style="font-size: 13px; color: var(--text-secondary);">
+                        कुल मतदाता: <b>10</b> (3 सांसद + 7 विभिन्न राज्यों के विधायक) • कुल मत-मूल्य: <b id="sbTotalPts">3,152 अंक</b> • विजयी कोटा: <b id="sbQuotaPts" style="color: #ef4444;">1,577 अंक</b>
+                    </p>
+                </div>
+
+                <!-- PRESET BUTTONS FOR 1, 2, OR 3 ROUNDS -->
+                <div class="sandbox-preset-btns">
+                    <button class="quick-preset-btn" onclick="applySandboxPreset('r1_win')">
+                        ⚡ 1 राउंड में जीत (Clean Win)
+                    </button>
+                    <button class="quick-preset-btn" onclick="applySandboxPreset('r2_win')">
+                        ⚡ 2 राउंड में जीत (Close Tie-Breaker)
+                    </button>
+                    <button class="quick-preset-btn" onclick="applySandboxPreset('r3_win')">
+                        ⚡ 3 राउंड में जीत (4-प्रत्याशी महा-मुकाबला)
+                    </button>
+                    <button class="quick-preset-btn" onclick="applySandboxPreset('random')">
+                        🎲 यादृच्छिक (Random Votes)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 10 VOTER CARDS -->
+            <div class="voter-cards-grid" id="voterCardsGrid">
+                <!-- Dynamically rendered via JS -->
+            </div>
+        </div>
+
+        <!-- COUNTING DASHBOARD -->
+        <div class="counting-dashboard">
+            <!-- QUOTA LINE -->
+            <div class="quota-line-indicator">
+                <div class="quota-title">
+                    <span>🎯 विजयी कोटा (Winning Quota):</span>
+                    <span id="quotaPointsDisplay" class="quota-formula-tag">1,577 अंक</span>
+                </div>
+                <div style="font-size: 13px; color: #cbd5e1;">
+                    संवैधानिक नियम: <b>(कुल वैध मत-मूल्य / 2) + 1</b>
+                </div>
+            </div>
+
+            <!-- CANDIDATES BARS -->
+            <div class="candidates-tally-list" id="candidatesTallyList">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- TICKER MESSAGE -->
+            <div class="live-ticker-box">
+                <div class="ticker-icon" id="tickerIcon">⚙️</div>
+                <div id="tickerMsg">10-मतदाता मतपेटी तैयार है। नीचे 'राउंड 1 मतगणना' बटन दबाएँ।</div>
+            </div>
+
+            <!-- CONTROL BUTTONS -->
+            <div class="counting-controls-bar">
+                <button class="count-action-btn btn-start" id="btnCountR1" onclick="executeCurrentRound()">
+                    ▶️ राउंड 1 मतगणना शुरू करें
+                </button>
+                <button class="count-action-btn btn-reset" onclick="resetCurrentScenario()">
+                    🔄 पुनः प्रयास करें
+                </button>
+            </div>
+
+            <!-- AUDIT REGISTER TABLE -->
+            <div class="audit-log-card" id="auditLogCard">
+                <div style="font-size: 15px; font-weight: 800; color: #fbbf24; margin-bottom: 8px;">
+                    📋 मतगणना ऑडिट रजिस्टर (Ballot Movement Audit Log):
+                </div>
+                <table class="audit-table">
+                    <thead>
+                        <tr>
+                            <th>मतदाता ID</th>
+                            <th>पद / राज्य</th>
+                            <th>मत-मूल्य</th>
+                            <th>1st वरीयता</th>
+                            <th>2nd वरीयता</th>
+                            <th>3rd वरीयता</th>
+                            <th>राउंड 1 स्थिति</th>
+                            <th>अंतिम हस्तांतरण</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auditTableBody">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 4: CONSTITUTIONAL RULES & QUIZ -->
+    <section class="tab-content" id="tab3">
+        <div class="faq-grid">
+            <div class="faq-card">
+                <div class="faq-q">📜 1971 की जनगणना ही क्यों इस्तेमाल होती है?</div>
+                <div class="faq-a">
+                    42वें संशोधन (1976) और 84वें संशोधन (2001) द्वारा इसे 2026 के बाद की पहली जनगणना तक स्थिर (Freeze) कर दिया गया, ताकि परिवार नियोजन और जनसंख्या नियंत्रण लागू करने वाले राज्यों (जैसे दक्षिण भारत) का प्रतिनिधित्व न घटे।
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-q">🚫 राष्ट्रपति चुनाव में कौन वोट नहीं डाल सकता?</div>
+                <div class="faq-a">
+                    1. संसद के मनोनीत सदस्य (Nominated MPs)<br>
+                    2. राज्य विधानसभाओं के मनोनीत सदस्य<br>
+                    3. राज्य विधान परिषदों (Legislative Councils - MLCs) के सदस्य भाग नहीं ले सकते।
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-q">⚖️ क्या राजनीतिक दल 'व्हिप' (Whip) जारी कर सकते हैं?</div>
+                <div class="faq-a">
+                    <b>कदापि नहीं!</b> राष्ट्रपति और उपराष्ट्रपति चुनाव में कोई भी राजनीतिक दल अपने सांसदों या विधायकों को व्हिप जारी नहीं कर सकता। मतदाता अंतरात्मा की आवाज पर गुप्त मतदान करने के लिए पूर्ण स्वतंत्र हैं।
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-q">🏛️ चुनाव संबंधी विवादों का निपटारा कहाँ होता है?</div>
+                <div class="faq-a">
+                    संविधान के <b>अनुच्छेद 71</b> के अनुसार, राष्ट्रपति चुनाव से संबंधित किसी भी विवाद या याचिका की सुनवाई केवल और केवल <b>भारत के सर्वोच्च न्यायालय (Supreme Court)</b> द्वारा की जाती है और उसका फैसला अंतिम होता है।
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE QUICK QUIZ -->
+        <div class="quiz-container">
+            <div class="quiz-title">
+                <span>🎯 त्वरित संवैधानिक क्विज़ (Mastery Challenge):</span>
+            </div>
+
+            <div class="quiz-q-box">
+                <div class="quiz-question">
+                    प्र. 1: भारत में किस राज्य के विधायक (MLA) का मत-मूल्य सर्वाधिक (208) है?
+                </div>
+                <div class="quiz-options">
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">महाराष्ट्र</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, true)">उत्तर प्रदेश</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">बिहार</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">राजस्थान</button>
+                </div>
+            </div>
+
+            <div class="quiz-q-box">
+                <div class="quiz-question">
+                    प्र. 2: राष्ट्रपति चुनाव में विजयी होने के लिए प्रत्याशी को कितने मत चाहिए?
+                </div>
+                <div class="quiz-options">
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">सबसे ज्यादा मत (FPTP)</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">दो तिहाई (2/3) विशेष बहुमत</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, true)">कुल वैध मतों का 50% + 1 (न्यूनतम कोटा)</button>
+                    <button class="quiz-opt-btn" onclick="checkQuiz(this, false)">कम से कम 75% मत</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ECI VICTORY CERTIFICATE MODAL -->
+<div class="cert-overlay" id="certModal">
+    <div class="cert-frame">
+        <button class="cert-close-btn" onclick="closeCert()">✕</button>
+        <div class="cert-header-seal">🏛️</div>
+        <h4 style="font-size: 14px; font-weight: 800; letter-spacing: 2px; color: #b45309; text-transform: uppercase;">
+            भारत निर्वाचन आयोग • ELECTION COMMISSION OF INDIA
+        </h4>
+        <h2 style="font-size: 26px; font-weight: 900; color: #0f172a; margin: 10px 0;">
+            संवैधानिक निर्वाचन घोषणा प्रमाण-पत्र
+        </h2>
+        <div style="height: 3px; width: 140px; background: #b45309; margin: 0 auto 16px;"></div>
+
+        <p style="font-size: 16px; line-height: 1.8; color: #334155; margin-bottom: 20px;">
+            संविधान के <b>अनुच्छेद 54 व 55</b> तथा राष्ट्रपति व उपराष्ट्रपति निर्वाचन अधिनियम, 1952 के अंतर्गत यह प्रमाणित किया जाता है कि वैध मत-गणना के पश्चात:
+        </p>
+
+        <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+            <div style="font-size: 14px; color: #92400e; font-weight: 700;">भारत के राष्ट्रपति निर्वाचित:</div>
+            <div id="certWinnerName" style="font-size: 28px; font-weight: 900; color: #78350f; margin: 4px 0;">
+                श्रीमती द्रौपदी मुर्मू
+            </div>
+            <div id="certScoreStats" style="font-size: 15px; color: #b45309; font-weight: 700;">
+                प्राप्त मत-मूल्य: 6,76,803 अंक (64.03%) | विजयी कोटा पार
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 30px; padding: 0 20px;">
+            <div style="text-align: left; font-size: 13px; color: #64748b;">
+                स्थान: संसद भवन, नई दिल्ली<br>
+                विधि: एकल संक्रमणीय मत (STV)
+            </div>
+            <div style="text-align: right; font-size: 13px; color: #0f172a; font-weight: 800;">
+                <div style="font-family: cursive; font-size: 20px; color: #1e3a8a; margin-bottom: 4px;">P.C. Mody</div>
+                मुख्य निर्वाचन अधिकारी / रिटर्निंग ऑफिसर
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ==========================================================================
+   STATE DATA WITH 1971 POPULATION & CONSTITUTIONAL MLA VALUES
+   ========================================================================== */
+const STATE_DATA = [
+    { name: "उत्तर प्रदेश", nameEn: "Uttar Pradesh", pop: 83849905, mlas: 403, value: 208 },
+    { name: "महाराष्ट्र", nameEn: "Maharashtra", pop: 50412235, mlas: 288, value: 175 },
+    { name: "पश्चिम बंगाल", nameEn: "West Bengal", pop: 44312011, mlas: 294, value: 151 },
+    { name: "बिहार", nameEn: "Bihar", pop: 42126236, mlas: 243, value: 173 },
+    { name: "तमिलनाडु", nameEn: "Tamil Nadu", pop: 41199168, mlas: 234, value: 176 },
+    { name: "मध्य प्रदेश", nameEn: "Madhya Pradesh", pop: 30017180, mlas: 230, value: 131 },
+    { name: "राजस्थान", nameEn: "Rajasthan", pop: 25765806, mlas: 200, value: 129 },
+    { name: "कर्नाटक", nameEn: "Karnataka", pop: 29299014, mlas: 224, value: 131 },
+    { name: "गुजरात", nameEn: "Gujarat", pop: 26697475, mlas: 182, value: 147 },
+    { name: "आंध्र प्रदेश", nameEn: "Andhra Pradesh", pop: 27800586, mlas: 175, value: 159 },
+    { name: "ओडिशा", nameEn: "Odisha", pop: 21944615, mlas: 147, value: 149 },
+    { name: "केरल", nameEn: "Kerala", pop: 21347375, mlas: 140, value: 152 },
+    { name: "असम", nameEn: "Assam", pop: 14625152, mlas: 126, value: 116 },
+    { name: "पंजाब", nameEn: "Punjab", pop: 13551060, mlas: 117, value: 116 },
+    { name: "हरियाणा", nameEn: "Haryana", pop: 10036808, mlas: 90, value: 112 },
+    { name: "दिल्ली (UT)", nameEn: "Delhi (UT)", pop: 4065698, mlas: 70, value: 58 },
+    { name: "सिक्किम", nameEn: "Sikkim", pop: 209843, mlas: 32, value: 7 },
+    { name: "मिजोरम", nameEn: "Mizoram", pop: 332390, mlas: 40, value: 8 },
+    { name: "अरुणाचल प्रदेश", nameEn: "Arunachal Pradesh", pop: 467511, mlas: 60, value: 8 },
+    { name: "गोवा", nameEn: "Goa", pop: 795120, mlas: 40, value: 20 }
+];
+
+/* ==========================================================================
+   AUDIO SYNTHESIZER (WEB AUDIO API)
+   ========================================================================== */
+let soundEnabled = true;
+let audioCtx = null;
+
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+function playSound(type) {
+    if (!soundEnabled) return;
+    try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        if (type === 'click') {
+            osc.frequency.setValueAtTime(440, now);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+            osc.start(now);
+            osc.stop(now + 0.08);
+        } else if (type === 'stamp') {
+            osc.frequency.setValueAtTime(120, now);
+            gain.gain.setValueAtTime(0.2, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+            osc.start(now);
+            osc.stop(now + 0.15);
+        } else if (type === 'win') {
+            osc.frequency.setValueAtTime(523.25, now); // C5
+            osc.frequency.setValueAtTime(659.25, now + 0.12); // E5
+            osc.frequency.setValueAtTime(783.99, now + 0.24); // G5
+            osc.frequency.setValueAtTime(1046.50, now + 0.36); // C6
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+            osc.start(now);
+            osc.stop(now + 0.8);
+        }
+    } catch(e) {}
+}
+
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    const btn = document.getElementById('soundBtn');
+    if (soundEnabled) {
+        btn.innerHTML = "🔊 ध्वनि: चालू";
+        btn.classList.add('active');
+        playSound('click');
+    } else {
+        btn.innerHTML = "🔇 ध्वनि: बंद";
+        btn.classList.remove('active');
+    }
+}
+
+
+// FONT SIZE & THICKNESS CONTROLS (White Theme Legibility Enhancer)
+let currentFontScaleIndex = 0;
+const fontScales = [
+    { scale: 1.0, label: '🔠 टेक्स्ट आकार: 100%' },
+    { scale: 1.15, label: '🔠 टेक्स्ट आकार: 115% (A+)' },
+    { scale: 1.30, label: '🔠 टेक्स्ट आकार: 130% (A++)' }
+];
+
+function cycleFontSize() {
+    currentFontScaleIndex = (currentFontScaleIndex + 1) % fontScales.length;
+    applyFontSize();
+    if (typeof playSound === 'function') playSound('click');
+}
+
+function applyFontSize() {
+    const item = fontScales[currentFontScaleIndex];
+    document.documentElement.style.setProperty('--font-scale', item.scale);
+    const btn = document.getElementById('fontSizeBtn');
+    if (btn) btn.innerHTML = item.label;
+    try { localStorage.setItem('sim_font_scale_idx', currentFontScaleIndex); } catch(e){}
+}
+
+let currentWeightIndex = 1; // Default to Bold for crisp readability
+const fontWeights = [
+    { cls: 'weight-normal', label: '🖋️ मोटाई: सामान्य' },
+    { cls: 'weight-bold', label: '🖋️ मोटाई: गहरा (Bold)' },
+    { cls: 'weight-extra', label: '🖋️ मोटाई: अति-गहरा (Extra Bold)' }
+];
+
+function cycleFontWeight() {
+    currentWeightIndex = (currentWeightIndex + 1) % fontWeights.length;
+    applyFontWeight();
+    if (typeof playSound === 'function') playSound('click');
+}
+
+function applyFontWeight() {
+    document.body.classList.remove('weight-normal', 'weight-bold', 'weight-extra');
+    const item = fontWeights[currentWeightIndex];
+    document.body.classList.add(item.cls);
+    const btn = document.getElementById('fontWeightBtn');
+    if (btn) btn.innerHTML = item.label;
+    try { localStorage.setItem('sim_font_weight_idx', currentWeightIndex); } catch(e){}
+}
+
+function initFontPreferences() {
+    try {
+        const savedScale = localStorage.getItem('sim_font_scale_idx');
+        if (savedScale !== null) currentFontScaleIndex = parseInt(savedScale, 10) || 0;
+        const savedWeight = localStorage.getItem('sim_font_weight_idx');
+        if (savedWeight !== null) currentWeightIndex = parseInt(savedWeight, 10) || 1;
+    } catch(e){}
+    applyFontSize();
+    applyFontWeight();
+}
+
+function toggleProjectorMode() {
+    cycleFontSize();
+}
+
+function old_toggleProjectorMode() {
+    document.body.classList.toggle('projector-mode');
+    const btn = document.getElementById('projectorBtn');
+    btn.classList.toggle('active');
+    playSound('click');
+}
+
+function switchTab(index) {
+    playSound('click');
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+    contents.forEach((c, i) => c.classList.toggle('active', i === index));
+}
+
+/* ==========================================================================
+   TAB 1: STATE SELECTION & CALCULATION LOGIC
+   ========================================================================== */
+let selectedState = STATE_DATA[0];
+
+function populateStatesList() {
+    const cont = document.getElementById('statesContainer');
+    cont.innerHTML = '';
+    STATE_DATA.forEach((st, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `state-item-btn ${idx === 0 ? 'selected' : ''}`;
+        btn.id = `stBtn_${idx}`;
+        btn.innerHTML = `
+            <span>${st.name} (${st.mlas} MLAs)</span>
+            <span style="font-family: monospace; color: #fbbf24; font-size: 15px;">मूल्य: ${st.value}</span>
+        `;
+        btn.onclick = () => selectState(idx);
+        cont.appendChild(btn);
+    });
+}
+
+function selectState(index) {
+    playSound('click');
+    selectedState = STATE_DATA[index];
+    document.querySelectorAll('.state-item-btn').forEach((b, i) => b.classList.toggle('selected', i === index));
+
+    document.getElementById('selectedStateTitle').innerText = `${selectedState.name} (${selectedState.nameEn}) - लाइव गणना विवरण`;
+    document.getElementById('calcPop').innerText = selectedState.pop.toLocaleString('en-IN');
+    document.getElementById('calcMlas').innerText = selectedState.mlas;
+    document.getElementById('calcDivisor').innerText = (selectedState.mlas * 1000).toLocaleString('en-IN');
+    
+    const rawVal = selectedState.pop / (selectedState.mlas * 1000);
+    document.getElementById('calcRaw').innerText = rawVal.toFixed(3);
+    document.getElementById('calcFinalValue').innerText = selectedState.value;
+
+    const totalStateVal = selectedState.mlas * selectedState.value;
+    document.getElementById('stateTotalVal').innerText = `${selectedState.mlas} × ${selectedState.value} = ${totalStateVal.toLocaleString('en-IN')} अंक`;
+}
+
+/* ==========================================================================
+   TAB 2: INDIVIDUAL BALLOT PAPER
+   ========================================================================== */
+let currentPersona = 'MP';
+const BALLOT_CANDIDATES = [
+    { id: 1, name: "श्रीमती द्रौपदी मुर्मू", party: "राष्ट्रीय जनतांत्रिक गठबंधन (NDA)" },
+    { id: 2, name: "श्री यशवंत सिन्हा", party: "संयुक्त प्रगतिशील विपक्ष (UPA & Allies)" },
+    { id: 3, name: "डॉ. ए.पी.जे. अब्दुल कलाम (स्मरण)", party: "सर्वसम्मत राष्ट्रीय प्रत्याशी" },
+    { id: 4, name: "श्री बाबू जगजीवन राम (ऐतिहासिक)", party: "सामाजिक न्याय मोर्चा" }
+];
+let userPreferences = { 1: null, 2: null, 3: null, 4: null };
+
+function selectPersona(type) {
+    playSound('click');
+    currentPersona = type;
+    document.querySelectorAll('.persona-select-btn').forEach(b => b.classList.remove('selected-mp', 'selected-mla'));
+    
+    const sheet = document.getElementById('ballotSheet');
+    const seal = document.getElementById('ballotSeal');
+    const subText = document.getElementById('ballotSubText');
+
+    if (type === 'MP') {
+        document.getElementById('personaMP').classList.add('selected-mp');
+        sheet.className = 'ballot-paper-sheet mp-ballot';
+        seal.innerText = 'ECI FORM 4 • LOK SABHA / RAJYA SABHA';
+        subText.innerText = 'मतदाता: निर्वाचित सांसद | हरा मतपत्र (Green) | मत-मूल्य: 700 अंक';
+    } else if (type === 'UP_MLA') {
+        document.getElementById('personaUP').classList.add('selected-mla');
+        sheet.className = 'ballot-paper-sheet mla-ballot';
+        seal.innerText = 'ECI FORM 4 • UP LEGISLATIVE ASSEMBLY';
+        subText.innerText = 'मतदाता: उत्तर प्रदेश विधायक | गुलाबी मतपत्र (Pink) | मत-मूल्य: 208 अंक';
+    } else if (type === 'RJ_MLA') {
+        document.getElementById('personaRJ').classList.add('selected-mla');
+        sheet.className = 'ballot-paper-sheet mla-ballot';
+        seal.innerText = 'ECI FORM 4 • RAJASTHAN ASSEMBLY';
+        subText.innerText = 'मतदाता: राजस्थान विधायक | गुलाबी मतपत्र (Pink) | मत-मूल्य: 129 अंक';
+    } else if (type === 'SK_MLA') {
+        document.getElementById('personaSK').classList.add('selected-mla');
+        sheet.className = 'ballot-paper-sheet mla-ballot';
+        seal.innerText = 'ECI FORM 4 • SIKKIM ASSEMBLY';
+        subText.innerText = 'मतदाता: सिक्किम विधायक | गुलाबी मतपत्र (Pink) | मत-मूल्य: 7 अंक';
+    }
+}
+
+function renderBallotTable() {
+    const tbody = document.getElementById('ballotCandidatesBody');
+    tbody.innerHTML = '';
+    BALLOT_CANDIDATES.forEach((c) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="text-align: center; font-weight: 900;">${c.id}</td>
+            <td>${c.name}</td>
+            <td style="font-size: 13px; color: #475569;">${c.party}</td>
+            <td style="text-align: center;">
+                <div style="display: flex; gap: 6px; justify-content: center;">
+                    ${[1, 2, 3, 4].map(rank => `
+                        <button class="pref-input-btn ${userPreferences[c.id] === rank ? 'filled' : ''}"
+                                onclick="setPreference(${c.id}, ${rank})">
+                            ${rank}
+                        </button>
+                    `).join('')}
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function setPreference(candId, rank) {
+    playSound('click');
+    for (let id in userPreferences) {
+        if (userPreferences[id] === rank) userPreferences[id] = null;
+    }
+    if (userPreferences[candId] === rank) {
+        userPreferences[candId] = null;
+    } else {
+        userPreferences[candId] = rank;
+    }
+    renderBallotTable();
+}
+
+function castBallotVote() {
+    const hasFirstPref = Object.values(userPreferences).includes(1);
+    if (!hasFirstPref) {
+        alert('❌ अमान्य मतपत्र! कम से कम एक प्रत्याशी को प्रथम वरीयता (1) देना अनिवार्य है।');
+        return;
+    }
+    playSound('stamp');
+    const votedCandId = Object.keys(userPreferences).find(k => userPreferences[k] === 1);
+    const cand = BALLOT_CANDIDATES.find(c => c.id == votedCandId);
+
+    let valPoints = 700;
+    if (currentPersona === 'UP_MLA') valPoints = 208;
+    if (currentPersona === 'RJ_MLA') valPoints = 129;
+    if (currentPersona === 'SK_MLA') valPoints = 7;
+
+    alert(`✅ सफल गुप्त मतदान!\n\nआपने ${cand.name} को अपनी पहली वरीयता (1) दी है।\nआपके मतपत्र का संवैधानिक मूल्य: ${valPoints} अंक मतपेटी में जमा कर दिया गया है!`);
+    userPreferences = { 1: null, 2: null, 3: null, 4: null };
+    renderBallotTable();
+}
+
+/* ==========================================================================
+   TAB 3: ADVANCED 10-VOTER CUSTOM SANDBOX & STEP COUNTING ENGINE
+   ========================================================================== */
+const CUSTOM_CANDIDATES = [
+    { id: "candA", name: "प्रत्याशी 'क'", alliance: "राष्ट्रीय मोर्चा", color: "#10b981" },
+    { id: "candB", name: "प्रत्याशी 'ख'", alliance: "लोकतांत्रिक गठबंधन", color: "#3b82f6" },
+    { id: "candC", name: "प्रत्याशी 'ग'", alliance: "संयुक्त प्रगतिशील", color: "#ec4899" },
+    { id: "candD", name: "प्रत्याशी 'घ'", alliance: "स्वतंत्र उम्मीदवार", color: "#f59e0b" }
+];
+
+let sandboxVoters = [
+    { id: 1, name: "मतदाता 1", role: "सांसद (MP)", points: 700, type: "mp", prefs: ["candA", "candB", "candC", "candD"] },
+    { id: 2, name: "मतदाता 2", role: "सांसद (MP)", points: 700, type: "mp", prefs: ["candA", "candC", "candB", "candD"] },
+    { id: 3, name: "मतदाता 3", role: "सांसद (MP)", points: 700, type: "mp", prefs: ["candB", "candA", "candC", "candD"] },
+    { id: 4, name: "मतदाता 4", role: "उत्तर प्रदेश MLA", points: 208, type: "mla", prefs: ["candC", "candB", "candA", "candD"] },
+    { id: 5, name: "मतदाता 5", role: "उत्तर प्रदेश MLA", points: 208, type: "mla", prefs: ["candC", "candA", "candB", "candD"] },
+    { id: 6, name: "मतदाता 6", role: "महाराष्ट्र MLA", points: 175, type: "mla", prefs: ["candB", "candC", "candA", "candD"] },
+    { id: 7, name: "मतदाता 7", role: "बिहार MLA", points: 173, type: "mla", prefs: ["candB", "candA", "candC", "candD"] },
+    { id: 8, name: "मतदाता 8", role: "राजस्थान MLA", points: 129, type: "mla", prefs: ["candA", "candB", "candC", "candD"] },
+    { id: 9, name: "मतदाता 9", role: "केरल MLA", points: 152, type: "mla", prefs: ["candD", "candC", "candB", "candA"] },
+    { id: 10, name: "मतदाता 10", role: "सिक्किम MLA", points: 7, type: "mla", prefs: ["candD", "candA", "candB", "candC"] }
+];
+
+let activeScenarioKey = "custom";
+let currentCountingStage = 0; // 0 = ready, 1 = round 1 done, 2 = round 2 done, 3 = round 3 done
+let currentTallyMap = {};
+let eliminatedCandidatesList = [];
+
+// Historical scenarios for 2022 & 1969
+const SCENARIOS = {
+    "2022": {
+        title: "2022 राष्ट्रपति चुनाव",
+        quota: 543216,
+        candidates: [
+            { id: "murmu", name: "द्रौपदी मुर्मू", alliance: "NDA समर्थित", r1Points: 676803, r2Points: 676803, color: "#10b981" },
+            { id: "sinha", name: "यशवंत सिन्हा", alliance: "संयुक्त विपक्ष", r1Points: 380177, r2Points: 380177, color: "#3b82f6" }
+        ],
+        hasRound2: false,
+        winnerId: "murmu"
+    },
+    "1969": {
+        title: "1969 ऐतिहासिक चुनाव",
+        quota: 418169,
+        candidates: [
+            { id: "giri", name: "वी.वी. गिरि", alliance: "निर्दलीय (इंदिरा गांधी समर्थित)", r1Points: 401515, r2Points: 420077, color: "#10b981" },
+            { id: "reddy", name: "नीलम संजीव रेड्डी", alliance: "आधिकारिक कांग्रेस प्रत्याशी", r1Points: 313545, r2Points: 350433, color: "#3b82f6" },
+            { id: "deshmukh", name: "सी.डी. देशमुख", alliance: "स्वतंत्र पार्टी व जनसंघ", r1Points: 112764, r2Points: 0, color: "#ec4899" }
+        ],
+        hasRound2: true,
+        eliminatedId: "deshmukh",
+        transferDetail: "सी.डी. देशमुख के मतों में से द्वितीय वरीयता: वी.वी. गिरि को 18,562 तथा संजीव रेड्डी को 36,888 मत मिले।",
+        winnerId: "giri"
+    }
+};
+
+function getCustomTotalPoints() {
+    return sandboxVoters.reduce((sum, v) => sum + v.points, 0);
+}
+
+function getCustomQuota() {
+    return Math.floor(getCustomTotalPoints() / 2) + 1;
+}
+
+function renderSandboxVoterCards() {
+    const grid = document.getElementById('voterCardsGrid');
+    grid.innerHTML = '';
+
+    sandboxVoters.forEach((v, vIdx) => {
+        const div = document.createElement('div');
+        div.className = `voter-mini-card ${v.type === 'mp' ? 'voter-card-mp' : 'voter-card-mla'}`;
+        div.innerHTML = `
+            <div class="voter-mini-header">
+                <span>${v.name}</span>
+                <span class="voter-role-badge ${v.type === 'mp' ? 'role-mp' : 'role-mla'}">${v.role} (${v.points} pt)</span>
+            </div>
+            ${[0, 1, 2].map(prefIdx => `
+                <div class="pref-dropdown-row">
+                    <span style="color: ${prefIdx === 0 ? '#fbbf24' : '#cbd5e1'}; font-weight: 800;">${prefIdx + 1}st वरीयता:</span>
+                    <select onchange="updateVoterPref(${vIdx}, ${prefIdx}, this.value)">
+                        ${CUSTOM_CANDIDATES.map(c => `
+                            <option value="${c.id}" ${v.prefs[prefIdx] === c.id ? 'selected' : ''}>${c.name}</option>
+                        `).join('')}
+                    </select>
+                </div>
+            `).join('')}
+        `;
+        grid.appendChild(div);
+    });
+
+    const tot = getCustomTotalPoints();
+    const q = getCustomQuota();
+    document.getElementById('sbTotalPts').innerText = `${tot.toLocaleString('en-IN')} अंक`;
+    document.getElementById('sbQuotaPts').innerText = `${q.toLocaleString('en-IN')} अंक`;
+    document.getElementById('quotaPointsDisplay').innerText = `${q.toLocaleString('en-IN')} अंक`;
+}
+
+function updateVoterPref(voterIdx, prefIdx, newCandId) {
+    playSound('click');
+    sandboxVoters[voterIdx].prefs[prefIdx] = newCandId;
+    resetCurrentScenario();
+}
+
+function applySandboxPreset(type) {
+    playSound('click');
+    if (type === 'r1_win') {
+        // Candidate A gets 1st pref from 3 MPs + 2 MLAs (> 1577)
+        sandboxVoters.forEach((v, i) => {
+            if (i < 5) v.prefs = ["candA", "candB", "candC", "candD"];
+            else if (i < 8) v.prefs = ["candB", "candC", "candA", "candD"];
+            else v.prefs = ["candC", "candB", "candA", "candD"];
+        });
+    } else if (type === 'r2_win') {
+        // 3 candidates: C gets least, A and B are close. In R2 C's votes push A to win!
+        sandboxVoters.forEach((v, i) => {
+            if (i === 0) v.prefs = ["candA", "candB", "candC"]; // MP 700 -> A
+            else if (i === 1) v.prefs = ["candB", "candA", "candC"]; // MP 700 -> B
+            else if (i === 2) v.prefs = ["candC", "candA", "candB"]; // MP 700 -> C
+            else if (i === 3 || i === 4) v.prefs = ["candB", "candA", "candC"]; // 416 -> B
+            else if (i === 5 || i === 6) v.prefs = ["candA", "candB", "candC"]; // 348 -> A
+            else v.prefs = ["candC", "candA", "candB"]; // rest -> C
+        });
+    } else if (type === 'r3_win') {
+        // 4 candidates: D eliminated first, then C eliminated, then B wins in Round 3!
+        sandboxVoters.forEach((v, i) => {
+            if (i === 0) v.prefs = ["candA", "candB", "candC", "candD"]; // MP 700 -> A
+            else if (i === 1) v.prefs = ["candB", "candA", "candC", "candD"]; // MP 700 -> B
+            else if (i === 2) v.prefs = ["candC", "candB", "candA", "candD"]; // MP 700 -> C
+            else if (i === 3) v.prefs = ["candD", "candC", "candB", "candA"]; // UP 208 -> D
+            else if (i === 4) v.prefs = ["candD", "candB", "candA", "candC"]; // UP 208 -> D
+            else if (i === 5) v.prefs = ["candB", "candA", "candD", "candC"]; // MH 175 -> B
+            else if (i === 6) v.prefs = ["candC", "candB", "candA", "candD"]; // BR 173 -> C
+            else if (i === 7) v.prefs = ["candA", "candB", "candC", "candD"]; // RJ 129 -> A
+            else if (i === 8) v.prefs = ["candD", "candB", "candA", "candC"]; // KL 152 -> D
+            else v.prefs = ["candD", "candA", "candB", "candC"]; // SK 7 -> D
+        });
+    } else if (type === 'random') {
+        const cIds = ["candA", "candB", "candC", "candD"];
+        sandboxVoters.forEach(v => {
+            v.prefs = [...cIds].sort(() => Math.random() - 0.5);
+        });
+    }
+    renderSandboxVoterCards();
+    resetCurrentScenario();
+}
+
+function loadScenario(key) {
+    playSound('click');
+    activeScenarioKey = key;
+    currentCountingStage = 0;
+    eliminatedCandidatesList = [];
+
+    document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('active'));
+    if (key === '2022') document.getElementById('chip2022').classList.add('active');
+    if (key === '1969') document.getElementById('chip1969').classList.add('active');
+    if (key === 'custom') document.getElementById('chipCustom').classList.add('active');
+
+    const sbPanel = document.getElementById('customSandboxPanel');
+    const auditCard = document.getElementById('auditLogCard');
+    auditCard.classList.remove('active');
+
+    if (key === 'custom') {
+        sbPanel.classList.add('active');
+        renderSandboxVoterCards();
+        document.getElementById('tickerMsg').innerText = `10-मतदाता मतपेटी तैयार है। कुल कोटा: ${getCustomQuota()} अंक। 'राउंड 1 मतगणना शुरू करें' बटन दबाएँ।`;
+    } else {
+        sbPanel.classList.remove('active');
+        const sc = SCENARIOS[key];
+        document.getElementById('quotaPointsDisplay').innerText = `${sc.quota.toLocaleString('en-IN')} अंक`;
+        document.getElementById('tickerMsg').innerText = `'${sc.title}' लोड किया गया। कुल कोटा: ${sc.quota.toLocaleString('en-IN')} अंक। 'राउंड 1 गणना' शुरू करें।`;
+    }
+
+    document.getElementById('btnCountR1').innerHTML = '▶️ राउंड 1 मतगणना शुरू करें';
+    document.getElementById('btnCountR1').style.display = 'inline-flex';
+    renderScenarioBars();
+}
+
+function renderScenarioBars() {
+    const container = document.getElementById('candidatesTallyList');
+    container.innerHTML = '';
+
+    if (activeScenarioKey === 'custom') {
+        const q = getCustomQuota();
+        const totalValidPts = sandboxVoters.reduce((acc, v) => acc + (v.points || 0), 0);
+
+        CUSTOM_CANDIDATES.forEach(cand => {
+            const isEliminated = eliminatedCandidatesList.includes(cand.id);
+            const pts = currentTallyMap[cand.id] || 0;
+            const pctOfTotal = totalValidPts > 0 ? ((pts / totalValidPts) * 100).toFixed(1) : '0.0';
+            const pctOfQuota = q > 0 ? Math.min(100, ((pts / q) * 100)).toFixed(1) : '0.0';
+            const widthPct = Math.min(100, q > 0 ? (pts / q) * 100 : 0);
+
+            let cardClass = 'candidate-card-bar';
+            let barClass = 'bar-fill';
+            if (pts >= q) {
+                cardClass += ' winner';
+                barClass += ' win-fill';
+            } else if (isEliminated) {
+                cardClass += ' eliminated';
+            } else if (pts > q * 0.7) {
+                cardClass += ' leading';
+                barClass += ' lead-fill';
+            }
+
+            const statusText = pts >= q ? '100% कोटा पूर्ण (विजयी 🏆)' : `${pctOfQuota}% कोटा लक्ष्य`;
+
+            const div = document.createElement('div');
+            div.className = cardClass;
+            div.innerHTML = `
+                <div class="candidate-top-info">
+                    <div class="cand-name-tag">
+                        <span>${pts >= q ? '🏆' : (isEliminated ? '❌' : '👤')}</span>
+                        <span>${cand.name}</span>
+                        <span class="cand-alliance-badge">${cand.alliance}</span>
+                        ${isEliminated ? '<span style="color: #ef4444; font-size: 12px; font-weight: 900;">(न्यूनतम मत - निष्कासित)</span>' : ''}
+                    </div>
+                    <div class="cand-score-digits">
+                        ${pts.toLocaleString('en-IN')} <span style="font-size: 14px; color: var(--text-secondary); font-weight: 700;">अंक (${pctOfTotal}% मत • ${statusText})</span>
+                    </div>
+                </div>
+                <div class="bar-track">
+                    <div class="${barClass}" style="width: ${widthPct}%;"></div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    } else {
+        const sc = SCENARIOS[activeScenarioKey];
+        // Calculate total valid points in this active round
+        const totalRoundPts = sc.candidates.reduce((sum, c) => {
+            const p = currentCountingStage === 0 ? (c.r1Points || 0) : (currentCountingStage === 2 ? (c.r2Points || 0) : (c.r1Points || 0));
+            return sum + (p || 0);
+        }, 0) || (sc.quota * 2);
+
+        sc.candidates.forEach(cand => {
+            const pts = currentCountingStage === 0 ? 0 : (currentCountingStage === 2 ? cand.r2Points : cand.r1Points);
+            const isElim = (currentCountingStage === 2 && cand.id === sc.eliminatedId);
+            const pctOfTotal = totalRoundPts > 0 ? ((pts / totalRoundPts) * 100).toFixed(1) : '0.0';
+            const pctOfQuota = sc.quota > 0 ? Math.min(100, ((pts / sc.quota) * 100)).toFixed(1) : '0.0';
+            const widthPct = Math.min(100, sc.quota > 0 ? (pts / sc.quota) * 100 : 0);
+
+            let cardClass = 'candidate-card-bar';
+            let barClass = 'bar-fill';
+            if (pts >= sc.quota) {
+                cardClass += ' winner';
+                barClass += ' win-fill';
+            } else if (isElim) {
+                cardClass += ' eliminated';
+            }
+
+            const statusText = pts >= sc.quota ? '100% कोटा पूर्ण (विजयी 🏆)' : `${pctOfQuota}% कोटा लक्ष्य`;
+
+            const div = document.createElement('div');
+            div.className = cardClass;
+            div.innerHTML = `
+                <div class="candidate-top-info">
+                    <div class="cand-name-tag">
+                        <span>${pts >= sc.quota ? '🏆' : '👤'}</span>
+                        <span>${cand.name}</span>
+                        <span class="cand-alliance-badge">${cand.alliance}</span>
+                    </div>
+                    <div class="cand-score-digits">
+                        ${pts.toLocaleString('en-IN')} <span style="font-size: 14px; color: var(--text-secondary); font-weight: 700;">अंक (${pctOfTotal}% मत • ${statusText})</span>
+                    </div>
+                </div>
+                <div class="bar-track">
+                    <div class="${barClass}" style="width: ${widthPct}%;"></div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+}
+
+/* ==========================================================================
+   DYNAMIC STEP COUNTING LOGIC FOR 10-VOTER LAB
+   ========================================================================== */
+function executeCurrentRound() {
+    playSound('stamp');
+
+    if (activeScenarioKey !== 'custom') {
+        // Handle Historical Scenarios
+        if (currentCountingStage === 0) {
+            currentCountingStage = 1;
+            const sc = SCENARIOS[activeScenarioKey];
+            renderScenarioBars();
+            const winner = sc.candidates.find(c => c.r1Points >= sc.quota);
+            if (winner) {
+                playSound('win');
+                document.getElementById('btnCountR1').style.display = 'none';
+                document.getElementById('tickerMsg').innerText = `🎉 प्रथम वरीयता में ही ${winner.name} ने कोटा पार कर विजय प्राप्त की!`;
+                setTimeout(() => showCertificate(winner.name, winner.r1Points), 1200);
+            } else {
+                document.getElementById('btnCountR1').innerHTML = '🔁 राउंड 2: द्वितीय वरीयता मत हस्तांतरण';
+                document.getElementById('tickerMsg').innerText = `⚠️ राउंड 1 में किसी को 50% कोटा नहीं मिला! सबसे कम मत वाले प्रत्याशी को बाहर कर द्वितीय वरीयता हस्तांतरित करें।`;
+            }
+        } else if (currentCountingStage === 1) {
+            currentCountingStage = 2;
+            const sc = SCENARIOS[activeScenarioKey];
+            renderScenarioBars();
+            playSound('win');
+            document.getElementById('btnCountR1').style.display = 'none';
+            const winner = sc.candidates.find(c => c.id === sc.winnerId);
+            document.getElementById('tickerMsg').innerText = `🏆 द्वितीय वरीयता हस्तांतरण संपन्न! ${winner.name} कोटा पार कर भारत के राष्ट्रपति निर्वाचित हुए!`;
+            setTimeout(() => showCertificate(winner.name, winner.r2Points), 1500);
+        }
+        return;
+    }
+
+    // CUSTOM 10-VOTER LAB DYNAMIC EXECUTION
+    const q = getCustomQuota();
+
+    if (currentCountingStage === 0) {
+        // ROUND 1: Count 1st preferences of all 10 voters
+        currentCountingStage = 1;
+        currentTallyMap = { candA: 0, candB: 0, candC: 0, candD: 0 };
+
+        sandboxVoters.forEach(v => {
+            const firstPref = v.prefs[0];
+            if (currentTallyMap[firstPref] !== undefined) {
+                currentTallyMap[firstPref] += v.points;
+            }
+        });
+
+        renderScenarioBars();
+        renderAuditTable(1);
+
+        // Check if any candidate crossed quota
+        let winner = CUSTOM_CANDIDATES.find(c => (currentTallyMap[c.id] || 0) >= q);
+        if (winner) {
+            playSound('win');
+            document.getElementById('btnCountR1').style.display = 'none';
+            document.getElementById('tickerMsg').innerText = `🎉 राउंड 1 में ही विजय! ${winner.name} ने ${currentTallyMap[winner.id].toLocaleString('en-IN')} अंक प्राप्त कर 50% कोटा पार कर लिया!`;
+            setTimeout(() => showCertificate(winner.name, currentTallyMap[winner.id], 1), 1200);
+            return;
+        }
+
+        // Find candidate with lowest score to eliminate
+        let activeCands = CUSTOM_CANDIDATES.filter(c => !eliminatedCandidatesList.includes(c.id));
+        activeCands.sort((a, b) => (currentTallyMap[a.id] || 0) - (currentTallyMap[b.id] || 0));
+        let lowestCand = activeCands[0];
+
+        document.getElementById('btnCountR1').innerHTML = `🔁 राउंड 2: ${lowestCand.name} का निष्कासन व 2nd वरीयता हस्तांतरण`;
+        document.getElementById('tickerMsg').innerText = `⚠️ राउंड 1 में किसी को 50% कोटा (${q} अंक) नहीं मिला! सबसे कम मत प्राप्त करने वाले '${lowestCand.name}' (${currentTallyMap[lowestCand.id]} अंक) को बाहर कर उनके मतपत्रों की 2nd वरीयता हस्तांतरित की जाएगी।`;
+
+    } else if (currentCountingStage === 1) {
+        // ROUND 2: Eliminate lowest candidate & transfer to next active preference
+        currentCountingStage = 2;
+        let activeCands = CUSTOM_CANDIDATES.filter(c => !eliminatedCandidatesList.includes(c.id));
+        activeCands.sort((a, b) => (currentTallyMap[a.id] || 0) - (currentTallyMap[b.id] || 0));
+        let eliminatedCand = activeCands[0];
+        eliminatedCandidatesList.push(eliminatedCand.id);
+
+        let transferDetailsLog = [];
+
+        // Transfer ballots of eliminated candidate
+        sandboxVoters.forEach(v => {
+            // If voter's current assigned candidate is eliminated
+            let currentChoice = getCurrentVoterChoice(v);
+            if (currentChoice === eliminatedCand.id) {
+                // Find next preference that is NOT eliminated
+                let nextChoice = v.prefs.find(cid => !eliminatedCandidatesList.includes(cid));
+                if (nextChoice) {
+                    currentTallyMap[nextChoice] = (currentTallyMap[nextChoice] || 0) + v.points;
+                    let targetCand = CUSTOM_CANDIDATES.find(c => c.id === nextChoice);
+                    transferDetailsLog.push(`${v.name} (${v.points} pt) -> ${targetCand.name}`);
+                }
+            }
+        });
+        currentTallyMap[eliminatedCand.id] = 0;
+
+        renderScenarioBars();
+        renderAuditTable(2);
+
+        // Check if any candidate crossed quota
+        let winner = CUSTOM_CANDIDATES.find(c => (currentTallyMap[c.id] || 0) >= q);
+        if (winner) {
+            playSound('win');
+            document.getElementById('btnCountR1').style.display = 'none';
+            document.getElementById('tickerMsg').innerText = `🏆 राउंड 2 में कोटा पार! द्वितीय वरीयता मतों के हस्तांतरण के पश्चात ${winner.name} (${currentTallyMap[winner.id].toLocaleString('en-IN')} अंक) विजयी घोषित हुए!`;
+            setTimeout(() => showCertificate(winner.name, currentTallyMap[winner.id], 2), 1500);
+            return;
+        }
+
+        // If still no winner and more than 2 candidates remain
+        let remainingActive = CUSTOM_CANDIDATES.filter(c => !eliminatedCandidatesList.includes(c.id));
+        if (remainingActive.length > 2) {
+            remainingActive.sort((a, b) => (currentTallyMap[a.id] || 0) - (currentTallyMap[b.id] || 0));
+            let nextElim = remainingActive[0];
+            document.getElementById('btnCountR1').innerHTML = `🔁 राउंड 3: ${nextElim.name} का निष्कासन व 3rd वरीयता हस्तांतरण`;
+            document.getElementById('tickerMsg').innerText = `⚠️ राउंड 2 में भी कोटा पूरा नहीं हुआ! अब '${nextElim.name}' (${currentTallyMap[nextElim.id]} अंक) को बाहर कर राउंड 3 हस्तांतरण होगा।`;
+        } else {
+            // Only 2 candidates left: higher one wins
+            remainingActive.sort((a, b) => (currentTallyMap[b.id] || 0) - (currentTallyMap[a.id] || 0));
+            let topCand = remainingActive[0];
+            playSound('win');
+            document.getElementById('btnCountR1').style.display = 'none';
+            document.getElementById('tickerMsg').innerText = `🏆 अंतिम दो में सर्वाधिक मत! ${topCand.name} ने सर्वाधिक ${currentTallyMap[topCand.id].toLocaleString('en-IN')} अंक प्राप्त कर विजय प्राप्त की!`;
+            setTimeout(() => showCertificate(topCand.name, currentTallyMap[topCand.id], 2), 1500);
+        }
+
+    } else if (currentCountingStage === 2) {
+        // ROUND 3: Eliminate next lowest and transfer
+        currentCountingStage = 3;
+        let activeCands = CUSTOM_CANDIDATES.filter(c => !eliminatedCandidatesList.includes(c.id));
+        activeCands.sort((a, b) => (currentTallyMap[a.id] || 0) - (currentTallyMap[b.id] || 0));
+        let eliminatedCand = activeCands[0];
+        eliminatedCandidatesList.push(eliminatedCand.id);
+
+        sandboxVoters.forEach(v => {
+            let nextChoice = v.prefs.find(cid => !eliminatedCandidatesList.includes(cid));
+            if (nextChoice) {
+                // If it was with the newly eliminated candidate, transfer it
+                let previousChoice = v.prefs.find(cid => cid === eliminatedCand.id);
+                if (previousChoice) {
+                    currentTallyMap[nextChoice] = (currentTallyMap[nextChoice] || 0) + v.points;
+                }
+            }
+        });
+        currentTallyMap[eliminatedCand.id] = 0;
+
+        renderScenarioBars();
+        renderAuditTable(3);
+
+        let remaining = CUSTOM_CANDIDATES.filter(c => !eliminatedCandidatesList.includes(c.id));
+        remaining.sort((a, b) => (currentTallyMap[b.id] || 0) - (currentTallyMap[a.id] || 0));
+        let winner = remaining[0];
+
+        playSound('win');
+        document.getElementById('btnCountR1').style.display = 'none';
+        document.getElementById('tickerMsg').innerText = `🏆 राउंड 3 में निर्णायक फैसला! तृतीय वरीयता हस्तांतरण के बाद ${winner.name} (${currentTallyMap[winner.id].toLocaleString('en-IN')} अंक) ने विजय प्राप्त की!`;
+        setTimeout(() => showCertificate(winner.name, currentTallyMap[winner.id], 3), 1500);
+    }
+}
+
+function getCurrentVoterChoice(voter) {
+    return voter.prefs.find(cid => !eliminatedCandidatesList.includes(cid)) || voter.prefs[0];
+}
+
+function renderAuditTable(roundNum) {
+    const card = document.getElementById('auditLogCard');
+    const tbody = document.getElementById('auditTableBody');
+    card.classList.add('active');
+    tbody.innerHTML = '';
+
+    sandboxVoters.forEach(v => {
+        const c1 = CUSTOM_CANDIDATES.find(c => c.id === v.prefs[0])?.name || '-';
+        const c2 = CUSTOM_CANDIDATES.find(c => c.id === v.prefs[1])?.name || '-';
+        const c3 = CUSTOM_CANDIDATES.find(c => c.id === v.prefs[2])?.name || '-';
+        const finalCand = CUSTOM_CANDIDATES.find(c => c.id === getCurrentVoterChoice(v))?.name || c1;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight: 800;">${v.name}</td>
+            <td>${v.role}</td>
+            <td style="font-family: monospace; color: #fbbf24; font-weight: 900;">${v.points}</td>
+            <td>${c1}</td>
+            <td>${c2}</td>
+            <td>${c3}</td>
+            <td><span style="color: #60a5fa;">${c1} (+${v.points})</span></td>
+            <td><b style="color: #86efac;">${finalCand} (${v.points})</b></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function resetCurrentScenario() {
+    playSound('click');
+    loadScenario(activeScenarioKey);
+}
+
+function resetEntireSimulator() {
+    playSound('click');
+    selectedState = STATE_DATA[0];
+    populateStatesList();
+    selectState(0);
+    selectPersona('MP');
+    loadScenario('custom');
+    switchTab(2);
+}
+
+/* ==========================================================================
+   CERTIFICATE MODAL LOGIC
+   ========================================================================== */
+function showCertificate(winnerName, points, round = 1) {
+    let tot = activeScenarioKey === 'custom' ? getCustomTotalPoints() : 1086431;
+    let pct = ((points / tot) * 100).toFixed(2);
+    document.getElementById('certWinnerName').innerText = winnerName;
+    document.getElementById('certScoreStats').innerText = `राउंड ${round} में प्राप्त मत-मूल्य: ${points.toLocaleString('en-IN')} अंक (${pct}%) • न्यूनतम कोटा पार`;
+    document.getElementById('certModal').classList.add('active');
+}
+
+function closeCert() {
+    playSound('click');
+    document.getElementById('certModal').classList.remove('active');
+}
+
+/* ==========================================================================
+   TAB 4: QUIZ LOGIC
+   ========================================================================== */
+function checkQuiz(btn, isCorrect) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.quiz-opt-btn').forEach(b => {
+        b.disabled = true;
+    });
+    if (isCorrect) {
+        playSound('win');
+        btn.classList.add('correct');
+        btn.innerHTML += ' ✅ (सत्य!)';
+    } else {
+        playSound('stamp');
+        btn.classList.add('wrong');
+        btn.innerHTML += ' ❌ (असत्य!)';
+    }
+}
+
+/* ==========================================================================
+   INITIALIZATION ON LOAD
+   ========================================================================== */
+window.addEventListener('DOMContentLoaded', () => {
+    populateStatesList();
+    selectState(0);
+    renderBallotTable();
+    loadScenario('custom');
+});
+</script>
+
+</body>
+</html>
